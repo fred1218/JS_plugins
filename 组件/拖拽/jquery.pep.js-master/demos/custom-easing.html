@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>jquery.pep base demo - custom easing functions</title>
+
+    <!-- Load local jQuery.  -->
+    <script src="../libs/jquery/jquery.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+    <!-- Load local lib and tests. -->
+    <script src="../src/jquery.pep.js"></script>
+
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $('.pep').pep({ 
+          cssEaseString: 'cubic-bezier(0.680, -0.550, 0.265, 1.550)',
+          debug: true 
+        });
+      });
+    </script>
+
+    <style type="text/css">
+      .pep{ width: 200px; height: 200px; background: #ccc; border: 5px solid red; padding: 30px; }
+    </style>
+
+
+  </head>
+
+
+  <body>
+
+    <div class="pep">
+      <a href="http://matthewlein.com/ceaser/">Get more easing functions</a>
+    </div>
+
+  </body>
+
+
+</html>

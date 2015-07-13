@@ -1,0 +1,45 @@
+{
+  "name": "vue",
+  "version": "0.12.4",
+  "author": "Evan You <yyx990803@gmail.com>",
+  "license": "MIT",
+  "description": "Simple, Fast & Composable MVVM for building interative interfaces",
+  "keywords": [
+    "mvvm",
+    "browser",
+    "framework"
+  ],
+  "main": "src/vue.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yyx990803/vue.git"
+  },
+  "bugs": "https://github.com/yyx990803/vue/issues",
+  "homepage": "http://vuejs.org",
+  "scripts": {
+    "test": "grunt ci",
+    "dev": "webpack --watch --config build/webpack-dev-config.js & webpack --watch --config build/webpack-test-config.js"
+  },
+  "devDependencies": {
+    "casperjs": "^1.1.0-beta3",
+    "codecov.io": "^0.1.2",
+    "grunt": "^0.4.5",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-karma": "^0.8.3",
+    "jasmine-core": "^2.3.4",
+    "jshint-stylish": "^0.3.0",
+    "karma": "^0.12.31",
+    "karma-chrome-launcher": "^0.1.7",
+    "karma-commonjs": "^0.0.10",
+    "karma-coverage": "^0.2.7",
+    "karma-firefox-launcher": "^0.1.4",
+    "karma-jasmine": "^0.3.5",
+    "karma-phantomjs-launcher": "^0.1.4",
+    "karma-safari-launcher": "^0.1.1",
+    "karma-sauce-launcher": "^0.2.10",
+    "semver": "^4.2.0",
+    "shell-task": "^1.0.0",
+    "uglify-js": "^2.4.20",
+    "webpack": "^1.9.10"
+  }
+}

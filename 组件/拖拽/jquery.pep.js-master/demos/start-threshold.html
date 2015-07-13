@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>jquery.pep custom functions</title>
+
+    <!-- Load local jQuery.  -->
+    <script src="../libs/jquery/jquery.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+    <!-- Load local lib and tests. -->
+    <script src="../src/jquery.pep.js"></script>
+
+    <script type="text/javascript">
+
+      $(document).ready(function(){
+
+        var threshold = 30;
+
+        $('.pep-1').pep({
+          initiate: function(ev, obj) { obj.$el.text('initiate');            },
+          start: function(ev, obj)    { obj.$el.text('start event fired after ' + threshold + "px movement from initial position"); },
+          drag: function(ev, obj)     { obj.$el.text( obj.$el.text() + '. ') },
+          stop: function(ev, obj)     { obj.$el.text('stop');                },
+          rest: function(ev, obj)     { obj.$el.text('rest');                },
+          startThreshold: [threshold, threshold]
+        });
+
+        $('.pep-2').pep({
+          initiate: function(ev, obj) { obj.$el.text('initiate');            },
+          start: function(ev, obj)    { obj.$el.text('start event fired after ' + (threshold+70) + "px movement from initial position"); },
+          drag: function(ev, obj)     { obj.$el.text( obj.$el.text() + '. ') },
+          stop: function(ev, obj)     { obj.$el.text('stop');                },
+          rest: function(ev, obj)     { obj.$el.text('rest');                },
+          startThreshold: [threshold + 70, threshold + 70],
+          callIfNotStarted: []
+        });
+
+        $('.pep-3').pep({
+          initiate: function(ev, obj) { obj.$el.text('initiate');            },
+          start: function(ev, obj)    { obj.$el.text('start event fired after ' + (threshold+70) + "px movement from initial position"); },
+          drag: function(ev, obj)     { obj.$el.text( obj.$el.text() + '. ') },
+          stop: function(ev, obj)     { obj.$el.text('stop');                },
+          rest: function(ev, obj)     { obj.$el.text('rest');                },
+          startThreshold: [threshold + 70, threshold + 70],
+          callIfNotStarted: ['rest']
+        });
+
+      });  
+
+    </script>
+
+    <style type="text/css">
+      .pep{ 
+        width: 200px; 
+        height: 200px; 
+        color: white; 
+        opacity: 0.8; 
+        position: absolute; 
+        top: 0; 
+        left: 0px;
+      }
+
+      .pep-1 { background: blue }
+      .pep-2 { background: red; }
+      .pep-3 { background: green; }
+    </style>
+
+
+  </head>
+
+  <body>
+
+    <div class="pep pep-1"> </div>
+    <div class="pep pep-2"> ** I don't fire the user-provided stop & rest functions unless I move past the startThreshold ** </div>
+    <div class="pep pep-3"> ** I don't fire the user-provided stop functions unless I move past the startThreshold, I call rest regardless ** </div>
+
+  </body>
+
+
+</html>

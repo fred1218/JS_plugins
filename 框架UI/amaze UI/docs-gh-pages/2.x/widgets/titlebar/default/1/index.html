@@ -1,0 +1,21 @@
+<!doctype html><!--[if lte IE 9]><html class="lte9 no-js demo"><![endif]--><!--[if gt IE 9]><!--><html class="no-js demo"><!--<![endif]--><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Cache-Control" content="no-siteapp"/><meta name="renderer" content="webkit"><title>标题栏 - default（左边框） - 图片标题 | Amaze UI</title><meta name="description" content=""><link rel="alternate icon" type="image/png" href="../../../../assets/i/favicon.png"><link rel="apple-touch-icon-precomposed" href="../../../../assets/i/app-icon72x72@2x.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="stylesheet" href="../../../../assets/css/amazeui.min.css?v=i88dzw2m"><link rel="stylesheet" href="../../../../assets/css/amaze.min.css?v=i88dzw2m"><link rel="canonical" href="http://amazeui.org/widgets/titlebar/default/1?_ver=2.x"/><script src="../../../../assets/js/jquery.min.js?v=i88dzw2m"></script><script src="../../../../assets/js/handlebars.min.js?v=i88dzw2m"></script><script src="../../../../assets/js/amazeui.min.js?v=i88dzw2m"></script></head><body><div class="page pg-demo"><header class="demo-bar"><a href="../../../../widgets/m" class="am-icon-home demo-icon-home"></a><h1>Amaze UI</h1></header><div id="demo-view" data-backend-compiled><div data-am-widget="titlebar" class="am-titlebar am-titlebar-default"><h2 class="am-titlebar-title"><img src="http://amazeui.b0.upaiyun.com/assets/i/brand/amazeui-b.png"/></h2><nav class="am-titlebar-nav"><a href="#more" class="">more &raquo;</a></nav></div></div><ul class="am-pagination"><li class="am-pagination-prev"><a href="../../../../widgets/titlebar/default/0">&laquo; Prev</a></li><li class="am-pagination-next"><a href="../../../../widgets/titlebar/multi/0">Next &raquo;</a></li></ul><div class="ds-thread" id="ds-thread" data-thread-key="971b7c5ac566ae403c7ab13cf1c40341" data-title="标题栏 - default（左边框） - 图片标题 | Amaze UI"></div><script type="text/javascript">var duoshuoQuery={short_name:"amui"};!function(){var e=document.createElement("script");e.type="text/javascript",e.async=!0,e.src="http://static.duoshuo.com/embed.js",e.charset="UTF-8",(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(e)}();</script></div><script type="text/x-handlebars-template" id="demo-template">{{#this}}
+<div data-am-widget="titlebar" class="am-titlebar {{#if theme}}am-titlebar-{{theme}}{{else}}am-titlebar-default{{/if}}{{#if widgetId}} {{widgetId}}{{/if}}{{#if className}} {{className}}{{/if}}" {{#if id}}id="{{id}}"{{/if}}>
+  {{#if content.title}}
+    <h2 class="am-titlebar-title {{#unless content.link}}{{content.className}}{{/unless}}">
+      {{#if content.link}}
+        <a href="{{content.link}}" class="{{content.className}}">{{{content.title}}}</a>
+      {{else}}
+        {{{content.title}}}
+      {{/if}}
+    </h2>
+  {{/if}}
+
+  {{#if content.nav}}
+    <nav class="am-titlebar-nav">
+      {{#each content.nav}}
+        <a href="{{link}}" class="{{className}}">{{{title}}}</a>
+      {{/each}}
+    </nav>
+  {{/if}}
+</div>
+{{/this}}</script><script type="text/template" id="demo-data">{"content":{"title":"<img src=\"http://amazeui.b0.upaiyun.com/assets/i/brand/amazeui-b.png\"/>","nav":[{"title":"more &raquo;","link":"#more"}]},"theme":"default"}</script><script type="text/javascript">!function(t){t(function(){function e(e){if(!o){var m="";t.isArray(i)?t.each(i,function(t,e){m+="<h2 class='demo-title'>"+e.title+"</h2>",m+=a(e.data),m+="<hr>"}):(m+=e?e:"",m+=a(i)),n.html(m)}}var i={content:{title:'<img src="http://amazeui.b0.upaiyun.com/assets/i/brand/amazeui-b.png"/>',nav:[{title:"more &raquo;",link:"#more"}]},theme:"default"},a=Handlebars.compile(t("#demo-template").html()),n=t("#demo-view"),o=n.is("[data-backend-compiled]");e(),window.seajs&&seajs.use(["titlebar"],function(t){!o&&t.init&&t.init()})})}(window.jQuery||window.Zepto);</script></body></html><!-- Cached page generated on Wed Apr 08 2015 15:00:51 GMT+0800 (CST) -->

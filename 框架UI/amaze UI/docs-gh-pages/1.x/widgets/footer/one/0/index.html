@@ -1,0 +1,84 @@
+<!doctype html><!--[if lte IE 9]><html class="lte9 no-js demo"><![endif]--><!--[if gt IE 9]><!--><html class="no-js demo"><!--<![endif]--><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Cache-Control" content="no-siteapp"/><meta name="renderer" content="webkit"><title>页脚 - one（简约风格） | Amaze UI</title><meta name="description" content=""><link rel="alternate icon" type="image/png" href="../../../../assets/i/favicon.png"><link rel="apple-touch-icon-precomposed" href="../../../../assets/i/app-icon72x72@2x.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="stylesheet" href="../../../../assets/css/amazeui.min.css?v=i569qmca"><link rel="stylesheet" href="../../../../assets/css/amaze.min.css?v=i569qmca"><link rel="canonical" href="http://amazeui.org/widgets/footer/one/0?_ver=1.x"/><script src="../../../../assets/js/zepto.min.js?v=i569qmca"></script><script src="../../../../assets/js/handlebars.min.js?v=i569qmca"></script><script src="../../../../assets/js/amazeui.min.js?v=i569qmca"></script></head><body><div class="page pg-demo"><header class="demo-bar"><a href="../../../../widgets/m" class="am-icon-home demo-icon-home"></a><h1>Amaze UI</h1></header><div id="demo-view" data-backend-compiled><footer data-am-widget="footer" class="am-footer am-footer-one" data-am-footer="{  }"><div class="am-footer-switch"><span class="am-footer-ysp" data-rel="mobile" data-am-modal="{target: '#am-switch-mode'}">云适配版</span> <span class="am-footer-divider">|</span> <a id="godesktop" data-rel="desktop" class="am-footer-desktop" href="#">电脑版</a></div><div class="am-footer-miscs"><p>由 <a href="http://www.yunshipei.com/" title="云适配" target="_blank">云适配</a> 提供技术支持</p><p>CopyRight©2014 AllMobilize Inc.</p><p>京ICP备13033158</p></div></footer><div id="am-footer-modal" class="am-modal am-modal-no-btn am-switch-mode-m am-switch-mode-m-one"><div class="am-modal-dialog"><div class="am-modal-hd am-modal-footer-hd"><a href="javascript:void(0)" data-dismiss="modal" class="am-close am-close-spin" data-am-modal-close>&times;</a></div><div class="am-modal-bd">您正在浏览的是 <span class="am-switch-mode-owner">云适配</span> <span class="am-switch-mode-slogan">为您当前手机订制的移动网站。</span></div></div></div></div><ul class="am-pagination"><li class="am-pagination-prev"><a href="../../../../widgets/footer/default/0">&laquo; Prev</a></li><li class="am-pagination-next"><a href="../../../../widgets/gallery/default/0">Next &raquo;</a></li></ul><div class="ds-thread" id="ds-thread" data-thread-key="bfdbfa7be6cd623d37a3e5743e587dba" data-title="页脚 - one（简约风格） | Amaze UI"></div><script type="text/javascript">var duoshuoQuery={short_name:"amui"};!function(){var e=document.createElement("script");e.type="text/javascript",e.async=!0,e.src="http://static.duoshuo.com/embed.js",e.charset="UTF-8",(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(e)}();</script></div><script type="text/x-handlebars-template" id="demo-template">{{#this}}
+  <footer data-am-widget="footer"
+          class="am-footer {{#if theme}}am-footer-{{theme}}{{else}}am-footer-default {{/if}}{{#if widgetId}} {{widgetId}}{{/if}}{{#if className}} {{className}}{{/if}}"
+          {{#if id}}id="{{id}}"{{/if}} data-am-footer="{ {{#if options.addToHS}}addToHS: 1{{/if}} }">
+    <div class="am-footer-switch">
+    <span class="{{#if options.modal}}am-footer-ysp{{/if}}" data-rel="mobile"
+          data-am-modal="{target: '#am-switch-mode'}">
+      {{#unless content.switchName}}
+        {{#ifCond content.lang '==' 'en'}}
+          Mobile
+        {{else}}
+          云适配版
+        {{/ifCond}}
+      {{else}}
+        {{content.switchName}}
+      {{/unless}}
+    </span>
+      <span class="am-footer-divider"> | </span>
+      <a id="godesktop" data-rel="desktop" class="am-footer-desktop" href="#">
+        {{#ifCond content.lang '==' 'en'}}
+          Desktop
+        {{else}}
+          电脑版
+        {{/ifCond}}
+      </a>
+    </div>
+    <div class="am-footer-miscs {{#if options.textPosition}}am-text-left{{/if}}">
+
+      {{#if options.techSupportCo}}
+        {{#ifCond content.lang '==' 'en'}}
+          <p>Supported by {{#if options.techSupportSite}}<a href="{{options.techSupportSite}}"
+                                                            title="{{options.techSupportCo}}"
+                                                            target="_blank">{{{options.techSupportCo}}}</a>{{else}}{{{options.techSupportCo}}}{{/if}}
+            .</p>
+        {{else}}
+          <p>由 {{#if options.techSupportSite}}<a href="{{options.techSupportSite}}" title="{{options.techSupportCo}}"
+                                                target="_blank">{{{options.techSupportCo}}}</a>{{else}}{{{options.techSupportCo}}}{{/if}}
+            提供技术支持</p>
+        {{/ifCond}}
+
+      {{/if}}
+
+      {{#each content.companyInfo}}
+        <p>{{{detail}}}</p>
+      {{/each}}
+    </div>
+  </footer>
+
+  <div id="am-footer-modal"
+       class="am-modal am-modal-no-btn am-switch-mode-m {{#if theme}}am-switch-mode-m-{{theme}}{{/if}}">
+    <div class="am-modal-dialog">
+      <div class="am-modal-hd am-modal-footer-hd">
+        <a href="javascript:void(0)" data-dismiss="modal" class="am-close am-close-spin" data-am-modal-close>&times;</a>
+      </div>
+      <div class="am-modal-bd">
+        {{#ifCond content.lang '==' 'en'}}
+          You are visiting
+        {{else}}
+          您正在浏览的是
+        {{/ifCond}}
+
+        <span class="am-switch-mode-owner">
+          {{#if content.owner}}
+            {{content.owner}}
+          {{else}}
+            云适配
+          {{/if}}
+        </span>
+
+        <span class="am-switch-mode-slogan">
+          {{#if content.slogan}}
+            {{{content.slogan}}}
+          {{else}}
+            {{#ifCond content.lang '==' 'en'}}
+              mobilized version for your device.
+            {{else}}
+              为您当前手机订制的移动网站。
+            {{/ifCond}}
+          {{/if}}
+        </span>
+      </div>
+    </div>
+  </div>
+{{/this}}</script><script type="text/template" id="demo-data">{"options":{"modal":true,"techSupportCo":"云适配","techSupportSite":"http://www.yunshipei.com/"},"content":{"owner":"云适配","companyInfo":[{"detail":"CopyRight©2014  AllMobilize Inc."},{"detail":"京ICP备13033158"}]},"theme":"one"}</script><script type="text/javascript">!function(t){t(function(){function e(e){if(!a){var c="";t.isArray(o)?t.each(o,function(t,e){c+="<h2 class='demo-title'>"+e.title+"</h2>",c+=i(e.data),c+="<hr>"}):(c+=e?e:"",c+=i(o)),n.html(c)}}var o={options:{modal:!0,techSupportCo:"云适配",techSupportSite:"http://www.yunshipei.com/"},content:{owner:"云适配",companyInfo:[{detail:"CopyRight©2014  AllMobilize Inc."},{detail:"京ICP备13033158"}]},theme:"one"},i=Handlebars.compile(t("#demo-template").html()),n=t("#demo-view"),a=n.is("[data-backend-compiled]");e(),window.seajs&&seajs.use(["footer"],function(t){!a&&t.init&&t.init()})})}(window.jQuery||window.Zepto);</script></body></html><!-- Cached page generated on Wed Jan 21 2015 13:27:01 GMT+0800 (CST) -->

@@ -1,0 +1,255 @@
+<!doctype html><!--[if lte IE 9]><html class="lte9 no-js demo"><![endif]--><!--[if gt IE 9]><!--><html class="no-js demo"><!--<![endif]--><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Cache-Control" content="no-siteapp"/><meta name="renderer" content="webkit"><title>内容列表 - one（简约风格） - 默认 | Amaze UI</title><meta name="description" content=""><link rel="alternate icon" type="image/png" href="../../../../assets/i/favicon.png"><link rel="apple-touch-icon-precomposed" href="../../../../assets/i/app-icon72x72@2x.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="stylesheet" href="../../../../assets/css/amazeui.min.css?v=i569qn5p"><link rel="stylesheet" href="../../../../assets/css/amaze.min.css?v=i569qn5p"><link rel="canonical" href="http://amazeui.org/widgets/list_news/one/0?_ver=1.x"/><script src="../../../../assets/js/zepto.min.js?v=i569qn5p"></script><script src="../../../../assets/js/handlebars.min.js?v=i569qn5p"></script><script src="../../../../assets/js/amazeui.min.js?v=i569qn5p"></script></head><body><div class="page pg-demo"><header class="demo-bar"><a href="../../../../widgets/m" class="am-icon-home demo-icon-home"></a><h1>Amaze UI</h1></header><div id="demo-view" data-backend-compiled><div data-am-widget="list_news" class="am-list-news am-list-news-one"><div class="am-list-news-hd am-cf"><a href="###"><h2>综合新闻</h2></a></div><div class="am-list-news-bd"><ul class="am-list"><li class="am-g am-list-item-dated"><a href="##" class="am-list-item-hd">我很囧，你保重....晒晒旅行中的那些囧！</a> <span class="am-list-date">2013-09-18</span></li><li class="am-g am-list-item-dated"><a href="##" class="am-list-item-hd">我最喜欢的一张画</a> <span class="am-list-date">2013-10-14</span></li><li class="am-g am-list-item-dated"><a href="##" class="am-list-item-hd">“你的旅行，是什么颜色？” 晒照片，换北欧梦幻极光之旅！</a> <span class="am-list-date">2013-11-18</span></li></ul></div><div class="am-list-news-ft"><a class="am-list-news-more am-btn am-btn-default" href="###">更多 &raquo;</a></div></div></div><ul class="am-pagination"><li class="am-pagination-prev"><a href="../../../../widgets/list_news/default/7">&laquo; Prev</a></li><li class="am-pagination-next"><a href="../../../../widgets/list_news/one/1">Next &raquo;</a></li></ul><div class="ds-thread" id="ds-thread" data-thread-key="e544a6eacb93d7676dac291fa0c07e97" data-title="内容列表 - one（简约风格） - 默认 | Amaze UI"></div><script type="text/javascript">var duoshuoQuery={short_name:"amui"};!function(){var e=document.createElement("script");e.type="text/javascript",e.async=!0,e.src="http://static.duoshuo.com/embed.js",e.charset="UTF-8",(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(e)}();</script></div><script type="text/x-handlebars-template" id="demo-template">{{#this}}
+  <div data-am-widget="list_news" class="am-list-news{{#if theme}} am-list-news-{{theme}}{{else}} am-list-news-default{{/if}}{{#if widgetId}} {{widgetId}}{{/if}}{{#if className}} {{className}}{{/if}}" {{#if id}}id="{{id}}"{{/if}}>
+  <!--列表标题-->
+  {{#if content.header.title}}
+    <div class="am-list-news-hd am-cf">
+      {{#if content.header.link}} <!--带更多链接-->
+        <a href="{{content.header.link}}">
+          <h2>{{{content.header.title}}}</h2>
+          {{#ifCond content.header.morePosition '==' 'top'}}
+            <span class="am-list-news-more am-fr">{{{content.header.moreText}}}</span>
+          {{/ifCond}}
+        </a>
+      {{else}} <!--不带更多链接-->
+        <h2>{{{content.header.title}}}</h2>
+      {{/if}}
+    </div>
+  {{/if}}
+
+  <div class="am-list-news-bd">
+  <ul class="am-list">
+  {{#ifCond options.type '==' 'thumb'}}
+    {{#ifCond options.thumbPosition '==' 'top'}} <!--缩略图在标题上方-->
+    {{#each content.main}}
+      <li class="am-g{{#if date}} am-list-item-dated{{/if}}{{#if desc}} am-list-item-desced{{/if}}{{#if img}} am-list-item-thumbed am-list-item-thumb-top{{/if}}">
+        {{!--
+          am-list-item-dated - 带日期
+          am-list-item-desced - 带描述
+          am-list-item-thumbed - 带缩略图的
+        --}}
+        {{#if img}}
+        <div class="am-list-thumb am-col col-sm-12">
+          <a href="{{link}}">
+            <img src="{{img}}" alt="{{title}}"/>
+          </a>
+          {{#if thumbAddition}}
+            <div class="am-list-thumb-addon">{{{thumbAddition}}}</div>
+          {{/if}}
+        </div>
+        {{/if}}
+
+        <div class="am-col{{#if img}}{{/if}} am-list-main">
+          {{#if title}}
+            <h3 class="am-list-item-hd"><a href="{{link}}">{{{title}}}</a></h3>
+          {{/if}}
+
+          {{#if date}}
+            <span class="am-list-date">{{date}}</span>
+          {{/if}}
+
+          {{#if desc}}
+            <div class="am-list-item-text">{{{desc}}}</div>
+          {{/if}}
+
+          {{#if mainAddition}}
+            <div class="am-list-news-addon">{{{mainAddition}}}</div>
+          {{/if}}
+        </div>
+      </li>
+    {{/each}}
+    {{/ifCond}}
+
+    {{#ifCond options.thumbPosition '==' 'bottom-left'}} <!--缩略图在标题下方居左-->
+    {{#each content.main}}
+      <li class="am-g{{#if date}} am-list-item-dated{{/if}}{{#if desc}} am-list-item-desced{{/if}}{{#if img}} am-list-item-thumbed am-list-item-thumb-bottom-left{{/if}}">
+        {{!--
+          am-list-item-dated - 带日期
+          am-list-item-desced - 带描述
+          am-list-item-thumbed - 带缩略图的
+        --}}
+        {{#if title}}
+          <h3 class="am-list-item-hd"><a href="{{link}}">{{{title}}}</a></h3>
+        {{/if}}
+        {{#if img}}
+        <div class="am-col col-sm-4 am-list-thumb">
+          <a href="{{link}}">
+            <img src="{{img}}" alt="{{title}}"/>
+          </a>
+          {{#if thumbAddition}}
+            <div class="am-list-thumb-addon">{{{thumbAddition}}}</div>
+          {{/if}}
+        </div>
+        {{/if}}
+
+        <div class="am-col{{#if img}} col-sm-8{{/if}} am-list-main">
+          {{#if date}}
+            <span class="am-list-date">{{date}}</span>
+          {{/if}}
+
+          {{#if desc}}
+            <div class="am-list-item-text">{{{desc}}}</div>
+          {{/if}}
+
+          {{#if mainAddition}}
+            <div class="am-list-news-addon">{{{mainAddition}}}</div>
+          {{/if}}
+        </div>
+      </li>
+    {{/each}}
+    {{/ifCond}}
+
+    {{#ifCond options.thumbPosition '==' 'bottom-right'}} <!--缩略图在标题下方居右-->
+    {{#each content.main}}
+      <li class="am-g{{#if date}} am-list-item-dated{{/if}}{{#if desc}} am-list-item-desced{{/if}}{{#if img}} am-list-item-thumbed am-list-item-thumb-bottom-right{{/if}}">
+        {{!--
+          am-list-item-dated - 带日期
+          am-list-item-desced - 带描述
+          am-list-item-thumbed - 带缩略图的
+        --}}
+        {{#if title}}
+          <h3 class="am-list-item-hd"><a href="{{link}}">{{{title}}}</a></h3>
+        {{/if}}
+
+        <div class="am-col{{#if img}} col-sm-8{{/if}} am-list-main">
+          {{#if date}}
+            <span class="am-list-date">{{date}}</span>
+          {{/if}}
+
+          {{#if desc}}
+            <div class="am-list-item-text">{{{desc}}}</div>
+          {{/if}}
+
+          {{#if mainAddition}}
+            <div class="am-list-news-addon">{{{mainAddition}}}</div>
+          {{/if}}
+        </div>
+        {{#if img}}
+        <div class="am-list-thumb am-col col-sm-4">
+          <a href="{{link}}">
+            <img src="{{img}}" alt="{{title}}"/>
+          </a>
+          {{#if thumbAddition}}
+            <div class="am-list-thumb-addon">{{{thumbAddition}}}</div>
+          {{/if}}
+        </div>
+        {{/if}}
+      </li>
+    {{/each}}
+    {{/ifCond}}
+
+    {{#ifCond options.thumbPosition '==' 'left'}} <!--缩略图在标题左边-->
+    {{#each content.main}}
+      <li class="am-g{{#if date}} am-list-item-dated{{/if}}{{#if desc}} am-list-item-desced{{/if}}{{#if img}} am-list-item-thumbed am-list-item-thumb-left{{/if}}">
+        {{!--
+          am-list-item-dated - 带日期
+          am-list-item-desced - 带描述
+          am-list-item-thumbed - 带缩略图的
+        --}}
+        {{#if img}}
+        <div class="am-col col-sm-4 am-list-thumb">
+          <a href="{{link}}">
+            <img src="{{img}}" alt="{{title}}"/>
+          </a>
+          {{#if thumbAddition}}
+            <div class="am-list-thumb-addon">{{{thumbAddition}}}</div>
+          {{/if}}
+        </div>
+        {{/if}}
+
+        <div class="am-col{{#if img}} col-sm-8{{/if}} am-list-main">
+          {{#if title}}
+            <h3 class="am-list-item-hd"><a href="{{link}}">{{{title}}}</a></h3>
+          {{/if}}
+          {{#if date}}
+            <span class="am-list-date">{{date}}</span>
+          {{/if}}
+
+          {{#if desc}}
+            <div class="am-list-item-text">{{{desc}}}</div>
+          {{/if}}
+
+          {{#if mainAddition}}
+            <div class="am-list-news-addon">{{{mainAddition}}}</div>
+          {{/if}}
+        </div>
+      </li>
+    {{/each}}
+    {{/ifCond}}
+
+    {{#ifCond options.thumbPosition '==' 'right'}} <!--缩略图在标题右边-->
+    {{#each content.main}}
+      <li class="am-g{{#if date}} am-list-item-dated{{/if}}{{#if desc}} am-list-item-desced{{/if}}{{#if img}} am-list-item-thumbed am-list-item-thumb-right{{/if}}">
+        {{!--
+          am-list-item-dated - 带日期
+          am-list-item-desced - 带描述
+          am-list-item-thumbed - 带缩略图的
+        --}}
+        <div class="am-col{{#if img}} col-sm-8{{/if}} am-list-main">
+          {{#if title}}
+            <h3 class="am-list-item-hd"><a href="{{link}}">{{{title}}}</a></h3>
+          {{/if}}
+
+          {{#if date}}
+            <span class="am-list-date">{{date}}</span>
+          {{/if}}
+
+          {{#if desc}}
+            <div class="am-list-item-text">{{{desc}}}</div>
+          {{/if}}
+
+          {{#if mainAddition}}
+            <div class="am-list-news-addon">{{{mainAddition}}}</div>
+          {{/if}}
+        </div>
+        {{#if img}}
+          <div class="am-col col-sm-4 am-list-thumb">
+            <a href="{{link}}">
+              <img src="{{img}}" alt="{{title}}"/>
+            </a>
+            {{#if thumbAddition}}
+              <div class="am-list-thumb-addon">{{{thumbAddition}}}</div>
+            {{/if}}
+          </div>
+        {{/if}}
+      </li>
+    {{/each}}
+    {{/ifCond}}
+
+  {{else}}{{!--不带缩略图--}}
+    {{#each content.main}}
+      <li class="am-g{{#if date}} am-list-item-dated{{/if}}{{#if desc}} am-list-item-desced{{/if}}{{#if img}} am-list-item-thumbed{{/if}}">
+        {{!--
+          am-list-item-dated - 带日期
+          am-list-item-desced - 带描述
+          am-list-item-thumbed - 带缩略图的
+        --}}
+        {{#if title}}
+          <a href="{{link}}" class="am-list-item-hd">{{{title}}}</a>
+        {{/if}}
+
+        {{#if date}}
+          <span class="am-list-date">{{date}}</span>
+        {{/if}}
+
+        {{#if desc}}
+          <div class="am-list-item-text">{{{desc}}}</div>
+        {{/if}}
+
+        {{#if mainAddition}}
+          <div class="am-list-news-addon">{{{mainAddition}}}</div>
+        {{/if}}
+      </li>
+    {{/each}}
+  {{/ifCond}}
+  </ul>
+  </div>
+
+  {{#ifCond content.header.morePosition '==' 'bottom'}}<!--更多在底部-->
+    {{#if content.header.link}}
+      <div class="am-list-news-ft">
+        <a class="am-list-news-more am-btn am-btn-default" href="{{content.header.link}}">{{{content.header.moreText}}}</a>
+      </div>
+    {{/if}}
+  {{/ifCond}}
+  </div>
+{{/this}}</script><script type="text/template" id="demo-data">{"content":{"header":{"title":"综合新闻","link":"###","moreText":"更多 &raquo;","morePosition":"bottom"},"main":[{"title":"我很囧，你保重....晒晒旅行中的那些囧！","link":"##","date":"2013-09-18"},{"title":"我最喜欢的一张画","link":"##","date":"2013-10-14"},{"title":"“你的旅行，是什么颜色？” 晒照片，换北欧梦幻极光之旅！","link":"##","date":"2013-11-18"}]},"theme":"one"}</script><script type="text/javascript">!function(t){t(function(){function e(e){if(!a){var l="";t.isArray(i)?t.each(i,function(t,e){l+="<h2 class='demo-title'>"+e.title+"</h2>",l+=n(e.data),l+="<hr>"}):(l+=e?e:"",l+=n(i)),o.html(l)}}var i={content:{header:{title:"综合新闻",link:"###",moreText:"更多 &raquo;",morePosition:"bottom"},main:[{title:"我很囧，你保重....晒晒旅行中的那些囧！",link:"##",date:"2013-09-18"},{title:"我最喜欢的一张画",link:"##",date:"2013-10-14"},{title:"“你的旅行，是什么颜色？” 晒照片，换北欧梦幻极光之旅！",link:"##",date:"2013-11-18"}]},theme:"one"},n=Handlebars.compile(t("#demo-template").html()),o=t("#demo-view"),a=o.is("[data-backend-compiled]");e(),window.seajs&&seajs.use(["list_news"],function(t){!a&&t.init&&t.init()})})}(window.jQuery||window.Zepto);</script></body></html><!-- Cached page generated on Wed Jan 21 2015 13:27:02 GMT+0800 (CST) -->

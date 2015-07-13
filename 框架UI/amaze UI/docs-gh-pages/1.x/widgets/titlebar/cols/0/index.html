@@ -1,0 +1,21 @@
+<!doctype html><!--[if lte IE 9]><html class="lte9 no-js demo"><![endif]--><!--[if gt IE 9]><!--><html class="no-js demo"><!--<![endif]--><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Cache-Control" content="no-siteapp"/><meta name="renderer" content="webkit"><title>标题栏 - cols（浅背景多链接） | Amaze UI</title><meta name="description" content=""><link rel="alternate icon" type="image/png" href="../../../../assets/i/favicon.png"><link rel="apple-touch-icon-precomposed" href="../../../../assets/i/app-icon72x72@2x.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="stylesheet" href="../../../../assets/css/amazeui.min.css?v=i569qohu"><link rel="stylesheet" href="../../../../assets/css/amaze.min.css?v=i569qohu"><link rel="canonical" href="http://amazeui.org/widgets/titlebar/cols/0?_ver=1.x"/><script src="../../../../assets/js/zepto.min.js?v=i569qohu"></script><script src="../../../../assets/js/handlebars.min.js?v=i569qohu"></script><script src="../../../../assets/js/amazeui.min.js?v=i569qohu"></script></head><body><div class="page pg-demo"><header class="demo-bar"><a href="../../../../widgets/m" class="am-icon-home demo-icon-home"></a><h1>Amaze UI</h1></header><div id="demo-view" data-backend-compiled><div data-am-widget="titlebar" class="am-titlebar am-titlebar-cols"><h2 class="am-titlebar-title"><a href="#wtf">栏目标题</a></h2><nav class="am-titlebar-nav"><a href="#c1" class="">子栏目</a> <a href="#c2" class="">子栏目</a> <a href="#c3" class="">子栏目</a></nav></div></div><ul class="am-pagination"><li class="am-pagination-prev"><a href="../../../../widgets/titlebar/multi/1">&laquo; Prev</a></li><li class="am-pagination-next"><a href="../../../../widgets/titlebar/one/0">Next &raquo;</a></li></ul><div class="ds-thread" id="ds-thread" data-thread-key="5ef2de9addd20e29d025eeb45b99e161" data-title="标题栏 - cols（浅背景多链接） | Amaze UI"></div><script type="text/javascript">var duoshuoQuery={short_name:"amui"};!function(){var e=document.createElement("script");e.type="text/javascript",e.async=!0,e.src="http://static.duoshuo.com/embed.js",e.charset="UTF-8",(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(e)}();</script></div><script type="text/x-handlebars-template" id="demo-template">{{#this}}
+<div data-am-widget="titlebar" class="am-titlebar {{#if theme}}am-titlebar-{{theme}}{{else}}am-titlebar-default{{/if}}{{#if widgetId}} {{widgetId}}{{/if}}{{#if className}} {{className}}{{/if}}" {{#if id}}id="{{id}}"{{/if}}>
+  {{#if content.title}}
+    <h2 class="am-titlebar-title">
+      {{#if content.link}}
+        <a href="{{content.link}}">{{{content.title}}}</a>
+      {{else}}
+        {{{content.title}}}
+      {{/if}}
+    </h2>
+  {{/if}}
+
+  {{#if content.nav}}
+    <nav class="am-titlebar-nav">
+      {{#each content.nav}}
+        <a href="{{link}}" class="{{className}}">{{{title}}}</a>
+      {{/each}}
+    </nav>
+  {{/if}}
+</div>
+{{/this}}</script><script type="text/template" id="demo-data">{"content":{"title":"栏目标题","link":"#wtf","nav":[{"link":"#c1","title":"子栏目"},{"link":"#c2","title":"子栏目"},{"link":"#c3","title":"子栏目"}]},"theme":"cols"}</script><script type="text/javascript">!function(t){t(function(){function i(i){if(!a){var o="";t.isArray(e)?t.each(e,function(t,i){o+="<h2 class='demo-title'>"+i.title+"</h2>",o+=n(i.data),o+="<hr>"}):(o+=i?i:"",o+=n(e)),l.html(o)}}var e={content:{title:"栏目标题",link:"#wtf",nav:[{link:"#c1",title:"子栏目"},{link:"#c2",title:"子栏目"},{link:"#c3",title:"子栏目"}]},theme:"cols"},n=Handlebars.compile(t("#demo-template").html()),l=t("#demo-view"),a=l.is("[data-backend-compiled]");i(),window.seajs&&seajs.use(["titlebar"],function(t){!a&&t.init&&t.init()})})}(window.jQuery||window.Zepto);</script></body></html><!-- Cached page generated on Wed Jan 21 2015 13:27:03 GMT+0800 (CST) -->

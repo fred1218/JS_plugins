@@ -1,0 +1,50 @@
+// TODO: This file will be removed after Amaze UI v2.4 releasing
+
+.@{ns}selected-placeholder {
+  opacity: .65;
+}
+
+.@{ns}list-news {
+  .@{ns}titlebar {
+    margin-left: 0;
+    margin-right: 0;
+
+    // remove first li's top border
+    & ~ .@{ns}list-news-bd {
+      .@{ns}list > li:first-child {
+        border-top: none;
+      }
+    }
+  }
+}
+
+// =============================================================================
+// TODO: REMOVE BELOW
+
+.am-tabs-fade {
+  .am-tab-panel {
+    opacity: 0;
+    transition: opacity .25s linear;
+
+    &.am-in {
+      opacity: 1;
+    }
+  }
+}
+// END REMOVE
+
+// TODO: Remove below
+.@{ns}scrollbar-measure {
+  width: 100px;
+  height: 100px;
+  overflow: scroll;
+  position: absolute;
+  top: -9999px;
+}
+// END REMOVE
+
+img.am-thumbnail,
+.am-thumbnail img {
+  max-width: 100%;
+  height: auto
+}

@@ -1,0 +1,21 @@
+{
+  "name": "promise",
+  "repo": "then/promise",
+  "description": "Bare bones Promises/A+ implementation",
+  "version": "7.0.3",
+  "keywords": [],
+  "dependencies": {
+    "johntron/asap": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": [
+    "index.js",
+    "lib/core.js",
+    "lib/done.js",
+    "lib/es6-extensions.js",
+    "lib/node-extensions.js"
+  ],
+  "twitter": "@ForbesLindesay"
+}

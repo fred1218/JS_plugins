@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>jquery.pep custom constraint demo</title>
+
+    <!-- Load local jQuery.  -->
+    <script src="../libs/jquery/jquery.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+    <!-- Load local lib and tests. -->
+    <script src="../src/jquery.pep.js"></script>
+
+    <script type="text/javascript">
+      $(document).ready(function(){
+
+          $('.pep').pep({
+            axis: 'y',
+            constrainTo: [100, false, $(window).innerHeight() - 100, false]
+          })
+
+      });
+    </script>
+
+    <style type="text/css">
+      html, body{ overflow: hidden; }
+      .pep{ height: 1000px; width: 100%; position: absolute; top: 100px; left: 0; background: blue }
+    </style>
+
+  </head>
+
+    <div class='pep'></div>
+
+  </body>
+
+</html>

@@ -1,0 +1,54 @@
+{
+  "name": "amazeui-react",
+  "version": "1.0.0",
+  "description": "Amaze UI components build with React.",
+  "keywords": [
+    "css",
+    "js",
+    "less",
+    "mobile-first",
+    "responsive",
+    "front-end",
+    "framework",
+    "web",
+    "web-components",
+    "amazeui",
+    "react",
+    "amazeui-react"
+  ],
+  "homepage": "http://amazeui.org/react",
+  "main": [
+    "dist/js/amazeui.react.js",
+    "dist/js/amazeui.react.min.js"
+  ],
+  "ignore": [
+    "/.*",
+    "composer.json",
+    "utils",
+    "docs",
+    "node_modules",
+    "src",
+    "dist/docs",
+    "lib"
+  ],
+  "authors": [
+    {
+      "name": "Minwe",
+      "email": "minwe@yunshipei.com",
+      "homepage": "http://csspod.com"
+    },
+    {
+      "name": "HZP",
+      "email": "hzp@yunshipei.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/amazeui/amazeui-react.git"
+  },
+  "dependencies": {
+    "react": "^0.13.3",
+    "amazeui": "^2.4.0"
+  },
+  "license": "MIT"
+}

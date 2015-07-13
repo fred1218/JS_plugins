@@ -1,0 +1,26 @@
+{
+  "name": "sizzle",
+  "version": "2.2.1-pre",
+  "main": "./dist/sizzle.js",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "package.json",
+    "bower.json",
+    "speed",
+    "Makefile",
+    "*.md",
+    "*.txt",
+    "!LICENSE.txt",
+    "src",
+    "test",
+    "Gruntfile.js"
+  ],
+  "keywords": [
+    "sizzle",
+    "javascript",
+    "CSS",
+    "selector",
+    "jquery"
+  ]
+}

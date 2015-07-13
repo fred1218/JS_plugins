@@ -1,0 +1,270 @@
+@import url(../node_modules/amazeui/less/variables.less);
+@import url(../node_modules/amazeui/less/mixins.less);
+
+@import "assets/less/hl-github2";
+@import "assets/less/codemirror";
+@assets: "http://a.static.amazeui.org/";
+
+@reactBlue: #00D8FF;
+@linkBorder: #3BB4F2;
+
+@import "assets/less/common";
+@import "assets/less/home";
+
+// nav
+.amr-nav {
+  &,
+  & ul {
+    padding-left: 0;
+    list-style: none;
+  }
+
+  ul {
+    margin-top: 8px;
+    display: none;
+
+    a {
+      color: #777;
+      padding-left: 28px;
+      border-left: 1px solid transparent;
+
+      &:hover,
+      &.active {
+        color: #555;
+        background-color: #fafafa;
+        border-left-color: #eee;
+      }
+
+      &.active {
+        color: @global-primary;
+      }
+    }
+  }
+
+  .am-active ul {
+    display: block;
+  }
+
+  a {
+    padding-top: 3px;
+    padding-bottom: 3px;
+    transition: all .6s;
+    .text-overflow(block);
+  }
+
+  > li {
+    margin-bottom: 12px;
+
+    > a {
+      border-left: 3px solid #eee;
+      font-weight: bold;
+      padding-left: 8px;
+      color: @gray;
+
+      &:hover {
+        border-left-color: @reactBlue;
+      }
+    }
+
+    &.am-active > a {
+      border-left-color: @linkBorder;
+    }
+  }
+
+  [class*="am-icon"] {
+    margin-left: 5px;
+    font-size: 14px;
+    color: #ddd;
+  }
+}
+
+.amr-nav-en {
+  font-size: 10px;
+  color: @gray-light;
+  font-weight: 400;
+  margin-left: 5px;
+  vertical-align: bottom;
+}
+
+// Embed example
+.doc-codebin {
+  margin: 15px auto;
+}
+
+.doc-example {
+  border: 1px solid #eee;
+  padding: 0 15px 15px;
+  position: relative;
+
+  .am-container {
+    border: 1px solid blue;
+
+    & + * {
+      margin-top: 10px;
+    }
+  }
+
+  .am-topbar .am-container {
+    border: none;
+  }
+
+  &:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+
+  &:before {
+    content: 'Demo';
+    display: block;
+    color: #bbb;
+    text-transform: uppercase;
+    margin: 0 -15px 15px -15px;
+    padding: 4px 10px;
+    font-size: 12px;
+  }
+
+  & + .doc-code {
+    margin-top: -1px;
+  }
+
+  > p {
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.doc-code {
+  position: relative;
+  border: 1px solid #eee;
+  padding: 10px 5px 15px;
+  background-color: #F8F8F8;
+
+  pre {
+    border: none;
+    padding: 0;
+  }
+
+  .CodeMirror {
+    height: auto;
+    background: transparent;
+  }
+
+  &:after {
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    color: #ccc;
+    .am-icon-font;
+    content: @fa-var-code;
+  }
+}
+
+.CodeMirror-code {
+  font-family: @font-family-monospace;
+  font-size: 13px;
+}
+
+
+// Grid
+.doc-g {
+  .doc-content & {
+    margin-left: initial;
+    margin-right: initial;
+  }
+
+  & + .doc-g {
+    margin-top: 10px;
+  }
+
+  & > [class*='am-u-'] {
+    border: 1px solid @global-danger;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    &:nth-child(2n) {
+      background: @gray-lighter;
+    }
+  }
+}
+
+
+// =============================================================================
+// headings counter
+
+.doc-content {
+  overflow: hidden;
+  word-wrap: break-word;
+
+  counter-reset: header2;
+  > h2 {
+    counter-increment: header2;
+    counter-reset: header3;
+    &:before {
+      content: counter(header2) ". ";
+    }
+  }
+
+  > h3 {
+    counter-increment: header3;
+    counter-reset: header4;
+    &:before {
+      content: counter(header2) "." counter(header3) " ";
+    }
+  }
+
+  > h4 {
+    counter-increment: header4;
+    &:before {
+      content: counter(header2) "." counter(header3) "." counter(header4) " ";
+    }
+  }
+
+  > h2:before,
+  > h3:before,
+  > h4:before {
+    color: #888;
+    font-weight: 400;
+  }
+}
+
+// =============================================================================
+// ButtonGroup
+
+.doc-example {
+  .am-btn-toolbar + .am-btn-toolbar {
+    margin-top: 10px;
+  }
+}
+
+// ScrollSpyNav helper class
+// =============================================================================
+
+.scrollspy-nav {
+  top: 0;
+  z-index: 100;
+  background: #0e90d2;
+  width: 100%;
+  padding: 0 10px
+}
+
+.scrollspy-nav ul {
+  margin: 0;
+  padding: 0
+}
+
+.scrollspy-nav li {
+  display: inline-block;
+  list-style: none
+}
+
+.scrollspy-nav a {
+  color: #eee;
+  padding: 10px 20px;
+  display: inline-block
+}
+
+.scrollspy-nav a.am-active {
+  color: #fff;
+  font-weight: 700
+}

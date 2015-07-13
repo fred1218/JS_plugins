@@ -1,0 +1,7 @@
+docs/Gemfile.lock
+gh-pages
+node_modules
+test/browser/bundle.js
+js/*
+zalgo.js
+coverage/*

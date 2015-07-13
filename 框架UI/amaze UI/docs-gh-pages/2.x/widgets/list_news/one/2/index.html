@@ -1,0 +1,255 @@
+<!doctype html><!--[if lte IE 9]><html class="lte9 no-js demo"><![endif]--><!--[if gt IE 9]><!--><html class="no-js demo"><!--<![endif]--><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Cache-Control" content="no-siteapp"/><meta name="renderer" content="webkit"><title>内容列表 - one（简约风格） - 带缩略图+摘要 | Amaze UI</title><meta name="description" content=""><link rel="alternate icon" type="image/png" href="../../../../assets/i/favicon.png"><link rel="apple-touch-icon-precomposed" href="../../../../assets/i/app-icon72x72@2x.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="stylesheet" href="../../../../assets/css/amazeui.min.css?v=i88dzurb"><link rel="stylesheet" href="../../../../assets/css/amaze.min.css?v=i88dzurb"><link rel="canonical" href="http://amazeui.org/widgets/list_news/one/2?_ver=2.x"/><script src="../../../../assets/js/jquery.min.js?v=i88dzurb"></script><script src="../../../../assets/js/handlebars.min.js?v=i88dzurb"></script><script src="../../../../assets/js/amazeui.min.js?v=i88dzurb"></script></head><body><div class="page pg-demo"><header class="demo-bar"><a href="../../../../widgets/m" class="am-icon-home demo-icon-home"></a><h1>Amaze UI</h1></header><div id="demo-view" data-backend-compiled><div data-am-widget="list_news" class="am-list-news am-list-news-one"><div class="am-list-news-bd"><ul class="am-list"><li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-bottom-left"><h3 class="am-list-item-hd"><a href="http://www.douban.com/online/11614662/" class="">我很囧，你保重....晒晒旅行中的那些囧！</a></h3><div class="am-u-sm-4 am-list-thumb"><a href="http://www.douban.com/online/11614662/" class=""><img src="http://img5.douban.com/lpic/o636459.jpg" alt="我很囧，你保重....晒晒旅行中的那些囧！"/></a></div><div class="am-u-sm-8 am-list-main"><div class="am-list-item-text">囧人囧事囧照，人在囧途，越囧越萌。标记《带你出发，陪我回家》http://book.douban.com/subject/25711202/为“想读”“在读”或“读过”，有机会获得此书本活动进行3个月，每月送出三本书。会有不定期bonus！</div></div></li><li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-bottom-left"><h3 class="am-list-item-hd"><a href="http://www.douban.com/online/11624755/" class="">我最喜欢的一张画</a></h3><div class="am-u-sm-4 am-list-thumb"><a href="http://www.douban.com/online/11624755/" class=""><img src="http://img3.douban.com/lpic/o637240.jpg" alt="我最喜欢的一张画"/></a></div><div class="am-u-sm-8 am-list-main"><div class="am-list-item-text">你最喜欢的艺术作品，告诉大家它们的------名图画，色彩，交织，撞色，线条雕塑装置当代古代现代作品的照片美我最喜欢的画群296795413进群发画，少说多发图，</div></div></li><li class="am-g am-list-item-desced"><h3 class="am-list-item-hd"><a href="http://www.douban.com/online/11645411/" class="">“你的旅行，是什么颜色？” 晒照片，换北欧梦幻极光之旅！</a></h3><div class="am-list-main"><div class="am-list-item-text">还在苦恼圣诞礼物再也玩儿不出新意？快来抢2013最炫彩的跨国圣诞礼物！【参与方式】1.关注“UniqueWay无二之旅”豆瓣品牌小站http://brand.douban.com/uniqueway/2.上传一张**本人**在旅行中色彩最浓郁、最丰富的照片（色彩包含取景地、周边事物、服装饰品、女生彩妆等等，发挥你们无穷的创意想象力哦！^^）一定要有本人出现喔！3. 在照片下方，附上一句旅行宣言作为照片说明。 成功参与活动！* 听他们刚才说，上传照片的次</div></div></li></ul></div><div class="am-list-news-ft"><a class="am-list-news-more am-btn am-btn-default" href="##">更多 &raquo;</a></div></div></div><ul class="am-pagination"><li class="am-pagination-prev"><a href="../../../../widgets/list_news/one/1">&laquo; Prev</a></li><li class="am-pagination-next"><a href="../../../../widgets/map/default/0">Next &raquo;</a></li></ul><div class="ds-thread" id="ds-thread" data-thread-key="55de9a155699df90619244e4dabb8681" data-title="内容列表 - one（简约风格） - 带缩略图+摘要 | Amaze UI"></div><script type="text/javascript">var duoshuoQuery={short_name:"amui"};!function(){var e=document.createElement("script");e.type="text/javascript",e.async=!0,e.src="http://static.duoshuo.com/embed.js",e.charset="UTF-8",(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(e)}();</script></div><script type="text/x-handlebars-template" id="demo-template">{{#this}}
+  <div data-am-widget="list_news" class="am-list-news{{#if theme}} am-list-news-{{theme}}{{else}} am-list-news-default{{/if}}{{#if widgetId}} {{widgetId}}{{/if}}{{#if className}} {{className}}{{/if}}" {{#if id}}id="{{id}}"{{/if}}>
+  <!--列表标题-->
+  {{#if content.header.title}}
+    <div class="am-list-news-hd am-cf">
+      {{#if content.header.link}} <!--带更多链接-->
+        <a href="{{content.header.link}}" class="{{content.header.className}}">
+          <h2>{{{content.header.title}}}</h2>
+          {{#ifCond content.header.morePosition '==' 'top'}}
+            <span class="am-list-news-more am-fr">{{{content.header.moreText}}}</span>
+          {{/ifCond}}
+        </a>
+      {{else}} <!--不带更多链接-->
+        <h2>{{{content.header.title}}}</h2>
+      {{/if}}
+    </div>
+  {{/if}}
+
+  <div class="am-list-news-bd">
+  <ul class="am-list">
+  {{#ifCond options.type '==' 'thumb'}}
+    {{#ifCond options.thumbPosition '==' 'top'}} <!--缩略图在标题上方-->
+    {{#each content.main}}
+      <li class="am-g{{#if date}} am-list-item-dated{{/if}}{{#if desc}} am-list-item-desced{{/if}}{{#if img}} am-list-item-thumbed am-list-item-thumb-top{{/if}}">
+        {{!--
+          am-list-item-dated - 带日期
+          am-list-item-desced - 带描述
+          am-list-item-thumbed - 带缩略图的
+        --}}
+        {{#if img}}
+        <div class="am-list-thumb am-u-sm-12">
+          <a href="{{link}}" class="{{className}}">
+            <img src="{{img}}" alt="{{title}}"/>
+          </a>
+          {{#if thumbAddition}}
+            <div class="am-list-thumb-addon">{{{thumbAddition}}}</div>
+          {{/if}}
+        </div>
+        {{/if}}
+
+        <div class="{{#if img}}{{/if}} am-list-main">
+          {{#if title}}
+            <h3 class="am-list-item-hd"><a href="{{link}}" class="{{className}}">{{{title}}}</a></h3>
+          {{/if}}
+
+          {{#if date}}
+            <span class="am-list-date">{{date}}</span>
+          {{/if}}
+
+          {{#if desc}}
+            <div class="am-list-item-text">{{{desc}}}</div>
+          {{/if}}
+
+          {{#if mainAddition}}
+            <div class="am-list-news-addon">{{{mainAddition}}}</div>
+          {{/if}}
+        </div>
+      </li>
+    {{/each}}
+    {{/ifCond}}
+
+    {{#ifCond options.thumbPosition '==' 'bottom-left'}} <!--缩略图在标题下方居左-->
+    {{#each content.main}}
+      <li class="am-g{{#if date}} am-list-item-dated{{/if}}{{#if desc}} am-list-item-desced{{/if}}{{#if img}} am-list-item-thumbed am-list-item-thumb-bottom-left{{/if}}">
+        {{!--
+          am-list-item-dated - 带日期
+          am-list-item-desced - 带描述
+          am-list-item-thumbed - 带缩略图的
+        --}}
+        {{#if title}}
+          <h3 class="am-list-item-hd"><a href="{{link}}" class="{{className}}">{{{title}}}</a></h3>
+        {{/if}}
+        {{#if img}}
+        <div class="am-u-sm-4 am-list-thumb">
+          <a href="{{link}}" class="{{className}}">
+            <img src="{{img}}" alt="{{title}}"/>
+          </a>
+          {{#if thumbAddition}}
+            <div class="am-list-thumb-addon">{{{thumbAddition}}}</div>
+          {{/if}}
+        </div>
+        {{/if}}
+
+        <div class="{{#if img}} am-u-sm-8 {{/if}} am-list-main">
+          {{#if date}}
+            <span class="am-list-date">{{date}}</span>
+          {{/if}}
+
+          {{#if desc}}
+            <div class="am-list-item-text">{{{desc}}}</div>
+          {{/if}}
+
+          {{#if mainAddition}}
+            <div class="am-list-news-addon">{{{mainAddition}}}</div>
+          {{/if}}
+        </div>
+      </li>
+    {{/each}}
+    {{/ifCond}}
+
+    {{#ifCond options.thumbPosition '==' 'bottom-right'}} <!--缩略图在标题下方居右-->
+    {{#each content.main}}
+      <li class="am-g{{#if date}} am-list-item-dated{{/if}}{{#if desc}} am-list-item-desced{{/if}}{{#if img}} am-list-item-thumbed am-list-item-thumb-bottom-right{{/if}}">
+        {{!--
+          am-list-item-dated - 带日期
+          am-list-item-desced - 带描述
+          am-list-item-thumbed - 带缩略图的
+        --}}
+        {{#if title}}
+          <h3 class="am-list-item-hd"><a href="{{link}}" class="{{className}}">{{{title}}}</a></h3>
+        {{/if}}
+
+        <div class="{{#if img}} am-u-sm-8{{/if}} am-list-main">
+          {{#if date}}
+            <span class="am-list-date">{{date}}</span>
+          {{/if}}
+
+          {{#if desc}}
+            <div class="am-list-item-text">{{{desc}}}</div>
+          {{/if}}
+
+          {{#if mainAddition}}
+            <div class="am-list-news-addon">{{{mainAddition}}}</div>
+          {{/if}}
+        </div>
+        {{#if img}}
+        <div class="am-list-thumb am-u-sm-4">
+          <a href="{{link}}" class="{{className}}">
+            <img src="{{img}}" alt="{{title}}"/>
+          </a>
+          {{#if thumbAddition}}
+            <div class="am-list-thumb-addon">{{{thumbAddition}}}</div>
+          {{/if}}
+        </div>
+        {{/if}}
+      </li>
+    {{/each}}
+    {{/ifCond}}
+
+    {{#ifCond options.thumbPosition '==' 'left'}} <!--缩略图在标题左边-->
+    {{#each content.main}}
+      <li class="am-g{{#if date}} am-list-item-dated{{/if}}{{#if desc}} am-list-item-desced{{/if}}{{#if img}} am-list-item-thumbed am-list-item-thumb-left{{/if}}">
+        {{!--
+          am-list-item-dated - 带日期
+          am-list-item-desced - 带描述
+          am-list-item-thumbed - 带缩略图的
+        --}}
+        {{#if img}}
+        <div class="am-u-sm-4 am-list-thumb">
+          <a href="{{link}}" class="{{className}}">
+            <img src="{{img}}" alt="{{title}}"/>
+          </a>
+          {{#if thumbAddition}}
+            <div class="am-list-thumb-addon">{{{thumbAddition}}}</div>
+          {{/if}}
+        </div>
+        {{/if}}
+
+        <div class="{{#if img}} am-u-sm-8{{/if}} am-list-main">
+          {{#if title}}
+            <h3 class="am-list-item-hd"><a href="{{link}}" class="{{className}}">{{{title}}}</a></h3>
+          {{/if}}
+          {{#if date}}
+            <span class="am-list-date">{{date}}</span>
+          {{/if}}
+
+          {{#if desc}}
+            <div class="am-list-item-text">{{{desc}}}</div>
+          {{/if}}
+
+          {{#if mainAddition}}
+            <div class="am-list-news-addon">{{{mainAddition}}}</div>
+          {{/if}}
+        </div>
+      </li>
+    {{/each}}
+    {{/ifCond}}
+
+    {{#ifCond options.thumbPosition '==' 'right'}} <!--缩略图在标题右边-->
+    {{#each content.main}}
+      <li class="am-g{{#if date}} am-list-item-dated{{/if}}{{#if desc}} am-list-item-desced{{/if}}{{#if img}} am-list-item-thumbed am-list-item-thumb-right{{/if}}">
+        {{!--
+          am-list-item-dated - 带日期
+          am-list-item-desced - 带描述
+          am-list-item-thumbed - 带缩略图的
+        --}}
+        <div class="{{#if img}} am-u-sm-8{{/if}} am-list-main">
+          {{#if title}}
+            <h3 class="am-list-item-hd"><a href="{{link}}" class="{{className}}">{{{title}}}</a></h3>
+          {{/if}}
+
+          {{#if date}}
+            <span class="am-list-date">{{date}}</span>
+          {{/if}}
+
+          {{#if desc}}
+            <div class="am-list-item-text">{{{desc}}}</div>
+          {{/if}}
+
+          {{#if mainAddition}}
+            <div class="am-list-news-addon">{{{mainAddition}}}</div>
+          {{/if}}
+        </div>
+        {{#if img}}
+          <div class="am-u-sm-4 am-list-thumb">
+            <a href="{{link}}" class="{{className}}">
+              <img src="{{img}}" alt="{{title}}"/>
+            </a>
+            {{#if thumbAddition}}
+              <div class="am-list-thumb-addon">{{{thumbAddition}}}</div>
+            {{/if}}
+          </div>
+        {{/if}}
+      </li>
+    {{/each}}
+    {{/ifCond}}
+
+  {{else}}{{!--不带缩略图--}}
+    {{#each content.main}}
+      <li class="am-g{{#if date}} am-list-item-dated{{/if}}{{#if desc}} am-list-item-desced{{/if}}{{#if img}} am-list-item-thumbed{{/if}}">
+        {{!--
+          am-list-item-dated - 带日期
+          am-list-item-desced - 带描述
+          am-list-item-thumbed - 带缩略图的
+        --}}
+        {{#if title}}
+          <a href="{{link}}" class="am-list-item-hd {{className}}">{{{title}}}</a>
+        {{/if}}
+
+        {{#if date}}
+          <span class="am-list-date">{{date}}</span>
+        {{/if}}
+
+        {{#if desc}}
+          <div class="am-list-item-text">{{{desc}}}</div>
+        {{/if}}
+
+        {{#if mainAddition}}
+          <div class="am-list-news-addon">{{{mainAddition}}}</div>
+        {{/if}}
+      </li>
+    {{/each}}
+  {{/ifCond}}
+  </ul>
+  </div>
+
+  {{#ifCond content.header.morePosition '==' 'bottom'}}<!--更多在底部-->
+    {{#if content.header.link}}
+      <div class="am-list-news-ft">
+        <a class="am-list-news-more am-btn am-btn-default {{content.header.className}}" href="{{content.header.link}}">{{{content.header.moreText}}}</a>
+      </div>
+    {{/if}}
+  {{/ifCond}}
+  </div>
+{{/this}}</script><script type="text/template" id="demo-data">{"options":{"type":"thumb","thumbPosition":"bottom-left"},"content":{"header":{"title":"","link":"##","moreText":"更多 &raquo;","morePosition":"bottom"},"main":[{"title":"我很囧，你保重....晒晒旅行中的那些囧！","link":"http://www.douban.com/online/11614662/","desc":"囧人囧事囧照，人在囧途，越囧越萌。标记《带你出发，陪我回家》http://book.douban.com/subject/25711202/为“想读”“在读”或“读过”，有机会获得此书本活动进行3个月，每月送出三本书。会有不定期bonus！","img":"http://img5.douban.com/lpic/o636459.jpg"},{"title":"我最喜欢的一张画","link":"http://www.douban.com/online/11624755/","desc":"你最喜欢的艺术作品，告诉大家它们的------名图画，色彩，交织，撞色，线条雕塑装置当代古代现代作品的照片美我最喜欢的画群296795413进群发画，少说多发图，","img":"http://img3.douban.com/lpic/o637240.jpg"},{"title":"“你的旅行，是什么颜色？” 晒照片，换北欧梦幻极光之旅！","link":"http://www.douban.com/online/11645411/","desc":"还在苦恼圣诞礼物再也玩儿不出新意？快来抢2013最炫彩的跨国圣诞礼物！【参与方式】1.关注“UniqueWay无二之旅”豆瓣品牌小站http://brand.douban.com/uniqueway/2.上传一张**本人**在旅行中色彩最浓郁、最丰富的照片（色彩包含取景地、周边事物、服装饰品、女生彩妆等等，发挥你们无穷的创意想象力哦！^^）一定要有本人出现喔！3. 在照片下方，附上一句旅行宣言作为照片说明。 成功参与活动！* 听他们刚才说，上传照片的次"}]},"theme":"one"}</script><script type="text/javascript">!function(t){t(function(){function o(o){if(!a){var m="";t.isArray(i)?t.each(i,function(t,o){m+="<h2 class='demo-title'>"+o.title+"</h2>",m+=n(o.data),m+="<hr>"}):(m+=o?o:"",m+=n(i)),e.html(m)}}var i={options:{type:"thumb",thumbPosition:"bottom-left"},content:{header:{title:"",link:"##",moreText:"更多 &raquo;",morePosition:"bottom"},main:[{title:"我很囧，你保重....晒晒旅行中的那些囧！",link:"http://www.douban.com/online/11614662/",desc:"囧人囧事囧照，人在囧途，越囧越萌。标记《带你出发，陪我回家》http://book.douban.com/subject/25711202/为“想读”“在读”或“读过”，有机会获得此书本活动进行3个月，每月送出三本书。会有不定期bonus！",img:"http://img5.douban.com/lpic/o636459.jpg"},{title:"我最喜欢的一张画",link:"http://www.douban.com/online/11624755/",desc:"你最喜欢的艺术作品，告诉大家它们的------名图画，色彩，交织，撞色，线条雕塑装置当代古代现代作品的照片美我最喜欢的画群296795413进群发画，少说多发图，",img:"http://img3.douban.com/lpic/o637240.jpg"},{title:"“你的旅行，是什么颜色？” 晒照片，换北欧梦幻极光之旅！",link:"http://www.douban.com/online/11645411/",desc:"还在苦恼圣诞礼物再也玩儿不出新意？快来抢2013最炫彩的跨国圣诞礼物！【参与方式】1.关注“UniqueWay无二之旅”豆瓣品牌小站http://brand.douban.com/uniqueway/2.上传一张**本人**在旅行中色彩最浓郁、最丰富的照片（色彩包含取景地、周边事物、服装饰品、女生彩妆等等，发挥你们无穷的创意想象力哦！^^）一定要有本人出现喔！3. 在照片下方，附上一句旅行宣言作为照片说明。 成功参与活动！* 听他们刚才说，上传照片的次"}]},theme:"one"},n=Handlebars.compile(t("#demo-template").html()),e=t("#demo-view"),a=e.is("[data-backend-compiled]");o(),window.seajs&&seajs.use(["list_news"],function(t){!a&&t.init&&t.init()})})}(window.jQuery||window.Zepto);</script></body></html><!-- Cached page generated on Wed Apr 08 2015 15:00:49 GMT+0800 (CST) -->

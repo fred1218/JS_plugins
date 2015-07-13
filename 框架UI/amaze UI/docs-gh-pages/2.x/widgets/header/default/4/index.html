@@ -1,0 +1,61 @@
+<!doctype html><!--[if lte IE 9]><html class="lte9 no-js demo"><![endif]--><!--[if gt IE 9]><!--><html class="no-js demo"><!--<![endif]--><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Cache-Control" content="no-siteapp"/><meta name="renderer" content="webkit"><title>页头 - default（深色背景） - 结合按钮 | Amaze UI</title><meta name="description" content=""><link rel="alternate icon" type="image/png" href="../../../../assets/i/favicon.png"><link rel="apple-touch-icon-precomposed" href="../../../../assets/i/app-icon72x72@2x.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="stylesheet" href="../../../../assets/css/amazeui.min.css?v=i88dzuan"><link rel="stylesheet" href="../../../../assets/css/amaze.min.css?v=i88dzuan"><link rel="canonical" href="http://amazeui.org/widgets/header/default/4?_ver=2.x"/><script src="../../../../assets/js/jquery.min.js?v=i88dzuan"></script><script src="../../../../assets/js/handlebars.min.js?v=i88dzuan"></script><script src="../../../../assets/js/amazeui.min.js?v=i88dzuan"></script></head><body><div class="page pg-demo"><header class="demo-bar"><a href="../../../../widgets/m" class="am-icon-home demo-icon-home"></a><h1>Amaze UI</h1></header><div id="demo-view" data-backend-compiled><header data-am-widget="header" class="am-header am-header-default"><div class="am-header-left am-header-nav"><a href="#left-link" class="am-btn am-btn-default"><span class="am-header-nav-title">返回</span> <i class="am-header-icon am-icon-home"></i></a></div><h1 class="am-header-title">Amaze UI</h1><div class="am-header-right am-header-nav"><a href="#user-link" class=""><i class="am-header-icon am-icon-user"></i></a> <a href="#cart-link" class="am-btn am-btn-secondary"><i class="am-header-icon am-icon-shopping-cart"></i></a></div></header></div><ul class="am-pagination"><li class="am-pagination-prev"><a href="../../../../widgets/header/default/3">&laquo; Prev</a></li><li class="am-pagination-next"><a href="../../../../widgets/header/one/0">Next &raquo;</a></li></ul><div class="ds-thread" id="ds-thread" data-thread-key="3eb704c35386bdced762bdd1167741f3" data-title="页头 - default（深色背景） - 结合按钮 | Amaze UI"></div><script type="text/javascript">var duoshuoQuery={short_name:"amui"};!function(){var e=document.createElement("script");e.type="text/javascript",e.async=!0,e.src="http://static.duoshuo.com/embed.js",e.charset="UTF-8",(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(e)}();</script></div><script type="text/x-handlebars-template" id="demo-template">{{#this}}
+  <header data-am-widget="header"
+          class="am-header{{#if theme}} am-header-{{theme}}{{else}} am-header-default{{/if}}{{#if options.fixed}} am-header-fixed{{/if}}{{#if widgetId}} {{widgetId}}{{/if}}{{#if className}} {{className}}{{/if}}"{{#if id}}
+          id="{{id}}"{{/if}}>
+    {{#if content.left}}
+      <div class="am-header-left am-header-nav">
+        {{#each content.left}}
+          <a href="{{link}}" class="{{className}}">
+            {{#if title}}
+              <span class="am-header-nav-title">
+                {{title}}
+              </span>
+            {{/if}}
+
+            {{# if customIcon}}
+              <img class="am-header-icon-custom" src="{{customIcon}}" alt=""/>
+            {{else}}
+              {{#if icon}}
+                <i class="am-header-icon am-icon-{{icon}}"></i>
+              {{/if}}
+            {{/if}}
+          </a>
+        {{/each}}
+      </div>
+    {{/if}}
+
+    {{#if content.title}}
+      <h1 class="am-header-title">
+        {{#if content.link}}
+          <a href="{{content.link}}" class="{{content.className}}">
+            {{{content.title}}}
+          </a>
+        {{else}}
+          {{{content.title}}}
+        {{/if}}
+      </h1>
+    {{/if}}
+
+    {{#if content.right}}
+      <div class="am-header-right am-header-nav">
+        {{#each content.right}}
+          <a href="{{link}}" class="{{className}}">
+            {{#if title}}
+              <span class="am-header-nav-title">
+                {{title}}
+              </span>
+            {{/if}}
+
+            {{# if customIcon}}
+              <img class="am-header-icon-custom" src="{{customIcon}}" alt=""/>
+            {{else}}
+              {{#if icon}}
+                <i class="am-header-icon am-icon-{{icon}}"></i>
+              {{/if}}
+            {{/if}}
+          </a>
+        {{/each}}
+      </div>
+    {{/if}}
+  </header>
+{{/this}}</script><script type="text/template" id="demo-data">{"content":{"left":[{"link":"#left-link","icon":"home","title":"返回","className":"am-btn am-btn-default"}],"title":"Amaze UI","right":[{"link":"#user-link","icon":"user"},{"link":"#cart-link","className":"am-btn am-btn-secondary","icon":"shopping-cart"}]},"theme":"default"}</script><script type="text/javascript">!function(e){e(function(){function t(t){if(!l){var o="";e.isArray(n)?e.each(n,function(e,t){o+="<h2 class='demo-title'>"+t.title+"</h2>",o+=i(t.data),o+="<hr>"}):(o+=t?t:"",o+=i(n)),a.html(o)}}var n={content:{left:[{link:"#left-link",icon:"home",title:"返回",className:"am-btn am-btn-default"}],title:"Amaze UI",right:[{link:"#user-link",icon:"user"},{link:"#cart-link",className:"am-btn am-btn-secondary",icon:"shopping-cart"}]},theme:"default"},i=Handlebars.compile(e("#demo-template").html()),a=e("#demo-view"),l=a.is("[data-backend-compiled]");t(),window.seajs&&seajs.use(["header"],function(e){!l&&e.init&&e.init()})})}(window.jQuery||window.Zepto);</script></body></html><!-- Cached page generated on Wed Apr 08 2015 15:00:49 GMT+0800 (CST) -->

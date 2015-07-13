@@ -1,0 +1,66 @@
+<!doctype html><!--[if lte IE 9]><html class="lte9 no-js demo"><![endif]--><!--[if gt IE 9]><!--><html class="no-js demo"><!--<![endif]--><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Cache-Control" content="no-siteapp"/><meta name="renderer" content="webkit"><title>分页 - one（简约风格） | Amaze UI</title><meta name="description" content=""><link rel="alternate icon" type="image/png" href="../../../../assets/i/favicon.png"><link rel="apple-touch-icon-precomposed" href="../../../../assets/i/app-icon72x72@2x.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="stylesheet" href="../../../../assets/css/amazeui.min.css?v=i88dzvgi"><link rel="stylesheet" href="../../../../assets/css/amaze.min.css?v=i88dzvgi"><link rel="canonical" href="http://amazeui.org/widgets/pagination/one/0?_ver=2.x"/><script src="../../../../assets/js/jquery.min.js?v=i88dzvgi"></script><script src="../../../../assets/js/handlebars.min.js?v=i88dzvgi"></script><script src="../../../../assets/js/amazeui.min.js?v=i88dzvgi"></script></head><body><div class="page pg-demo"><header class="demo-bar"><a href="../../../../widgets/m" class="am-icon-home demo-icon-home"></a><h1>Amaze UI</h1></header><div id="demo-view" data-backend-compiled><ul data-am-widget="pagination" class="am-pagination am-pagination-one"><li class="am-pagination-prev"><a href="#" class="">上一页</a></li><li class="am-pagination-select"><select><option value="#" class="">1</option><option value="#" class="">2</option><option value="#" class="">3</option></select></li><li class="am-pagination-next"><a href="#" class="">下一页</a></li></ul></div><ul class="am-pagination"><li class="am-pagination-prev"><a href="../../../../widgets/pagination/select/0">&laquo; Prev</a></li><li class="am-pagination-next"><a href="../../../../widgets/paragraph/default/0">Next &raquo;</a></li></ul><div class="ds-thread" id="ds-thread" data-thread-key="f270f9a3bb824c330f9ec23ec6a95b88" data-title="分页 - one（简约风格） | Amaze UI"></div><script type="text/javascript">var duoshuoQuery={short_name:"amui"};!function(){var e=document.createElement("script");e.type="text/javascript",e.async=!0,e.src="http://static.duoshuo.com/embed.js",e.charset="UTF-8",(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(e)}();</script></div><script type="text/x-handlebars-template" id="demo-template">{{#this}}
+  <ul data-am-widget="pagination"
+      class="am-pagination {{#if theme}}am-pagination-{{theme}}{{else}}am-pagination-default{{/if}}{{#if widgetId}} {{widgetId}}{{/if}}{{#if className}} {{className}}{{/if}}"
+      {{#if id}}id="{{id}}"{{/if}}>
+
+    {{#if content.firstTitle}}
+      <li class="am-pagination-first {{content.firstClassName}}">
+        <a href="{{content.firstLink}}" class="{{content.firstClassName}}">{{{content.firstTitle}}}</a>
+      </li>
+    {{/if}}
+
+    {{#if content.prevTitle}}
+      <li class="am-pagination-prev {{content.prevClassName}}">
+        <a href="{{content.prevLink}}" class="{{content.prevClassName}}">{{{content.prevTitle}}}</a>
+      </li>
+    {{/if}}
+
+    {{! 移除 options.select，根据主题来判断结构，无奈 handlebars 逻辑处理...}}
+
+    {{#if content.page}}
+      {{#ifCond theme '==' 'select'}}
+        <li class="am-pagination-select">
+          <select>
+            {{#each content.page}}
+              <option value="{{link}}" class="{{className}}">{{title}}{{#if ../content.total}}
+                / {{../../content.total}}{{/if}}
+              </option>
+            {{/each}}
+          </select>
+        </li>
+      {{else}}
+        {{#ifCond theme '==' 'one'}}
+          <li class="am-pagination-select">
+            <select>
+              {{#each content.page}}
+                {{content.total}}
+                <option value="{{link}}" class="{{className}}">{{title}}{{#if ../content.total}}
+                  / {{../../content.total}}{{/if}}
+                </option>
+              {{/each}}
+            </select>
+          </li>
+        {{else}}
+          {{#each content.page}}
+            <li class="{{className}}">
+              <a href="{{link}}" class="{{className}}">{{{title}}}</a>
+            </li>
+          {{/each}}
+        {{/ifCond}}
+      {{/ifCond}}
+
+    {{/if}}
+
+    {{#if content.nextTitle}}
+      <li class="am-pagination-next {{content.nextClassName}}">
+        <a href="{{content.nextLink}}" class="{{content.nextClassName}}">{{{content.nextTitle}}}</a>
+      </li>
+    {{/if}}
+
+    {{#if content.lastTitle}}
+      <li class="am-pagination-last {{content.lastClassName}}">
+        <a href="{{content.lastLink}}" class="{{content.lastClassName}}">{{{content.lastTitle}}}</a>
+      </li>
+    {{/if}}
+  </ul>
+{{/this}}</script><script type="text/template" id="demo-data">{"content":{"prevTitle":"上一页","prevLink":"#","nextTitle":"下一页","nextLink":"#","page":[{"title":"1","link":"#"},{"title":"2","link":"#","class":"active"},{"title":"3","link":"#"}]},"theme":"one"}</script><script type="text/javascript">!function(e){e(function(){function i(i){if(!l){var o="";e.isArray(t)?e.each(t,function(e,i){o+="<h2 class='demo-title'>"+i.title+"</h2>",o+=n(i.data),o+="<hr>"}):(o+=i?i:"",o+=n(t)),a.html(o)}}var t={content:{prevTitle:"上一页",prevLink:"#",nextTitle:"下一页",nextLink:"#",page:[{title:"1",link:"#"},{title:"2",link:"#","class":"active"},{title:"3",link:"#"}]},theme:"one"},n=Handlebars.compile(e("#demo-template").html()),a=e("#demo-view"),l=a.is("[data-backend-compiled]");i(),window.seajs&&seajs.use(["pagination"],function(e){!l&&e.init&&e.init()})})}(window.jQuery||window.Zepto);</script></body></html><!-- Cached page generated on Wed Apr 08 2015 15:00:50 GMT+0800 (CST) -->

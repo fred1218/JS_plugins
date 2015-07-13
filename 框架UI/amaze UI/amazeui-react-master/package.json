@@ -1,0 +1,92 @@
+{
+  "name": "amazeui-react",
+  "title": "Amaze UI React",
+  "version": "1.0.0-beta1",
+  "description": "Amaze UI components build with React.",
+  "main": "lib/AMUIReact.js",
+  "scripts": {
+    "test": "node ./node_modules/.bin/jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/amazeui/amazeui-react"
+  },
+  "keywords": [
+    "react",
+    "react-component",
+    "amazeui",
+    "react.js",
+    "amazeui",
+    "amazeui-react",
+    "react-amazeui",
+    "web-components"
+  ],
+  "author": "AllMobilize, Inc.",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/amazeui/amazeui-react/issues"
+  },
+  "homepage": "https://github.com/amazeui/amazeui-react",
+  "dependencies": {
+    "classnames": "^1.2.0",
+    "fecha": "^0.2.1",
+    "object-assign": "^2.0.0",
+    "object.omit": "^1.1.0",
+    "react": "^0.13.3"
+  },
+  "devDependencies": {
+    "amazeui": "^2.4.0",
+    "brfs": "^1.4.0",
+    "browser-sync": "^2.6.4",
+    "browserify": "^10.2.1",
+    "browserify-derequire": "^0.9.4",
+    "browserify-shim": "^3.8.7",
+    "bundle-collapser": "^1.2.0",
+    "codemirror": "^5.2.0",
+    "del": "^1.1.1",
+    "envify": "^3.4.0",
+    "eslint": "^0.19.0",
+    "eslint-plugin-react": "^2.1.1",
+    "gulp": "^3.8.11",
+    "gulp-autoprefixer": "^2.3.0",
+    "gulp-csso": "^1.0.0",
+    "gulp-git": "^1.2.4",
+    "gulp-header": "^1.2.2",
+    "gulp-if": "^1.2.5",
+    "gulp-less": "^3.0.2",
+    "gulp-load-plugins": "^0.10.0",
+    "gulp-qndn": "0.0.3",
+    "gulp-react": "^3.0.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-replace": "^0.5.3",
+    "gulp-size": "^1.2.1",
+    "gulp-uglify": "^1.2.0",
+    "gulp-util": "^3.0.4",
+    "gulp-zip": "^3.0.2",
+    "jest-cli": "^0.4.5",
+    "less": "^2.5.1",
+    "markedify": "0.0.1",
+    "react-router": "^0.13.2",
+    "reactify": "^1.1.0",
+    "run-sequence": "^1.0.2",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.2.1"
+  },
+  "browserify-shim": {
+    "react": "global:React"
+  },
+  "jest": {
+    "rootDir": "./src",
+    "scriptPreprocessor": "../preprocessor.js",
+    "moduleFileExtensions": [
+      "js"
+    ],
+    "testFileExtensions": [
+      "js"
+    ],
+    "unmockedModulePathPatterns": [
+      "react"
+    ]
+  }
+}

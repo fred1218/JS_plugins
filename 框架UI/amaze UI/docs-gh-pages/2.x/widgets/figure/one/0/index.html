@@ -1,0 +1,37 @@
+<!doctype html><!--[if lte IE 9]><html class="lte9 no-js demo"><![endif]--><!--[if gt IE 9]><!--><html class="no-js demo"><!--<![endif]--><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Cache-Control" content="no-siteapp"/><meta name="renderer" content="webkit"><title>单张图片 - one（简约风格） | Amaze UI</title><meta name="description" content=""><link rel="alternate icon" type="image/png" href="../../../../assets/i/favicon.png"><link rel="apple-touch-icon-precomposed" href="../../../../assets/i/app-icon72x72@2x.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="stylesheet" href="../../../../assets/css/amazeui.min.css?v=i88dzttm"><link rel="stylesheet" href="../../../../assets/css/amaze.min.css?v=i88dzttm"><link rel="canonical" href="http://amazeui.org/widgets/figure/one/0?_ver=2.x"/><script src="../../../../assets/js/jquery.min.js?v=i88dzttm"></script><script src="../../../../assets/js/handlebars.min.js?v=i88dzttm"></script><script src="../../../../assets/js/amazeui.min.js?v=i88dzttm"></script></head><body><div class="page pg-demo"><header class="demo-bar"><a href="../../../../widgets/m" class="am-icon-home demo-icon-home"></a><h1>Amaze UI</h1></header><div id="demo-view" data-backend-compiled><figure data-am-widget="figure" class="am am-figure am-figure-one" data-am-figure="{  pureview: 'auto' }"><img src="http://amui.qiniudn.com/pure-1.jpg?imageView2/0/w/640" data-rel="http://amui.qiniudn.com/pure-1.jpg" alt="春天的花开秋天的风以及冬天的落阳"/><figcaption class="am-figure-capition-btm">春天的花开秋天的风以及冬天的落阳</figcaption></figure></div><ul class="am-pagination"><li class="am-pagination-prev"><a href="../../../../widgets/figure/default/0">&laquo; Prev</a></li><li class="am-pagination-next"><a href="../../../../widgets/footer/default/0">Next &raquo;</a></li></ul><div class="ds-thread" id="ds-thread" data-thread-key="93026b78e6eb79a5f995723accaf2bf0" data-title="单张图片 - one（简约风格） | Amaze UI"></div><script type="text/javascript">var duoshuoQuery={short_name:"amui"};!function(){var e=document.createElement("script");e.type="text/javascript",e.async=!0,e.src="http://static.duoshuo.com/embed.js",e.charset="UTF-8",(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(e)}();</script></div><script type="text/x-handlebars-template" id="demo-template">{{#this}}
+  <figure data-am-widget="figure" class="am am-figure {{#if theme}}am-figure-{{theme}}{{else}}am-figure-default{{/if}} {{#if widgetId}} {{widgetId}}{{/if}}{{#if className}} {{className}}{{/if}}" {{#if id}}
+      id="{{id}}"{{/if}}  data-am-figure="{ {{#if options.zoomAble}} pureview: '{{options.zoomAble}}'{{/if}} }">
+    {{#if content.link}}<a href="{{content.link}}" title="{{content.figcaption}}" class="{{className}}">{{/if}}
+
+    {{#if options.figcaptionPosition}}
+      {{#ifCond options.figcaptionPosition '==' 'top'}}
+        {{#if content.figcaption}}
+          <figcaption class="am-figure-capition-top">
+            {{content.figcaption}}
+          </figcaption>
+        {{/if}}
+      {{/ifCond}}
+    {{/if}}
+
+    {{#if content.img}}
+      <img src="{{content.img}}" {{#if content.rel}}data-rel="{{content.rel}}"{{/if}} alt="{{#if content.imgAlt}}{{content.imgAlt}}{{else}}{{content.figcaption}}{{/if}}"/>
+    {{/if}}
+    {{#if options.figcaptionPosition}}
+      {{#ifCond options.figcaptionPosition '==' 'bottom'}}
+        {{#if content.figcaption}}
+          <figcaption class="am-figure-capition-btm">
+            {{content.figcaption}}
+          </figcaption>
+        {{/if}}
+      {{/ifCond}}
+    {{else}}
+      {{#if content.figcaption}}
+        <figcaption class="am-figure-capition-btm">
+          {{content.figcaption}}
+        </figcaption>
+      {{/if}}
+    {{/if}}
+
+    {{#if content.link}}</a>{{/if}}
+  </figure>
+{{/this}}</script><script type="text/template" id="demo-data">{"options":{"figcaptionPosition":"bottom","zoomAble":"auto"},"content":{"img":"http://amui.qiniudn.com/pure-1.jpg?imageView2/0/w/640","rel":"http://amui.qiniudn.com/pure-1.jpg","figcaption":"春天的花开秋天的风以及冬天的落阳"},"theme":"one"}</script><script type="text/javascript">!function(i){i(function(){function t(t){if(!a){var m="";i.isArray(e)?i.each(e,function(i,t){m+="<h2 class='demo-title'>"+t.title+"</h2>",m+=o(t.data),m+="<hr>"}):(m+=t?t:"",m+=o(e)),n.html(m)}}var e={options:{figcaptionPosition:"bottom",zoomAble:"auto"},content:{img:"http://amui.qiniudn.com/pure-1.jpg?imageView2/0/w/640",rel:"http://amui.qiniudn.com/pure-1.jpg",figcaption:"春天的花开秋天的风以及冬天的落阳"},theme:"one"},o=Handlebars.compile(i("#demo-template").html()),n=i("#demo-view"),a=n.is("[data-backend-compiled]");t(),window.seajs&&seajs.use(["figure"],function(i){!a&&i.init&&i.init()})})}(window.jQuery||window.Zepto);</script></body></html><!-- Cached page generated on Wed Apr 08 2015 15:00:48 GMT+0800 (CST) -->
