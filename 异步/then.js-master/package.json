@@ -1,0 +1,52 @@
+{
+  "name": "thenjs",
+  "main": "then.js",
+  "version": "2.0.0",
+  "description": "The fastest, smallest, fully compatible, full-featured asynchronous module!",
+  "authors": [
+    "Yan Qing <admin@zensh.com>"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/teambition/then.js"
+  },
+  "homepage": "https://github.com/teambition/then.js",
+  "keywords": [
+    "promise",
+    "then",
+    "async",
+    "then.js",
+    "thenjs"
+  ],
+  "tags": [
+    "promise",
+    "then",
+    "async",
+    "then.js",
+    "thenjs"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-mocha": "^2.1.1",
+    "jsbench": ">=0.5.x",
+    "async": ">=1.2.1",
+    "bluebird": ">=2.9.30",
+    "co": ">=4.5.4",
+    "rsvp": ">=3.0.18",
+    "when": ">=3.7.3",
+    "thunks": ">=3.4.2",
+    "standard": "^4.3.1"
+  },
+  "scripts": {
+    "test": "standard && gulp test"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "benchmark",
+    "test",
+    "examples",
+    "Gruntfile.js"
+  ]
+}
