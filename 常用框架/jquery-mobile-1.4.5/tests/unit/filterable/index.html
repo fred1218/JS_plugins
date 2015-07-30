@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>jQuery Mobile Filter Integration Test</title>
+
+	<script src="../../../external/requirejs/require.js"></script>
+	<script src="../../../js/requirejs.config.js"></script>
+	<script src="../../../js/jquery.tag.inserter.js"></script>
+	<script src="../../jquery.setNameSpace.js"></script>
+	<script src="../../jquery.testHelper.js"></script>
+	<script src="../../../external/qunit/qunit.js"></script>
+	<script>
+		$.testHelper.asyncLoad([
+			[ "widgets/page" ],
+			[
+				"jquery.mobile.navigation",
+				"widgets/listview",
+				"widgets/filterable",
+				"widgets/filterable.backcompat",
+				"widgets/listview.autodividers",
+				"widgets/toolbar",
+				"widgets/collapsible",
+				"widgets/forms/button",
+				"widgets/controlgroup",
+				"widgets/forms/select",
+				"widgets/forms/textinput",
+				"jquery.mobile.buttonMarkup",
+				"widgets/forms/checkboxradio"
+			],
+			[ "jquery.mobile.init" ],
+			[ "filterable_core.js" ]
+		]);
+	</script>
+
+	<link rel="stylesheet" href="../../../css/themes/default/jquery.mobile.css" />
+	<link rel="stylesheet" href="../../../external/qunit/qunit.css"/>
+	<link rel="stylesheet" href="../../jqm-tests.css"/>
+
+	<script src="../../swarminject.js"></script>
+
+</head>
+<body>
+
+	<div id="qunit"></div>
+
+	<div data-nstest-role="page">
+		<div id="content" class="ui-content">
+			<div id="hidedividers-option-test" data-nstest-role="listview" data-nstest-filter="true">
+			</div>
+			<form id="test-input-preventDefault-form">
+				<input id="test-input-preventDefault">
+			</form>
+			<ul data-nstest-filter="true" id="test-input-preventDefault-list" data-nstest-input="#test-input-preventDefault">
+				<li>Alabama</li>
+				<li>California</li>
+				<li>Oregon</li>
+			</ul>
+			<form id="test-filter-reveal-show-all-form">
+				<input id="test-filter-reveal-show-all-input">
+			</form>
+			<ul data-nstest-filter="true" data-nstest-filter-reveal="true" id="test-filter-reveal-show-all-list" data-nstest-input="#test-filter-reveal-show-all-input">
+				<li>Test 1</li>
+				<li>Test 2</li>
+				<li>Test 3</li>
+			</ul>
+
+			<ul id="listview-refresh-refreshes-filterable" data-nstest-filter="true" data-nstest-filter-reveal="true" data-nstest-role="listview">
+				<li>Item 1</li>
+				<li>Item 2</li>
+			</ul>
+			<form class="ui-filterable">
+				<input id="hide-empty-dividers-input" data-nstest-type="search">
+			</form>
+			<ul id="hide-empty-dividers" data-nstest-role="listview" data-nstest-filter="true" data-nstest-input="#hide-empty-dividers-input" data-nstest-autodividers="true" data-nstest-inset="true">
+				<li><a href="#">Adele</a></li>
+				<li><a href="#">Agnes</a></li>
+				<li><a href="#">Albert</a></li>
+				<li><a href="#">Billy</a></li>
+				<li><a href="#">Bob</a></li>
+				<li><a href="#">Calvin</a></li>
+				<li><a href="#">Cameron</a></li>
+				<li><a href="#">Chloe</a></li>
+				<li><a href="#">Christina</a></li>
+				<li id="prev-is-hidden"><a href="#">Diana</a></li>
+				<li><a href="#">Gabriel</a></li>
+				<li><a href="#">Glen</a></li>
+				<li><a href="#">Ralph</a></li>
+				<li><a href="#">Valarie</a></li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>
