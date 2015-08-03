@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script src="countUp.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<h1 class="jumbo" id="myTargetElement">1890</h1>
+		<script type="text/javascript">
+			var options = {  
+				useEasing: true,
+				  useGrouping: true,
+				  separator: ',',
+				  decimal: '.',
+				  prefix: '',
+				  suffix: ''
+			};
+			var demo = new countUp("myTargetElement", 0, 1890990, 0, 2, options);
+			demo.start();
+		</script>
+
+	</body>
+
+</html>
