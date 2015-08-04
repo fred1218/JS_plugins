@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Single cell mode</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<link rel="stylesheet" type="text/css" href="../../../codebase/dhtmlx.css"/>
+	<script src="../../../codebase/dhtmlx.js"></script>
+	<style>
+		div#sidebarObj {
+			position: relative;
+			margin-left: 10px;
+			margin-top: 10px;
+			width: 600px;
+			height: 450px;
+		}
+	</style>
+	<script>
+		var mySidebar, myGrid;
+		function doOnLoad() {
+			mySidebar = new dhtmlXSideBar({
+				parent: "sidebarObj",
+				icons_path: "../common/win_16x16/",
+				single_cell: true,
+				width: 160,
+				items: [
+					{id: "inbox", text: "Inbox", icon: "recent.png", bubble: 3},
+					{id: "drafts", text: "Drafts", icon: "downloads.png"},
+					{id: "sent", text: "Sent", icon: "desktop.png"},
+					{id: "trash", text: "Trash", icon: "music.png"}
+				]
+			});
+			mySidebar.attachEvent("onSelect", function(id){
+				if (myGrid == null) {
+					myGrid = mySidebar.cells("inbox").attachGrid();
+					myGrid.setImagePath("../../../codebase/imgs/");
+				}
+				myGrid.loadXML("../common/grid_"+id+".xml");
+			});
+			mySidebar.cells("inbox").setActive(true);
+		}
+	</script>
+</head>
+<body onload="doOnLoad();">
+	<div id="sidebarObj"></div>
+</body>
+</html>

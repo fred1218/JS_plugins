@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>onContentLoaded event</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<link rel="stylesheet" type="text/css" href="../../../codebase/dhtmlx.css"/>
+	<script src="../../../codebase/dhtmlx.js"></script>
+	<style>
+		div#sidebarObj {
+			position: relative;
+			margin-left: 10px;
+			margin-top: 10px;
+			width: 600px;
+			height: 450px;
+		}
+		div#eLog {
+			position: relative;
+			width: 500px;
+			height: 180px;
+			padding: 2px;
+			border: 1px solid #cbdae6;
+			font-size: 11px;
+			font-family: Tahoma;
+			margin-left: 10px;
+			margin-top: 50px;
+			overflow: auto;
+		}
+	</style>
+	<script>
+		var mySidebar;
+		var eLog;
+		var eCount = 0;
+		function doOnLoad() {
+			mySidebar = new dhtmlXSideBar({
+				parent: "sidebarObj",
+				icons_path: "../common/win_16x16/",
+				width: 160,
+				json: "../common/sidebar.json",
+				onload: function() {
+					mySidebar.cells("recent").attachURL("../common/test_page_1.html");
+					mySidebar.cells("desktop").attachURL("../common/test_page_2.html", true);
+					mySidebar.cells("downloads").attachURL("../common/test_page_3.html", true, {param:"value"});
+				}
+			});
+			mySidebar.attachEvent("onContentLoaded", function(id){
+				logEvent("onContentLoaded", id);
+			});
+			eLog = document.getElementById("eLog");
+		}
+		function logEvent(name, itemId) {
+			eLog.innerHTML = (++eCount)+") event fired: "+name+", itemId: "+itemId+"<br>"+eLog.innerHTML;
+			eLog.scrollTop = 0;
+		}
+	</script>
+</head>
+<body onload="doOnLoad();">
+	<div id="sidebarObj"></div>
+	<div id="eLog"></div>
+</body>
+</html>

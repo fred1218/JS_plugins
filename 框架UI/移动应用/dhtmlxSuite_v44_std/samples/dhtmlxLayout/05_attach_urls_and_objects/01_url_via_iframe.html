@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Attach url via iframe</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<link rel="stylesheet" type="text/css" href="../../../codebase/dhtmlx.css"/>
+	<script src="../../../codebase/dhtmlx.js"></script>
+	<style>
+		div#layoutObj {
+			position: relative;
+			margin-top: 20px;
+			margin-left: 20px;
+			width: 600px;
+			height: 400px;
+		}
+	</style>
+	<script>
+		var myLayout;
+		function doOnLoad() {
+			myLayout = new dhtmlXLayoutObject({
+				parent: "layoutObj",
+				pattern: "3L"
+			});
+			
+			// iframe, get
+			myLayout.cells("a").setText("iframe, get");
+			myLayout.cells("a").attachURL("../common/test_page_1.html");
+			// iframe, post without params
+			myLayout.cells("b").setText("iframe, post without params");
+			myLayout.cells("b").attachURL("../common/test_page_2.html", false, true);
+			// iframe, post with params
+			myLayout.cells("c").setText("iframe, post with params");
+			myLayout.cells("c").attachURL("../common/test_page_3.html", false, {name:"Masuka Kashimoto",age:"30",sex:"Male"});
+		}
+		
+		function doOnUnload() {
+			if (myLayout != null && myLayout.unload != null) {
+				myLayout.unload();
+				myLayout = null;
+			}
+		}
+		
+	</script>
+</head>
+<body onload="doOnLoad();" onunload="doOnUnload();">
+	<div id="layoutObj"></div>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cells progress control</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<link rel="stylesheet" type="text/css" href="../../../codebase/dhtmlx.css"/>
+	<script src="../../../codebase/dhtmlx.js"></script>
+	<style>
+		div#layoutObj {
+			position: relative;
+			margin-top: 20px;
+			margin-left: 20px;
+			width: 600px;
+			height: 400px;
+		}
+	</style>
+	<script>
+		var myLayout;
+		var sel;
+		function doOnLoad() {
+			myLayout = new dhtmlXLayoutObject({
+				parent: "layoutObj",
+				pattern: "3L"
+			});
+			myLayout.cells("a").attachObject("objId");
+			sel = document.getElementById("sel");
+			myLayout.forEachItem(function(item){sel.options.add(new Option(item.getId(),item.getId()));});
+		}
+		function getId() {
+			var sel = document.getElementById("sel");
+			var id = sel.options[sel.selectedIndex].value;
+			return id;
+		}
+		function progressOn(fullLayout) {
+			if (fullLayout) {
+				myLayout.progressOn();
+			} else {
+				myLayout.cells(getId()).progressOn();
+			}
+		}
+		function progressOff(fullLayout) {
+			if (fullLayout) {
+				myLayout.progressOff();
+			} else {
+				myLayout.cells(getId()).progressOff();
+			}
+		}
+	</script>
+</head>
+<body onload="doOnLoad();">
+	<div id="layoutObj"></div>
+	<div style="position: relative; margin-top: 40px; margin-left: 20px;">
+		<table>
+			<tr>
+				<td>Cell&nbsp;&nbsp;<select id="sel"></select>&nbsp;</td>
+				<td><input type="button" value="Progress On" onclick="progressOn(false);">&nbsp;<input type="button" value="Progress Off" onclick="progressOff(false);"></td>
+			</tr>
+			<tr>
+				<td>Full Layout</td>
+				<td><input type="button" value="Progress On" onclick="progressOn(true);">&nbsp;<input type="button" value="Progress Off" onclick="progressOff(true);"></td>
+			</tr>
+		</table>
+	</div>
+	<div id="objId" style="width: 100%; height: 100%; overflow: auto; display: none; font-family: Tahoma; font-size: 11px;">
+		<div style="margin: 3px 5px 3px 5px;">
+		King Arthur is a 2004 film directed by Antoine Fuqua and written by David Franzoni. It stars Clive Owen as the title character.
+		<br><br>
+		The makers of the film claim to present a historically accurate version[1] of the Arthurian legends, supposedly inspired by new archaeological findings. The accuracy of these claims is subject to debate, but the film is unusual in representing Arthur as a Roman soldier rather than a medieval knight.
+		<br><br>
+		Arthur, also known as Artorius Castus (Clive Owen), is portrayed as a Roman cavalry officer and commander, the son of a Roman father and a Celtic mother, who leads a military force of Sarmatian cavalry in Britain at the close of the Roman occupation in 467 A.D. He and his men guard Hadrian's Wall against the Woads, a Celtic people who resist Roman rule, based on the historical Picts,[2] led by their mysterious leader Merlin. He is not the first Arthur - over the years, many of his ancestors have manned the Wall, leading Sarmatian auxiliaries.
+		<br><br>
+		As the film starts, Arthur and his remaining men Lancelot (whose voiceover is heard at the beginning and end), Bors, Tristan, Gawain, Galahad and Dagonet - are expecting discharge from the service of the Empire after faithfully serving for 15 years (Lancelot's entry into service as a youth in 452 A.D. is depicted at the very beginning of the film). However, they are dispatched on a final and possibly suicidal mission by Bishop Germanius of Auxerre in the freezing winter to rescue an important Roman family, which includes the Pope's godson, from impending capture by the invading Saxons, who are led by their chief Cerdic and his son Cynric. The knights are charged with this rescue because Rome is retiring from Britain, now considered an indefensible outpost.
+		<br><br>
+		In the course of this mission, Arthur encounters and rescues a Woad princess, Guinevere (Keira Knightley), from the imprisonment and torture by the Roman citizen he is charged with rescuing. Guinevere reveals that she is the daughter of Merlin, and Arthur himself is revealed to be half Celt (on his mother's side). His famous sword, Excalibur, is also shown to be his father's, which he drew from the tombstone on Pendragon's burial mound as a boy (inspiring the legend of the Sword in the Stone) in an effort to rescue his mother who died during a Woad attack.
+		<br><br>
+		The Roman family is rescued, but the party soon encounter the Saxons at an ice-covered lake. Though greatly outnumbered, Arthur, Guinevere and the knights manage to repel them (by getting the ice to break, drowning many) at the cost of Dagonet's life.
+		<br><br>
+		Struck by Rome leaving its subjects to the mercy of the Saxons, Arthur is further disillusioned when he learns that Bishop Pelagius, whose teachings about the equality of all men inspired the brotherhood of his Round Table � has been executed as a heretic by order of Bishop Germanius himself.
+		<br><br>
+		In due course, Arthur and his remaining men forsake Roman citizenship and form an alliance with the Woads to fight the Saxons. In the climactic battle, the Battle of Badon Hill, the Saxons are defeated and Cerdic and his son are killed � at the cost of many lives, including Lancelot's and Tristan's.
+		<br><br>
+		The film ends with Arthur and Guinevere's marriage. Merlin then proclaims him to be their king. King Arthur and his remaining knights promise to lead the Britons, now united after the Romans leave, against future invaders. The last scene shows Lancelot, Dagonet and Tristan roaming the lands freely as reincarnated horses as told in a legend by Lancelot's father.
+		</div>
+	</div>
+</body>
+</html>

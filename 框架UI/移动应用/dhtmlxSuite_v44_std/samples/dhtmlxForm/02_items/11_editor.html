@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>dhtmlxEditor</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<link rel="stylesheet" type="text/css" href="../../../codebase/dhtmlx.css"/>
+	<script src="../../../codebase/dhtmlx.js"></script>
+	<script>
+		var myForm, formData;
+		function doOnLoad() {
+			formData = [
+				{type: "settings", labelWidth: 90},
+				{type: "editor", label: "Band", inputWidth: 400, inputHeight: 80, value: "Motorhead"},
+				{type: "editor", label: "Title", inputWidth: 400, inputHeight: 80, value: "Smiling Like A Killer"},
+				{type: "editor", label: "Lyrics", inputWidth: 400, inputHeight: 230, value: "I'm the one you never see, in the dead of night,<br>Peeking in your window, staying out of sight,<br>GO to bed, lock the door, don't look in the mirror,<br>What if I was right behind you,<br>Smiling Like A Killer,<br><br>I'm the knocking at your door, when you're all alone,<br>I'm the scratching zombie claw, in your twilight zone,<br>Cut your throat, catch your breath, blood run like a river,<br>Last thing you see before your death,<br>Smiling Like A Killer"}
+			];
+			myForm = new dhtmlXForm("myForm", formData);
+		}
+	</script>
+</head>
+<body onload="doOnLoad();">
+	<div id="myForm" style="height:450px;"></div>
+</body>
+</html>

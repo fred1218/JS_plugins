@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>dhxEditor events</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<link rel="stylesheet" type="text/css" href="../../../codebase/dhtmlx.css"/>
+	<script src="../../../codebase/dhtmlx.js"></script>
+	<style>
+		div#simpleLog {
+			width: 500px;
+			height: 200px;
+			font-family: Tahoma;
+			font-size: 11px;
+			overflow: auto;
+		}
+	</style>
+	<script>
+		var myForm, formData, logObj;
+		function doOnLoad() {
+			formData = [
+				{type: "settings", labelWidth: 90},
+				{type: "editor", name: "band", label: "Band", inputWidth: 400, inputHeight: 60, value: "Motorhead"},
+				{type: "editor", name: "title", label: "Title", inputWidth: 400, inputHeight: 60, value: "Smiling Like A Killer"},
+				{type: "editor", name: "lyrics", label: "Lyrics", inputWidth: 400, inputHeight: 220, value: "I'm the one you never see, in the dead of night,<br>Peeking in your window, staying out of sight,<br>GO to bed, lock the door, don't look in the mirror,<br>What if I was right behind you,<br>Smiling Like A Killer,<br><br>I'm the knocking at your door, when you're all alone,<br>I'm the scratching zombie claw, in your twilight zone,<br>Cut your throat, catch your breath, blood run like a river,<br>Last thing you see before your death,<br>Smiling Like A Killer"}
+			];
+			myForm = new dhtmlXForm("myForm", formData);
+			// some editor events
+			myForm.attachEvent("onEditorAccess", function(name, type, ev, editor, form){
+				// ev - event object
+				// editor - editor instance
+				// form - form instance
+				logEvent("onEditorAccess, item name '"+name+"', access type '"+type+"'</span><br>");
+			});
+			myForm.attachEvent("onEditorToolbarClick", function(name, toolbar_id, editor, form){
+				// for extended editor init
+			});
+		}
+		function logEvent(t) {
+			if (!logObj) logObj = document.getElementById("simpleLog");
+			logObj.innerHTML += t;
+		}
+		function clearLog() {
+			if (!logObj) logObj = document.getElementById("simpleLog");
+			logObj.innerHTML = "";
+		}
+	</script>
+</head>
+<body onload="doOnLoad();">
+	<table>
+		<tr><td><div id="myForm"></div></td></tr>
+		<tr><td><b>Log (<a href="javascript:void(0);" onclick="clearLog();">clear</a>)</b></td></tr>
+		<tr><td><div id="simpleLog"></div></td></tr>
+	</table>
+</body>
+</html>

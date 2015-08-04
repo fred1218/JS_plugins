@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Attach menu/ribbon/status together</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<link rel="stylesheet" type="text/css" href="../../../codebase/dhtmlx.css"/>
+	<script src="../../../codebase/dhtmlx.js"></script>
+	<style>
+		div#layoutObj {
+			position: relative;
+			margin-top: 20px;
+			margin-left: 20px;
+			width: 600px;
+			height: 400px;
+		}
+	</style>
+	<script>
+		var myLayout, myMenu, myRibbon, sbObj, myGrid;
+		function doOnLoad() {
+			myLayout = new dhtmlXLayoutObject({
+				parent: "layoutObj",
+				pattern: "3L"
+			});
+			
+			myMenu = myLayout.attachMenu({
+				icons_path: "../../dhtmlxMenu/common/imgs/",
+				xml: "../../dhtmlxMenu/common/dhxmenu.xml"
+			});
+			myRibbon = myLayout.attachRibbon({
+				icons_path: "../../dhtmlxRibbon/common/",
+				json: "../../dhtmlxRibbon/common/data_attached.json",
+				onload: function() {
+					myLayout.cells("c").setHeight(111);
+				}
+			});
+			
+			sbObj = myLayout.attachStatusBar({text:"Status bar text here"});
+			
+			//
+			myGrid = myLayout.cells("a").attachGrid();
+			myGrid.setImagePath("../../../codebase/imgs/");
+			myGrid.loadXML("../common/grid.xml");
+			
+		}
+	</script>
+</head>
+<body onload="doOnLoad();">
+	<div id="layoutObj"></div>
+</body>
+</html>

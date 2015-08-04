@@ -1,0 +1,76 @@
+joDoc
+=====
+
+joDoc is a plain text code documentation scheme for JavaScript. It was created out of
+frustration felt working with various documentation systems available.
+
+Source code formatting
+----------------------
+
+	/**
+		myClass
+		=======
+		
+		This is my class. It rocks, and this is its _description_, which also
+		rocks.
+		
+		Extends
+		-------
+		- someOtherClass
+		
+		Methods
+		-------
+		- setName(name)
+		  Where `name` is a `String`.
+		
+		Use
+		---
+			// here is some sample code which shows how to use this class
+			var x = new myClass(name);
+		
+		> Note: use of the `name` reserved word is probaly a bad idea.
+	*/
+
+Comment placement
+-----------------
+
+You can put your comments for your code either:
+
+1. in your source code (anywhere and in as many pieces as you want) denoted with
+   `/**  ... */` multiline-comment blocks
+
+2. separate markdown (`*.mdown`) files, probably (tho not necessarily) named to
+   match your JavaScript files
+
+Can't get much more flexible than that.
+
+Comparison
+----------
+
+JavaScript is an extremely expressive language which is often difficult to describe in
+terms of meta data and fields. Often, important information that needs to be documented
+just doesn't fit into a neat, tidy spot.
+
+### jsdoc
+
+jsdoc in its various incarnations and some of its spawn like yuidoc take the approach
+that "what is good for Java is good for JavaScript". All these flavors are based on
+javadoc formatting, and have been in use for some time.
+
+Aside from the regimented markup being a bit odd to read (admit it, even Java developers
+don't _love_ it), it suffers from an inflexibility with regard to all the coding
+patterns available with JavaScript. Basically, it fails due for the same reason that all
+JavaScript libraries which attempt to subvert JavaScript's natural object model fail.
+These solutions, while influential in the idea that _some_ form consistent coding
+approach could help us make better code, are not in the spirit of embracing JavaScript.
+
+Why then do so many developers continue to use a _documentation_ tool which was born
+of the same well-meaning yet misguided logic of "let's pretend JavaScript is Java"?
+
+### Natural Docs
+
+Excellent effort, but complex to set up and also tries to make a regimented system for
+documenting source code. It is extendable, but again, we have a documentation solution
+which is trying to force JavaScript into a more limited set of features.
+
+- - -

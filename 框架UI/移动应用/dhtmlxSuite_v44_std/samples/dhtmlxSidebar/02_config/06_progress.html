@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Progress control</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<link rel="stylesheet" type="text/css" href="../../../codebase/dhtmlx.css"/>
+	<script src="../../../codebase/dhtmlx.js"></script>
+	<style>
+		div#sidebarObj {
+			position: relative;
+			margin-left: 10px;
+			margin-top: 10px;
+			width: 600px;
+			height: 450px;
+		}
+		div.demo_links {
+			margin: 25px 9px;
+			font-size: 12px;
+			font-family: Tahoma;
+			color: #333;
+		}
+		div.demo_links a {
+			font: inherit;
+			margin-left: 5px;
+		}
+		div#cell_change_me {
+			font-size: 12px;
+			color: #111;
+			font-size: 12px;
+			font-family: Tahoma;
+			width: 100%;
+			height: 100%;
+			margin: 0px;
+			overflow: auto;
+		}
+	</style>
+	<script>
+		var mySidebar;
+		function doOnLoad() {
+			mySidebar = new dhtmlXSideBar({
+				parent: "sidebarObj",
+				icons_path: "../common/win_16x16/",
+				width: 160,
+				items: [
+					{id: "documents", text: "Documents", icon: "documents.png"},
+					{id: "music", text: "Music", icon: "music.png"},
+					{id: "pictures", text: "Pictures", icon: "pictures.png"},
+					{id: "video", text: "Video", icon: "video.png"},
+					{type: "separator"},
+					{id: "change_me", text: "Customize me", icon: "recent.png", selected: true}
+				]
+			});
+			mySidebar.items("change_me").attachObject("cell_change_me");
+		}
+		function updateProgress(state) {
+			if (state == true) {
+				mySidebar.cells("change_me").progressOn();
+			} else {
+				mySidebar.cells("change_me").progressOff();
+			}
+		}
+	</script>
+</head>
+<body onload="doOnLoad();">
+	<div id="sidebarObj"></div>
+	<div class="demo_links">
+		Change progress for &lt;Customize me&gt; item
+		<a href="javascript:void(0);" onclick="updateProgress(true);">On</a>
+		<a href="javascript:void(0);" onclick="updateProgress(false);">Off</a>
+	</div>
+	<div id="cell_change_me" style="display: none;">
+		<div style="padding: 10px 8px;">Malmö (Swedish pronunciation: [ˈmalːˈmøː] is the capital and most populous city in Skåne County, and the third largest city in Sweden. Together with Copenhagen, it constitutes the transnational Øresund Region, the most densely populated area in Scandinavia. Malmö is classified as a global city, placed in the gamma- category by the GaWC,[4] ranked 5th in Scandinavia by the Global Cities Index in 2012.[5] It is ranked the fourth-most inventive city in the world based on the number of patent applications per 10,000 residents[6] and the 7th-most bicycle friendly city in the world, according to the Copenhagenize Index in 2013.</div>
+	</div>
+</body>
+</html>

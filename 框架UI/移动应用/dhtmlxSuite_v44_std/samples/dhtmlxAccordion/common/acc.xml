@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<accordion skin="dhx_skyblue" multiMode="false" iconsPath="../common/icons/">
+	<cell id="a1" height="150" icon="flag_red.png">Main Page</cell>
+	<cell id="a2" open="false" height="150" icon="flag_green.png">Site Navigation</cell>
+	<cell id="a3" open="false" icon="flag_blue.png">Support &amp; Feedback</cell>
+	<cell id="a4" open="false" icon="flag_magenta.png">Comments</cell>
+</accordion>

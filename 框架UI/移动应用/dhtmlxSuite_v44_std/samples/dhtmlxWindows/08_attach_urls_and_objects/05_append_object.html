@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Append object</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<link rel="stylesheet" type="text/css" href="../../../codebase/dhtmlx.css"/>
+	<script src="../../../codebase/dhtmlx.js"></script>
+	<style>
+		div#winVP {
+			position: relative;
+			height: 350px;
+			border: #a4bed4 1px solid;
+			border-radius: 2px;
+			margin: 10px;
+		}
+	</style>
+	<script>
+		var dhxWins, w1;
+		function doOnLoad() {
+			dhxWins = new dhtmlXWindows();
+			dhxWins.attachViewportTo("winVP");
+			
+			w1 = dhxWins.createWindow("w1", 420, 65, 320, 200);
+			w1.setText("The Dead Zone");
+			w1.button("close").disable();
+			
+			w1.appendObject("objToAppend1");
+			w1.appendObject("objToAppend2");
+			w1.appendObject("objToAppend3");
+			w1.appendObject("objToAppend4");
+			
+		}
+		
+		function doOnUnload() {
+			if (dhxWins != null && dhxWins.unload != null) {
+				dhxWins.unload();
+				dhxWins = w1 = null;
+			}
+		}
+		
+	</script>
+</head>
+<body onload="doOnLoad();" onunload="doOnUnload();">
+	<div id="winVP">
+		<div style="margin: 10px;">
+			for this mode cell will add scrolls automatically,<br>
+			no needs to specify width/height to attached object
+		</div>
+	</div>
+	<div id="objToAppend1" style="font-family: Tahoma; font-size: 10px; color: red; display: none;">
+		<div style="margin: 5px 8px;">
+			The Dead Zone is a 1983 horror film/Thriller film based on the Stephen King novel of the same name. Directed by David Cronenberg, the film stars Christopher Walken, Tom Skerritt, Herbert Lom, Brooke Adams, and Colleen Dewhurst. The plot revolves around a schoolteacher, Johnny Smith (Walken), who awakens from a coma to find he has psychic powers.
+		</div>
+	</div>
+	<div id="objToAppend2" style="font-family: Tahoma; font-size: 10px; color: green; display: none;">
+		<div style="margin: 5px 8px;">
+			Johnny Smith (Walken) is a young New England schoolteacher in love with his colleague Sarah (Adams) when he is involved in a serious car accident that sends him into a coma. He awakes under the care of neurologist Dr. Weizak (Lom) and counts himself fortunate when he notes no casts, bandages or visible signs of injuries on his body. However, the awakening turns rude when he is told that five years have passed since he last knew consciousness: his girlfriend has long since married and had a child.
+		</div>
+	</div>
+	<div id="objToAppend3" style="font-family: Tahoma; font-size: 10px; color: blue; display: none;">
+		<div style="margin: 5px 8px;">
+			Johnny's transition back to life is made rougher when he discovers that he has the ability to learn a person's secrets (past, present, future) through making physical contact with the person.
+		</div>
+	</div>
+	<div id="objToAppend4" style="font-family: Tahoma; font-size: 10px; color: darkorange; display: none;">
+		<div style="margin: 5px 8px;">
+			After reluctantly using his ability to help a local sheriff (Skerritt) solve a series of brutal rape-murders, Johnny attempts to resume his profession, as a private tutor. However, his ability continues to haunt him, especially when he foresees that a rising local political star, Greg Stillson (Sheen), will someday be elected President of the United States, with disastrous consequences - in John's vision, Stillson starts a nuclear holocaust, presumably destroying all of civilization.
+		</div>
+	</div>
+</body>

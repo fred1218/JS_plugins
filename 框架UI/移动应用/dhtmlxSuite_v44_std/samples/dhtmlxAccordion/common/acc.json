@@ -1,0 +1,11 @@
+{
+	skin: "dhx_skyblue",
+	multi_mode: false,
+	icons_path: "../common/icons/",
+	items: [
+		{id: "a1", height: 150, icon: "flag_red.png", text: "Main Page"},
+		{id: "a2", height: 150, open: false, icon: "flag_green.png", text: "Site Navigation"},
+		{id: "a3", open: false, icon: "flag_blue.png", text: "Support &amp; Feedback"},
+		{id: "a4", open: false, icon: "flag_magenta.png", text: "Comments"}
+	]
+}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Layout-based init</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<link rel="stylesheet" type="text/css" href="../../../codebase/dhtmlx.css"/>
+	<script src="../../../codebase/dhtmlx.js"></script>
+	<script>
+		var myLayout, myAcc;
+		function doOnLoad() {
+			myLayout = new dhtmlXLayoutObject("parentId", "2U");
+			myLayout.cells("a").hideHeader();
+			myAcc = myLayout.cells("a").attachAccordion({
+				icons_path: "../common/icons/",
+				items: [
+					{ id: "a1", text: "Main Page", icon: "flag_red.png" },
+					{ id: "a2", text: "Navigation", icon: "flag_green.png" },
+					{ id: "a3", text: "Feedback", icon: "flag_blue.png" }
+				]
+			});
+		}
+	</script>
+</head>
+<body onload="doOnLoad();">
+	<div id="parentId" style="position: relative; top: 20px; left: 20px; width: 600px; height: 400px; aborder: #B5CDE4 1px solid;"></div>
+</body>
+</html>

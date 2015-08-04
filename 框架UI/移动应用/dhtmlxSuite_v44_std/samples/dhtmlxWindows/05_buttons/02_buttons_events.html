@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Buttons events</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<link rel="stylesheet" type="text/css" href="../../../codebase/dhtmlx.css"/>
+	<script src="../../../codebase/dhtmlx.js"></script>
+	<style>
+		/* logs */
+		div#logsHere {
+			position: relative;
+			height: 100px;
+			border: #cecece 1px solid;
+			margin: 10px;
+			font-size: 11px;
+			font-family: Tahoma;
+			overflow: auto;
+		}
+		div#winVP {
+			position: relative;
+			height: 350px;
+			border: #a4bed4 1px solid;
+			border-radius: 2px;
+			margin: 10px;
+		}
+	</style>
+	<script>
+		var dhxWins
+		var w1;
+		function doOnLoad() {
+			
+			dhxWins = new dhtmlXWindows();
+			dhxWins.attachViewportTo("winVP");
+			
+			w1 = dhxWins.createWindow("w1", 20, 30, 320, 200);
+			w1.attachObject("customObj");
+			w1.setText("Larry Laffer");
+			
+			w1.button("help").show();
+			w1.button("stick").show();
+			
+			dhxWins.window("w1").attachEvent("onHelp", function(){
+				writeLog("'onHelp' event was fired");
+			});
+			
+			w1.button("help").attachEvent("onClick", function(){
+				writeLog("button 'help' was clicked");
+				return true; // allow default action, i.e. "onHelp" event to be fired
+			});
+			w1.button("stick").attachEvent("onClick", function(){
+				writeLog("button 'stick' was clicked, allow stick operation");
+				return true; // allow default action
+			});
+			w1.button("park").attachEvent("onClick", function(){
+				writeLog("button 'park' was clicked, deny default operation");
+				return false; // deny default action
+			});
+			w1.button("minmax").attachEvent("onClick", function(){
+				writeLog("button 'minmax' was clicked, allow min/max operation");
+				return true; // allow default action
+			});
+			w1.button("close").attachEvent("onClick", function(){
+				writeLog("button 'close' was clicked, do not allow window to be closed");
+				return false; // deny default action
+			});
+		}
+		function writeLog(text) {
+			document.getElementById("logsHere").innerHTML += "<br>"+text;
+			document.getElementById("logsHere").scrollTop = document.getElementById("logsHere").scrollHeight;
+		}
+		function doOnUnload() {
+			if (dhxWins != null && dhxWins.unload != null) {
+				dhxWins.unload();
+				dhxWins = w1 = null;
+			}
+		}
+	</script>
+</head>
+<body onload="doOnLoad();" onunload="doOnUnload();">
+	<div id="winVP"></div>
+	<div id="logsHere">
+		logs:
+	</div>
+	<div id="customObj" style="display: none; font-size: 11px; font-family: Tahoma; width: 100%; height: 100%; overflow: auto;">
+		<div style="margin: 10px;">
+			Larry Laffer is a player character and the protagonist in the Leisure Suit Larry series of adventure video games, created by Al Lowe in 1987.
+			<br><br>
+			The character is a middle-aged, balding man trying to seduce attractive women. Larry was a nerdy geek all his life and eventually became a computer programmer. He never had close relations with friends, women, or his colleagues, and every day of his life was identical as he lived with his mother and brother.
+			<br><br>
+			Around his 38th birthday, his brain hit a sexual alarm and started having his first kinky thoughts; he started reading adult magazines and could not concentrate on his work.
+			<br><Br>
+			Because of this his life was destroyed; he was fired from his job, and upon returning home he found his house had been sold and his mother had left for vacation. Larry then decided to turn a page forward in his life; he left everything and decided to live the wild life. He moved to the city of Lost Wages (a pun on Las Vegas), where, assuming that 1970s styles were still trendy, he bought a polyester leisure suit. He then sold his Volkswagen Bug to a junkyard for $94 and ended up in front of Lefty's Bar, where the first game, Leisure Suit Larry in the Land of the Lounge Lizards, begins.
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Fullscreen init</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<link rel="stylesheet" type="text/css" href="../../../../codebase/dhtmlx.css"/>
+	<script src="../../../../codebase/dhtmlx.js"></script>
+	<style>
+		html, body {
+			width: 100%;
+			height: 100%;
+			margin: 0px;
+			padding: 0px;
+			overflow: hidden;
+		}
+	</style>
+	<script>
+		var mySidebar;
+		function doOnLoad() {
+			mySidebar = new dhtmlXSideBar({
+				parent: document.body,
+				icons_path: "../../common/win_16x16/",
+				width: 160,
+				json: "../../common/sidebar.json"
+			});
+		}
+	</script>
+</head>
+<body onload="doOnLoad();">
+	
+</body>
+</html>

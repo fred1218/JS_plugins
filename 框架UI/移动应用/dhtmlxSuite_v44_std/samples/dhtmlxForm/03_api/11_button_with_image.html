@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Button with image</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<link rel="stylesheet" type="text/css" href="../../../codebase/dhtmlx.css"/>
+	<script src="../../../codebase/dhtmlx.js"></script>
+	<style>
+		div.dhxform_item_label_left.button_save div.dhxform_btn_txt {
+			background-image: url(../common/imgs/save.gif);
+			background-repeat: no-repeat;
+			background-position: 0px 3px;
+			padding-left: 22px;
+			margin: 0px 15px 0px 12px;
+		}
+		div.dhxform_item_label_left.button_cancel div.dhxform_btn_txt {
+			background-image: url(../common/imgs/cancel.gif);
+			background-repeat: no-repeat;
+			background-position: 0px 3px;
+			padding-left: 22px;
+			margin: 0px 15px 0px 12px;
+		}
+	</style>
+	<script>
+		var myForm, formData;
+		function doOnLoad() {
+			formData = [
+				{type: "settings", position: "label-left", labelWidth: 110, inputWidth: 150},
+				{type: "input", name: "name", label: "Full Name", value: "Yami Kashimoto"},
+				{type: "input", name: "addr", label: "Address", value: "東京"},
+				{type: "input", name: "mail", label: "Email", value: "yamika@mymail.jp"},
+				{type: "block", offsetTop: 20, offsetLeft: 20, inputWidth: 250, list: [
+					{type: "button", value: "Save", className: "button_save"},
+					{type: "newcolumn"},
+					{type: "button", value: "Cancel", className: "button_cancel", offsetLeft: 7}
+				]}
+			];
+			myForm = new dhtmlXForm("myForm", formData);
+			// or
+			// myForm.loadStruct(formData, "json");
+		}
+	</script>
+</head>
+<body onload="doOnLoad();">
+	<div id="myForm" style="height:500px;"></div>
+</body>
+</html>

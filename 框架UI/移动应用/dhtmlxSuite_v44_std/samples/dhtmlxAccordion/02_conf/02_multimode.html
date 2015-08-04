@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MultiMode</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<link rel="stylesheet" type="text/css" href="../../../codebase/dhtmlx.css"/>
+	<script src="../../../codebase/dhtmlx.js"></script>
+	<script>
+		var myAcc;
+		function doOnLoad() {
+			myAcc = new dhtmlXAccordion({
+				parent: "accObj",
+				multi_mode: true,
+				items: [
+					{id: "a1", text: "Main Page"},
+					{id: "a2", text: "Site Navigation"},
+					{id: "a3", text: "Support & Feedback"},
+					{id: "a4", text: "Comments"}
+				]
+			});
+		}
+	</script>
+</head>
+<body onload="doOnLoad();">
+	<div id="accObj" style="position: relative; width: 320px; height: 400px;"></div>
+</body>
+</html>

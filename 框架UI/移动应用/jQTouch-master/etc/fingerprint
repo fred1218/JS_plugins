@@ -1,0 +1,3 @@
+Package ID: {build_id}
+Build Date/Time: {build_date}
+Git Revision: {build_git_revision}

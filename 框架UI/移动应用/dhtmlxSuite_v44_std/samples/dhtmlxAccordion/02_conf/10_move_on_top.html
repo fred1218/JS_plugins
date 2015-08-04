@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Move On Top</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<link rel="stylesheet" type="text/css" href="../../../codebase/dhtmlx.css"/>
+	<script src="../../../codebase/dhtmlx.js"></script>
+	<script>
+		var myAcc;
+		function doOnLoad() {
+			
+			myAcc = new dhtmlXAccordion({
+				parent: "accObj",
+				items: [
+					{id: "a1", text: "[a1] Gothic III Forsaken Gods"},
+					{id: "a2", text: "[a2] Prototype"},
+					{id: "a3", text: "[a3] Darkwing Duck"}
+				]
+			});
+			
+			myAcc.cells("a1").attachObject("a1");
+			myAcc.cells("a2").attachObject("a2");
+			myAcc.cells("a3").attachObject("a3");
+			
+		}
+	</script>
+</head>
+<body onload="doOnLoad();">
+	<div id="accObj" style="position: relative; width: 320px; height: 400px;"></div>
+	<div id="a1" style="display: none; font-size: 11px; overflow: auto; width: 100%; height: 100%;">
+		<div style="padding: 8px 12px;">
+			Gothic 3 is a fantasy-themed role-playing game for Windows from the German game developer Piranha Bytes. It is the sequel to Gothic II. Although widely available in English, the native release of the game is German. The game was released throughout the European Union on October 13 2006 and became available throughout North America starting November 20 2006. Although the US version is rated T (for teens), the version released in North America carries exactly the same gameplay content as those released internationally. The North American release incorporates two patches that appeared after the initial UK edition.
+			<br><br>
+			A Collector's Edition was also released containing bonus collectible material. JoWooD released a standalone expansion for Gothic 3, entitled Forsaken Gods, on November 21 2008.
+		</div>
+	</div>
+	<div id="a2" style="display: none; font-size: 11px; overflow: auto; width: 100%; height: 100%;">
+		<div style="padding: 8px 12px;">
+			Prototype is a sandbox-style action game developed by Radical Entertainment. The game was released in North America on June 9, 2009, and in southwestern parts of North America and Oceania on June 10. The game was released in Europe on June 12. The game is available on Microsoft Windows, Xbox 360, and PlayStation 3 platforms.
+			<br><br>
+			The game is set in New York City as a virus infects people and the military attempts to put an end to it. The protagonist of the story is named Alex Mercer, who has enemy-absorbing and shapeshifting powers. He can take memories, experiences, biomass and physical forms of enemies through absorption. Alex can also shapeshift into more specialized forms for attack, defense or sensory enhancement. All of these together are intended to give players multiple ways to complete their objectives. Parallel to the game's storyline is the ability to play the game as a sandbox-style video game giving the player free roam of Manhattan. New York evolves over time from a troubled city, to an all out war zone with BlackWatch fighting infected humans of various mutations, Hunters and Hydras. Alex can free-roam around troubled and war-torn New York free to do missions or just run around the city killing people or consuming them.
+		</div>
+	</div>
+	<div id="a3" style="display: none; font-size: 11px; overflow: auto; width: 100%; height: 100%;">
+		<div style="padding: 8px 12px;">
+			Darkwing Duck is a video game based on the Disney television series Darkwing Duck. The game was developed by Capcom for the NES in 1992 and was ported to the Game Boy in 1993. The Game Boy version is essentially a slightly stripped-down version of the game. A sequel to the game was planned[citation needed], but for unknown reasons, it was never released.
+		</div>
+	</div>
+	<br><br>
+	<input type="button" value="move on top a1" onclick="myAcc.cells('a1').moveOnTop();">
+	<input type="button" value="move on top a2" onclick="myAcc.cells('a2').moveOnTop();">
+	<input type="button" value="move on top a3" onclick="myAcc.cells('a3').moveOnTop();">
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Custom buttons</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<link rel="stylesheet" type="text/css" href="../../../codebase/dhtmlx.css"/>
+	<script src="../../../codebase/dhtmlx.js"></script>
+	<style>
+		/* conf, enabled state */
+		.dhxwins_vp_dhx_skyblue div.dhxwin_hdr div.dhxwin_btns div.dhxwin_button.dhxwin_button_conf {
+			background-image: url(../common/button_conf.gif);
+			background-position: 0px 0px;
+		}
+		/* conf, disabled state */
+		.dhxwins_vp_dhx_skyblue div.dhxwin_hdr div.dhxwin_btns div.dhxwin_button_dis.dhxwin_button_conf_dis {
+			background-image: url(../common/button_conf.gif);
+			background-position: 0px -15px;
+		}
+		/* reload, enabled state */
+		.dhxwins_vp_dhx_skyblue div.dhxwin_hdr div.dhxwin_btns div.dhxwin_button.dhxwin_button_reload {
+			background-image: url(../common/button_reload.gif);
+			background-position: 0px 0px;
+		}
+		/* reload, disabled state */
+		.dhxwins_vp_dhx_skyblue div.dhxwin_hdr div.dhxwin_btns div.dhxwin_button_dis.dhxwin_button_reload_dis {
+			background-image: url(../common/button_reload.gif);
+			background-position: 0px -15px;
+		}
+		/* logs */
+		div#logsHere {
+			position: relative;
+			height: 100px;
+			border: #cecece 1px solid;
+			margin: 10px;
+			font-size: 11px;
+			font-family: Tahoma;
+			overflow: auto;
+		}
+		div#winVP {
+			position: relative;
+			height: 350px;
+			border: #a4bed4 1px solid;
+			border-radius: 2px;
+			margin: 10px;
+		}
+	</style>
+	<script>
+		var dhxWins, w1;
+		function doOnLoad() {
+			
+			dhxWins = new dhtmlXWindows();
+			dhxWins.attachViewportTo("winVP");
+			
+			w1 = dhxWins.createWindow("w1", 20, 30, 320, 200);
+			w1.attachObject("customObj");
+			w1.setText("Larry Laffer");
+			
+			// hide default buttons
+			for (var a in {close:1,minmax:1,park:1,stick:1,help:1}) w1.button(a).hide();
+			
+			w1.addUserButton("conf", 0, "Configure");
+			w1.button("conf").attachEvent("onClick", function(){
+				writeLog("button 'conf' was clicked");
+			});
+			
+			w1.addUserButton("reload", 0, "Reload");
+			w1.button("reload").attachEvent("onClick", function(){
+				writeLog("button 'reload' was clicked");
+			});
+			
+		}
+		
+		function executeScript(action) {
+			var sel = document.getElementById("sel");
+			var btn = sel.options[sel.selectedIndex].value;
+			switch (action) {
+				case "show":
+					w1.button(btn).show();
+					break;
+				case "hide":
+					w1.button(btn).hide();
+					break;
+				case "isHidden":
+					writeLog("button "+btn+" isHidden(): "+w1.button(btn).isHidden().toString());
+					break;
+				case "enable":
+					w1.button(btn).enable();
+					break;
+				case "disable":
+					w1.button(btn).disable();
+					break;
+				case "isEnabled":
+					writeLog("button "+btn+" isEnabled(): "+w1.button(btn).isEnabled().toString());
+					break;
+			}
+		}
+		function writeLog(text) {
+			document.getElementById("logsHere").innerHTML += "<br>"+text;
+			document.getElementById("logsHere").scrollTop = document.getElementById("logsHere").scrollHeight;
+		}
+		function doOnUnload() {
+			if (dhxWins != null && dhxWins.unload != null) {
+				dhxWins.unload();
+				dhxWins = w1 = null;
+			}
+		}
+	</script>
+</head>
+<body onload="doOnLoad();" onunload="doOnUnload();">
+	<div style="margin: 10px;">
+		<table>
+			<tr>
+				<td>
+					<select id="sel">
+						<option value="conf">button conf</option>
+						<option value="reload">button reload</option>
+					</select>
+					<input type="button" value="show" onclick="executeScript('show');">
+					<input type="button" value="hide" onclick="executeScript('hide');">
+					<input type="button" value="isHidden" onclick="executeScript('isHidden');">
+					<input type="button" value="enable" onclick="executeScript('enable');">
+					<input type="button" value="disable" onclick="executeScript('disable');">
+					<input type="button" value="isEnabled" onclick="executeScript('isEnabled');">
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div id="winVP"></div>
+	<div id="logsHere">
+		logs:
+	</div>
+	<div id="customObj" style="display: none; font-size: 11px; font-family: Tahoma; width: 100%; height: 100%; overflow: auto;">
+		<div style="margin: 10px;">
+			Larry Laffer is a player character and the protagonist in the Leisure Suit Larry series of adventure video games, created by Al Lowe in 1987.
+			<br><br>
+			The character is a middle-aged, balding man trying to seduce attractive women. Larry was a nerdy geek all his life and eventually became a computer programmer. He never had close relations with friends, women, or his colleagues, and every day of his life was identical as he lived with his mother and brother.
+			<br><br>
+			Around his 38th birthday, his brain hit a sexual alarm and started having his first kinky thoughts; he started reading adult magazines and could not concentrate on his work.
+			<br><Br>
+			Because of this his life was destroyed; he was fired from his job, and upon returning home he found his house had been sold and his mother had left for vacation. Larry then decided to turn a page forward in his life; he left everything and decided to live the wild life. He moved to the city of Lost Wages (a pun on Las Vegas), where, assuming that 1970s styles were still trendy, he bought a polyester leisure suit. He then sold his Volkswagen Bug to a junkyard for $94 and ended up in front of Lefty's Bar, where the first game, Leisure Suit Larry in the Land of the Lounge Lizards, begins.
+		</div>
+	</div>
+</body>

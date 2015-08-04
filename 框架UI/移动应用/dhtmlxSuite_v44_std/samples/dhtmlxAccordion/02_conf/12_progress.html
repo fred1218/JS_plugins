@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Progress control</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<link rel="stylesheet" type="text/css" href="../../../codebase/dhtmlx.css"/>
+	<script src="../../../codebase/dhtmlx.js"></script>
+	<script>
+		var myAcc;
+		function doOnLoad() {
+			myAcc = new dhtmlXAccordion({
+				parent: "accObj",
+				items: [
+					{id: "a1", text: "First item"},
+					{id: "a2", text: "Second item"}
+				]
+			});
+			myAcc.cells("a1").attachObject("a1");
+			myAcc.cells("a2").attachObject("a2");
+		}
+	</script>
+</head>
+<body onload="doOnLoad();">
+	<div id="accObj" style="position: relative; width: 320px; height: 400px;"></div>
+	<div id="a1" style="display: none; font-size: 11px; overflow: auto; width: 100%; height: 100%;">
+		<div style="padding: 8px 12px;">
+			Gothic 3 is a fantasy-themed role-playing game for Windows from the German game developer Piranha Bytes. It is the sequel to Gothic II. Although widely available in English, the native release of the game is German. The game was released throughout the European Union on October 13 2006 and became available throughout North America starting November 20 2006. Although the US version is rated T (for teens), the version released in North America carries exactly the same gameplay content as those released internationally. The North American release incorporates two patches that appeared after the initial UK edition.
+			<br><br>
+			A Collector's Edition was also released containing bonus collectible material. JoWooD released a standalone expansion for Gothic 3, entitled Forsaken Gods, on November 21 2008.
+		</div>
+	</div>
+	<div id="a2" style="display: none; font-size: 11px; overflow: auto; width: 100%; height: 100%;">
+		<div style="padding: 8px 12px;">
+			Prototype is a sandbox-style action game developed by Radical Entertainment. The game was released in North America on June 9, 2009, and in southwestern parts of North America and Oceania on June 10. The game was released in Europe on June 12. The game is available on Microsoft Windows, Xbox 360, and PlayStation 3 platforms.
+			<br><br>
+			The game is set in New York City as a virus infects people and the military attempts to put an end to it. The protagonist of the story is named Alex Mercer, who has enemy-absorbing and shapeshifting powers. He can take memories, experiences, biomass and physical forms of enemies through absorption. Alex can also shapeshift into more specialized forms for attack, defense or sensory enhancement. All of these together are intended to give players multiple ways to complete their objectives. Parallel to the game's storyline is the ability to play the game as a sandbox-style video game giving the player free roam of Manhattan. New York evolves over time from a troubled city, to an all out war zone with BlackWatch fighting infected humans of various mutations, Hunters and Hydras. Alex can free-roam around troubled and war-torn New York free to do missions or just run around the city killing people or consuming them.
+		</div>
+	</div>
+	<table border="0" style="margin-top:15px;">
+		<tr>
+			<td>Cell a1 (First item)</td>
+			<td><input type="button" value="progress on" onclick="myAcc.cells('a1').progressOn();"></td>
+			<td><input type="button" value="progress off" onclick="myAcc.cells('a1').progressOff();"></td>
+		</tr>
+		<tr>
+			<td>Cell a1 (Second item)</td>
+			<td><input type="button" value="progress on" onclick="myAcc.cells('a2').progressOn();"></td>
+			<td><input type="button" value="progress off" onclick="myAcc.cells('a2').progressOff();"></td>
+		</tr>
+	</table>
+</body>
+</html>

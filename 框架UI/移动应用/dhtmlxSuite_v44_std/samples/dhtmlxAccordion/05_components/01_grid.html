@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Integration with dhtmlxGrid</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<link rel="stylesheet" type="text/css" href="../../../codebase/dhtmlx.css"/>
+	<script src="../../../codebase/dhtmlx.js"></script>
+	<script>
+		var myAcc, myGrid;
+		function doOnLoad(){
+			myAcc = new dhtmlXAccordion({
+				parent: "accObj",
+				items: [
+					{id: "a1", text: "dhtmlxGrid"},
+					{id: "a2", text: "b"},
+					{id: "a3", text: "c"}
+				]
+			});
+			//
+			myGrid = myAcc.cells("a1").attachGrid();
+			myGrid.setImagePath("../../../codebase/imgs/");
+			myGrid.loadXML("../common/grid.xml");
+		}
+	</script>
+<html>
+<body onload="doOnLoad();">
+	<div id="accObj" style="position: relative; width: 320px; height: 400px;"></div>
+</body>
+</html>

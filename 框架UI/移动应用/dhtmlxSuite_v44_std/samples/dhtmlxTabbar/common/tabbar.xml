@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<tabbar>
+	<tab id="a1" active="1">Rage
+	    <content>
+		<![CDATA[
+		<div style="width: 100%; height: 100%; position: relative; overflow: auto;">
+		<div style="margin: 8px 10px 8px 10px; font-family: Tahoma; font-size: 11px;">
+			Rage began in 1984 under the previous band name, Avenger. After releasing their debut album, Prayers of Steel and their Depraved to Black EP, in 1985, Avenger changed their name to Rage due to the fact that there was another band in England that also carried the moniker of Avenger. Originally the new name was to be Furious Rage but it was eventually shortened to Rage. The first album released under the new name was Reign of Fear in 1986.
+			<br><br>
+			Rage's albums came out in regular, continuous intervals, and the band began touring with the likes of Running Wild, U.D.O., Mot?rhead and Saxon in the early 1990s. Their 1992 album Trapped marked their international breakthrough, a short highlight being Rage's tour in Japan. Their success was repeated again in 1993 with the release of The Missing Link. After change in their lineup, Rage went on to record Lingua Mortis, the first classical album by a German metal act, in 1996. Their material was performed live for the first time in late summer 1996 in Kufstein, Austria. Subsequently, Rage, and the orchestra used, embarked on a celebrated Christmas tour and played several European festivals.
+			<br><br>
+			Their thirteenth album XIII saw the light of day in March 1998. The next album Ghosts was followed by a major line-up change, featuring Peavy Wagner, Victor Smolski and Mike Terrana. The trio performed at Wacken Open Air in August 1999, revealing their newest album Welcome to the Other Side. The following releases Unity and Soundchaser were met with enthusiastic response from critics and fans alike. Rage toured with Primal Fear in 2002 and Helloween in 2003 and proved to be successful outings. Rage recently celebrated their 20th anniversary with both a live CD and DVD entitled From the Cradle to the Stage, documenting new and old material and showing their strongest material.
+			<br><br>
+			On December 6, 2006 the split with drummer Mike Terrana was officially announced, due to personal and musical differences. On January 1, 2007 it was announced that their new drummer would be Andr? Hilgers.
+			<br><br>
+			On September 4, 2007 Rage announced that they will start to work on their New Album which will be called Carved in Stone, and is due to be out by February 22, 2008.
+		</div>
+		</div>
+		]]>
+	    </content>
+	</tab>
+	<tab id="a2">The X-Files
+	    <content>
+		<![CDATA[
+		<div style="width: 100%; height: 100%; position: relative; overflow: auto;">
+		<div style="margin: 8px 10px 8px 10px; font-family: Tahoma; font-size: 11px;">
+			The X-Files is an American Peabody, Golden Globe and Emmy Award-winning science fiction television series created by Chris Carter, which first aired on 10 September 1993, and ended on 19 May 2002. The show was one of the American FOX network's first major hits, and its main characters and slogans (e.g., "The Truth Is Out There," "Trust No One," "I Want to Believe") became pop culture touchstones. The X-Files is seen as a defining series of the 1990s, coinciding with the era's widespread mistrust of governments, interest in conspiracy theories and spirituality, and the belief in the existence of extraterrestrial life.[1][2]
+			<br><br>
+			In the series, FBI agents Fox Mulder (David Duchovny) and Dana Scully (Gillian Anderson) are tasked with investigating the "X-Files": marginalized, unsolved cases involving paranormal phenomena. Mulder plays the role of the "believer", having faith in the existence of aliens and the paranormal, while Scully is a skeptic, initially assigned by her departmental superiors to debunk Mulder's unconventional work. As the show progressed, both agents were caught up in a larger conflict, termed "the mythology" or "mytharc" by the show's creators, and developed a close and ambiguous friendship which many saw more as romantic than platonic.[3] The X-Files also featured stand-alone episodes ranging in tone from horror to comedy, in which Mulder and Scully investigated uniquely bizarre cases without long-term implications on the storyline. These so-called "monster of the week" episodes made up the bulk of the series.
+			<br><br>
+			The show's popularity peaked in the mid-to-late 1990s,[4] leading to a theatrical feature film in 1998. In the last two seasons, Anderson became the star as Duchovny appeared rarely, and new central characters were introduced: FBI Agents John Doggett (Robert Patrick) and Monica Reyes (Annabeth Gish). At the time of its final episode, The X-Files was the longest running sci-fi show ever on American television, a title since lost to cable's Stargate SG-1[citation needed]. The show was declared by TV Guide to be the second greatest cult television show[5] (Star Trek being number one) and the 37th best television show of all time.[6] In 2007, TIME magazine included the show on its list of the "100 Best TV Shows of All Time".[7]
+		</div>
+		</div>
+		]]>
+	    </content>
+	</tab>
+</tabbar>

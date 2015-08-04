@@ -1,0 +1,133 @@
+/*Tab bar CSS based on code from http://tile5geochat.appspot.com/.  Action sheet CSS based on code from https://github.com/hiroprotagonist/jquery.mobile.actionsheet.*/
+
+jotabbar {
+    -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, .8);
+    border-top: 1px solid rgba(0, 0, 0, 0.8);
+    background-color: rgba(0,0,0,0.8);
+    position : fixed;
+    bottom : 0px;
+    height : 38px;
+    width : 100%;
+    margin : 0 auto;
+    display: -webkit-box;
+    -webkit-box-align : center;
+    -webkit-box-pack : center;
+    background-repeat: no-repeat;
+    -webkit-background-size: 100% 100%;
+    opacity: 0.9;
+   
+}
+
+jotabbar > jotab {
+    background:rgba(0,0,0,0.0) none top left no-repeat;
+    position: relative;
+    cursor: pointer;
+    outline: none;
+    outline-color: transparent;
+    padding: 10px 30px;
+    width: auto;
+    width: 30px;
+    background-position:center;
+    background-size: auto;
+    -webkit-background-size: auto;
+    -moz-background-size: auto;
+    opacity: 0.9; 
+    color: white;
+    position: relative;
+    posiiton: absolute;
+    -webkit-background-size: 32px 32px;
+}
+
+jotab:first-child {
+	-webkit-border-radius: 0;
+
+}
+
+jotab:last-child {
+  	-webkit-border-radius: 0;
+}
+
+jotab.selected {
+        background-repeat: no-repeat;
+	background-color: #4C72BF;
+	-webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, .8);
+	background-position: center;
+	background-size: auto;
+	-webkit-background-size:auto;
+	-webkit-background-size: 32px 32px;
+	opacity: 0.9;
+}
+
+.doc {
+    background-image: url("document_alt_stroke.png");
+}
+
+.about {
+    background-image: url("book_alt2.png");
+}
+
+/* Badge CSS based on code at http://stackoverflow.com/questions/7885160/jquerymobile-custom-navigation.*/
+
+.badge  {  
+    position:relative; 
+    top: -15px; 
+    right: -15px; 
+    background: red;  
+    width: 16px;  
+    height: 16px;  
+    z-index: 20000;
+    border: 0.20em solid #ffffff; 
+    -webkit-border-radius: 9px;
+    line-height: 16px;
+    color: #ffffff; 
+    font-size: 80%; 
+    text-shadow: none; 
+    font-weight: bold; 
+    font-family: helvetica; 
+    text-align: center;
+    min-width: 16px;
+    max-width: 45px;
+    width: auto;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+joactionsheet {
+
+	-webkit-box-flex: 1;
+	box-flex: 1;
+	display: block;
+	overflow: hidden;
+	margin: 0 auto;
+	border: 0;
+	-webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+	color: #FFF;
+	margin: 0 100;
+	background: #383838;
+/*	opacity: 0.8;*/
+ 	bottom: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	-webkit-border-radius: 0px;
+	-webkit-animation-name: joactionsheet-open-slideup;
+	-webkit-animation-delay: 0;
+	-webkit-animation-duration: 500ms;
+	min-height: auto;
+	position: absolute;
+}
+
+@-webkit-keyframes joactionsheet-open-slideup {
+    0% {
+	-webkit-transform: translateY(1100px);
+    }
+    70% {
+	-webkit-transform: translateY(0);
+    }
+    100% {
+	-webkit-transform: translateY(0);
+    }
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Integration with dhtmlxToolbar</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<link rel="stylesheet" type="text/css" href="../../../codebase/dhtmlx.css"/>
+	<script src="../../../codebase/dhtmlx.js"></script>
+	<script>
+		var myAcc, myToolbar;
+		function doOnLoad(){
+			myAcc = new dhtmlXAccordion({
+				parent: "accObj",
+				items: [
+					{id: "a1", text: "dhtmlxToolbar"},
+					{id: "a2", text: "b"},
+					{id: "a3", text: "c"}
+				]
+			});
+			//
+			myToolbar = myAcc.cells("a1").attachToolbar({
+				icons_path: "../../dhtmlxToolbar/common/imgs/",
+				xml: "../../dhtmlxToolbar/common/dhxtoolbar_button.xml"
+			});
+			//
+			myGrid = myAcc.cells("a1").attachGrid();
+			myGrid.setImagePath("../../../codebase/imgs/");
+			myGrid.loadXML("../common/grid.xml");
+		}
+	</script>
+</head>
+<body onload="doOnLoad();">
+	<div id="accObj" style="position: relative; width: 320px; height: 400px;"></div>
+</body>
+</html>

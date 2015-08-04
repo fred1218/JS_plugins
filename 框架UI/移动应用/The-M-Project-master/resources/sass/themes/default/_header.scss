@@ -1,0 +1,11 @@
+.header {
+  background: $m-primary-color;
+  color: $white;
+  height: $tablayout-menu-height;
+  text-align: center;
+
+  .is-icon-only{
+    font-size: $m-header-icon-only-font-size;
+  }
+
+}

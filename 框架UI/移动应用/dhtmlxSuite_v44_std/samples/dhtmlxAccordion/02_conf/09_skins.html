@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Skins</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<link rel="stylesheet" type="text/css" href="../../../skins/web/dhtmlx.css"/>
+	<link rel="stylesheet" type="text/css" href="../../../skins/terrace/dhtmlx.css"/>
+	<link rel="stylesheet" type="text/css" href="../../../codebase/dhtmlx.css"/>
+	<script src="../../../codebase/dhtmlx.js"></script>
+	<script>
+		var myAcc;
+		function doOnLoad() {
+			myAcc = new dhtmlXAccordion({
+				parent: "accObj",
+				icons_path: "../common/icons/",
+				items: [
+					{ id: "a1", text: "Measure thrice and cut once", open: true, icon: "flag_red.png" },
+					{ id: "a2", text: "My house is my castle", icon: "flag_green.png" },
+					{ id: "a3", text: "Neither fish nor flesh", icon: "flag_blue.png" }
+				]
+			});
+			myAcc.cells("a1").attachObject("a1");
+			myAcc.cells("a2").attachObject("a2");
+			myAcc.cells("a3").attachObject("a3");
+		}
+		function changeSkin(skin) {
+			myAcc.setSkin(skin);
+		}
+	</script>
+</head>
+<body onload="doOnLoad();">
+	<div id="accObj" style="width: 320px; height: 400px;"></div>
+	<div id="a1" style="display: none; font-size: 11px; overflow: auto; width: 100%; height: 100%;">
+		<div style="padding: 8px 12px;">
+			Gothic 3 is a fantasy-themed role-playing game for Windows from the German game developer Piranha Bytes. It is the sequel to Gothic II. Although widely available in English, the native release of the game is German. The game was released throughout the European Union on October 13 2006 and became available throughout North America starting November 20 2006. Although the US version is rated T (for teens), the version released in North America carries exactly the same gameplay content as those released internationally. The North American release incorporates two patches that appeared after the initial UK edition.
+			<br><br>
+			A Collector's Edition was also released containing bonus collectible material. JoWooD released a standalone expansion for Gothic 3, entitled Forsaken Gods, on November 21 2008.
+		</div>
+	</div>
+	<div id="a2" style="display: none; font-size: 11px; overflow: auto; width: 100%; height: 100%;">
+		<div style="padding: 8px 12px;">
+			Gothic 3 is a fantasy-themed role-playing game for Windows from the German game developer Piranha Bytes. It is the sequel to Gothic II. Although widely available in English, the native release of the game is German. The game was released throughout the European Union on October 13 2006 and became available throughout North America starting November 20 2006. Although the US version is rated T (for teens), the version released in North America carries exactly the same gameplay content as those released internationally. The North American release incorporates two patches that appeared after the initial UK edition.
+			<br><br>
+			A Collector's Edition was also released containing bonus collectible material. JoWooD released a standalone expansion for Gothic 3, entitled Forsaken Gods, on November 21 2008.
+		</div>
+	</div>
+	<div id="a3" style="display: none; font-size: 11px; overflow: auto; width: 100%; height: 100%;">
+		<div style="padding: 8px 12px;">
+			Gothic 3 is a fantasy-themed role-playing game for Windows from the German game developer Piranha Bytes. It is the sequel to Gothic II. Although widely available in English, the native release of the game is German. The game was released throughout the European Union on October 13 2006 and became available throughout North America starting November 20 2006. Although the US version is rated T (for teens), the version released in North America carries exactly the same gameplay content as those released internationally. The North American release incorporates two patches that appeared after the initial UK edition.
+			<br><br>
+			A Collector's Edition was also released containing bonus collectible material. JoWooD released a standalone expansion for Gothic 3, entitled Forsaken Gods, on November 21 2008.
+		</div>
+	</div>
+	<br>
+	<input type="button" onclick="changeSkin('dhx_skyblue');" value="dhx_skyblue">
+	<input type="button" onclick="changeSkin('dhx_web');" value="dhx_web">
+	<input type="button" onclick="changeSkin('dhx_terrace');" value="dhx_terrace">
+	<br><br>
+	<input type="button" value="progress on" onclick="myAcc.cells('a1').progressOn();">
+	<input type="button" value="progress off" onclick="myAcc.cells('a1').progressOff();">
+</body>
+</html>

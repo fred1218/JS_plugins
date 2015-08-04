@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Set / get content</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<link rel="stylesheet" type="text/css" href="../../../codebase/dhtmlx.css"/>
+	<script src="../../../codebase/dhtmlx.js"></script>
+	<style>
+		 div#editorObj {
+		 	 width: 100%;
+		 	 height: 300px;
+		 	 border: 1px solid #a4bed4;
+		 }
+		 textarea#res {
+		 	 width: 100%;
+		 	 height: 200px;
+		 }
+	</style>
+	<script>
+		var myEditor;
+		var defCont = 'The <b>DHTMLX</b> suite (or <b>dhtmlxSuite</b>) is a <a href="http://en.wikipedia.org/wiki/JavaScript" title="JavaScript">JavaScript</a> '+
+				'<a href="http://en.wikipedia.org/wiki/GUI_widget" title="GUI widget">GUI widget</a> library for building dynamic '+
+				'<a href="http://en.wikipedia.org/wiki/Web_applications" title="Web applications" class="mw-redirect">web applications</a> with desktop-like user experience '+
+				'and <a href="http://en.wikipedia.org/wiki/Ajax_%28programming%29" title="Ajax (programming)">Ajax</a> data loading. '+
+				'The library is released under both <a href="http://en.wikipedia.org/wiki/Open-source" title="Open-source" class="mw-redirect">open-source</a> '+
+				'<a href="http://en.wikipedia.org/wiki/GNU_General_Public_License" title="GNU General Public License">GNU General Public License</a> and commercial licenses. '+
+				'Modular architecture of the library allows using the components as separate blocks or combining them into a common Ajax-based interface.'
+		function doOnLoad() {
+			myEditor = new dhtmlXEditor({
+				parent: "editorObj",
+				content: defCont
+			});
+		}
+		function showContent() {
+			document.getElementById("res").value = myEditor.getContent();
+		}
+		function setContent() {
+			myEditor.setContent(defCont);
+		}
+	</script>
+</head>
+<body onload="doOnLoad();">
+	<div id="editorObj"></div>
+	<div>
+		<br>
+		<a href='javascript:void(0)' onclick='showContent()'>show content</a>
+		<a href='javascript:void(0)' onclick='setContent()'>set default content</a>
+		<br><br>
+	</div>
+	<textarea id="res"></textarea>
+</body>
+</html>

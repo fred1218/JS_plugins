@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Attach URL by ajax</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<link rel="stylesheet" type="text/css" href="../../../codebase/dhtmlx.css"/>
+	<script src="../../../codebase/dhtmlx.js"></script>
+	
+	<script>
+		
+		var myAcc;
+		function doOnLoad() {
+			myAcc = new dhtmlXAccordion({
+				parent: "accObj",
+				items: [
+					{id: "a", text: "(a) ajax get"},
+					{id: "b", text: "(b) ajax post w/0 params"},
+					{id: "c", text: "(c) ajax post with params"}
+				]
+			});
+			
+			myAcc.cells("a").attachURL("../common/test_page_1.html", true);
+			myAcc.cells("b").attachURL("../common/test_page_2.html", true, true); // post w/o params
+			myAcc.cells("c").attachURL("../common/test_page_3.html", true, {"name":"John","age":28}); // post with params
+		}
+		
+	</script>
+	
+</head>
+<body onload="doOnLoad();">
+	<div id="accObj" style="width:320px; height:400px;"></div>
+</body>
+</html>

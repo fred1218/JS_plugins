@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Integration with dhtmlxEditor</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<link rel="stylesheet" type="text/css" href="../../../codebase/dhtmlx.css"/>
+	<script src="../../../codebase/dhtmlx.js"></script>
+	<style>
+		div#sidebarObj {
+			position: relative;
+			margin-left: 10px;
+			margin-top: 10px;
+			width: 600px;
+			height: 450px;
+		}
+	</style>
+	<script>
+		var mySidebar;
+		var myEditor;
+		function doOnLoad() {
+			mySidebar = new dhtmlXSideBar({
+				parent: "sidebarObj",
+				icons_path: "../common/win_16x16/",
+				width: 160,
+				json: "../common/sidebar.json",
+				onload: function() {
+					myEditor = mySidebar.cells("recent").attachEditor({
+						content:"<br>"+
+							"Yoshi, full name T. Yoshisaur Munchakoopas, is a fictional anthropomorphic dinosaur (referred to as a dragon at times) who appears in video games published by Nintendo.<br><br>"+
+							"He debuted in Super Mario World (1990) on the Super Nintendo Entertainment System as Mario and Luigi's sidekick (a role he has often reprised), and he later established his own series with several platform and puzzle games, including Super Mario World 2: Yoshi's Island.<br><br>"+
+							"He has also appeared in many of the spin-off Mario games including the Mario Party, the Mario Kart, and the Super Smash Bros. series, as well as in other various Mario sports titles.<br><br>"+
+							"Yoshi also appears in New Super Mario Bros. Wii (2009) as the characters' companion and steed, similar to his original debut role in Super Mario World.<br><br>"+
+							"Yoshi belongs to the species of the same name which comes in various colors, with green being the most common.<br><br>"
+					});
+				}
+			});
+		}
+	</script>
+</head>
+<body onload="doOnLoad();">
+	<div id="sidebarObj"></div>
+</body>
+</html>
