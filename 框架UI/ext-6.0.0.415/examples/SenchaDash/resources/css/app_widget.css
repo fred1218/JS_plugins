@@ -1,0 +1,263 @@
+.widget-top-first-container{
+    background-color: #468fd3;
+}
+.widget-bottom-first-container{
+    background-color:#fff;
+
+}
+.postion-class{
+    position:relative  !important;        
+}
+.widget-top-container-first-img{
+    position: absolute !important;
+    z-index: 200;
+    margin-top:94px !important;    
+    /* margin-left:82px;*/
+    border: 3px solid #ffffff !important;    
+    border-radius: 36px;
+    left: 50%;
+    margin-left: -33px;
+}
+.widget-name-text{
+    font-family: "Open Sans Bold" !important;    
+    font-size: 16px !important;    
+    line-height:15px !important;            
+}
+.widget-top-second-container{
+    background-color: #8dc153 !important;
+}
+.widget-top-first-third-container {
+    background-color: #607d8b !important;
+}
+
+.widget-top-first-fourth-container {
+    /*background-color: #9aa !important;*/
+    background:url('../images/img2.jpg');
+    background-size:100% auto;
+}
+
+.widget-follow-button{
+    background-color: #82c748 !important;
+    margin:0px !important;
+    border-color: #82c748 !important;
+    padding-right: 4px !important;
+}
+.widget-follow-button:hover{
+    background-color:#fff !important;
+}
+.widget-follow-button:hover .x-btn-inner{
+    color: #82c748 !important;
+}
+.social-btns-wrap .x-btn {
+    margin:0 5px !important;
+}
+.social-btns-wrap .x-btn .x-btn-icon-el:before{
+    left: -2px !important;
+    top: -2px !important;
+    position: relative !important;
+}
+.widget-top-second-panel .widget-facebook-button{
+    background-color: #167abc !important;
+}
+.widget-top-second-panel .widget-twitter-button{
+    background-color: #03b4d5 !important;
+}
+.widget-top-second-panel .widget-google-plus-button{
+    background-color: #e44959 !important;
+}
+.widget-top-second-panel .widget-envelope-button{
+    background-color: #7754aa !important;
+}
+
+.widget-top-second-panel .fa{
+    color: #fff !important;
+}
+.widget-follower-toolbar{
+    background-color: #fafafa !important;
+    font-size:12px !important;
+    padding:0 !important;
+    text-align:center !important;
+    border-top:1px solid #eee !important;
+    border-bottom:1px solid #eee !important;
+}
+.widget-follower-tool-label{
+    border-left:1px solid #eee;
+    border-right:1px solid #eee;
+}
+.widget-follower-toolbar .x-form-display-field{
+    font-size:13px;
+    color:#000;
+    margin: 3px 0;
+    font-family: "Open Sans";
+}
+.widget-follower-toolbar .x-form-display-field .label{
+    color: #888;
+    font-size: 12px;
+}
+.info-card-item{
+    text-align: center;
+    background: #fff ;
+    padding:30px 10px !important;
+    box-shadow: inset 0 0 0 1px #ddd !important;
+    font-size:14px;
+    color:#848484 !important;
+    margin:0 10px;
+    position:relative;
+}
+.info-card-item:before{
+    width:100%;
+    position:absolute;
+    height:3px;
+    background:red;
+    content:"";
+    top:0;
+    left:0
+}
+.info-card-item.cornflower-blue:before,.info-card-large-wrap .cornflower-blue span{
+    background: #458fd2;
+}
+
+.info-card-item.green:before,.info-card-large-wrap .green span{
+    background: #4caf50;
+}
+
+.info-card-item.magenta:before,.info-card-large-wrap .magenta span{
+    background: #9c27b0;
+}
+
+.info-card-item.pink:before,.info-card-large-wrap .pink span{
+    background: #e91e63;
+}
+
+.info-card-item.orange:before,.info-card-large-wrap .orange span{
+    background: #ffc107;
+}
+.info-card-item.blue:before,.info-card-large-wrap .blue span{
+    background: #673ab7;
+}
+
+.info-card-item h2{
+    font-size: 30px;
+    font-weight: normal;
+    font-family: open sans;
+    margin: 0;
+    margin:0;
+    line-height: 32px;
+}
+.info-card-large-wrap .info-card-item h2{
+    font-size: 48px;
+    line-height: 48px;
+}
+
+.info-card-item div{
+    line-height: 16px;
+    margin-bottom: 20px;
+}
+.info-card-small-wrap .info-card-item div{
+    line-height: 18px;
+}
+.info-card-item span{
+    font-size: 24px;
+}
+.info-card-large-wrap .info-card-item span{
+    font-size: 24px;
+    height:75px;
+    width:75px;
+    border-radius:38px;
+    color:#fff;
+    font-size:30px;
+    line-height:75px;
+    margin:20px 0;
+
+}
+.hideGridColumnHeaderCls .x-grid-body{
+    border:none !important;
+}
+.hideGridColumnHeaderCls .x-grid-body .x-grid-item{
+    background:transparent !important;
+}
+.hideGridColumnHeaderCls .x-grid-cell-inner{
+    padding:10px 0 !important;
+}
+.color-label .x-form-item-label-default{
+    width:60px !important;
+    color: #888 !important;
+}
+.color-label .x-form-trigger-wrap-default{
+    width: 80px !important;
+}
+/*.number-text .x-form-display-field-body{
+    background-color: #fbfbfb !important;
+    padding: 3px 0 0 5px !important;
+}*/
+.number-text  .x-form-item-label-default{
+    color: #888 !important;    
+}
+.fa-toggle-on{
+    color:#86c748;
+}
+.label-div{
+    background-color:#fff;
+    width:30px;
+    height:10px;
+    color:#35b9f7;
+}
+.button-panel-label-text{
+    background-color:#fff;
+    width:30px;
+    height:10px;
+    color:#35b9f7;
+}
+
+.info-card-large-wrap span.fa {  
+    height: 75px;
+    width: 75px;
+    border-radius: 38px;
+    color: #fff;
+    font-size: 30px;
+    line-height: 75px;
+    margin: 20px 0;
+}
+.info-card-large-wrap span.fa.fa-shopping-cart {
+    background-color: #458FD2;
+}
+.info-card-large-wrap span.fa.fa-envelope {
+    background-color: #4caf50;
+}
+.info-card-large-wrap span.fa.fa-code {
+    background-color: #9c27b0;
+}
+.info-card-large-wrap span.fa.fa-file-text {
+    background-color: #e91e63;
+}
+.info-card-large-wrap h2{
+    font-size: 48px;
+    line-height: 48px;
+}
+.infodiv{
+    font-size: 14px;
+    line-height: 16px;
+}
+
+
+.widget-main-container .x-panel-body-widget-panel {
+    color: #888 !important;
+}
+
+
+.widget-main-container .x-panel-body-widget-panel .info-card-large-wrap .fa {
+    color: #fff !important;
+}
+
+.color-picker .x-slider-horz,
+.color-picker .x-slider-horz .x-slider-end,
+.color-picker .x-slider-horz .x-slider-inner{
+    padding-top: 0;
+}
+
+.widget-main-container input,.widget-main-container .x-form-display-field{
+    font-size: 12px;
+}
+.widget-main-container .x-form-spinner-default{
+    width: 15px;
+}

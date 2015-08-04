@@ -1,0 +1,25 @@
+Ext.define('Ext.theme.cupertinoclassic.Component', {
+    override: 'Ext.Component'
+}, function() {
+    Ext.namespace('Ext.theme.is').CupertinoClassic = true;
+    Ext.theme.name = 'CupertinoClassic';
+});
+
+Ext.define('Ext.theme.cupertinoclassic.picker.Picker', {
+    override: 'Ext.picker.Picker',
+    config: {
+        toolbar: {
+            ui: 'black'
+        }
+    }
+});
+
+Ext.define('Ext.theme.cupertinoclassic.tab.Bar', {
+    override: 'Ext.tab.Bar',
+    config: {
+        defaults: {
+            flex: 1
+        }
+    }
+});
+

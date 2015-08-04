@@ -1,0 +1,86 @@
+// COLOR PALETTE
+
+$exec-dark-background: #3e4752 !dynamic;
+$exec-light-background: #ececec !dynamic;
+$exec-tile-background: #ffffff !dynamic;
+
+$exec-blue-color: #2e6eaf !dynamic;
+$exec-red-color: #f1495b !dynamic;
+$exec-green-color: #11c897 !dynamic;
+$exec-light-blue-color: saturate(lighten($exec-blue-color, 53%), 70%) !dynamic;
+
+$exec-font-light-color: #a0a7b8 !dynamic;
+$exec-font-color: #878ea2 !dynamic;
+$exec-font-dark-color: $exec-dark-background !dynamic;
+
+//Proxima Nova is preferred font, but it is not a free font.
+$exec-font-family: "Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif !dynamic;
+
+$exec-font-size-small-content: 10px !dynamic;
+$exec-font-size-content: 12px !dynamic;
+$exec-font-size-small-title: 14px !dynamic;
+$exec-font-size-medium-title: 18px !dynamic;
+$exec-font-size-large-title: 20px !dynamic;
+$exec-font-size-xlarge-title: 28px !dynamic;
+
+$exec-font-regular: 400 !dynamic;
+$exec-font-semibold: 500 !dynamic;
+$exec-font-bold: 800 !dynamic;
+
+// GENERAL APP STYLE
+
+$base-color: $exec-blue-color !dynamic;
+$color: $exec-font-dark-color !dynamic;
+$font-family: $exec-font-family !dynamic;
+$body-background-color: $exec-light-background !dynamic;
+
+// PANEL
+
+$panel-body-color: $exec-font-dark-color !dynamic;
+$panel-body-background-color: $exec-light-background !dynamic;
+
+// TOOLBAR
+
+$toolbar-background-color: $exec-light-background !dynamic;
+
+// GRID
+
+$grid-cell-inner-padding: 15px !dynamic;
+$grid-header-padding: 15px !dynamic;
+$grid-grouped-header-padding: 15px !dynamic;
+
+$grid-column-header-font-weight: $exec-font-bold !dynamic;
+$grid-row-cell-font-weight: $exec-font-semibold !dynamic;
+
+$grid-row-cell-color: $exec-font-color !dynamic;
+$grid-column-header-color: $exec-font-dark-color !dynamic;
+
+$grid-grouped-header-border-width: 0 !dynamic;
+
+$grid-grouped-header-background-color: $exec-light-blue-color !dynamic;
+
+// BUTTON
+// since only small (default) buttons are used, only small button styles are defined here
+
+$button-small-border-radius: 3px !dynamic;
+$button-default-border-color: $exec-blue-color !dynamic;
+$button-toolbar-border-color: $button-default-border-color !dynamic;
+
+$button-default-background-color: $exec-blue-color !dynamic;
+$button-toolbar-background-color: $button-default-background-color !dynamic;
+
+$button-default-color: white !dynamic;
+$button-toolbar-color: $button-default-color !dynamic;
+
+$button-toolbar-inner-border-color-focus: mix($button-toolbar-background-color, $button-toolbar-color, 20%)!dynamic;
+
+$button-small-font-size: $exec-font-size-content !dynamic;
+$button-small-font-weight: $exec-font-bold !dynamic;
+
+// MENU
+
+$menu-text-color: $exec-font-dark-color !dynamic;
+
+// BORDERS
+
+$light-grey-borders: $exec-font-color !dynamic;

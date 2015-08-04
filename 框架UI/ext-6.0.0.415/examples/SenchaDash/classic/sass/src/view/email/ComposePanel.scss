@@ -1,0 +1,43 @@
+.email-compose{
+	.#{$prefix}panel-header-default {
+	  	padding: 20px 12px;
+	  	background-color: $lightest-color;
+	  	.#{$prefix}panel-header-title-default{
+	  		color: $email-navigation-color;
+	  		font-family: "Open Sans Bold";
+	  		font-weight: "Bold";
+	  	}
+	}
+	.email-compose-discard-button{
+    	background-color: $discard-background-color;
+    	.#{$prefix}btn-inner-default-toolbar-small{	
+    		color: $lightest-color;
+    	}
+    }
+    .email-compose-save-button{
+    	background-color: $save-background-color;
+    	.#{$prefix}btn-inner-default-toolbar-small{	
+    		color: $lightest-color;
+    	}
+    }
+    .email-compose-send-button{
+    	background-color: $send-background-color;
+    	.#{$prefix}btn-inner-default-toolbar-small{	
+    		color: $lightest-color;
+    	}
+    }
+    .attach-form-label{
+	    width:78px !important;
+	    vertical-align: middle;
+	}	
+}
+
+.#{$prefix}tip-default{
+    padding: 0;
+    .#{$prefix}tip-header-default{
+   		padding: 10px 10px 0px 10px;
+	}
+	.#{$prefix}tip-body-default{
+	    padding:0 10px 10px 10px;
+	}
+}	

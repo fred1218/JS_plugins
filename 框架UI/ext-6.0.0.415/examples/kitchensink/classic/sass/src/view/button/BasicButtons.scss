@@ -1,0 +1,18 @@
+@if $theme-name == 'theme-classic' or $theme-name == 'theme-gray' {
+    .button-home-small {
+        background-image:  url(icons/add16.gif);
+    }
+    .button-home-medium {
+        background-image:  url(icons/add24.gif);
+    }
+    .button-home-large {
+        background-image:  url(icons/add.gif);
+    }
+} @else {
+    .button-home-small:before,
+    .button-home-medium:before,
+    .button-home-large:before {
+        font-family: FontAwesome;
+        content: $fa-var-home;
+    }
+}

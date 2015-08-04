@@ -1,0 +1,14 @@
+.email-inbox-panel{
+	.fa-heart:before {
+  		color: $active-heart-icon-color;
+	}
+	.fa-heart-o:before{
+		color: $inactive-heart-icon-color;
+	}
+	.#{$prefix}grid-body{
+		border-width: 1px;
+	}
+	.#{$prefix}grid-header-ct{
+		border: 1px solid $neutral-color;
+	}
+}

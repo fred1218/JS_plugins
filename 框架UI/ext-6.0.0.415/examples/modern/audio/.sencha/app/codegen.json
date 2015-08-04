@@ -1,0 +1,282 @@
+{
+  "sources": {
+    "app.scss.tpl.merge": {
+      "3d3f6b023c31a4e49cd626dd27cff9474aff32d7": "eJx9kL1uAyEQhHs/xXRnS8nRx40lK0Xq8wusYc8QceyJH5/99gHsOh3MDLMfqxQuljGL97K5cEPeBN4FTnDLKjEjV9vwTMVnTBy0JVykaNuMhUf8zHhKAUXGtThvaslOKRACb6/MByIvcud+AwXTO8mY9jBCtoDzNEECsqyQudtXStzl/Wadtq3SJZCPTOYJF7Qvhk09vEpoXcffVCtm5/kw7k5v+iF15M/ckNX7H8Pxf1+R9zXTZp5LyrJAi2HcpG7FcuRx7N73g5bVV60il9SXV8GdrhSLe7jw1UKnN2rX90NJHIfD8Q/mSX+o"
+    },
+    "config.rb.tpl.merge": {
+      "e254e92dd21bc9ecb27f3b8251d67dfbc79fa1af": "eJxlkMFOwzAMhu95Cqs7bEiQB0DaCTGEtAPiBSIrddtAG5c4ASrEu+N00kDjYtl/7O+PvYEHypAHgjYk8pnTohVWKQh4jl3oS8IcOEIXRgL6DJIFQjQ6AHs4qGg1jTjRzrnD4/HeuStjNnBkbFeyUPQD3mQufoAuaeMHp1fAknlSssdxXKwZa/tKe+EQd4q8hq2123P8Oo8+YR6+q5RIuCRPUgu1mjRbve94mlEuFhAjqrlZp/XjamD8b3nh3FjbaNSGZgU+01vRAwHGBbBtQ+XhqPyTzzyWPkSBgRJZEybsSdyfA/0Dn1qUzSXPJTvJix53D7eVqGsJtYbie0gcJ4q5vsyJ2+KrsfkBl52Ucw\u003d\u003d"
+    },
+    "build.properties.merge": {
+      "ec0f832e80d63d776086203cffe9fed5c73b4294": "eJytUstOw0AMvPcrRuoNQT8AiQPixIGHoD/gZp3E6saOdjeJ+vc4fagSQZy6N3vs8YzXazzd8q3W2LaSUUtk9MlGCZxBChs5JQ/Qm2hBbQmBaxpiwUhJaBe9zjOiHCCK0nJmZ4s2cXImsSTlcOTNj6u1I8ADig1Vu/E5PacinM/pu82ZOy+xP5FZtl01Es7gATvKLsgUu0Fi2LCOkkw7dg+iuTAFUAi4krkmZzNlWH1ygVaa9h8T3huGqojpUm3hXESbJaBUZORlvqdqTw3/dvf69vnxtX1+33rJN2vVEl66gEliRMepYRxsSPC8Nu5hktJCSoZNijAkl4ChbxL5b25Oy6LRxH1b8VUIXVgq0zpK5Z0nvKP93BvJwXvkibmf48uc467K5WBm5tte4w874erN"
+    },
+    "index.html.tpl.merge": {
+      "cac7643dd8b5f47aaba4d8059faf855dcac9e82e": "eJydVU1rGzEQvftXTDbkErqxQzGkrm0K+aCBlhbiHHrUSmN7Yq20SOMkJuS/d7RrJ/6iJtXBjDyaN09vxNv+0dWvy9Gf39fwffTzx7DVn3JpoVSOxhh5kGVglZsMMnT5/V2W8qjMsAWy+iWyAj1VIaKcvB/d5BfZMsXEFocvTpX42m83uyYTeWEReFHhIGN85raOcVlVr/bp6fvmFK6fVVlJgR+DckCOmJQF65UhN5G9Ia3Yh7P1mlsGihBQ+7JEZ9AAe5ghVsBTSagIpQCVgiNh5WOkIlHyUAX/SAYFNrJyDGNEUyg9Wwd/mlKiw1MM0iL6edAomAEhMlkLBSZiiaD0HfsgPRHGFCIDU4lrUO23OGn+CQpvFvDyfiAlkCZT7sF5p3PydSOTaE2CnzuTa2996MHx+ZeL7lXn7dRr6y08VlX1o5HsdqXYVieRQaT1rgeqiN7OGTf7sa960N1mUaowIZfXyfy8Wz1vFcl8c2VpIrAaHWPYzD+R4em+263u/bmzDZk/YTEjQU0DTITz9MaE9e4NDxWaeVDNlTtn3XjoNAn7JtKiunAjN07PEQ+2IXmJTR9LDtUar0MjGsp7ezk09pt6bbIwFCurFolk6pkX1uvZRyUufDAY8iCk5lGmtDPeZvoiH+yklpPdBfeV0sSLpPnFXiG+rdrPcDEOMtu4b7abqnROtmTa7rSRfN3YdQ8U/6M0vdv/a9xE/XZthktjPMpzGIlXpIGJi1j/BOVcXKNA8a5KLM2x0lxbyh06sV24FH9Trna3Yk7WwELcKKllk0jy4iDPV66rAyUMM8hK0sHX/hSydR9+UI+qOZZBDHqQFd5z5KCqswdxaCFbJ+UT0G6+Af1kWEt8Q481+J5RrZl7OiZA6fdD/y3DfrvpKATEMIetv3Wi1lQ\u003d"
+    },
+    "packager.json.tpl.merge": {
+      "a6e435b2542bd5c43d97e0892d5eaa6ff4d6cc89": "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\u003d"
+    },
+    "native.properties.merge": {
+      "2c8c063f9588eecff09624782d7369a8a000d61c": "eJytkEsOwjAMRPecYkT3vQF3YMEFguJSi2BXjgni9rgfFQ5AdrEm743T4fTPc+hwGbli4EKYTBtnqkgCbWQWF0zK4hjUkGlIz+JoyThdS+RiwkIZLAiQJOdG/RarfeAmMmeqfUioLoJtgmQElfIGPyY1D8hrJMH1ySWz3AI3K30kHFfuESSNTeVB4v2hi8T5i/tp4vs+nu6zk9XY38tGK/+nWQx87hK0pU3RlAMzu3fv8qaG8s9f/wFV3ZB9"
+    },
+    "production.properties.merge": {
+      "cbdf9712e9b5d37cecb4d0530ba1fccd0ed004a3": "eJytkUEOwjAMBO+8YkXv/QF/4MAHAnGpRbArxy3i97gFQbk3t6ycmbXS4LDl2TU49VzRcSEMphNnqkgCncgsLhiUxdGpIVOXxuKYknE6l5iLhIUyWBCgeJ7Hi7NK+xmtbWQDmTPVNkRUF8knQTKCSnmC74OaB+jRk+A8csks10DOWu8J+x97D5KJTeVO4u2uianjD7lq5N+9PN1mL6uxP5fN3o5Vuwh87hO0pVHRlAMz+//cy7sa2o2/4QV6LJW9"
+    },
+    "app.js.tpl.merge": {
+      "bf7e5518d2efd28e0a64077e1e7666428cf994ae": "eJx1VdtuEzEQfc9XjILQblDkpCEtEFRxKTxEAlRxkxDiwV1PErdee/GlSajCtzP2ZnMhiR/2NnPOzBx7Zh8ey7Iy1l/z4o5PMS9MyRzqYsZZ8FJ1Hq96T1pA6+tMOphIhUD3KWq03KMArgWESqTnmyV8SVC4KgWDHyZAwTWgkB78Bs5d4tOIgjATY2FpggVeVUoW3Euju3ATIgIdJrCDuVQKZvwewRu4QSjRTlPARLUNCvMZaqBwFVpiLh0URmCTLlGD5+7OgQvFjBLZGPSU8pknspIAynUJqL01SqF1QDneS5y7VG0KYYPWEdWutYrZkwxTywW2WSsRjQVypZZAZj1FFzPfijA3QYlYiZKlbHQsjfNksXdbszAaE5vUYEgRC5XiBbHlTQlX2zw7DMaTXTVIfW18rVZSOVE1CcWQUdztZkaxulG+pHdljQgFbRi0awaSZEJ75NtUCPeRMPEl57idsUSLzijap5LrEMtnrSe9Vuv9wrOdDc4f6iPASxxB9kCWT/S4yrq1chZ/B0lEI/iZ3uPKIsVHdI4O6VuzyJLh1xqQNmfP+yOXet9HUvYjeNi6nD/LKHjMN1hStBcdXG9MV1bpKeWy8Xw2OOX5V1Zc/O9+djY85f96sDjwHp70TuwNJCFWTTEu2q8tUrtWxqEYgbcB11bnufWhGpek1V7JTwf9xfCivx9v7d1bG9lttZffxbC/eDE4gVkbDwS7eL446/eHx0GN9QA1jN8Hp1Br64F+508vFoN+//lx2MZ8qPuLaBiewjXmQ/EVD9RhI5jQLZ3mzo7GvR68Q0cduYwDDB7R2f5guKBZMdYiHn+aJaiwRO03mHi0J2qZZ0ecsw4TNV/eednaDTPW0kuu5B9MkUo68akR9mi/04c43hkXIo8fCovU6vm26VjEsNQvHYqwW6jR3+rJfqLW1JJuyuJckLbMN4a42m+2/Q41T7u775F+KTtjgSa8g9tAQ5CGG22Gm4Q4QG+QBm7zj0lTlMYmvZDfPU09AjL4jIqEA23mr/6Lssmc/ine6LHYraBZcgIbO1xeXkK2RJcd84xrLrUwc6ZMnTazKXi+Vm93rVrH3xqhWyt6+geQsUAZ"
+    },
+    "testing.properties.merge": {
+      "360e715956c81757e53736789fe20be045acb544": "eJytkMENwjAMRe+d4oveuwE7cGCBoLjUItiVY4q6PW6pKAM0t1g/732nxfnI07S4DlzRcyGMphNnqkgCncgsLhiVxdGrIVOfXsUxJeN0K5GLCQtlsCBATtVZ7t2Wq13wRjJnql1YqK6GbYJkBJUyg5+jmgflPZDg9uKSgxK8xekD4bSBTyCZ2FSeJN41bUQuO++vi/828vRYpKzGPq87fQV/1WLgS5mgrXWKphyYRb6L10c1nAf//gdqIpHi"
+    },
+    "app.json.tpl.merge": {
+      "38f469f7b0a4bb8b262a8c5f210fcd33b8a6b791": "eJzFWE1vGzcQvftXEEKBJoYsnXrxzXUcxK3jBLWDHpIcKO6sxIRLbkiuZMHwf+8b7od2JduNnCBewJAsLmfefL0Z8vZA4JkeHqZPcSiuFyRkWRqtZNTO/h6ElQWFUioaiypQJmZrcUVWLaQ4dUUhbSaiE3Oy5GUkoYwMgUIjbpo+RyxidCxGt/zlbjQ+uE9rrg2JUsYFy4sLHbZw5N7ZKN5cv70QmVNVQTaOhSeD9SX190y+BGeTuCEKbTO6eRML8x5KGE76YbLALw9AkrPgTAWrPvxzcR8qoa3IaEnGlQxHkF1qoKyh6QkdY0e32Vd2R0CrDKLWrvJiRTMx824VyIus8trO+/LHgiZz4F7EWB5Pp8YpaRYuxGmxhsxpz5xJI3hjDPQupalI4IslyhDI1YKsmFXapAh6gq1wZMIx9HxGJUG2VZqC0LnQEW9/qzS2CCBdkj8KOqMkovKqiz7MlVFIT8I6fCqsBD1DlJda1uEO6xCpEKV30SlnJsOAVd4gTLYyZjc8FzpE4XIhjRF/yaW8Ul6XUILki4Hjwp73er5AVG5IVSlczmfkWyXiTKoFbIF+DgpWZ19IRbHSnIKckM4Yt+IY5M4XMh63G9NzO/gv4S2bvOLPaXTTkDAhHUdiOhXvm9Rmw8fsxhS/2g/waFHBoBl9X0b3lHoqXOTqih7RHTxQ+uJdyZZL83Jn52MPdh6JV5TLysCbQFIh/rm2yJoXuTSB1i/516DnEC1k35TVQsOtK424wBrlSk3Z/rqvSlI6X9dGwVfJE7Wr4BFRG72jkNMMsB7WO6rKTCZvjTIyUY5+lrcA+TxP+kNCDuXjHuiEzlmzZmzGSS4/Z5lSwZ976xJCIXUhQttUd8n7V9F5OSdEKmpTq+4KHmRt55RNnmBV6ye4lazk4nVc76iPI6lBUrwqaq9ymWxsfoquHKU+EgVJCxn43gpus6mA42ra2ri2ti3shvrmaOZcDNHLcrs6fijU5zZjaiTOwz75Fw7gUow7vlxPhNhXPPpOqDM7bJK6y2iEPPECNcSdgYQVIr8Gt6EqcvJQu3/BNXzZdfGOc9DfdU5gpjq2CIFW3tUp7Le7THruhhwO8jsWHw9aXbcHfc0dY9b60IUHqzOwjmmpbcz033N+3VvgnzRxDHsUtxyF+sKLFn+d17py3HS+Bmenc5sgutXars+Pd6LTq6t7W5C2ylThGVoQy56o8Ewd6Ml19oz955naz4+46lc1nx/pPamBIK0x2DoL9gJtrvY385d0o5/WjB7jRa7J7yDGbqSeYsOUC5E3bvHk/pz1IdQRkVV0oBVQqkF6bA5xHOJJx/0v0qHrj8HJJ73StYeXPV7FAaLm1qHB2HzKewBzY2sHqYbVUimzVsegpyenb87E25PL89dnV9c4cKjNyamnoPZqo+Hj0EG9k1G38Hm8F4rLs+t/3/3z9+PqLcWV8193ARw+We/rk4uLP09O/0cxONHMpEqaP6ef73aDfnaDWWhzSBtQFbqXQ5fZNMZh8LpNA9N62akL1H8/MftraMUPLIUofazK0UN5+pqzatqbcvgCAVkXEWafLEAHcL7JPJiy5l7Zn5DCuOtroCSdwf55ZaTHqbD0fB4Ftq1rgiRxaOinT5OwtL89iPNVB7C9wAiRYfFMADVL7arAp9ysSkFsoE3EJbeRNMkwYPgp8iTZ1mFHsolgOie0Slu7vlLJE0aUqh7ToKcEzTZS0tCR19QY8HpcEVxVU8aW5dKrBfp+ez3S/HvP3UibqSVSjnk/XRHVlwjpWqCbFlWRNXMWQPHxfzut6luEztn3UZXV3yrqsRO8km3IvcdJzf2UZE9jWLhJLw3601dah272uuSJimmPCSssXAWUFvO8b1i818e27iV0li6zqoTsPLsbHdwd/Adv3E22"
+    },
+    "package.properties.merge": {
+      "c6c1fb2fb1dda28480ad0f6e5caffc9b97d196ae": "eJytkUFygzAMRfc5hSZsOxygM11223aRCwgsQBNH8tiCTG5fGWjDAcLOsnjvS27g45XfqYHLxAUGjgQp68KBCqCALpSzHyApi8GgGQINOEeDBTNjF73PKywUgAUclLC/4kjt3lda5yXKxlRat1BZDXsFMBOoxAfwLWk2p9wnEuhmjoFldF512kRw3sFnIFk4q9xIrD013vLz5B2y2P9EhtcqZc1sj3WmTXCI5gWrYZy2xomKwTFV/hSvP5XN+fV9+Xzftjb7SDoc+jClWJmmIGi80N9SwnbVe1HlDUTdWfNvt1togpGEMkYoLP1K7tVfIHKXfeVU/S9+/V9rlbyW"
+    },
+    "sencha.cfg.tpl.merge": {
+      "d2e6e42720f88befc892f12df5fd7bab587f7879": "eJxtUDEOwjAM3PsKSzAi6MaUhQfwAhaTujTQNpHtClWof8cpamFgSU53F/sumNK+x47cK59TUaARNRt+Rn641wrPX9m3KJJQG7e9DGV5PGWyCjwdMrjL7g9dFBvQJggkjolYR5BEPtSBBBB87DoEoYSMShW0QRRiDXmJmNorhj70NxvCJHFgb880mpLGfGtDcB1CW4HtI6+RxznpYt7Pg9wn/mzMwZb4uZ71MdsqTYefDp+feQN/i2pK"
+    }
+  },
+  "targets": {
+    "resources/sass/config.rb": {
+      "source": "config.rb.tpl.merge",
+      "version": "e254e92dd21bc9ecb27f3b8251d67dfbc79fa1af",
+      "parameters": {
+        "viewNamespace": "Audio.view",
+        "frameworkName": "touch",
+        "frameworkPath": "../..",
+        "senchadir": ".sencha",
+        "appModels": "",
+        "appControllers": "",
+        "appViews": "",
+        "uniqueId": "3a867610-670a-11e1-a90e-4318029d18bb",
+        "appName": "Audio",
+        "modelNamespace": "Audio.model",
+        "name": "Audio",
+        "library": "core",
+        "controllerNamespace": "Audio.controller",
+        "appStores": ""
+      }
+    },
+    "index.html": {
+      "source": "index.html.tpl.merge",
+      "version": "cac7643dd8b5f47aaba4d8059faf855dcac9e82e",
+      "parameters": {
+        "viewNamespace": "Audio.view",
+        "frameworkName": "touch",
+        "frameworkPath": "../..",
+        "senchadir": ".sencha",
+        "appModels": "",
+        "appControllers": "",
+        "appViews": "",
+        "uniqueId": "3a867610-670a-11e1-a90e-4318029d18bb",
+        "appName": "Audio",
+        "modelNamespace": "Audio.model",
+        "name": "Audio",
+        "library": "core",
+        "controllerNamespace": "Audio.controller",
+        "appStores": ""
+      }
+    },
+    "packager.json": {
+      "source": "packager.json.tpl.merge",
+      "version": "a6e435b2542bd5c43d97e0892d5eaa6ff4d6cc89",
+      "parameters": {
+        "viewNamespace": "Audio.view",
+        "frameworkName": "touch",
+        "frameworkPath": "../..",
+        "senchadir": ".sencha",
+        "appModels": "",
+        "appControllers": "",
+        "appViews": "",
+        "uniqueId": "3a867610-670a-11e1-a90e-4318029d18bb",
+        "appName": "Audio",
+        "modelNamespace": "Audio.model",
+        "name": "Audio",
+        "library": "core",
+        "controllerNamespace": "Audio.controller",
+        "appStores": ""
+      }
+    },
+    ".sencha/app/native.properties": {
+      "source": "native.properties.merge",
+      "version": "2c8c063f9588eecff09624782d7369a8a000d61c",
+      "parameters": {
+        "viewNamespace": "Audio.view",
+        "frameworkName": "touch",
+        "frameworkPath": "../..",
+        "senchadir": ".sencha",
+        "appModels": "",
+        "appControllers": "",
+        "appViews": "",
+        "uniqueId": "3a867610-670a-11e1-a90e-4318029d18bb",
+        "appName": "Audio",
+        "modelNamespace": "Audio.model",
+        "name": "Audio",
+        "library": "core",
+        "controllerNamespace": "Audio.controller",
+        "appStores": ""
+      }
+    },
+    ".sencha/app/production.properties": {
+      "source": "production.properties.merge",
+      "version": "cbdf9712e9b5d37cecb4d0530ba1fccd0ed004a3",
+      "parameters": {
+        "viewNamespace": "Audio.view",
+        "frameworkName": "touch",
+        "frameworkPath": "../..",
+        "senchadir": ".sencha",
+        "appModels": "",
+        "appControllers": "",
+        "appViews": "",
+        "uniqueId": "3a867610-670a-11e1-a90e-4318029d18bb",
+        "appName": "Audio",
+        "modelNamespace": "Audio.model",
+        "name": "Audio",
+        "library": "core",
+        "controllerNamespace": "Audio.controller",
+        "appStores": ""
+      }
+    },
+    ".sencha/app/package.properties": {
+      "source": "package.properties.merge",
+      "version": "c6c1fb2fb1dda28480ad0f6e5caffc9b97d196ae",
+      "parameters": {
+        "viewNamespace": "Audio.view",
+        "frameworkName": "touch",
+        "frameworkPath": "../..",
+        "senchadir": ".sencha",
+        "appModels": "",
+        "appControllers": "",
+        "appViews": "",
+        "uniqueId": "3a867610-670a-11e1-a90e-4318029d18bb",
+        "appName": "Audio",
+        "modelNamespace": "Audio.model",
+        "name": "Audio",
+        "library": "core",
+        "controllerNamespace": "Audio.controller",
+        "appStores": ""
+      }
+    },
+    ".sencha/app/build.properties": {
+      "source": "build.properties.merge",
+      "version": "ec0f832e80d63d776086203cffe9fed5c73b4294",
+      "parameters": {
+        "viewNamespace": "Audio.view",
+        "frameworkName": "touch",
+        "frameworkPath": "../..",
+        "senchadir": ".sencha",
+        "appModels": "",
+        "appControllers": "",
+        "appViews": "",
+        "uniqueId": "3a867610-670a-11e1-a90e-4318029d18bb",
+        "appName": "Audio",
+        "modelNamespace": "Audio.model",
+        "name": "Audio",
+        "library": "core",
+        "controllerNamespace": "Audio.controller",
+        "appStores": ""
+      }
+    },
+    "app.json": {
+      "source": "app.json.tpl.merge",
+      "version": "38f469f7b0a4bb8b262a8c5f210fcd33b8a6b791",
+      "parameters": {
+        "viewNamespace": "Audio.view",
+        "frameworkName": "touch",
+        "frameworkPath": "../..",
+        "senchadir": ".sencha",
+        "appModels": "",
+        "appControllers": "",
+        "appViews": "",
+        "uniqueId": "3a867610-670a-11e1-a90e-4318029d18bb",
+        "appName": "Audio",
+        "modelNamespace": "Audio.model",
+        "name": "Audio",
+        "library": "core",
+        "controllerNamespace": "Audio.controller",
+        "appStores": ""
+      }
+    },
+    "app.js": {
+      "source": "app.js.tpl.merge",
+      "version": "bf7e5518d2efd28e0a64077e1e7666428cf994ae",
+      "parameters": {
+        "viewNamespace": "Audio.view",
+        "frameworkName": "touch",
+        "frameworkPath": "../..",
+        "senchadir": ".sencha",
+        "appModels": "",
+        "appControllers": "",
+        "appViews": "",
+        "uniqueId": "3a867610-670a-11e1-a90e-4318029d18bb",
+        "appName": "Audio",
+        "modelNamespace": "Audio.model",
+        "name": "Audio",
+        "library": "core",
+        "controllerNamespace": "Audio.controller",
+        "appStores": ""
+      }
+    },
+    ".sencha/app/testing.properties": {
+      "source": "testing.properties.merge",
+      "version": "360e715956c81757e53736789fe20be045acb544",
+      "parameters": {
+        "viewNamespace": "Audio.view",
+        "frameworkName": "touch",
+        "frameworkPath": "../..",
+        "senchadir": ".sencha",
+        "appModels": "",
+        "appControllers": "",
+        "appViews": "",
+        "uniqueId": "3a867610-670a-11e1-a90e-4318029d18bb",
+        "appName": "Audio",
+        "modelNamespace": "Audio.model",
+        "name": "Audio",
+        "library": "core",
+        "controllerNamespace": "Audio.controller",
+        "appStores": ""
+      }
+    },
+    ".sencha/app/sencha.cfg": {
+      "source": "sencha.cfg.tpl.merge",
+      "version": "d2e6e42720f88befc892f12df5fd7bab587f7879",
+      "parameters": {
+        "viewNamespace": "Audio.view",
+        "frameworkName": "touch",
+        "frameworkPath": "../..",
+        "senchadir": ".sencha",
+        "appModels": "",
+        "appControllers": "",
+        "appViews": "",
+        "uniqueId": "3a867610-670a-11e1-a90e-4318029d18bb",
+        "appName": "Audio",
+        "modelNamespace": "Audio.model",
+        "name": "Audio",
+        "library": "core",
+        "controllerNamespace": "Audio.controller",
+        "appStores": ""
+      }
+    },
+    "resources/sass/app.scss": {
+      "source": "app.scss.tpl.merge",
+      "version": "3d3f6b023c31a4e49cd626dd27cff9474aff32d7",
+      "parameters": {
+        "viewNamespace": "Audio.view",
+        "frameworkName": "touch",
+        "frameworkPath": "../..",
+        "senchadir": ".sencha",
+        "appModels": "",
+        "appControllers": "",
+        "appViews": "",
+        "uniqueId": "3a867610-670a-11e1-a90e-4318029d18bb",
+        "appName": "Audio",
+        "modelNamespace": "Audio.model",
+        "name": "Audio",
+        "library": "core",
+        "controllerNamespace": "Audio.controller",
+        "appStores": ""
+      }
+    }
+  }
+}

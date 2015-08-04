@@ -1,0 +1,30 @@
+{
+    "name": "Grid",
+    "js": [
+        {
+            "path": "../../../../touch/sencha-touch-all-debug.js",
+            "x-bootstrap": true
+        },
+        {
+            "path": "bootstrap.js",
+            "x-bootstrap": true
+        },
+        {
+            "path": "app.js",
+            "update": "delta"
+        }
+    ],
+    "css": [
+        {
+            "path": "../../../../touch/resources/css/sencha-touch.css",
+            "platform": ["chrome", "safari", "ios", "android", "blackberry", "firefox"],
+            "update": "delta"
+        },
+        {
+            "path": "../../../../touch/resources/css/wp.css",
+            "platform": ["ie10"],
+            "theme": "Windows",
+            "update": "delta"
+        }
+    ]
+}

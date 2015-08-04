@@ -1,0 +1,243 @@
+.email-main-wrap .x-menu-item-default.x-menu-item-active{
+    background-color: #88bf4c !important;
+}
+.x-menu-item-default.x-menu-item-active .fa{
+    color : #fff !important;}
+/*
+.email-navigation-menu .x-menu-item {
+    height:50px !important;
+    line-height:50px !important;
+
+}*/
+/*
+.email-inbox-panel .x-toolbar {
+    padding-left:13px !important;
+}*/
+/*
+.email-navigation-menu,
+.email-navigation-menu .x-menu-item a {
+    color:#858585 !important;
+} 
+.email-navigation-menu   .x-menu-item-link:after {
+    padding-top: 1em !important;
+    padding-right:20px !important;
+    float: none;
+    position: absolute;
+    right: 0;
+}
+
+.email-navigation-menu  .x-panel-header {
+    padding: 20px 15px !important;
+    background-color: #fff !important;
+}
+*/
+/*
+.email-friends-menu  .x-menu-item-link:after {
+    content: "\f111" !important;
+}
+
+.email-friends-menu .offline-user .x-menu-item-link:after {
+    color: #9e9f9f !important;
+}
+
+.email-friends-menu .online-user .x-menu-item-link:after {
+    color: #86c747 !important;
+}
+.email-friends-menu .online-user.x-menu-item-active .x-menu-item-link:after
+{
+    color: #f7f7f7 !important;
+}
+
+.email-friends-menu .x-panel-header-default .x-tool-img{
+    background-color:transparent !important;
+}
+.email-friends-menu .x-menu-item-text-default {
+    margin-left: 20px !important;
+}*/
+/*
+.email-navigation-menu .x-title-icon-wrap {
+    width:30px !important;
+}
+*/
+/*.email-action-menu .x-menu-item-text-default.x-menu-item-indent-no-separator {
+    margin-left: 56px !important;
+}*/
+/*
+.email-navigation-menu .x-menu-item-icon-default{
+    margin-left: 15px !important;
+}
+
+.email-navigation-menu  .x-menu-item-link:after{
+    margin-top: 6px !important;
+}
+.email-navigation-menu .x-menu-item-glyph, 
+.email-navigation-menu .email-friends-menu  .x-menu-item-link:after{
+    margin-top: 7px !important;
+}*/
+/*.email-navigation-menu .x-panel-header-title-default{
+    font-size: 14px !important;   
+    line-height: 16px !important;    
+    color:#888 !important;
+    font-weight: normal !important;
+    font-family: "Open Sans Bold" !important;   
+}
+*/
+/*.email-inbox-panel .x-grid-header-ct .x-column-header-checkbox{
+    width: 30px !important;
+    padding-left: 8px !important;
+}*/
+/*.email-inbox-panel .x-grid-cell-inner{
+    padding: 12px 0 10px 0px !important;
+}*/
+/*.email-inbox-panel .x-grid-cell-row-checker{
+    padding-left: 13px !important;
+}*/
+/*.email-inbox-panel .fa-heart, .email-inbox-panel .fa-heart-o{
+    padding-left: 11px;
+}
+
+.email-inbox-panel .fa-paperclip{
+    display: block;
+    text-align: center;
+}*/
+/*
+.email-action-menu .x-title-text-default{
+    padding-left: 11px !important;
+}*/
+/*
+.email-navigation-menu .x-menu-default{
+    border-width: 1px 0 0 0 !important;
+}*/
+.single-mail-top-toolbar{
+    background-color: #fff;
+    border-bottom: 1px solid #e2e2e2 !important;   
+}
+
+.single-mail-top-toolbar .x-btn-inner-default-toolbar-small {
+        color: #888 !important;
+}
+
+.single-mail-top-toolbar a:first-child {
+    left: 2px !important;
+}
+/*
+.email-compose .x-panel-body-widget-panel{
+    border-top : 0px !important;
+}*/
+.single-mail-email-subject div{
+    line-height: 1.7em;
+}
+.single-mail-email-subject .user-name{
+    font-size: 16px;
+    font-family: "Open Sans";
+
+}
+.single-mail-email-subject .user-info{
+    font-size: 22px;
+    font-family: "Open Sans SemiBold";
+    max-width: 95%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.mail-body{
+    font-size: 14px;
+    line-height: 1.6em;
+}
+.single-mail-attachment{
+    border: 1px solid #e2e2e2 !important;
+    border-left-width: 0px !important;
+    border-right-width: 0px !important;
+}
+.single-mail-attachment .x-panel-header-default{
+    background-color: transparent !important;   
+}
+.single-mail-attachment .x-title{
+    color:#a3a3a3 !important;
+    font-size: 18px !important;
+    font-family: "Open Sans SemiBold" !important;
+}
+.single-mail-action-button{
+    background-color: #fff;
+}
+/*
+.email-compose-discard-button{
+    background-color: #e4495b !important;
+    border-color: #e4495b !important;
+}
+.email-compose-discard-button:hover{
+    background-color: #fff !important;
+}
+.email-compose-discard-button:hover .x-btn-inner{
+    color: #e4495b !important;
+}
+
+.email-compose-save-button{
+    background-color: #9da6a3 !important;
+    border-color:#9da6a3 !important;
+}
+.email-compose-save-button:hover{
+    background-color: #fff !important;
+}
+.email-compose-save-button:hover .x-btn-inner{
+    color: #9da6a3 !important;
+}
+.email-compose-send-button{
+    background-color: #56B750 !important;
+    border-color: #56B750 !important;
+}
+.email-compose-send-button:hover{
+    background-color: #fff !important;
+}
+.email-compose-send-button:hover .x-btn-inner{
+    color: #56b750 !important;
+}
+
+.email-compose .x-panel-header-widget-panel-top{
+    padding: 20px 12px !important;
+    background-color: #fff !important;
+}
+.email-compose .x-panel-header-title-widget-panel {
+    font-size: 14px !important;   
+    line-height: 16px !important;    
+    color:#888 !important;
+    font-weight: normal !important;
+    font-family: "Open Sans Bold" !important;
+}*/
+/*
+.email-inbox-panel .fa-heart:before {
+    color:#facc6e !important;
+}
+.email-inbox-panel .fa-heart-o:before {
+    color:#b2b2b2 !important;
+}
+
+.email-inbox-panel .x-grid-item {
+    font-size: 13px !important;
+}*/
+/*
+.email-navigation-menu .x-menu-item-text-default {
+    font-size:13px !important;
+}
+*/
+/*.email-header-container .x-form-item-label-inner,
+.email-attachment-container .x-form-item-label-inner {
+    font-size:13px !important;
+}
+.email-attachment-container .x-form-item-body{
+    padding-left: 10px !important;
+}*/
+.email-sender-img img{
+    border-radius: 40px;
+    border:2px solid #eee;
+}
+/*
+.x-tip-default{
+    padding: 0;
+}
+.x-tip-default .x-tip-header-default{
+    padding: 10px;
+}
+.x-tip-default .x-tip-body-default{
+    padding:0 10px 10px 10px;
+}*/

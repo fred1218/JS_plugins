@@ -1,0 +1,30 @@
+Ext.define('Ext.theme.cupertino.Component', {
+    override: 'Ext.Component'
+}, function() {
+    Ext.namespace('Ext.theme.is').Cupertino = true;
+    Ext.theme.name = 'Cupertino';
+});
+
+Ext.define('Ext.theme.cupertino.TitleBar', {
+    override: 'Ext.TitleBar',
+    config: {
+        maxButtonWidth: '80%'
+    }
+});
+
+Ext.define('Ext.theme.cupertino.dataview.List', {
+    override: 'Ext.dataview.List',
+    config: {
+        itemHeight: 43
+    }
+});
+
+Ext.define('Ext.theme.cupertino.dataview.NestedList', {
+    override: 'Ext.dataview.NestedList',
+    config: {
+        itemHeight: 43,
+        useTitleAsBackText: true,
+        updateTitleText: false
+    }
+});
+

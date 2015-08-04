@@ -1,0 +1,23 @@
+.blank-page-container {
+    text-align: center;
+    color: #cacaca;
+    margin-top:15%;
+    .fa-outer-class {
+	    margin:auto;
+	    width: 150px;
+	    height: 150px;
+	    border-radius: 75px;
+	    background-color: #ebebeb;
+	    text-align: center;   
+	   .fa:before {
+		    line-height:150px;
+		    font-size:80px;
+		    color:#cacaca;
+		}
+	}
+	h1{
+		margin:5px;
+		line-height:30px;
+		font-weight:normal;
+	}
+}

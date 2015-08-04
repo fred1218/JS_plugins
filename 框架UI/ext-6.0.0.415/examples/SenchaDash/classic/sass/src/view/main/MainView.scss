@@ -1,0 +1,61 @@
+.dashboard-main-navigation{
+	.#{$prefix}panel-body{
+		background: $panel-navigation-background-color;
+		.#{$prefix}grid-item{
+			background: $panel-navigation-background-color;
+			color: $panel-navigation-color;
+			&.#{$prefix}grid-item-selected,
+			.#{$prefix}grid-item-focused{
+				color: #fff;
+				background:#353f50;
+				.#{$prefix}tree-elbow-img{
+					color: #fff;
+				}
+			}
+			.fa:before{
+				position:absolute;
+				top:22px;
+				left:30px;
+				font-size:16px;
+			}
+			&.#{$prefix}grid-item-selected{
+				.#{$prefix}grid-cell-inner{
+					border-left-color: $base-color;	
+				}
+			}
+			.#{$prefix}grid-cell-inner{
+				line-height:48px;
+				border-left:5px solid transparent;
+				.#{$prefix}tree-node-text{
+					margin-left:30px;	
+				}
+			}
+			.#{$prefix}tree-elbow-img{
+				line-height:62px;
+				float:right;
+				color: $panel-navigation-color;
+				&.x-tree-expander{
+					&:before{
+						content:'\f105';
+					}
+				}
+			}
+			.#{$prefix}grid-tree-node-expanded{
+				.#{$prefix}tree-elbow-img{
+					&.x-tree-expander{
+						&:before{
+							content:'\f107';
+						}
+					}
+				}
+			}
+		}
+	}
+}
+.coditas-dash-headerbar {
+    padding:0 30px 0 0!important;
+    border:none;
+    .header-right-profile-image {
+	  border-radius: 20px;
+	}
+}

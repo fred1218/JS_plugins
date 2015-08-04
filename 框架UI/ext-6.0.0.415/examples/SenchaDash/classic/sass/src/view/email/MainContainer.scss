@@ -1,0 +1,67 @@
+.menu-item-common{
+	padding-right:20px;	    
+    position: absolute;
+    font-family: FontAwesome;
+    right: 0;
+}
+.navigation-email{
+	.#{$prefix}panel-header{	  	
+	  	line-height: 20px;
+	  	background-color: $lightest-color;
+	  	padding: 20px 15px;
+
+	  	.#{$prefix}panel-header-title-default{
+	  		color: $email-navigation-color;
+	  		font-size: 14px;
+	  		font-family: "Open Sans Bold";
+	  		font-weight: bold;
+	  	}
+	  	.#{$prefix}title-text-default{
+	  		padding-left: 15px;
+	  	}
+  	}
+	.#{$prefix}menu-default{
+		border-style: solid;
+  		border-width: 1px 0 0 0;
+  		border-color: $neutral-color;
+  		&.fa{
+  			padding: 0 0 0 10px;
+  		}
+	}
+	.#{$prefix}menu-item-icon-default{
+		padding-top: 10px;
+		padding-left: 12px;
+	}
+	
+	.#{$prefix}menu-item {
+	  line-height: 50px;
+	  	.#{$prefix}menu-item-text-default.#{$prefix}menu-item-indent-no-separator{
+			 	margin-left: 56px;
+			}
+	  &.online-user {
+	  		.#{$prefix}menu-item-text-default.#{$prefix}menu-item-indent-no-separator{
+			 	margin-left: 18px;
+			}
+	  		.#{$prefix}menu-item-link:after{
+	    		color: $online-menu-item-color;	    		
+	    		content: "\f111";
+	    		@extend .menu-item-common;
+	    	}	    	
+    	}
+    	&.offline-user{
+    		.#{$prefix}menu-item-link:after{
+	    		color: $offline-menu-item-color;
+	    		content: "\f111";	
+	    		@extend .menu-item-common;
+		    }
+		    .#{$prefix}menu-item-text-default.#{$prefix}menu-item-indent-no-separator{
+			 	margin-left: 20px;
+			}
+    	}
+    	.#{$prefix}menu-item-link:after {	   
+		    @extend .menu-item-common;
+		    color: $default-menu-item-color;		    
+		    content: "\f105";		    
+		}		
+	}	
+}

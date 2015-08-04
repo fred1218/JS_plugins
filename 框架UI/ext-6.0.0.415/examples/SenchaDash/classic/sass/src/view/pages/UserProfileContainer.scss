@@ -1,0 +1,40 @@
+.#{$prefix}form-text {
+  font-size: 14px;
+  color: #333;
+}
+.pages-userProfile-container{
+	.userProfilePic{
+		border: 4px solid #ddd;
+  		border-radius: 60px;
+	}
+	.userProfileName{
+		font-size: 16px;
+		font-weight:bold;
+		line-height: 30px;
+		color: #888;
+	}
+	.userProfileDesc{
+		color:#888;
+    	line-height:16px;
+	}
+	.socialBtnsToolbar{
+		.x-btn{
+			border: none;
+			&.btn-facebook{
+				background: #43609c;
+			}
+			&.btn-twitter{
+				background: #55acee;
+			}
+			&.btn-google-plus{
+				background: #e3495a;
+			}
+			&.btn-envelope{
+				background: #56b650;
+			}
+			.x-btn-icon-el-default-toolbar-small{
+				color: #fff;
+			}
+		}
+	}
+}

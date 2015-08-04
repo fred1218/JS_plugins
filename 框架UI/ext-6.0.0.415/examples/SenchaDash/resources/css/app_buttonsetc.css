@@ -1,0 +1,59 @@
+/* TO BE EDITED BY VASUDHA ONLY */
+
+
+/* BackgroundColor Cls Start*/
+
+/*.darkblue-background{*/
+    /*background-color: #6aa6db !important;*/
+/*}*/
+/*.grey-background{*/
+    /*background-color: #9da6a3 !important;*/
+/*}*/
+/*.pink-background{*/
+    /*background-color: #ee929d !important;*/
+/*}*/
+/*.blue-background{*/
+    /*background-color: #03b4d6 !important;*/
+    /*color:#fff;*/
+/*}*/
+/*.nevyblue-background{*/
+    /*background-color: #555f78 !important;*/
+/*}*/
+/*.purple-background{*/
+    /*background-color: #a086c3 !important;*/
+/*}*/
+/*.skyblue-background{*/
+    /*background-color: #e3f0f6 !important;*/
+    /*color: #000 !important;*/
+/*}*/
+/*.green-background{*/
+    /*background-color:#aed581;*/
+/*}*/
+
+
+/* BackgroundColor Cls End*/
+.circularBorder{
+    border-radius: 25px !important;
+}
+.ui-button-container .fa{
+    color:#fff;
+    font-size:17px;
+    padding-left:3px;
+}
+
+.ui-button-container .icon-buttons-wrap .fa{
+    padding:0;
+}
+.with-label-buttons-wrap .x-btn-icon-el,.with-label-buttons-wrap .x-btn-inner{
+    float: left !important;
+}
+.with-label-buttons-wrap .x-btn-inner{
+    padding-left: 5px !important;
+}
+
+.ui-button-container .x-btn-inner-default-medium{
+    font-size: 12px !important;  
+}
+.ui-button-container .menu-buttons-wrap  .fa{
+    font-size: 14px;
+}
