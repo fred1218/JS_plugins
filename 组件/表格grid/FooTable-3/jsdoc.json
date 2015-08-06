@@ -1,0 +1,27 @@
+{
+  "tags": {
+    "allowUnknownTags": true
+  },
+  "source": {
+    "include": ["./js"],
+    "includePattern": ".+\\.js(doc)?$",
+    "excludePattern": "docs|lib"
+  },
+  "plugins": [],
+  "templates": {
+    "applicationName": "FooTable V3",
+    "default":{
+      "outputSourceFiles": false
+    },
+    "cleverLinks": false,
+    "monospaceLinks": true
+  },
+  "opts": {
+    "template": "templates/fooplugins",
+    "destination": "gh-pages/dev-docs",
+    "readme": "README.md",
+    "mainpagetitle": "Welcome to FooTable V3",
+    "recurse": true,
+    "private": true
+  }
+}

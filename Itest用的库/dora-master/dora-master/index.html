@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dora</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+
+    <!-- jquery -->
+    <script src="lib/jquery-1.11.1.min.js"></script>
+
+    <!-- diff -->
+    <script src="lib/diff/diff_match_patch.js"></script>
+
+    <!-- ueditor -->
+    <script src="richeditor/ueditor.config.js"></script>
+    <script src="richeditor/ueditor.js"></script>
+
+    <!-- emon -->
+    <script src="codeeditor/emon.config.js"></script>
+    <script src="codeeditor/emon.js"></script>
+
+    <!-- dora -->
+    <script src="dora.config.js"></script>
+    <script src="import.js"></script>
+    <script src="lang/zh-cn/zh-cn.js"></script>
+    <link rel="stylesheet" href="theme/dora.css"/>
+
+</head>
+<body>
+
+<div>
+    <h1>Dora</h1>
+    <div class="main">
+        <div id="container" style="width:600px;height:500px;">
+        </div>
+    </div>
+</div>
+
+<script>
+    var dora = DR.getDora('container');
+</script>
+
+</body>
+</html>
