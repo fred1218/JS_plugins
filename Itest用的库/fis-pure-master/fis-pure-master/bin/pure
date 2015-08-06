@@ -1,3 +1,0 @@
-#!/usr/bin/env node
-
-require('../pure.js').cli.run( process.argv );

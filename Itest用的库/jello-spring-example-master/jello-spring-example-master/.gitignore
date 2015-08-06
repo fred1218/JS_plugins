@@ -1,9 +1,0 @@
-.idea
-
-/src/main/webapp/static/
-/src/main/webapp/test/
-/src/main/webapp/WEB-INF/config
-/src/main/webapp/WEB-INF/views/*/**
-
-
-/target
