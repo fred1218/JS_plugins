@@ -1,0 +1,50 @@
+{
+  "name": "template7",
+  "version": "1.0.6",
+  "description": "Mobile-first HTML template engine",
+  "main": "dist/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nolimits4web/Template7.git"
+  },
+  "keywords": [
+    "mobile", 
+    "template", 
+    "javascript", 
+    "ios7", 
+    "ios8", 
+    "ios 8", 
+    "iphone", 
+    "ipad", 
+    "phonegap", 
+    "framework7",
+    "handlebars",
+    "mustache"
+  ],
+  "author": "Vladimir Kharlampidi",
+  "license": [
+    "MIT"
+  ],
+  "bugs": {
+    "url": "https://github.com/nolimits4web/Template7/issues"
+  },
+  "homepage": "http://www.idangero.us/template7/",
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "devDependencies": {
+    "jshint": "~2.8.0",
+    "gulp": "~3.9.0",
+    "gulp-connect": "~2.2.0",
+    "gulp-open": "~0.3.2",
+    "gulp-uglify": "~1.2.0",
+    "gulp-sourcemaps": "~1.5.2",
+    "gulp-jshint": "~1.11.0",
+    "gulp-rename": "~1.2.2",
+    "gulp-header": "~1.2.2",
+    "jshint-stylish": "~2.0.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  }
+}
