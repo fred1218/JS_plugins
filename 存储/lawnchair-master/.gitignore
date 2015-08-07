@@ -1,0 +1,5 @@
+.DS_Store
+/lib/lawnchair-*
+/tmp
+/test/lib/lawnchair*
+node_modules/

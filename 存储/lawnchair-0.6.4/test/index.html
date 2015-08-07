@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />    
+	<title>Lawnchair Spec</title>
+	<link rel="stylesheet" href="lib/qunit-1.11.0.css" type="text/css" media="screen">
+    <script src="lib/qunit-1.11.0.js"></script>
+    <script src="lib/json2.js"></script>
+    <script src="../src/Lawnchair.js"></script>
+    <script src="../src/adapters/memory.js"></script>
+    <script src="../src/adapters/blackberry-persistent-storage.js"></script>
+    <script src="../src/adapters/gears-sqlite.js"></script>
+    <script src="../src/adapters/ie-userdata.js"></script>
+    <script src="../src/adapters/indexed-db.js"></script>
+    <script src="../src/adapters/webkit-sqlite.js"></script>
+    <script src="../src/adapters/dom.js"></script>
+    <script src="../src/adapters/html5-filesystem.js"></script>
+    <script src="lib/zepto.js"></script>
+    <script src="../src/adapters/touchdb-couchdb.js"></script>
+    <script src="lawnchair-spec.js" charset="UTF-8"></script>
+
+	<script>
+
+		// autostart seems to be a little eager
+		QUnit.config.autostart = false;
+
+		// kill qunit saves
+		try{ sessionStorage.clear(); } catch(e){}
+
+        var store;
+
+        function startTests() {
+
+            // allow restriction of adapter in URL (e.g., ?adapter=ie-userdata)
+            var allowed = /adapter=([-\w]+)/.exec(window.location.href),
+                adapters = Lawnchair.adapters,
+                i,
+                a;
+
+            if (!allowed) { allowed=[null,"dom"]; }
+            for (i = adapters.length-1; i >= 0; i--) {
+              // make links for easy testing of different adapters
+              if (!adapters[i].valid()) { continue; }
+              if (adapters[i].adapter === allowed[1]) {
+                  a = document.createElement('label');
+              } else {
+                  a = document.createElement('a');
+                  a.href = "?adapter="+adapters[i].adapter;
+              }
+              a.textContent = adapters[i].adapter;
+              a.style.margin = "0 0.5em";
+              document.getElementById('qunit-header').appendChild(a);
+            }
+            for (i = 0; i < adapters.length; ) {
+                if (adapters[i].adapter == allowed[1]) {
+                    i++;
+                } else {
+                    adapters.splice(i, 1)
+                }
+            }
+
+            if (adapters.length == 0) {
+                alert("no such adapter: " + allowed[1]);
+            }
+
+            if (!adapters[0].valid()) {
+                alert("adapter " + allowed[1] + " is not valid in this environment");
+            }
+
+            // kickup the chair
+            store = new Lawnchair({name:'tests'}, function(){
+                QUnit.start()
+            });
+
+        }
+
+    </script>
+</head>
+<body onload="startTests()">
+	<h1 id="qunit-header">Lawnchair Spec</h1>
+    <h2 id="qunit-banner"></h2>
+    <h2 id="qunit-userAgent"></h2>
+    <ol id="qunit-tests"></ol>
+</body>
+</html>
