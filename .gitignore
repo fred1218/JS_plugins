@@ -1,0 +1,7 @@
+*.name
+.idea/misc.xml
+.idea/encodings.xml
+.idea/JS.iml
+.idea/vcs.xml
+.idea/modules.xml
+.idea/workspace.xml
