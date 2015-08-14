@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link href="css/jquery.circliful.css" rel="stylesheet" type="text/css"/>
+    <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="js/jquery.circliful.js"></script>
+    <style>
+        body {
+            font-family: arial, verdana, sans-serif;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+<div id="test" data-text="35%" data-info="New Clients11" ></div>
+<script type="text/javascript">
+    $(function () {
+        $('#test').circliful({
+            text: "35%", info: "测试数据",
+            percent:60,
+            type: "full",
+            fgcolor: "#61a9dc",
+            bgcolor: "#ebeaef",
+            width: 20,
+            dimension: 250,
+            fontsize: 50,
+            animationstep: 1.0,
+//            border: "inline",//outline
+            complete: function () {
+                //旋转到达end时的回调
+            }
+        });
+    });
+</script>
+</body>
+
+</html>
