@@ -1,0 +1,27 @@
+#!/usr/bin/env ruby
+
+$LOAD_PATH.push(File.join(File.dirname(__FILE__), '..', 'lib'))
+
+require 'rubygems'
+require 'html2t'
+
+Hash.class_eval do
+  def inspect
+    return "" if empty?
+
+    pairs = []
+    each do |k, v|
+      pairs << "\"#{k}\": \"#{v.gsub('"', '\"')}\""
+    end
+    "{#{pairs.join(',')}}"
+  end
+end
+
+options = {
+  fragment: ENV['HTML_FRAGMENT'] == 'true',
+  condense: true
+}
+
+puts 'var template ='
+p Html2t.new(options).parse ARGF.read
+

@@ -1,0 +1,549 @@
+$viewer_l_padding : 2px
+$viewer_r_padding : $viewer_l_padding
+$viewer_t_padding : 2px
+$viewer_b_padding : $viewer_t_padding
+
+$header_l_margin : 0px
+$header_r_margin : $header_l_margin
+$header_t_margin : 2px
+$header_b_margin : $header_t_margin
+$header_top      : 0px
+$header_left     : 0px
+$header_height   : 22px
+
+$weiqi_board_grid   : 21px
+$weiqi_board_size   : 19
+$weiqi_board_top    : $header_t_margin + $header_height + $header_b_margin
+$weiqi_board_left   : 0px
+$weiqi_board_width  : 425px
+$weiqi_board_height : 420px
+
+$weiqi_control_area_top  : 0
+$weiqi_control_area_left : $weiqi_board_width - ($weiqi_board_grid * $weiqi_board_size)
+
+$toolbar_l_margin : 2px
+$toolbar_r_margin : $toolbar_l_margin
+$toolbar_top      : $weiqi_board_top
+$toolbar_left     : $weiqi_board_width + $toolbar_l_margin
+$toolbar_width    : 35px
+
+$left_pane_width  : $weiqi_board_width + $toolbar_l_margin + $toolbar_width + $toolbar_r_margin
+$left_pane_height : $header_t_margin + $header_height + $header_b_margin + $weiqi_board_height
+
+$header_width : $left_pane_width - $header_l_margin - $header_r_margin
+
+$info_width  : 300px
+$info_height : 500px
+
+$weiqi_body_height : $info_height
+@if $info_height < $left_pane_height
+  $weiqi_body_height : $left_pane_height
+
+$weiqi_height : $viewer_t_padding + $weiqi_body_height + $viewer_b_padding
+$weiqi_width  : $viewer_l_padding + $weiqi_body_height + $viewer_r_padding
+
+$toolbar_height : $weiqi_height - $viewer_t_padding - $header_t_margin - $header_height - $header_b_margin - $viewer_b_padding
+
+.gameviewer
+  clear: both
+  position: relative
+  left: 0px
+  top: 0px
+  width: 720px
+  height: 450px
+  border: 1px solid black
+  background: #EECD7A
+
+  *
+    margin: 0
+    padding: 0
+    border: 0
+    outline: 0
+    font-size: 100%
+    vertical-align: baseline
+    background: transparent
+    text-decoration: none
+
+  a
+    color: blue
+
+  .toggle-opacity
+    img
+      filter: progid:DXImageTransform.Microsoft.Alpha(opacity=70)
+      -moz-opacity: 0.70
+
+    &:hover img
+      filter: progid:DXImageTransform.Microsoft.Alpha(opacity=100)
+      -moz-opacity: 1
+
+
+  .button
+    position: absolute
+    left: 0px
+    top: 0px
+    width: 100%
+    padding: 1px 0px
+    white-space: nowrap
+    z-index: 99
+
+    a
+      display: inline
+      border-top: 1px solid #EEE
+      border-left: 1px solid #EEE
+      border-right: 1px solid #606060
+      border-bottom: 1px solid #101010
+      color: blue
+      background: #DDBC69
+      text-decoration: none
+      padding: 2px 4px 1px 4px
+      text-align: center
+
+      &:hover
+        border-top: 1px solid #000
+        border-left: 1px solid #666
+        border-right: 1px solid #ccc
+        border-bottom: 1px solid #ccc
+        color: #fff
+        background: #47748e fixed
+
+      &:active
+        color: #fff
+        background: #47748e
+
+
+  .control-text
+    font-size: larger
+    font-weight: bold
+    vertical-align: middle
+
+
+  .banner
+    position: absolute
+    left: 2px
+    top: 2px
+    width: 468px
+    height: 25px
+
+
+  .banner-overlay
+    position: absolute
+    left: 0px
+    top: 0px
+    width: 100%
+    height: 100%
+
+
+  .banner-left
+    display: inline
+    position: absolute
+    left: 0px
+    top: 0px
+    padding: 1px 0px
+    z-index: 100
+
+
+  img.next-player
+    position: relative
+    top: 2px
+
+
+  img.prisoners
+    position: relative
+    top: 2px
+
+
+  .resign
+    display: none
+    position: absolute
+    top: -1px
+    z-index: 200
+
+  .resign
+    left: 255px
+
+  .move-number-outer
+    position: absolute
+    left: 22px
+    top: 0px
+    width: 399px
+    text-align: center
+
+
+  .prisoners-outer
+    position: absolute
+    left: 270px
+    //top: -2px
+    width: 176px
+
+
+    .black
+      position: absolute
+      top: 0
+      width: 50%
+      text-align: center
+
+
+    .white
+      position: absolute
+      left: 50%
+      top: 0
+      width: 50%
+      text-align: center
+
+
+  .open-window-outer
+    position: absolute
+    left: 450px
+    top: 0
+
+
+  .board-fascade
+    z-index: 99
+
+
+  .board-outer
+    position: absolute
+    left: 1px
+    top: 28px
+
+
+  .board
+    position: absolute
+    left: 22px
+    top: 2px
+    width: 399px
+    height: 399px
+
+
+  .boardvlabel
+    position: absolute
+    left: 0px
+    top: 82px
+    width: 22px
+    height: 361px
+    background-image: url(images/19/vlabel.gif)
+
+
+  .boardhlabel
+    position: absolute
+    left: 98px
+    top: 518px
+    width: 361px
+    height: 17px
+    background-image: url(images/19/hlabel.gif)
+
+
+  .board-overlay
+    position: absolute
+    left: 0px
+    top: 0px
+    width: 100%
+    height: 100%
+
+
+  .branch
+    position: absolute
+    text-align: center
+    vertical-align: middle
+    color: blue
+    font-weight: bolder
+    background-color: #EECD7A
+
+
+  .branch-real
+    position: absolute
+    text-align: center
+    vertical-align: middle
+    color: blue
+    font-weight: bolder
+    background-color: #CCAB69
+
+
+  .toolbar
+    position: absolute
+    left: 432px
+    top: 28px
+    width: 35px
+    height: 414px
+
+
+  .tb-item
+    position: relative
+    text-align: center
+    background-repeat: no-repeat
+    background-position: center center
+    z-index: 1
+
+
+  .tb-branches
+    position: relative
+    width: 100%
+    height: 0px
+    overflow: hidden
+    margin: 0px
+
+
+  .tb-branch
+    position: relative
+    left: 20%
+    width: 80%
+    height: 20px
+    margin: 1px
+    font-weight: bolder
+
+
+  .point-label
+    position: absolute
+    left: 425px
+    top: 430px
+    width: 40px
+    height: 15px
+    text-align: center
+    font-weight: bolder
+    color: #3399CC
+
+
+  .right-pane
+    position: absolute
+    left: 472px
+    top: 1px
+    width: 245px
+    height: 446px
+    border: 1px solid gray
+    background: white
+
+
+  .info
+    margin: 3px
+
+
+  .comment
+    margin: 8px 1px 3px
+    overflow: auto
+
+
+.sprite-15-black
+  width: 15px
+  height: 15px
+  background: url(images/sprites.gif) 0 -5px
+
+.sprite-15-black_dead
+  width: 15px
+  height: 15px
+  background: url(images/sprites.gif) 0 -30px
+
+.sprite-15-white
+  width: 15px
+  height: 15px
+  background: url(images/sprites.gif) 0 -55px
+
+.sprite-15-white_dead
+  width: 15px
+  height: 15px
+  background: url(images/sprites.gif) 0 -80px
+
+.sprite-19-black
+  width: 19px
+  height: 19px
+  background: url(images/sprites.gif) 0 -105px
+
+.sprite-19-black_dead
+  width: 19px
+  height: 19px
+  background: url(images/sprites.gif) 0 -134px
+
+.sprite-19-blankboarddq
+  width: 475px
+  height: 475px
+  background: url(images/sprites.gif) 0 -163px
+
+.sprite-19-boarddq
+  width: 513px
+  height: 513px
+  background: url(images/sprites.gif) 0 -648px
+
+.sprite-19-hlabel
+  width: 722px
+  height: 17px
+  background: url(images/sprites.gif) 0 -1171px
+
+.sprite-19-markblack
+  width: 19px
+  height: 19px
+  background: url(images/sprites.gif) 0 -1198px
+
+.sprite-19-markcircle
+  width: 19px
+  height: 19px
+  background: url(images/sprites.gif) 0 -1227px
+
+.sprite-19-markcross
+  width: 19px
+  height: 19px
+  background: url(images/sprites.gif) 0 -1256px
+
+.sprite-19-markmove
+  width: 19px
+  height: 19px
+  background: url(images/sprites.gif) 0 -1285px
+
+.sprite-19-marksquare
+  width: 19px
+  height: 19px
+  background: url(images/sprites.gif) 0 -1314px
+
+.sprite-19-marktriangle
+  width: 19px
+  height: 19px
+  background: url(images/sprites.gif) 0 -1343px
+
+.sprite-19-markwhite
+  width: 19px
+  height: 19px
+  background: url(images/sprites.gif) 0 -1372px
+
+.sprite-19-vlabel
+  width: 20px
+  height: 722px
+  background: url(images/sprites.gif) 0 -1401px
+
+.sprite-19-white
+  width: 19px
+  height: 19px
+  background: url(images/sprites.gif) 0 -2133px
+
+.sprite-19-white_dead
+  width: 19px
+  height: 19px
+  background: url(images/sprites.gif) 0 -2162px
+
+.sprite-21-black
+  width: 21px
+  height: 21px
+  background: url(images/sprites.gif) 0 -2191px
+
+.sprite-21-black_dead
+  width: 21px
+  height: 21px
+  background: url(images/sprites.gif) 0 -2222px
+
+.sprite-21-blankboard
+  width: 399px
+  height: 399px
+  background: url(images/sprites.gif) 0 -2253px
+
+.sprite-21-board
+  width: 425px
+  height: 420px
+  background: url(images/sprites.gif) 0 -2662px
+
+.sprite-21-markblack
+  width: 21px
+  height: 21px
+  background: url(images/sprites.gif) 0 -3092px
+
+.sprite-21-markcircle
+  width: 21px
+  height: 21px
+  background: url(images/sprites.gif) 0 -3123px
+
+.sprite-21-markcross
+  width: 21px
+  height: 21px
+  background: url(images/sprites.gif) 0 -3154px
+
+.sprite-21-markmove
+  width: 21px
+  height: 21px
+  background: url(images/sprites.gif) 0 -3185px
+
+.sprite-21-marksquare
+  width: 21px
+  height: 21px
+  background: url(images/sprites.gif) 0 -3216px
+
+.sprite-21-marktriangle
+  width: 21px
+  height: 21px
+  background: url(images/sprites.gif) 0 -3247px
+
+.sprite-21-markwhite
+  width: 21px
+  height: 21px
+  background: url(images/sprites.gif) 0 -3278px
+
+.sprite-21-white
+  width: 21px
+  height: 21px
+  background: url(images/sprites.gif) 0 -3309px
+
+.sprite-21-white_dead
+  width: 21px
+  height: 21px
+  background: url(images/sprites.gif) 0 -3340px
+
+.sprite-back
+  width: 31px
+  height: 31px
+  background: url(images/sprites.gif) 0 -3371px
+
+.sprite-backall
+  width: 31px
+  height: 31px
+  background: url(images/sprites.gif) 0 -3412px
+
+.sprite-backc
+  width: 31px
+  height: 31px
+  background: url(images/sprites.gif) 0 -3453px
+
+.sprite-backn
+  width: 31px
+  height: 31px
+  background: url(images/sprites.gif) 0 -3494px
+
+.sprite-default
+  width: 1px
+  height: 1px
+  background: url(images/sprites.gif) 0 -3535px
+
+.sprite-forward
+  width: 31px
+  height: 31px
+  background: url(images/sprites.gif) 0 -3546px
+
+.sprite-forwardall
+  width: 31px
+  height: 31px
+  background: url(images/sprites.gif) 0 -3587px
+
+.sprite-forwardc
+  width: 31px
+  height: 31px
+  background: url(images/sprites.gif) 0 -3628px
+
+.sprite-forwardn
+  width: 31px
+  height: 31px
+  background: url(images/sprites.gif) 0 -3669px
+
+.sprite-hidenumber
+  width: 31px
+  height: 31px
+  background: url(images/sprites.gif) 0 -3710px
+
+.sprite-newwindow
+  width: 16px
+  height: 16px
+  background: url(images/sprites.gif) 0 -3751px
+
+.sprite-refresh
+  width: 31px
+  height: 31px
+  background: url(images/sprites.gif) 0 -3777px
+
+.sprite-shownumber
+  width: 31px
+  height: 31px
+  background: url(images/sprites.gif) 0 -3818px
+

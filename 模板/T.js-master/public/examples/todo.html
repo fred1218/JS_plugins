@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>T.js example 2 - a simple TODO list</title>
+  <script type="text/javascript" src="coffee-script.js"></script>
+  <script type="text/javascript" src="../javascripts/jquery-1.8.2.min.js"></script>
+  <script type="text/javascript" src="../javascripts/t.js"></script>
+  <script type="text/coffeescript">
+
+templates =
+  todoContainer: (todos) ->
+    [ "div#container"
+      style: 
+        width: 300
+        padding: 3
+        border: "1px solid grey"
+
+      # Event handler
+      todosUpdated: (e, newTodos) ->
+        T(templates.todos(newTodos)).render inside: '.todos'
+
+      [ "div.header"
+        style:
+          padding: 3
+          background: "#fbb"
+          font_weight: "bold"
+        "My TODO List"
+      ]
+      [ "div.todos"
+        style: width: "100%"
+        templates.todos(todos)
+      ]
+      templates.todoInput(todos)
+    ]
+
+  todo: (todos, index) ->
+    [ "div.todo"
+      style: padding: 3
+
+      T.escape(todos[index])
+      "&nbsp;&nbsp;"
+      [ "a"
+        href: "javascript:void(0)"
+        click: ->
+          todos.splice(index, 1)
+          $(this).trigger('todosUpdated', [todos])
+        "X"
+      ]
+    ]
+
+  todos: (todos) ->
+    return if todos.length is 0
+
+    templates.todo(todos, i) for i in [0..todos.length - 1]
+
+  todoInput: (todos) ->
+    [ "input"
+      type: "text"
+      style: width: "98%"
+      placeholder: "Enter content and hit Return"
+      keyup: (event) ->
+        if event.which is 13
+          event.preventDefault()
+
+          todos.push $(this).val()
+          $(this).val('')
+          $(this).trigger('todosUpdated', [todos])
+    ]
+
+todos = ["Do this", "Do that"]
+
+T(templates.todoContainer(todos)).render inside: 'body'
+
+</script>
+</head>
+<body>
+T.js example 2
+
+This example shows a simple TODO list.
+</body>
+</html>
+
