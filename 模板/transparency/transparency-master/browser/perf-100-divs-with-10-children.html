@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Transparency perf test</title>
+    <script src="lib/benchmark.js"></script>
+    <script src="lib/weld.js"></script>
+    <script src="lib/handlebars-1.0.0.beta.6.js"></script>
+    <script src="lib/jquery-1.7.1.min.js"></script>
+    <script src="lib/coffee-script.js"></script>
+    <script src="../dist/transparency.js"></script>
+  </head>
+  <body>
+    <pre id="results"></pre>
+
+    <h4>Transparency</h4>
+    <div id="transparency">
+      <div class="title"></div>
+      <div class="children">
+        <span class="item"></span>
+      </div>
+    </div>
+
+    <h4>Handlebars</h4>
+    <div id="handlebars">
+    </div>
+    </div>
+
+<script id="handlebars-template" type="text/handlebars">
+<h4>Handlebars</h4>
+{{#each foobar}}
+<div>{{title}}</div>
+<div>
+  {{#children}}
+  <span class='item'>{{this}}</span>
+  {{/children}}
+</div>
+{{/each}}
+</script>
+<script type="text/coffeescript">
+
+children        = ['10000000', '2', '3', '4', '5', '6', '7', '8', '9', '10']
+sharedVariables = (title: "AFASDF", children: children for n in [1..100])
+
+# For handlebars
+foobar = foobar: sharedVariables
+
+results              = $("#results")
+transparencyTemplate = $("#transparency")[0]
+handlebarsOutput     = $("#handlebars")[0]
+handlebarsTemplate   = Handlebars.compile($("#handlebars-template").text())
+
+Transparency.render transparencyTemplate, sharedVariables
+handlebarsOutput.innerHTML = handlebarsTemplate foobar
+
+new Benchmark.Suite()
+  .add("transparency", ->
+    Transparency.render transparencyTemplate, sharedVariables, children: item: text: -> @value)
+
+  .add("handlebars", ->
+    handlebarsOutput.innerHTML = handlebarsTemplate foobar)
+
+  .on("cycle", (event, bench) ->
+    console.log String(bench)
+    results.append String(bench) + '\n')
+
+  .on("complete", ->
+    results.append "Fastest is " + @filter("fastest").pluck("name"))
+
+  .run true
+
+</script>
+</body>
+</html>

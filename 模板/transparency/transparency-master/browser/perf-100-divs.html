@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Transparency perf test</title>
+    <script src="lib/benchmark.js"></script>
+    <script src="lib/handlebars-1.0.0.beta.6.js"></script>
+    <script src="lib/jquery-1.7.1.min.js"></script>
+    <script src="lib/coffee-script.js"></script>
+    <script src="../dist/transparency.js"></script>
+  </head>
+  <body>
+    <pre id="results"></pre>
+
+    <h4>Transparency - first render</h4>
+    <div id="transparency">
+    </div>
+
+    <h4>Handlebars - first render</h4>
+    <div id="handlebars">
+    </div>
+
+    <h4>Transparency</h4>
+    <div id="transparency-cached">
+    </div>
+
+    <h4>Handlebars</h4>
+    <div id="handlebars-cached">
+    </div>
+
+    <div id="transparency-template">
+      <span class="title"> </span>
+    </div>
+
+    <script id="handlebars-template" type="text/handlebars">
+    {{#each items}}
+    <span>{{title}}</span>
+    {{/each}}
+    </script>
+
+<script type="text/coffeescript">
+
+transparencyBench = new Benchmark 'transparency',
+  setup: ->
+    results  = $('#transparency')
+    index    = 0
+    template = ($('#transparency-template').clone()[0] for i in [1..@count])
+    data     = for i in [1..@count]
+      ({title: Math.random()} for n in [1..100])
+    return
+
+  fn: ->
+    Transparency.render template[index], data[index++]
+    return
+
+  onError: ->
+    console.log @error
+    return
+
+  teardown: ->
+    results.empty().append template[0].innerHTML
+    return
+
+transparencyCachedBench = new Benchmark 'transparency cached',
+  setup: ->
+    results  = $('#transparency-cached')
+    template = $('#transparency-template').clone()[0]
+    index    = 0
+    data     = for i in [1..@count]
+      ({title: Math.random()} for n in [1..100])
+    return
+
+  fn: ->
+    Transparency.render template, data[index++]
+    return
+
+  onError: ->
+    console.log @error
+    return
+
+  teardown: ->
+    results.empty().append template.innerHTML
+    return
+
+handlebarsBench = new Benchmark 'handlebars',
+  setup: ->
+    results  = $('#handlebars')
+    parser   = ($('<div></div>').clone() for i in [1..@count])
+    template = (Handlebars.compile($('#handlebars-template').html()) for i in [1..@count])
+    index    = 0
+    data     = for i in [1..@count]
+      ({title: Math.random()} for n in [1..100])
+    return
+
+  fn: ->
+    parser[index].innerHTML = template[index] items: data[index++]
+    return
+
+  onError: ->
+    console.log @error
+    return
+
+  teardown: ->
+    results.empty().append parser[0].innerHTML
+    return
+
+handlebarsCachedBench = new Benchmark 'handlebars cached',
+  setup: ->
+    results  = $('#handlebars-cached')
+    parser   = $('<div></div>').clone()
+    template = Handlebars.compile($('#handlebars-template').html())
+    index    = 0
+    data     = for i in [1..@count]
+      ({title: Math.random()} for n in [1..100])
+    return
+
+  fn: ->
+    parser.innerHTML = template items: data[index++]
+    return
+
+  onError: ->
+    console.log @error
+    return
+
+  teardown: ->
+    results.empty().append parser.innerHTML
+    return
+
+new Benchmark.Suite()
+  .add(transparencyBench)
+  .add(handlebarsBench)
+  .add(transparencyCachedBench)
+  .add(handlebarsCachedBench)
+
+  .on('cycle', (event, bench) ->
+    console.log String(bench)
+    $('#results').append(bench + '\n'))
+
+  .run true
+</script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+{
+  "name": "transparency",
+  "version": "0.11.0",
+  "description": "Transparency is a minimal template engine for browsers. It maps JSON objects to DOM elements with zero configuration.",
+  "homepage": "https://github.com/leonidas/transparency",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/leonidas/transparency.git"
+  },
+  "keywords": [
+    "template",
+    "templating",
+    "engine",
+    "unobtrusive",
+    "semantic"
+  ],
+  "author": "Jarno Keskikangas <jarno.keskikangas@leonidasoy.fi>",
+  "contributors": [
+    "Janne Hietamäki <janne.hietamaki@leonidasoy.fi>",
+    "Sami Hangaslammi <sami.hangaslammi@leonidasoy.fi>",
+    "Toni Jyrkinen <toni.jyrkinen@leonidasoy.fi>",
+    "Antti Tarvainen <antti.tarvainen@leonidasoy.fi>",
+    "Tomi Laine <tomi.laine@leonidasoy.fi>",
+    "Mikko Ohtamaa <mikko@opensourcehacker.com>"
+  ],
+  "licenses": [
+    "MIT"
+  ],
+  "dependencies": {
+    "jsdom": "^1.0.0"
+  },
+  "devDependencies": {
+    "bower": "^1.3.12",
+    "browserify": "^5.12.1",
+    "coffee-script": "^1.8.0",
+    "gulp": "^3.8.8",
+    "gulp-coffee": "^2.2.0",
+    "gulp-mocha": "^1.1.0",
+    "gulp-mocha-phantomjs": "^0.5.0",
+    "gulp-streamify": "^0.0.5",
+    "gulp-uglify": "^1.0.1",
+    "jquery": "^2.1.1",
+    "mocha": "^1.21.4",
+    "vinyl-source-stream": "^1.0.0"
+  },
+  "scripts": {
+    "test": "gulp test",
+    "build": "gulp build",
+    "prepublish": "bower install && gulp release"
+  },
+  "testling": {
+    "html": "testlingSpecRunner.html",
+    "browsers": [
+      "ie/8..latest",
+      "chrome/23..latest",
+      "firefox/17..latest",
+      "safari/5.1..latest",
+      "opera/11.5..latest",
+      "iphone/6",
+      "ipad/6"
+    ]
+  }
+}

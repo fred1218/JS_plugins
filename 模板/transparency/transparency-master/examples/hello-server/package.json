@@ -1,0 +1,10 @@
+{
+    "name": "hello-server",
+    "version": "0.0.1",
+    "private": true,
+    "dependencies": {
+      "express":       ">= 2.5.9",
+      "jquery":        ">= 1.7.2"
+    },
+    "scripts": {"start": "node server.js"}
+}

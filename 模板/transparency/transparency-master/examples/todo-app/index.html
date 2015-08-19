@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>To-do List</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/coffee-script.js"></script>
+    <script src="js/jquery-1.7.1.min.js"></script>
+    <script src="js/underscore-min.js"></script>
+    <script src="../../dist/transparency.min.js"></script>
+  </head>
+  <body>
+    <h1>To-do List</h1>
+    <form id="add-task">
+      <input type="text" name="task" />
+      <input type="submit" value="Add" />
+    </form>
+
+    <table id="tasks">
+      <tr>
+        <td class="task">task name</td><td><a class="delete" href="#">delete</a></td>
+      </tr>
+    </ul>
+
+    <script type="text/coffeescript">
+      data = [{task: "Foo"}, {task: "Bar"}]
+
+      $(document).ready ->
+        input = $('input[name="task"]')
+        tasks = $('#tasks')
+
+        tasks.on 'update', ->
+          tasks.render data
+
+        $('#add-task').submit (event) ->
+          event.preventDefault()
+          data.push task: input.val()
+          input.val ""
+          tasks.trigger 'update'
+
+        tasks.on 'click', '.delete', (event) ->
+          model = event.target.transparency.model
+          data  = _.reject(data, (e) -> e.task == model.task)
+          tasks.trigger 'update'
+
+        tasks.trigger 'update'
+    </script>
+  </body>
+</html>
