@@ -3,11 +3,3 @@
 构建
 异步
 模块化
-
-很牛的动画插件库
-
-three.js
-raphael https://github.com/DmitryBaranovskiy/raphael/
-d3.js
-c3.js
-graphael 基于raphael的图表  https://github.com/DmitryBaranovskiy/g.raphael
