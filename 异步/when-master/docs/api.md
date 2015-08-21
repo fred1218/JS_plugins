@@ -44,6 +44,7 @@ API
 	* when/keys
 		* [keys.all(object)](#whenkeys-all)
 		* [keys.map(object, mapper)](#whenkeys-map)
+		* [keys.settle(object)](#whenkeys-settle)
 1. Functions
 	* when/function
 		* [fn.lift(f)](#fnlift)
@@ -373,14 +374,19 @@ A promise makes the following guarantees about handlers registered in the same c
 var transformedPromise = promise.spread(onFulfilledArray);
 ```
 
-Similar to [`then`](#promisethen), but calls `onFulfilledArray` with promise's value, which is assumed to be an array, as its argument list.  It's essentially a shortcut for:
+Similar to [`then`](#promisethen), but calls `onFulfilledArray` with promise's value, which is assumed to be an array, as its argument list.  It will also deeply resolve promises within the array.
+  
+It's equivalent to:
 
 ```js
 // Wrapping onFulfilledArray
-promise.then(function(array) {
+when.all(promise).then(function(array) {
 	return onFulfilledArray.apply(undefined, array);
 });
 ```
+
+### See also
+* [when.all](#whenall)
 
 ## promise.fold
 
@@ -915,6 +921,7 @@ settled.then(function(descriptors) {
 ### See also:
 * [when.all](#whenall)
 * [promise.inspect](#inspect)
+* [keys.settle](#whenkeys-settle)
 
 # Objects
 
@@ -964,6 +971,20 @@ Where:
 
 ### See also:
 * [when.map](#whenmap)
+
+## when/keys settle
+
+```js
+var promise = keys.settle(object)
+```
+
+Where
+* object is an Object whose keys represent promises and/or values.
+
+Similar to `when.settle`, but for object keys, returns a promise for the key-value pairs with a resultant descriptor object for each key. The returned promise should always fulfill.
+
+### See also:
+* [when.settle](#whensettle)
 
 # Array Races
 
@@ -1046,7 +1067,7 @@ Generates a potentially infinite stream of promises by repeatedly calling `f` un
 
 Where:
 * `f` - function that, given a seed, returns the next value or a promise for it.
-* `predicate` - function that receives the current iteration value, and should return truthy when the unfold should stop
+* `predicate` - function that receives the current iteration value, and should return truthy when the iterating should stop
 * `handler` - function that receives each value as it is produced by `f`. It may return a promise to delay the next iteration.
 * `seed` - initial value provided to the handler, and first `f` invocation. May be a promise.
 
@@ -1669,7 +1690,7 @@ var promiseFunc = callbacks.lift(callbackTakingFunc);
 var promiseFunc = callbacks.lift(callbackTakingFunc, arg1, arg2/* ...more args */);
 ```
 
-Much like [`fn.lift()`](#fnlift), `callbacks.lift` creates a promise-friendly function, based on an existing function, but following the asynchronous resolution patters from [`callbacks.call()`](#callbackscall) and [`callbacks.apply()`](#callbacksapply). It can be useful when a particular function needs no be called on multiple places, or for creating an alternative API for a library.
+Much like [`fn.lift()`](#fnlift), `callbacks.lift` creates a promise-friendly function, based on an existing function, but following the asynchronous resolution patterns from [`callbacks.call()`](#callbackscall) and [`callbacks.apply()`](#callbacksapply). It can be useful when a particular function needs to be called in multiple places, or for creating an alternative API for a library.
 
 Like `Function.prototype.bind`, additional arguments will be partially applied to the new function.
 
@@ -1719,10 +1740,23 @@ Takes a callback-taking function and returns a promise for its final value, forw
 ```js
 var domIsLoaded = callbacks.call($);
 domIsLoaded.then(doMyDomStuff);
+```
 
-var waitFiveSeconds = callbacks.call(setTimeout, 5000);
-waitFiveSeconds.then(function() {
-	console.log("Five seconds have passed");
+```js
+// Fictional ajax library function
+function traditionalAjax(method, url, callback, errback) {
+	var xhr = new XMLHttpRequest();
+	xhr.open(method, url);
+
+	xhr.onload = callback;
+	xhr.onerror = errback;
+
+	xhr.send();
+}
+
+var xhrResult = callbacks.call(traditionalAjax, 'GET', url);
+xhrResult.then(function(result) {
+	console.log("Got result", result);
 });
 ```
 

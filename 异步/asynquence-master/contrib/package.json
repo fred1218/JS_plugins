@@ -1,0 +1,41 @@
+{
+	"name": "asynquence-contrib",
+	"version": "0.11.0",
+	"description": "additional plugins for asynquence",
+	"main": "./contrib.src.js",
+	"scripts": {
+		"test": "./node-tests.js",
+		"bundle": "./bundle.js",
+		"bundle-es6": "npm run bundle -- --keep-es6 --bundle=contrib-es6.src.js",
+		"bundle-common": "npm run bundle -- --bundle=contrib-common.src.js --min-bundle=contrib-common.js iterable race runner toPromise wrap",
+		"build": "npm run bundle && npm run bundle-es6 && npm run bundle-common",
+		"prepublish": "npm run build"
+	},
+	"devDependencies": {
+		"uglify-js": "~2.4.24",
+		"native-promise-only": "latest",
+		"minimist": "~0.2.0",
+		"freshy": "~0.0.2",
+		"es-feature-tests": "latest",
+		"babel-core": "~5.8.12"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/getify/asynquence.git"
+	},
+	"keywords": [
+		"async",
+		"flow-control",
+		"sequences",
+		"promise",
+		"iterator",
+		"generator"
+	],
+	"bugs": {
+		"url": "https://github.com/getify/asynquence/issues",
+		"email": "getify@gmail.com"
+	},
+	"homepage": "https://github.com/getify/asynquence/blob/master/contrib",
+	"author": "Kyle Simpson <getify@gmail.com>",
+	"license": "MIT"
+}

@@ -1,0 +1,10 @@
+**/.*
+*.iml
+example
+node_modules
+sandbox
+test
+bower.json
+CONTRIBUTING.md
+Gruntfile.js
+karma.conf.js

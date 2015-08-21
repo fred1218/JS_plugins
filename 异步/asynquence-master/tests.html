@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>asynquence test suite</title>
+<style>#logmsgs{font-family:monospace;}</style>
+</head>
+<body>
+<h1>asynquence test suite</h1>
+<textarea id="logmsgs" cols="40" rows="35"></textarea>
+
+<script src="legacy.js"></script>
+
+<script src="node_modules/q/q.js"></script>
+
+<script src="asq.src.js"></script>
+<script src="contrib/contrib.src.js"></script>
+
+<script src="tests.js"></script>
+<script src="contrib/tests.js"></script>
+<script>
+
+function doneLogMsg(msg) {
+	return function() {
+		var logmsgs = document.getElementById("logmsgs");
+		logmsgs.value += (logmsgs.value != "" ? "\n" : "") + msg;
+	};
+}
+
+var tests = ASQ_tests(doneLogMsg);
+var contrib_tests = ASQ_contrib_tests(doneLogMsg);
+
+tests.Q = Q;
+contrib_tests.Q = Q;
+
+ASQ.apply(ASQ,tests)
+.val(doneLogMsg("ALL CORE TESTS PASSED!"))
+.then.apply(ASQ,contrib_tests)
+.val(doneLogMsg("ALL CONTRIB TESTS PASSED!"))
+.val(doneLogMsg("ALL TESTS PASSED!"))
+.or(function(){
+	doneLogMsg("*** TEST SUITE FAILURE ***")();
+	for (var i=0; i<arguments.length; i++) {
+		doneLogMsg(arguments[i] +
+			(arguments[i] && arguments[i].stack ? arguments[i].stack : "")
+		)();
+	}
+});
+
+</script>
+</body>
+</html>
