@@ -1,0 +1,11 @@
+dist
+_site
+sea-modules
+spm_modules
+node_modules
+docs
+.git
+tests
+examples
+test
+coverage

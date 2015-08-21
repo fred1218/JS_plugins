@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+	<title>Ply &mdash; Amazing layer/modal/dialog system. Wow!</title>
+
+	<meta property="og:image" content="./st/ply.jpg"/>
+
+	<meta name="keywords" content="ply, layer, modal, dialog, javascript, js, rubaxa"/>
+	<meta name="description" content=""/>
+
+	<link rel="icon" href="./favicon.ico" type="image/x-icon"/>
+	<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon"/>
+
+	<link href='http://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'/>
+	<link href='./st/app.css' rel='stylesheet' type='text/css'/>
+	<link href='./ply.css' rel='stylesheet' type='text/css'/>
+
+</head>
+<body>
+	<a href="https://github.com/RubaXa/Ply"><img style="position: fixed; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
+
+	<div style="height: 50px;"></div>
+
+	<h1 title="Try demo!"><u>Ply</u></h1>
+
+	<div class="container">
+		<div class="row">
+			<h2><a href="#Alert" name="Alert">Alert</a></h2>
+
+			<div class="col-left">
+				<div class="ply-layer alert example">
+					<div class="ply-inside">
+						<div class="ply-content">Hello %username%!</div>
+						<div class="ply-footer"><button class="ply-ok">OK</button></div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-right">
+				<pre class="javascript"><code>
+					Ply.dialog("alert", "Hello %username%!");
+				</code></pre>
+			</div>
+		</div>
+
+		<div class="row">
+			<h2><a href="#Confirm" name="Confirm">Confirm</a></h2>
+
+			<div class="col-left">
+				<div class="ply-layer confirm example">
+					<div class="ply-inside">
+						<div class="ply-content">Continue?</div>
+						<div class="ply-footer"><button class="ply-ctrl ply-ok">OK</button><button class="ply-ctrl ply-cancel">Cancel</button></div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-right">
+				<pre class="javascript"><code>
+					Ply.dialog(
+						"confirm",
+						{ effect: "3d-sign" },
+						"Continue?"
+					);
+				</code></pre>
+			</div>
+		</div>
+
+		<div class="row">
+			<h2><a href="#Prompt" name="Prompt">Prompt</a></h2>
+
+			<div class="col-left">
+				<div class="ply-layer prompt example">
+					<div class="ply-inside">
+						<div class="ply-header">Spam subscribe</div>
+						<div class="ply-content">
+							<input class="ply-input" placeholder="E-mail"/>
+						</div>
+						<div class="ply-footer"><button class="ply-ctrl ply-ok">OK</button><button class="ply-ctrl ply-cancel">Cancel</button></div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-right">
+				<pre class="javascript"><code>
+					Ply.dialog("prompt", {
+						title: "Spam subscribe",
+						form: { email: "E-mail" }
+					});
+				</code></pre>
+			</div>
+		</div>
+
+		<br/>
+
+		<div class="row">
+			<h2><a href="#Dialogs" name="Dialogs">Dialogs / Multistep</a></h2>
+
+			<div class="col-left">
+				<div class="ply-layer confirm example">
+					<div class="ply-inside">
+						<div class="ply-content">You want to win?</div>
+						<div class="ply-footer"><button class="ply-ctrl ply-ok">Yes</button><button class="ply-ctrl ply-cancel">No</button></div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-right">
+				<pre class="javascript"><code>
+					Ply.dialog({
+						"intro": {
+							ui: "confirm",
+							data: {
+								text: "You want to win?",
+								ok: "Yes",
+								cancel: "No"
+							},
+							next: "congratulations", // OK button
+							nextEffect: "3d-flip[180,-180]",
+							back: "exit", // Cancel button
+							backEffect: "scale"
+						},
+						"congratulations": {
+							data: {
+								children: [{
+									tag: "img",
+									src: "st/you-win.gif"
+								}],
+								ok: "Okay"
+							}
+						},
+						"exit": {
+							data: "Very vain!"
+						}
+					});
+				</code></pre>
+			</div>
+		</div>
+
+
+		<div style="text-align: center; padding: 50px 0;">
+			<h2 style="font-size: 40px">&infin; Customization examples &infin;</h2>
+		</div>
+
+
+		<div class="row">
+			<h2><a href="#Login" name="Login">Login</a></h2>
+
+			<div class="col-left">
+				<div class="ply-layer base example">
+					<div class=" ply-inside">
+						<div class=" ply-form ply-ui">
+							<div class=" ply-header ply-ui">Login</div>
+							<div class=" ply-content ply-ui">
+								<div data-ply-name="dialog-form" class=" ply-ui">
+									<input type="text" placeholder="E-mail" class=" ply-input ply-ui"/>
+									<input type="password" placeholder="Password" class=" ply-input ply-ui"/>
+								</div>
+							</div>
+							<div class=" ply-footer ply-ui">
+								<button class=" ply-ctrl ply-ok ply-ui">Enter</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-right">
+				<pre class="javascript"><code>
+					// Usage: ply@rubaxa.org / 123
+					// ply/login.dialog.js
+					Ply.factory('login', function (options, data, resolve) {
+						options.flags = {
+							closeBtn: false,
+							closeByEsc: true,
+							closeByOverlay: true,
+							visibleOverlayInStack: true
+						};
+
+						options.onaction = function (ui) {
+							var data = ui.data;
+							return !ui.state || $.post('/api/login', data).fail(function () {
+								$(ui.widget.el)
+									.addClass('ply-invalid')
+									.one('input', function () {
+										$(this).removeClass('ply-invalid')
+									})
+								;
+							});
+						};
+
+						// Use base factory
+						Ply.factory.use('base', options, {
+							title: 'Login',
+							form: {
+								email: 'E-mail',
+								password: { hint: 'Password', type: 'password' }
+							},
+							ok: 'Enter',
+							cancel: false
+						}, resolve);
+					});
+
+
+					// app.js
+					Ply.dialog('login').done(function (ui) {
+						Ply.dialog('alert', 'Bingo!');
+					});
+				</code></pre>
+			</div>
+		</div>
+
+
+	</div>
+
+
+	<div class="container">
+		<div class="row">
+			<div style="margin-top: 80px;">
+				<div id="rubaxa-repos">Loading&hellip;</div>
+				<script src="//rubaxa.github.io/repos.js"></script>
+			</div>
+		</div>
+	</div>
+
+
+	<div style="height: 100px"></div>
+
+
+	<script>
+		// Boot
+		(function () {
+			var files = [];
+
+			![].forEach && files.push('//cdnjs.cloudflare.com/ajax/libs/es5-shim/3.4.0/es5-shim.min');
+			files.push('//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.0/highlight.min');
+
+			if (/local/.test(location)) {
+				files.push('/js/jquery.dev', './Ply' );
+			} else {
+				files.push('//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min', './Ply.min');
+			}
+
+			files.push('//cdnjs.cloudflare.com/ajax/libs/jquery-mockjax/1.5.3/jquery.mockjax');
+
+			for (var i = 0; i < files.length; i++) {
+				document.write('<script src="' + files[i] + '.js"></' + 'script>');
+			}
+		})();
+	</script>
+
+	<script>
+		(function ($) {
+			window.hljs && hljs.configure({ classPrefix: '' });
+
+			$.mockjax({ url: '/api/login', data: { email: 'ibn@rubaxa.org', password: '123' }, status: 200 });
+			$.mockjax({ url: '/api/login', data: { email: 'ply@rubaxa.org', password: '123' }, status: 200 });
+			$.mockjax({ url: '/api/login', urlParams: ['email', 'password'], status: 400 });
+
+			$('.example')
+				.each(function () {
+					var $el = $(this);
+					var $code = $el.closest('.row').find('code');
+					var code = $code.text().split('\n');
+					var offset = ((code[1] || code[0]).match(/^[\s\t]+/) || [''])[0].length;
+
+					$.each(code, function (i) {
+						code[i] = code[i].substr(offset);
+					});
+
+					code = code.slice(+(code.length > 1)).join('\n').replace(/\t/g, '  ');
+
+					$el.data('code', code);
+					$code.html(code);
+
+					try {
+						hljs.highlightBlock($code.parent()[0]);
+					} catch (err) {}
+				})
+				.on('click', function () {
+					var code = $.data(this, 'code');
+					Function(code)();
+					return false;
+				})
+			;
+
+
+			$('h1 u').click(function () {
+				Ply.dialog({
+					'welcome': {
+						data: {
+							children: [{
+								tag: 'img',
+								src: 'http://www.saintjn.org/wp-content/uploads/2013/07/welcome.png?1',
+								width: 400,
+								height: 116
+							}],
+							ok: "Next"
+						},
+						next: 'introduce',
+						nextEffect: '3d-flip[180,-180]'
+					},
+
+					'introduce': {
+						ui: 'prompt',
+						data: {
+							title: 'Your name?',
+							form: { name: '%username%' }
+						},
+						back: 'welcome',
+						backEffect: '3d-flip[-180,180]',
+						next: 'hi',
+						nextEffect: 'scale'
+					},
+
+					'hi': {
+						data: {
+							text: 'Hi, {{name}}!',
+							ok: 'Next'
+						},
+						prepare: function (data, dialogs) {
+							data.text = data.text.replace(/\{\{([^}]+)\}\}/g, function (_, name) {
+								return dialogs.introduce.val(name);
+							});
+						},
+						back: 'next',
+						next: 'question',
+						nextEffect: 'fall'
+					},
+
+					'question': {
+						ui: 'confirm',
+						data: {
+							text: 'You know Jonna Lee?',
+							ok: 'Yes',
+							cancel: 'No'
+						},
+						back: 'Jonna',
+						backEffect: 'inner',
+						next: 'Jonna-01',
+						nextEffect: '3d-sign'
+					},
+
+					'Jonna': {
+						data: {
+							children: [{
+								text: 'Jonna Lee is a singer-songwriter from Linköping, Sweden. Lee is best known for being the creator and artist of iamamiwhoami. Lee started her own label "To whom it may concern" in 2010.',
+								css: { maxWidth: '400px' }
+							}]
+						},
+						back: 'next',
+						next: 'Jonna-01',
+						nextEffect: 'fade'
+					},
+
+					'Jonna-01': {
+						data: {
+							title: 'Jonna Lee',
+							children: [{
+								tag: 'img',
+								src: 'http://www.movieviral.com/wp-content/uploads/2010/03/jonnalee.jpg',
+								width: 400
+							}],
+							ok: 'Next'
+						},
+						next: 'Jonna-02',
+						nextEffect: '3d-flip[180,-180]'
+					},
+
+					'Jonna-02': {
+						data: {
+							title: 'Jonna Lee',
+							children: [{
+								tag: 'img',
+								src: 'http://2020k.files.wordpress.com/2012/03/iamamiwhoami-good-worker.png',
+								width: 400
+							}],
+							ok: 'Close',
+							cancel: 'Rewind'
+						},
+						back: 'welcome'
+					}
+				});
+			});
+
+
+			// Select active example
+			(function _change() {
+				$('body')
+					.find('.selected')
+						.removeClass('selected')
+						.end()
+					.find('[name="' + location.toString().split('#')[1] + '"]')
+						.addClass('selected')
+				;
+
+				$(window).on('hashchange', _change);
+			})();
+		})(jQuery);
+	</script>
+
+
+	<!-- Background -->
+	<script>
+		(function () {
+			function setNoiseBackground(el, color, width, height, opacity) {
+				var canvas = document.createElement("canvas");
+				if (canvas.getContext) {
+					var context = canvas.getContext("2d");
+
+					canvas.width = width;
+					canvas.height = height;
+
+					for (var i = 0; i < width; i++) {
+						for (var j = 0; j < height; j++) {
+							var val = Math.floor(Math.random() * 255);
+							context.fillStyle = "rgba(" + val + "," + val + "," + val + "," + opacity + ")";
+							context.fillRect(i, j, 1, 1);
+						}
+					}
+
+					el.style.backgroundColor = color;
+					el.style.backgroundImage = "url(" + canvas.toDataURL("image/png") + ")";
+				}
+			}
+
+			// Usage
+			setNoiseBackground(document.body, "trasparent", 50, 50, 0.02);
+		})();
+	</script>
+
+
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-16483888-3', 'rubaxa.github.io');
+	  ga('send', 'pageview');
+	</script>
+</body>
+</html>
