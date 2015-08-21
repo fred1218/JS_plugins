@@ -1,0 +1,36 @@
+## Markdown美妙截圖
+
+*Markdown Here*是Google Chrome、Firefox與Thunderbird的擴充套件，允許你用Markdown撰寫電子郵件，並在發送前算繪。
+
+* Markdown很**酷**。 寫點`inline code`。
+* 建立鍊結，像是[這個專案](https://github.com/adam-p/markdown-here).
+* 想要有序清單嗎？ **還有**子清單嗎？
+  1. 完成。
+  2. 再次完成。
+
+引用真實使用心得：
+
+> 精準做出我需要的排版。 在電子郵件中使用Markdown而不礙手礙腳。
+
+### 語法高亮顯示：超炫
+
+一些JavaScript：
+
+```javascript
+alert('Hello Markdown');
+```
+
+來一些特殊範例 -- 一份diff：
+
+```diff
+diff --git a/src/common/markdown-here.js b/src/common/markdown-here.js
+index 24dcb97..20c36a1 100644
+--- a/src/common/markdown-here.js
++++ b/src/common/markdown-here.js
+@@ -201,12 +179,14 @@ function makeStylesExplicit(wrapperElem, css) {
+-        applyStyleToElement(rule.style, selectorMatches[j]);
++        styleAttr = selectorMatches[j].getAttribute('style') || '';
++        styleAttr += rule.style.cssText;
++        selectorMatches[j].setAttribute('style', styleAttr);
+```
+

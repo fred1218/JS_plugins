@@ -1,0 +1,16 @@
+<a class="list-group-item" href="#{{ uri }}/notes/f/notebook/q/{{id}}" data-id="{{id}}">
+    <i class="icon-notebook"></i>
+    {{ name }}
+</a>
+
+<div class="btn-group dropdown">
+    <button class="drop-edit btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+        <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu pull-right" role="menu" aria-labelledby="dropdownMenu{{id}}">
+        <li><a class="edit-link" href="#{{ uri }}/notebooks/edit/{{id}}">{{ i18n('Edit') }}</a></li>
+        <li><a href="#{{ uri }}/notebooks/remove/{{id}}">{{ i18n('Remove') }}</a></li>
+    </ul>
+</div>
+
+<div class="tags" data-id="{{id}}"></div>
