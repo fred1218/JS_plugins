@@ -1,0 +1,4 @@
+{
+  "blacklist": "strict",
+  "optional": "reactCompat"
+}

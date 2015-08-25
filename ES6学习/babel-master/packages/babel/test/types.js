@@ -1,0 +1,3 @@
+suite("types", function () {
+
+});

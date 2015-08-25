@@ -1,0 +1,4 @@
+{
+  "externalHelpers": true,
+  "blacklist": ["strict"]
+}

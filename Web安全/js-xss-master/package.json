@@ -1,0 +1,78 @@
+{
+  "name": "xss",
+  "main": "./lib/index.js",
+  "version": "0.2.7",
+  "description": "Sanitize untrusted HTML (to prevent XSS) with a configuration specified by a Whitelist. 根据白名单过滤HTML(防止XSS攻击)",
+  "author": "leizongmin <leizongmin@gmail.com> (http://ucdok.com)",
+  "contributors": [
+    {
+      "name": "Zongmin Lei",
+      "email": "leizongmin@gmail.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/leizongmin/js-xss.git"
+  },
+  "engines": {
+    "node": ">= 0.6.0"
+  },
+  "dependencies": {
+    "commander": "2.8.x",
+    "cssfilter": "0.0.5"
+  },
+  "devDependencies": {
+    "blanket": "1.1.5",
+    "browserify": "^9.0.8",
+    "mocha": "1.8.2",
+    "testling": "^1.7.1",
+    "uglify-js": "^2.4.19"
+  },
+  "testling": {
+    "preprocess": "./build",
+    "harness": "mocha-bdd",
+    "files": "test/*.js",
+    "browsers": [
+      "ie/6..latest",
+      "firefox/latest",
+      "chrome/latest",
+      "safari/5..latest",
+      "opera/11",
+      "opera/next"
+    ]
+  },
+  "bin": {
+    "xss": "./bin/xss"
+  },
+  "scripts": {
+    "blanket": {
+      "pattern": "xss/lib"
+    },
+    "test": "mocha -t 5000"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://raw.github.com/leizongmin/js-xss/master/MIT-License"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/leizongmin/js-xss/issues"
+  },
+  "homepage": "https://github.com/leizongmin/js-xss",
+  "keywords": [
+    "sanitization",
+    "xss",
+    "sanitize",
+    "sanitisation",
+    "input",
+    "security",
+    "escape",
+    "encode",
+    "filter",
+    "validator",
+    "html",
+    "injection",
+    "whitelist"
+  ]
+}
