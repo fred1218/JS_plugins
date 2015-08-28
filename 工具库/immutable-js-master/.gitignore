@@ -1,0 +1,9 @@
+.*.haste_cache.*
+node_modules
+old
+npm-debug.log
+.DS_Store
+*~
+*.swp
+TODO
+build

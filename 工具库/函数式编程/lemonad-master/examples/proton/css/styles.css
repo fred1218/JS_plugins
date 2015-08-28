@@ -1,0 +1,47 @@
+/* General */
+body {
+    font: 12pt 'Arial', 'Helvetica';
+    background-color: #f7f7f7;
+    margin-top: 110px;
+    margin-left: 20px;
+}
+fieldset {
+    margin: 0 0 30px 0;
+    padding: 18px;
+    border: 2px solid #ddd;
+    background-color: black;
+    border-radius: 10px;
+    display: inline-block;
+}
+legend {
+    font-weight: bold;
+    padding: 3px 12px;
+    display: block;
+    background-color: #e4e4e4;
+    border-radius: 6px;
+}
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Puzzle widgets */
+
+.sliding-puzzle {
+    border: 1px solid gray;
+    border-spacing: 0;
+}
+.sliding-puzzle td {
+    border-collapse: collapse;
+    border: 2px outset gray;
+    cursor: pointer;
+    padding: 0;
+}
+.sliding-puzzle .puzzle-empty {
+    border: none;
+    background-color: #ddd !important;
+}
+.sliding-puzzle.puzzle-solved td {
+    border: none;
+}

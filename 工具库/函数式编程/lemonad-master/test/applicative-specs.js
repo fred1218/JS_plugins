@@ -1,0 +1,3 @@
+describe("Applicative functions", function() {
+
+});
