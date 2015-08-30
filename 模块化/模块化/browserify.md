@@ -1,7 +1,9 @@
-### Ê¹ÓÃnpm°²×°µÄÄ£¿é
+### å°†nodeæ¨¡å—åœ¨æµè§ˆå™¨ä¸­ä½¿ç”¨
 
-https://github.com/substack/node-browserify
+=================================
 
-require('modules') in the browser
+- [node-browserify](https://github.com/substack/node-browserify)
 
-Use a node-style require() to organize your browser code and load modules installed by npm.
+>require('modules') in the browser
+
+>Use a node-style require() to organize your browser code and load modules installed by npm.
