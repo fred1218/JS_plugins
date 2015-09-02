@@ -1,0 +1,2 @@
+$.Deffered();
+dtd.promise();resolve();reject();
