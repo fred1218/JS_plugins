@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>MVVM学习之旅</title>
+    <script src="lib/aaRequire.js"></script>
+    <script src="lib/jQuery.js"></script>
+    <script src="lib/underscore.js"></script>
+    
+    <!-- 指令处理合集 -->
+    <script src="Emitter.js"></script>
+    <script src="Binding.js"></script>
+    <script src="Directive.js"></script>
+    <script src="directive/on.js"></script>
+
+    <script src="Config.js"></script>
+    <script src="Utils.js"></script>
+    <script src="Compiler.js"></script>
+    <script src="ViewModel.js"></script>
+</head>
+<body>
+
+<div id='box' ao-controller="box">
+    <div style=" background: #a9ea00;" ao-css-width="w" ao-css-height="h" ao-on='click' ></div>
+    <p> 图片的尺寸 {{r w }} * {{ h }} {{ t }}  </p>
+</div>
+
+<script type="text/javascript">
+
+
+   var aa = Aaron.define("box", {
+         w  : 150,
+         h  : 150,
+         t  : "简单测试",
+         click: function() {
+           console.log('click', this)
+         }
+   })
+
+   // console.log(aa)
+
+</script>
+</body>
+</html>
