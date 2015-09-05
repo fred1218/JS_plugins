@@ -1,0 +1,221 @@
+@import url('http://fonts.googleapis.com/css?family=Buenard');
+
+body {
+	font-family: 'Buenard', serif;
+	line-height: 1.66;
+	padding: 1em 5em;
+	font-size: 14px;
+	background: #efefef;
+	color: #333;
+	width: 940px;
+	margin: 0 auto;
+}
+
+a:link {
+	text-decoration: underline;
+	color: #447fae;
+}
+
+a:visited {
+	color: #447fae;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+
+
+pre {
+	font-family: "Monaco", "Lucida Console", monospace;
+	background: #333;
+	color: #fff;
+	padding: 1em;
+	font-size: 14px;
+	opacity: 0.9;
+	overflow: hidden;
+	-moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+	-webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+	-o-box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+	-ms-box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+	-moz-box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.8);
+	-webkit-box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.8);
+	-o-box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.8);
+	-ms-box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.8);
+	box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.8);
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	-o-border-radius: 10px;
+	-ms-border-radius: 10px;
+	border-radius: 10px;
+}
+
+h1 {
+	margin: 20px 0 10px;
+	padding: 0;
+}
+
+header,
+footer,
+section {
+	display: block;
+}
+
+table {
+	color: #222;
+	width: 100%;
+	margin: 1em 0;
+	border: none;
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+table caption {
+	font-weight: bold;
+	font-size: 120%;
+	text-align: left;
+	margin: 20px 0 10px;
+}
+
+table thead {
+	display: none;
+}
+
+table td.attr {
+	width: 8em;
+	border: none;
+	color: #888;
+	text-align: center;
+	padding: 0.25em 0.5em;
+	font-family: "Monaco", "Lucida Console", monospace;
+}
+
+table td.description {
+	padding: 0.25em 0.5em;
+	font-family: "Monaco", "Lucida Console", monospace;
+}
+
+table td.description a {
+	font-weight: bold;
+}
+
+table td.description .type {
+	color: #888;
+}
+
+section.constructor ,
+section.value ,
+section.method {
+	margin: 20px 0 20px ;
+	padding: 50px 0;
+}
+
+section.constructor h1 ,
+section.value h1 ,
+section.method h1 {
+	font-size: 100%;
+	font-family: "Monaco", "Lucida Console", monospace;
+	padding: 0;
+}
+
+section.method h1 .attr {
+	color: #7998ae;
+}
+
+section.method h1 .type {
+	color: #7998ae;
+}
+
+section.method h1 .name {
+	font-weight: bold;
+}
+
+section.method h1 .signature {
+}
+
+section.method header {
+	padding: 0.5em 0;
+}
+
+section.constructor footer,
+section.value footer,
+section.method footer {
+	margin: 1em 0 0 0;
+}
+
+section.constructor section ,
+section.value  section ,
+section.method section {
+	margin: 0;
+	padding: 0;
+}
+
+section.constructor section.description ,
+section.value  section.description ,
+section.method section.description {
+	margin: 1em 0;
+	padding: 0;
+}
+
+section.constructor section h1 ,
+section.value section h1 ,
+section.method section h1 {
+	margin: 10px 0;
+	padding: 0;
+	background: transparent;
+	font-weight: bold;
+	font-size: 100%;
+}
+
+section.method section dl {
+	margin: 0;
+	padding: 0;
+}
+
+section.method section dl dt {
+	font-family: "Monaco", "Lucida Console", monospace;
+	font-size: 90%;
+}
+
+section.method section.return .type {
+	font-family: "Monaco", "Lucida Console", monospace;
+	font-size: 90%;
+}
+
+section.method section.return .name {
+	font-family: "Monaco", "Lucida Console", monospace;
+	font-size: 90%;
+}
+
+section.value section.parameters ,
+section.value section.return ,
+section.method section.parameters ,
+section.method section.return {
+	padding: 0 0 0 10px;
+}
+
+section.value section.parameters h1 ,
+section.value section.return h1 ,
+section.method section.parameters h1 ,
+section.method section.return h1 {
+	font-family: 'Buenard', serif;
+	font-size: 110%;
+	padding: 10px 0 0;
+	margin: 0 0 10px -10px;
+}
+
+section.see h1 {
+	font-family: 'Buenard', serif;
+	font-size: 110% !important;
+	padding: 10px 0 0;
+}
+
+section.parameters dl dt .name {
+	font-weight: bold;
+}
+
+section.return .type {
+	font-weight: bold;
+	margin: 0 1em 0 0;
+}

@@ -1,0 +1,349 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<title>JSDeferred 紹介</title>
+		<!-- <script type="text/javascript" src="/site-script.js"></script> -->
+		<link rel="stylesheet" href="style-intro.css" type="text/css" media="all"/>
+	</head>
+	<body>
+		<div id="whole">
+			<h1 id="top"><a href="/">JSDeferred 紹介</a></h1>
+
+			<div id="navigation">
+				<a href="intro.en.html">en</a>
+			</div>
+
+			<div id="content">
+				<div class="section">
+					<h2>JSDeferred について</h2>
+					<p>
+						JSDeferred は JavaScript のコールバックによる非同期処理を直列的に書けるようにするために作られたライブラリです。
+					</p>
+					<pre>
+foofunc(function () {
+	barfunc(function () {
+		bazfunc(function () {
+		});
+	});
+});
+</pre>
+					<pre>
+foofunc().next(barfunc).next(bazfunc);
+</pre>
+				</div>
+				<div class="section">
+					<h2>簡単な使いかた</h2>
+
+					<h3>読み込み</h3>
+
+					<p>まずは JSDeferred を使うために、HTML に script 要素を追加します。</p>
+					<pre>
+&lt;script type="text/javascript" src="jsdeferred.js">&lt;/script>
+&lt;script type="text/javascript" src="my.js">&lt;/script>
+</pre>
+					<p>JSDeferred は外部ライブラリに依存しておらず、単体で動くため、jsdeferred.js を読みこめば十分です。これから先のコードは my.js に書いていくことにします。</p>
+
+					<h3>最初の一歩</h3>
+					<p>JSDeferred を読みこむと、Deferred というオブジェクトが定義されます。
+					便宜上 Deferred.define() を使って関数をグローバルにエクスポートします。もちろん、エクスポートせずに使うこともできます。</p>
+					<pre>
+Deferred.define();
+</pre>
+					<p>これより、グローバルな関数として、next() や loop(), call(), parallel(), wait() といった便利な関数が使えるようになります。
+					簡単な非同期処理を書いてみます。</p>
+					<pre>
+next(function () {
+	alert("Hello!");
+	return wait(5);
+}).
+next(function () {
+	alert("World!");
+});
+</pre>
+					<p>これは、まず <sample>Hello!</sample> が alert されたあと、5秒待ってから <sample>World!</sample> が alert される処理になります。</p>
+					<p>Deferred.define() で関数をエクスポートしない場合は以下のようになります。上記コードと全く同じ意味です。
+					</p>
+					<pre>
+Deferred.next(function () {
+	alert("Hello!");
+	return Deferred.wait(5);
+}).
+next(function () {
+	alert("World!");
+});
+</pre>
+
+				</div>
+				<div class="section">
+					<h2>通常のコールバックと比べて</h2>
+					<p>さて、このように書けることで、何が嬉しいのでしょうか。</p>
+					<p>コールバックを関数に渡しすスタイルでは、連続する非同期処理を関数の入れ子で表現することになります。例えば /foo.json, /bar.json, /baz.json を取得したい場合</p>
+					<pre>
+// http.get は URI と コールバックをとる関数
+http.get("/foo.json", function (dataOfFoo) {
+	http.get("/bar.json", function (dataOfBar) {
+		http.get("/baz.json", function (dataOfBaz) {
+			alert([dataOfFoo, dataOfBar, dataOfBaz]);
+		});
+	});
+});
+</pre>
+					<p>このように、非同期処理が挟まるたびに、関数のネストが深くなっていてしまいます。また、もし取得したいデータが任意の数だったらどうなるでしょうか？</p>
+					<pre>
+var wants = ["/foo.json", "/bar.json", "/baz.json"];
+// どうやって書きますか?
+</pre>
+					<p>面倒くさくでやっていられませんね。では、ここに Deferred を導入してみます。</p>
+					<pre>
+// http.get は URI をとって Deferred を返す関数
+var results = [];
+next(function () {
+	return http.get("/foo.json").next(function (data) {
+		results.push(data);
+	});
+}).
+next(function () {
+	return http.get("/baz.json").next(function (data) {
+		results.push(data);
+	});
+}).
+next(function () {
+	return http.get("/baz.json").next(function (data) {
+		results.push(data);
+	});
+}).
+next(function () {
+	alert(results);
+});
+</pre>
+					<p>コード自体は若干長くなりましたが、処理が一直線になりました。何やら似たような処理が3回も続いているので、まとめてみます。</p>
+					<pre>
+var wants = ["/foo.json", "/bar.json", "/baz.json"];
+var results = [];
+loop(wants.length, function (i) {
+	return http.get(wants[i]).next(function (data) {
+		results.push(data);
+	});
+}).
+next(function () {
+	alert(results);
+});
+</pre>
+					<p>コンパクトになりました。しかも、任意の数のリクエストにも対応できています。loop は、渡した関数の中で Deferred オブジェクトが返されると、
+					それの実行を待ってから後続の処理を継続します。</p>
+					<p>上記コードは、順番にリクエストを出していく、つまり、foo.json が読みこみ終わってから bar.json を読みこみだす、というコードですが、
+					実際は foo.json も bar.json も baz.json も、同時に読み込んでほしいことのほうが多いかと思われます。その場合、さらに簡潔に</p>
+					<pre>
+parallel([
+	http.get("/foo.json"),
+	http.get("/bar.json"),
+	http.get("/baz.json")
+]).
+next(function (results) {
+	alert(results);
+});
+</pre>
+					<p>と書けば終りです。parallel では、複数の Deferred オブジェクトを渡すと、全てが揃ったときに次の処理が実行されます。簡単でしょ？</p>
+				</div>
+				<div class="section">
+					<h2>例外処理</h2>
+					<p>さて、Deferred で地味に便利なのは、例外処理です。Firefox などのブラウザでは、非同期処理中に発生した例外は、例外コンソールさえ出ずに黙殺されます。
+					一体どうやってデバッグしろっていうんでしょうか？</p>
+					<p>筆者はしばしば、こういった場面に遭遇したとき、とにかく try {} catch (e) { alert(e) } で非同期処理を囲む、といったことをしますが、毎回やるのは、億劫ですしバカみたいです。</p>
+					<p>JSDeferred の場合、通常の処理の流れとは別に、例外処理の流れを作ることができます。例えば、</p>
+					<pre>
+next(function () {
+	// 何か1
+}).
+next(function () {
+	// 非同期処理
+	throw "error!";
+}).
+next(function () {
+	// 何か2 (直前で例外が発生しているので実行されない)
+});
+</pre>
+					<p>のようなコードに例外処理を付け加えたい場合</p>
+					<pre>
+next(function () {
+	// 何か1
+}).
+next(function () {
+	// 非同期処理
+	throw "error!";
+}).
+next(function () {
+	// 何か2 (直前で例外が発生しているので実行されない)
+}).
+error(function (e) {
+	alert(e);
+});
+</pre>
+					<p>と、.error() を加えるだけです。これだけで、.error() をつけくわえる前の非同期処理で発生した例外を全てキャッチすることができます。</p>
+					<p>また、上記コードでは「何か2」は例外の後の処理のため実行されませんが、例外の有無に関係なく実行させたい場合、</p>
+					<pre>
+next(function () {
+	// 何か1
+}).
+next(function () {
+	// 非同期処理
+	throw "error!";
+}).
+error(function (e) {
+	alert(e);
+}).
+next(function () {
+	// 何か2 (error が処理されたあとのため実行される)
+}).
+error(function (e) {
+	alert(e);
+});
+</pre>
+					<p>のように、例外処理を途中に挟みこむことができます。error() の中でさらに例外が発生しない限り、error() によって例外が処理されたと見なされて、
+					後続の処理が継続されるようになります。</p>
+				</div>
+				<div class="section">
+					<h2>チェイン</h2>
+					<p>Deferred 手続き内で返された値が Deferred の場合、JSDeferred では、その Deferred の実行を待ちます。</p>
+					<pre>
+next(function () {
+	alert("Hello!");
+	return wait(5);
+}).
+next(function () {
+	alert("World!");
+});
+</pre>
+					<p>というコードを最初に見せましたが、wait() は「5秒待つ」という Deferred を返す関数です。Deferred の関数中でこのように Deferred オブジェクトが返された場合、
+					後続の処理を一旦止めて、返された Deferred の実行を待つようになります。これは、wait() に限らず、Deferred さえ帰ってくれば何でもそうです。</p>
+					<p>next() 関数も、Deferred オブジェクトを返すため、以下のようなコードを書くことができます。</p>
+					<pre>
+next(function () {
+	alert(1);
+	return next(function () {
+		alert(2);
+	}).
+	next(function () {
+		alert(3);
+	});
+}).
+next(function () {
+	alert(4);
+});
+</pre>
+					<p>この場合、数字の順に処理が実行されていきます。</p>
+				</div>
+				<div class="section">
+					<h2>関数を Deferred 化する</h2>
+					<p>JSDeferred を実際に使用するさい、標準に組込まれている非同期関数のほかに、既存のコールバックを渡す方法をとっている関数を Deferred を返すようにしたい場合が、
+					多々あるでしょう。これは実際、とても簡単です。XMLHttpRequest を例にして、何度かでてきていた http.get を実装してみます。</p>
+					<pre>
+http = {}
+http.get = function (uri) {
+	var deferred = new Deferred();
+	var xhr = new XMLHttpRequest();
+	xhr.onreadystatechange = function () {
+		if (xhr.readyState == 4) {
+			if (xhr.status == 200) {
+				deferred.call(xhr);
+			} else {
+				deferred.fail(xhr);
+			}
+		}
+	};
+	deferred.canceller = function () { xhr.abort() };
+	return deferred;
+}
+</pre>
+					<p>new Deferred() で新しい Deferred オブジェクトを作成し、非同期なコールバック内でインスタンスの call() メソッドを呼ぶようにします。
+					これにより、Deferred に関連付けられた処理が実行されます。</p>
+					<p>同様に、fail() メソッドを呼ぶことによって、エラーを発生させることができます。.error() によってエラーをキャッチしたい場合には、
+					適切に fail() を呼んであげる必要があります。</p>
+					<p>canceller というものも定義していますが、これは Deferred インスタンスの cancel() を呼んだときに実行されるものです。
+					通常はあまり設定する機会はないでしょうが、存在ぐらいは心にとめておいてください。</p>
+
+					<h3>自分で非同期関数を書く場合</h3>
+					<p>設計上の指針の話になってしまいますが、Deferred に依存したコードを書く場合、非同期処理を行う関数はのきなみ Deferred を返すようにしておくと、
+					あとあと便利になります。例えすぐにその非同期処理の後続処理を書く必要がなくても、簡単に Deferred のチェインの中に組込めるようになります。</p>
+					<p>もし汎用的なライブラリを書きたいのであれば、とりあえずコールバックをとる関数にしておいて、
+					あとから JSDeferred と繋ぐような関数を作ってもいいかもしれません。</p>
+				</div>
+
+				<div class="section">
+					<h2>重い処理を分割する</h2>
+					<div class="note">
+						<div class="section">
+							<h2>JavaScript における「高速化」</h2>
+							<p>JavaScript における「高速化」では、単純に処理速度の高速化というよりは、ユーザ体験のストレスをいかになくすかがとても重要です。</p>
+							<p>処理速度がいくら早くても、UIスレッドが長時間ブロックするような処理はユーザに対して大きなストレスを与えます。
+							JavaScript においては、総合的な速度の早さよりも、<strong>UIスレッドの最短ブロック時間</strong>のほうが重要なのです。</p>
+
+							<p>JSDeferred を用いると、loop() などによって処理の分割をしやすくなり、簡単に、重いループを分割して実行させたりすることができるようになります。
+							トータルの実行時間的には十分早いはずなのに、ブラウザのスクロール (UI) が固まったりしたとき、すぐにこういった対処をできることは、
+							ウェブアプリケーション開発においてとても有意なことだと考えています。</p>
+						</div>
+					</div>
+
+					<p>JavaScript で DOM を連続して大量に操作する必要がある場合、ブラウザによらず大抵は処理速度が悪化し、
+					それを処理している間はブラウザ側のスクロールなどのUI処理が止まります。
+					これはユーザにしてみれば非常にストレスフルなので、できるだけそういったことがないようにしたいものです。</p>
+					<p>そもそも処理自体を高速化するのは当然として、DOM 操作などはどうしようもなかったりもします。
+					ので、こういった場合、処理を分割して非同期に実行し、適切にブラウザのUIに処理が戻るようにします。</p>
+					<p>JSDeferred は組み込みで loop() という関数があり、これによって、ループ毎にブラウザに制御を返すことができるようになっています。</p>
+					<pre>
+loop(1000, function (n) {
+	// heavy process
+});
+</pre>
+					<p>これを JSDeferred なしでやろうとすると…… 面倒なのでコードは書きません。</p>
+
+					<h3>長いループを自動で分割する</h3>
+					<p>loop() 関数は、ループ毎に処理が分割されるため、1ループがそれなりに重い場合には効果的ですが、1ループ自体は軽いのに、ループ回数が膨大な場合、非効率的になってしまいます。
+					そこで、aloop() という関数を実装してみます。</p>
+<pre>
+function aloop (n, f) {
+    var i = 0, end = {}, ret = null;
+    return Deferred.next(function () {
+        var t = (new Date()).getTime();
+        divide: {
+            do {
+                if (i >= n) break divide;
+                ret = f(i++);
+            } while ((new Date()).getTime() - t < 20);
+            return Deferred.call(arguments.callee);
+        }
+    });
+}
+</pre>
+					<p>この関数は、ループを繰替えしていき、20msec 以上実行した時点で処理を分割します。loop() と違い、
+					Deferred オブジェクトをループ関数内で返してもそれの実行を待ったりはしません (できません)。</p>
+
+				</div>
+
+				<div class="section">
+					<h2>使用例</h2>
+					<ul>
+						<li><a href="http://svn.coderepos.org/share/lang/javascript/userscripts/hatena.haiku.expandrepliestree.user.js?">hatena.haiku.expandrepliestree.user.js</a>
+							http リクエストの再帰的な処理をしています。
+						</li>
+						<li><a href="http://gist.github.com/146239">hatena.group.recententries.user.js</a>
+							http リクエストをループしつつ、必要なデータが集った時点で動的に処理をうちきっています。
+						</li>
+					</ul>
+				</div>
+
+				<div class="section">
+					<h2>実装について</h2>
+					<p>とりあえずは <a href="http://cho45.stfuawsc.com/jsdeferred/">README</a> を見てみてください。</p>
+				</div>
+
+			</div>
+
+
+			<div id="footer">
+				<address>2009 <a href="mailto:cho45@lowreal.net">cho45@lowreal.net</a></address>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,771 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>JSDeferred Sample</title>
+		
+		<script type="text/javascript" src="http://jqueryjs.googlecode.com/files/jquery-1.2.6.min.js"></script>
+		<script type="text/javascript" src="jsdeferred.js"></script>
+		<script type="text/javascript" src="binding/jquery.js"></script>
+		<script type="text/javascript">
+			// <![CDATA[
+			Deferred.define();
+
+			if (typeof uneval != "function") {
+				uneval = function (o) {
+					switch (typeof o) {
+						case "undefined" : return "(void 0)";
+						case "boolean"   : return String(o);
+						case "number"    : return String(o);
+						case "string"    : return '"' + o.replace(/"/g, '\\"') + '"';
+						case "function"  : return "(" + o.toString() + ")";
+						case "object"    :
+							if (o == null) return "null";
+							var type = Object.prototype.toString.call(o).match(/\[object (.+)\]/);
+							if (!type) throw TypeError("unknown type:"+o);
+							switch (type[1]) {
+								case "Array":
+									var ret = [];
+									for (var i = 0, l = o.length; i < l; ret.push(arguments.callee(o[i++])));
+									return "[" + ret.join(", ") + "]";
+								case "Object":
+									var ret = [];
+									for (var i in o) if (o.hasOwnProperty(i)) {
+										ret.push(arguments.callee(i) + ":" + arguments.callee(o[i]));
+									}
+									return "({" + ret.join(", ") + "})";
+								case "Number":
+									return "(new Number(" + o + "))";
+								case "String":
+									return "(new String(" + arguments.callee(o) + "))";
+								case "Date":
+									return "(new Date(" + o.getTime() + "))";
+								default:
+									if (o.toSource) return o.toSource();
+									throw TypeError("unknown type:"+o);
+							}
+					}
+					return "";
+				}
+			}
+
+
+			// ]]>
+		</script>
+
+		<style type="text/css">
+			body {
+				padding: 0 10% 10em;
+				margin: 0;
+				color: #333;
+				line-height: 1.5;
+			}
+
+			h2 {
+				margin: 3em 0 1.5em 0;
+			}
+
+			div.code,
+			pre {
+				font-size: 80%;
+				font-family: monospace;
+				background: #efefef;
+				border: 1px solid #ddd;
+				padding: 1em;
+				line-height: 1.33;
+				overflow: auto;
+			}
+
+			em,
+			span.em {
+				font-weight: bold;
+				font-style: normal;
+				color: #f00;
+			}
+
+			textarea {
+				width: 100%;
+			}
+
+			#footer {
+				margin: 2em 0;
+				text-align: right;
+				font-size: 80%;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="whole">
+			<h1 id="top">JSDeferred Sample</h1>
+			<p>About JSDeferred: <a href="http://coderepos.org/share/wiki/JSDeferred">CodeRepos Wiki</a></p>
+			<p>Deferred is able to write async code cleanly.</p>
+
+			<hr />
+
+			<p>click to execute the code.</p>
+
+			<div id="content">
+				<div class="section">
+					<h2>Export deferred functions.</h2>
+					<pre>
+// export functions to global;
+Deferred.define();
+
+// export to aObj
+// Deferred.define(aObj);
+
+// export specic functions
+// var global = (function () { return this })();
+// Deferred.define(global, ["next"]);
+
+// full name
+Deferred.next(fun);
+</pre>
+				</div>
+
+				<div class="section">
+					<h2>Basic Chain</h2>
+					<pre id="basic-code" onclick="eval($(this).text());">
+next(function () {
+	print("start");
+}).
+next(function () {
+	function pow (x, n) {
+		function _pow (n, r) {
+			print([n, r]);
+			if (n == 0) return r;
+			return call(_pow, n - 1, x * r);
+		}
+		return call(_pow, n, 1);
+	}
+	return call(pow, 2, 10);
+}).
+next(function (r) {
+	print([r, "end"]);
+}).
+error(function (e) {
+	alert(e);
+})
+
+function print (m) { $("#basic-code").append("\n// "+m) }
+</pre>
+				</div>
+
+				<div clsss="section">
+					<h2>Basic Loop</h2>
+					<p>This loop is slow but not blocking browsing.</p>
+					<pre id="basic-loop-code" onclick="eval($(this).text());">
+loop(10, function (i) { print(i) });
+function print (m) { $("#basic-loop-code").append("\n// "+m) }
+</pre>
+				</div>
+
+				<div clsss="section">
+					<h2>Deferred Ajax</h2>
+					<pre id="ajax-code" onclick="eval($(this).text());">
+$.get("sample.html").next(function (data) {
+	$("#ajax-code").append("\n// "+data.length);
+});
+</pre>
+				</div>
+
+				<div class="section">
+					<h2>Parallel Deferred</h2>
+					<p>DeferredList</p>
+					<pre id="parallel-code" onclick="eval($(this).text());">
+print("start. gathering data.");
+
+parallel([$.get("sample.html"), $.get("jsdeferred.js")]).
+next(function (values) {
+	var lengths = $.map(values, function (i) { return i.length });
+	print(lengths.join(", "));
+});
+
+function print (m) { $("#parallel-code").append("\n// "+m) }
+</pre>
+					<pre id="parallel-code2" onclick="eval($(this).text());">
+print("start. gathering data.");
+
+// named parallel deferred
+parallel({html: $.get("sample.html"), js: $.get("jsdeferred.js")}).
+next(function (values) {
+	print(["html=", values.html.length, " js=", values.js.length].join(""));
+});
+
+function print (m) { $("#parallel-code2").append("\n// "+m) }
+</pre>
+					<pre id="parallel-code1" onclick="eval($(this).text());">
+print("start. wait 3 sec.");
+
+var list = [];
+var printAndReturn = function (i) { print(i+"msec elapsed"); return i; };
+list.push(wait(0).next(printAndReturn));
+list.push(wait(1).next(printAndReturn));
+list.push(wait(2).next(printAndReturn));
+list.push(wait(3).next(printAndReturn));
+
+parallel(list).next(function (values) {
+	print("Completed. values: "+values.join(", "));
+});
+
+function print (m) { $("#parallel-code1").append("\n// "+m) }
+</pre>
+				</div>
+
+				<div clsss="section">
+					<h2>Workers</h2>
+					<pre id="worker-code" onclick="eval($(this).text());">
+var queue   = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+var workers = new Array(2);
+var work    = function (job) {
+	print('working... ' + job);
+	return wait(3);
+};
+
+for (var i = 0, len = workers.length; i < len; i++) {
+	workers[i] = next(function me () {
+		var job = queue.shift();
+		if (!job) return;
+
+		print("start worker: " + job);
+		return next(function () { return job }).
+		next(work).
+		next(me);
+	}).
+	error(function (e) {
+		alert(e);
+	});
+}
+
+parallel(workers).next(function () {
+	print('all done!');
+});
+
+function print (m) { $("#worker-code").append("\n// "+m) }
+</pre>
+				</div>
+
+				<div clsss="section">
+					<h2>Divided Loop</h2>
+					<pre id="loop-code" onclick="eval($(this).text());">
+next(function () {
+	var sum = 0;
+	return loop({end:100000, step:1000}, function (n, o) {
+		print(["Processing divided loop:n=", n, ", sum=", sum, " last?=", o.last].join(""));
+		for (var i = 0; i < o.step; i++) {
+			// print(i + n);
+			sum += i + n;
+		}
+		print(["sum=", sum].join(""));
+		return sum;
+	});
+}).
+next(function (e) {
+	print("Result:"+e);
+	print("end");
+}).
+error(function (e) {
+	print(e);
+});
+
+
+function print (m) { $("#loop-code").append("\n// "+m) }
+</pre>
+					<pre id="loop-code1" onclick="eval($(this).text());">
+loop({begin: 1, end:100, step:10}, function (n, o) {
+	print(["Processing divided loop:n=", n, " last?=", o.last].join(""));
+	for (var i = 0; i < o.step; i++) {
+		var j = n + i;
+		print(j);
+	}
+});
+
+function print (m) { $("#loop-code1").append("\n// "+m) }
+</pre>
+				</div>
+				<div clsss="section">
+					<h2>Auto Divided Loop</h2>
+					<pre id="aloop-code" onclick="eval($(this).text());">
+function aloop (n, f) {
+	var i   = 0;
+	var end = new Object;
+	var ret = null;
+	return Deferred.next(function () {
+		var t = (new Date()).getTime();
+		try {
+			do {
+				ret = f(i)
+				i++;
+				if (i >= n) throw end;
+			} while ((new Date()).getTime() - t < 50);
+			print("Devided: " + ((new Date()).getTime() - t) + "msec.");
+			return Deferred.call(arguments.callee);
+		} catch (e) {
+			if (e == end) {
+				print("End");
+				return ret;
+			} else {
+				throw e;
+			}
+		}
+	});
+}
+
+aloop(100, function (n, o) {
+	print(n);
+	for (var i = 0; i < Math.pow(n, 2); i++) {
+		for (var j = n; j; j--);
+	}
+});
+
+
+function print (m) { $("#aloop-code").append("\n// "+m) }
+</pre>
+				</div>
+
+				<div clsss="section">
+					<h2>Pseudo Multi Thread</h2>
+					<pre id="thread-code" onclick="eval($(this).text());">
+loop(10, function (n) {
+	print(n);
+	return wait(0.1);
+});
+
+loop(10, function (n) {
+	print(String.fromCharCode(97+n));
+	return wait(0.2);
+});
+
+function print (m) { $("#thread-code").append(" "+m) }
+
+//</pre>
+				</div>
+
+				<div clsss="section">
+					<h2>Shorthand</h2>
+					<pre id="shorthand-code" onclick="eval($(this).text());">
+print(0);
+loop(10, function (n) {
+	print(n);
+	return n;
+}).
+wait(1).
+loop(10, function (n) {
+	var c = String.fromCharCode(97+n);
+	print(c);
+	return c;
+}).
+next(function (i) {
+	print("end");
+}).
+error(function (e) {
+	alert(e);
+});
+
+function print (m) { $("#shorthand-code").append(" "+m) }
+
+//</pre>
+				</div>
+
+				<div clsss="section">
+					<h2>Tiny Effects</h2>
+					<pre id="effect-code1" onclick="eval($(this).text());" style="position: relative">
+function effect (o) {
+	var start = new Date().valueOf();
+	var curr  = +o.target.style[o.name].match(/\d+/);
+	return next(function () {
+		var rate = (new Date().valueOf() - start) / o.time;
+		if (rate > 1) rate = 1;
+		o.target.style[o.name] = (curr + rate * o.value) + "px";
+		if (rate &lt; 1) {
+			return call(arguments.callee);
+		}
+	});
+}
+// register function to use shorthand of chain
+$.deferred.register("effect", effect);
+
+var ele  = document.getElementById("effect-code1");
+effect({
+	target : ele,
+	name   : "left",
+	value  : 100,
+	time   : 300
+}).
+effect({
+	target : ele,
+	name   : "top",
+	value  : 100,
+	time   : 300
+}).
+next(function () {
+	return parallel([
+		effect({
+			target : ele,
+			name   : "left",
+			value  : -100,
+			time   : 300
+		}),
+		effect({
+			target : ele,
+			name   : "top",
+			value  : -100,
+			time   : 300
+		})
+	]);
+}).
+error(function (e) {
+	alert(e);
+});
+</pre>
+				</div>
+
+				<div clsss="section">
+					<h2>Delay Loop</h2>
+					<pre id="delay-loop-code1" onclick="eval($(this).text());">
+loop(5, function (i, o) {
+	print(i);
+	return o.last? i : wait(1);
+}).
+next(function (e) {
+	print("end ["+e+"]");
+}).
+error(function (e) {
+	print(e);
+});
+
+
+function print (m) { $("#delay-loop-code1").append("\n// "+m) }
+</pre>
+					<pre id="delay-loop-code" onclick="eval($(this).text());">
+next(function (i) {
+	function delayloop (i) {
+		print(i++);
+		if (i < 5) {
+			return wait(1).next(function () {
+				return call(delayloop, i);
+			});
+		}
+	}
+	return call(delayloop, 0);
+}).
+next(function (e) {
+	print("end");
+}).
+error(function (e) {
+	print(e);
+});
+
+
+function print (m) { $("#delay-loop-code").append("\n// "+m) }
+</pre>
+				</div>
+
+				<div clsss="section">
+					<h2>Step Run (event handling)</h2>
+					<p>(double click to run this code and click to step)</p>
+					<pre id="step-run" ondblclick="eval($(this).text());" style="position: relative">
+var deferred = Deferred();
+$("#step-run").click(function () { deferred.call() });
+
+loop(5, function (i) {
+	print("running... " + i);
+	return deferred;
+}).
+next(function () {
+	print("completed");
+});
+
+function print (m) { $("#step-run").append("\n// "+m) }
+</pre>
+
+				<div class="section">
+					<h2>Brainfuck interpreter</h2>
+					<p>No wait but toooooooo slow :( But, but, browser will not be stopped!</p>
+					<pre id="bfi-code">
+function bfrun () {
+	var mem    = $("&lt;pre/>"), out = $("&lt;pre/>"), button = $("#bfi-run").hide();
+	var sinput = $("#bfi-source").hide(), source = sinput.val();
+	var shtml  = $("&lt;div class='code'/>");
+	var selems = $.map(source.split(/\n/), function (l) {
+		var line = $("&lt;div class='line'/>").appendTo(shtml);
+		return $.map(l.split(""), function (c) {
+			return $("&lt;span/>").append(c).appendTo(line);
+		})
+	});
+	sinput.before(mem).before(out).before(shtml);
+
+	var pi = {
+		"+": function (c) {
+			if (!c.stack[0]) return c;
+			c.memory[c.pointer]++;
+			return c;
+		},
+		"-": function (c) {
+			if (!c.stack[0]) return c;
+			c.memory[c.pointer]--;
+			return c;
+		},
+		">": function (c) {
+			if (!c.stack[0]) return c;
+			c.pointer++;
+			c.memory[c.pointer] = (c.memory[c.pointer] || 0);
+			return c;
+		},
+		"&lt;": function (c) {
+			if (!c.stack[0]) return c;
+			c.pointer--;
+			c.memory[c.pointer] = (c.memory[c.pointer] || 0);
+			return c;
+		},
+		".": function (c) {
+			if (!c.stack[0]) return c;
+			c.output.push(String.fromCharCode(c.memory[c.pointer]));
+			return c;
+		},
+		",": function (c) {
+			if (!c.stack[0]) return c;
+			c.memory[c.pointer] = "t";
+			return c;
+		},
+		"[": function (c) {
+			if (c.memory[c.pointer] == 0) {
+				c.stack.unshift(false);
+			} else {
+				c.stack.unshift(c.pos - 1);
+			}
+			return c;
+		},
+		"]": function (c) {
+			var s = c.stack.shift();
+			if (s) c.pos = s;
+			return c;
+		}
+	};
+
+	next(function () {
+		return {
+			pos     : 0,
+			pointer : 0,
+			memory  : [0],
+			stack   : [true],
+			output  : [],
+			source  : source
+		};
+	}).
+	next(function (c) {
+		if (selems[c.pos]) selems[c.pos].removeClass("em");
+		var chr, fun;
+		do {
+			chr = c.source.charAt(c.pos);
+			fun = pi[chr];
+			c.pos++;
+		} while (chr.match(/[^&lt;>,.\[\]+-]/));
+		var m = c.memory.concat();
+		m.splice(c.pointer, 1, "*"+(c.memory[c.pointer] || 0));
+		mem.text(m.join(", "));
+		out.text(c.output.join(""));
+
+		if (typeof fun == "function") {
+			c = fun(c);
+			if (c.pos &lt; c.source.length) {
+				if (selems[c.pos]) selems[c.pos].addClass("em");
+				return call(arguments.callee, c);
+			} else {
+				return c;
+			}
+		} else {
+			return c;
+		}
+	}).
+	next(function (c) {
+		var reset = $("&lt;button>Reset&lt;/button>")
+		sinput.after(reset);
+		reset.click(function () {
+			sinput.show();
+			button.show();
+			mem.remove();
+			out.remove();
+			shtml.remove();
+			reset.remove();
+		});
+		log("end");
+	}).
+	error(function (e) {
+		alert(e);
+	});
+
+	function log (m) {
+		// console.log(uneval(m));
+	}
+}
+
+</pre>
+					<script type="text/javascript">eval($("#bfi-code").text());</script>
+					<textarea id="bfi-source" cols="50" rows="5">
++++++++++[->+++++>++++++++>+++++++++++<<<]>
+>.>++.+++++++..+++.<<-.[->-<]>++++.>+++++++
++.--------.+++.------.--------.<+.
+</textarea>
+					<button id="bfi-run" onclick="bfrun();">Run!</button>
+				</div>
+
+				<div clsss="section">
+					<h2>callcc</h2>
+					<p>like Scheme's callcc</p>
+					<pre id="callcc" onclick="eval($(this).text());">
+function callcc (fun) {
+	var error = new Deferred();
+	return call(function () {
+		// JSDeferred passes current Deferred Object to  this.
+		var ccdeferred = this;
+		// Call with current continuation (calling Deferred.next)
+		return fun(function (a) { ccdeferred._next.call(a); throw error });
+	}).
+	error(function (e) {
+		// Current Deferred chain must be stopped
+		if (e === error) {
+			return e;
+		} else {
+			throw e;
+		}
+	});
+}
+
+callcc(function (cont) {
+	return 10 * 10 * cont(20);
+}).
+next(function (val) {
+	print("callcc1 returns:" + val);
+});
+// should show "callcc1 returns:20"
+
+var cont;
+var i = 0;
+callcc(function (c) {
+	cont = c;
+	return 10;
+}).
+next(function (val) {
+	print("callcc2 returns:" + val);
+	if (!i++) cont(20);
+});
+// should show "callcc2 returns:10", "callcc returns:20"
+
+
+function print (m) { $("#callcc").append("\n// "+m) }
+</pre>
+
+					<p>and Scheme's amb</p>
+					<pre id="amb" onclick="eval($(this).text());this.onclick=null;">
+function callcc (fun) {
+	var error = new Deferred();
+	return call(function () {
+		// JSDeferred passes current Deferred Object to  this.
+		var ccdeferred = this;
+		// Call with current continuation (calling Deferred.next)
+		return fun(function (a) { ccdeferred._next.call(a); throw error });
+	}).
+	error(function (e) {
+		// Current Deferred chain must be stopped
+		if (e === error) {
+			return e;
+		} else {
+			throw e;
+		}
+	});
+}
+
+// http://www.sampou.org/scheme/t-y-scheme/t-y-scheme-Z-H-16.html#node_chap_14
+// 上記のものをそのまま移植したもの
+function amb () {
+	var alts = arguments;
+	var prevAmbFail = amb.ambFail;
+
+	return callcc(function (sk) {
+		return loop(alts.length, function (i) {
+			var alt = alts[i];
+			return callcc(function (fk) {
+				amb.ambFail = function () {
+					amb.ambFail = prevAmbFail;
+					return fk("fail");
+				};
+				return sk(alt);
+			});
+		}).
+		next(prevAmbFail);
+	});
+}
+amb.ambFail = function () { throw "amb tree exhausted" };
+
+// Utility function
+function amb1 (ambvars) {
+	var f    = wait(0);
+	var vars = {};
+	for (var k in ambvars) if (ambvars.hasOwnProperty(k)) (function (name, val) {
+		log(name);
+		f = f.next(function () {
+			return amb.apply(this, val).next(function (i) {
+				vars[name] = i;
+				return vars;
+			});
+		});
+	})(k, ambvars[k]);
+
+	return f;
+}
+
+function assert (cond) {
+	if (!cond) throw amb();
+}
+
+// http://mayokara.info/note/view/251
+Array.prototype.uniq = function(){
+	for (var i = 0,l = this.length; i &lt; l; i++) {
+		if (this.indexOf(this[i]) &lt; i) {
+			this.splice(i--, l-- &amp;&amp; 1);
+		}
+	}
+	return this;
+};
+
+amb1({
+	baker    : [1, 2, 3, 4, 5],
+	cooper   : [1, 2, 3, 4, 5],
+	fletcher : [1, 2, 3, 4, 5],
+	miller   : [1, 2, 3, 4, 5],
+	smith    : [1, 2, 3, 4, 5]
+}).
+next(function (vars) { with (vars) {
+	log(vars);
+	// 簡易 distinct
+	assert([baker, cooper, fletcher, miller, smith].uniq().length == 5);
+	log("distinct passed");
+	assert(baker  != 5);
+	assert(cooper != 1);
+	assert(fletcher != 1 &amp;&amp; fletcher != 5);
+	assert(miller > cooper);
+	assert(Math.abs(smith - fletcher)  != 1);
+	assert(Math.abs(fletcher - cooper) != 1);
+
+	return vars;
+} }).
+next(function (vars) { with (vars) {
+	log("solved");
+	log(vars);
+	alert(uneval(vars));
+} }).
+error(function (e) {
+	alert(e)
+});
+
+function log (m) { $("#amb").append("\n// "+ uneval(m)) }
+</pre>
+
+			</div>
+
+			<div id="footer">
+				<address>2007 <a href="mailto:cho45@lowreal.net">cho45@lowreal.net</a></address>
+			</div>
+		</div>
+	</body>
+</html>

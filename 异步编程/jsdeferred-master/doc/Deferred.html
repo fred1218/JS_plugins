@@ -1,0 +1,1816 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Deferred</title>
+		<script src="http://cdn.washer-in-the-rye.com/google-code-prettify/prettify.js"></script>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" type="text/css" href="http://cdn.washer-in-the-rye.com/google-code-prettify/desert.css"/>
+		<link rel="stylesheet" type="text/css" href="template/doc.css"/>
+	</head>
+	<body>
+		<header>
+			<h1>Object Deferred</h1>
+			<dl>
+				
+			</dl>
+
+			<table>
+				<caption>Constructor</caption>
+				<thead>
+					<tr>
+						<th scope="col">Constructor Attributes</th>
+						<th scope="col">Constructor Name and Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="attr">&nbsp;</td>
+						<td class="description">
+							<a href="#Deferred">Deferred</a>()
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+			
+			<table>
+				<caption>Instance Methods</caption>
+				<thead>
+					<tr>
+						<th scope="col">Method Attributes</th>
+						<th scope="col">Method Name and Description</th>
+					</tr>
+				</thead>
+				<tbody>
+				
+					<tr>
+						<td class="attr">&nbsp;</td>
+						<td class="description">
+							Deferred#<a href="#Deferred#call">call</a>(val)
+							<span class="type">//=> Deferred</span>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="attr">&nbsp;</td>
+						<td class="description">
+							Deferred#<a href="#Deferred#cancel">cancel</a>()
+							<span class="type">//=> Deferred</span>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="attr">&nbsp;</td>
+						<td class="description">
+							Deferred#<a href="#Deferred#error">error</a>(fun)
+							<span class="type">//=> Deferred</span>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="attr">&nbsp;</td>
+						<td class="description">
+							Deferred#<a href="#Deferred#fail">fail</a>(val)
+							<span class="type">//=> Deferred</span>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="attr">&nbsp;</td>
+						<td class="description">
+							Deferred#<a href="#Deferred#next">next</a>(fun)
+							<span class="type">//=> Deferred</span>
+						</td>
+					</tr>
+				
+				</tbody>
+			</table>
+
+		
+			
+			
+			<table>
+				<caption>Value Properties</caption>
+				<thead>
+					<tr>
+						<th scope="col">Value Attributes</th>
+						<th scope="col">Value Name and Description</th>
+					</tr>
+				</thead>
+				<tbody>
+				
+					<tr>
+						<td class="attr">&nbsp;</td>
+						<td class="description">
+							Deferred.<a href="#Deferred.ok">ok</a>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="attr">&nbsp;</td>
+						<td class="description">
+							Deferred.<a href="#Deferred.ng">ng</a>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="attr">&nbsp;</td>
+						<td class="description">
+							Deferred.<a href="#Deferred.methods">methods</a>
+						</td>
+					</tr>
+				
+				</tbody>
+			</table>
+			
+		
+
+		
+			
+			
+			<table>
+				<caption>Function Properties</caption>
+				<thead>
+					<tr>
+						<th scope="col">Method Attributes</th>
+						<th scope="col">Method Name and Description</th>
+					</tr>
+				</thead>
+				<tbody>
+				
+					<tr>
+						<td class="attr">&nbsp;</td>
+						<td class="description">
+							Deferred.<a href="#Deferred.call">call</a>(fun, args)
+							<span class="type">//=> Deferred</span>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="attr">&nbsp;</td>
+						<td class="description">
+							Deferred.<a href="#Deferred.chain">chain</a>(arguments)
+							<span class="type">//=> Deferred</span>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="attr">&nbsp;</td>
+						<td class="description">
+							Deferred.<a href="#Deferred.connect">connect</a>(funo, options)
+							<span class="type">//=> function(...[*]):Deferred</span>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="attr">&nbsp;</td>
+						<td class="description">
+							Deferred.<a href="#Deferred.define">define</a>(obj, list)
+							<span class="type">//=> function():Deferred</span>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="attr">&nbsp;</td>
+						<td class="description">
+							Deferred.<a href="#Deferred.earlier">earlier</a>(dl)
+							<span class="type">//=> Deferred</span>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="attr">&nbsp;</td>
+						<td class="description">
+							Deferred.<a href="#Deferred.isDeferred">isDeferred</a>(obj)
+							<span class="type">//=> boolean</span>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="attr">&nbsp;</td>
+						<td class="description">
+							Deferred.<a href="#Deferred.loop">loop</a>(n, fun)
+							<span class="type">//=> Deferred</span>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="attr">&nbsp;</td>
+						<td class="description">
+							Deferred.<a href="#Deferred.next">next</a>(fun)
+							<span class="type">//=> Deferred</span>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="attr">&nbsp;</td>
+						<td class="description">
+							Deferred.<a href="#Deferred.parallel">parallel</a>(dl)
+							<span class="type">//=> Deferred</span>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="attr">&nbsp;</td>
+						<td class="description">
+							Deferred.<a href="#Deferred.register">register</a>(name, fun)
+							
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="attr">&nbsp;</td>
+						<td class="description">
+							Deferred.<a href="#Deferred.repeat">repeat</a>(n, fun)
+							<span class="type">//=> Deferred</span>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="attr">&nbsp;</td>
+						<td class="description">
+							Deferred.<a href="#Deferred.retry">retry</a>(retryCount, funcDeferred, options)
+							<span class="type">//=> Deferred</span>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="attr">&nbsp;</td>
+						<td class="description">
+							Deferred.<a href="#Deferred.wait">wait</a>(sec)
+							<span class="type">//=> Deferred</span>
+						</td>
+					</tr>
+				
+				</tbody>
+			</table>
+			
+		
+		</header>
+
+
+		<section>
+			<h1>Constructor</h1>
+			
+
+			<section id="Deferred" class="value">
+
+			<h1>
+				<span class="attr">
+				
+				</span>
+			
+				<span class="name">Deferred</span
+				><span class="signature">()</span>
+
+				
+			</h1>
+
+			<header>
+				
+
+				
+				
+
+				
+			</header>
+
+			<section class="description">
+				Create a Deferred object
+			</section>
+
+			
+			<pre class="code prettyprint lang-js">  var d = new Deferred();
+  // or this is shothand of above.
+  var d = Deferred();</pre>
+			
+			<pre class="code prettyprint lang-js">  Deferred.define();
+
+  $.get("/hoge").next(function (data) {
+      alert(data);
+  }).
+
+  parallel([$.get("foo.html"), $.get("bar.html")]).next(function (values) {
+      log($.map(values, function (v) { return v.length }));
+      if (values[1].match(/nextUrl:\s*(\S+)/)) {
+          return $.get(RegExp.$1).next(function (d) {
+              return d;
+          });
+      }
+  }).
+  next(function (d) {
+      log(d.length);
+  });</pre>
+			
+
+			<footer>
+			
+			</footer>
+
+			</section>
+		</section>
+
+		
+		<section>
+			<h1>Instance Methods</h1>
+
+			
+			<section id="Deferred#call" class="method">
+				<h1>
+					<span class="attr">
+					
+					</span>
+				
+					<span class="memberOf">Deferred#</span
+					><span class="name">call</span
+					><span class="signature">(val)</span>
+
+					<span class="type">//=> Deferred</span>
+				</h1>
+
+				<header>
+					
+						<section class="parameters">
+							<h1>Parameters</h1>
+							<dl>
+							
+								<dt>
+								<span class="name">val</span>
+								<span class="type"> : *</span>
+								<span class="option">
+									
+								</span>
+								</dt>
+								<dd>Value passed to continuation.</dd>
+							
+							</dl>
+						</section>
+					
+
+					
+					
+
+					
+
+					
+						<section class="return">
+							<h1>Returns</h1>
+							
+							<span class="type">Deferred</span>
+							<span class="desc">this</span>
+							
+						</section>
+					
+				</header>
+
+				<section class="description">
+					Invokes self callback chain.
+				</section>
+				
+				
+				<pre class="code prettyprint lang-js">  function timeout100 () {
+    var d = new Deferred();
+    setTimeout(function () {
+       d.call('value');
+    }, 100);
+    return d;
+  }</pre>
+				
+				
+
+				<footer>
+				
+				</footer>
+			</section>
+			
+			<section id="Deferred#cancel" class="method">
+				<h1>
+					<span class="attr">
+					
+					</span>
+				
+					<span class="memberOf">Deferred#</span
+					><span class="name">cancel</span
+					><span class="signature">()</span>
+
+					<span class="type">//=> Deferred</span>
+				</h1>
+
+				<header>
+					
+
+					
+					
+
+					
+
+					
+						<section class="return">
+							<h1>Returns</h1>
+							
+							<span class="type">Deferred</span>
+							<span class="desc">this</span>
+							
+						</section>
+					
+				</header>
+
+				<section class="description">
+					Cancel receiver callback (this is only valid before invoking any callbacks)
+				</section>
+				
+				
+				
+
+				<footer>
+				
+				</footer>
+			</section>
+			
+			<section id="Deferred#error" class="method">
+				<h1>
+					<span class="attr">
+					
+					</span>
+				
+					<span class="memberOf">Deferred#</span
+					><span class="name">error</span
+					><span class="signature">(fun)</span>
+
+					<span class="type">//=> Deferred</span>
+				</h1>
+
+				<header>
+					
+						<section class="parameters">
+							<h1>Parameters</h1>
+							<dl>
+							
+								<dt>
+								<span class="name">fun</span>
+								<span class="type"> : function(this:Deferred|...[*]):*</span>
+								<span class="option">
+									
+								</span>
+								</dt>
+								<dd>Errorback of continuation.</dd>
+							
+							</dl>
+						</section>
+					
+
+					
+					
+
+					
+
+					
+						<section class="return">
+							<h1>Returns</h1>
+							
+							<span class="type">Deferred</span>
+							<span class="desc">Next Deferred object</span>
+							
+						</section>
+					
+				</header>
+
+				<section class="description">
+					Create new Deferred and sets `fun` as its errorback.
+
+If `fun` not throws error but returns normal value, Deferred treats
+the given error is recovery and continue callback chain.
+				</section>
+				
+				
+				<pre class="code prettyprint lang-js">  var d =  new Deferred();
+
+  d.
+  next(function () {
+    alert(1);
+    throw "foo";
+  }).
+  next(function () {
+    alert('not shown');
+  }).
+  error(function (e) {
+    alert(e); //=> "foo"
+  });
+
+  d.call();</pre>
+				
+				
+
+				<footer>
+				
+				</footer>
+			</section>
+			
+			<section id="Deferred#fail" class="method">
+				<h1>
+					<span class="attr">
+					
+					</span>
+				
+					<span class="memberOf">Deferred#</span
+					><span class="name">fail</span
+					><span class="signature">(val)</span>
+
+					<span class="type">//=> Deferred</span>
+				</h1>
+
+				<header>
+					
+						<section class="parameters">
+							<h1>Parameters</h1>
+							<dl>
+							
+								<dt>
+								<span class="name">val</span>
+								<span class="type"> : *</span>
+								<span class="option">
+									
+								</span>
+								</dt>
+								<dd>Value of error.</dd>
+							
+							</dl>
+						</section>
+					
+
+					
+					
+
+					
+
+					
+						<section class="return">
+							<h1>Returns</h1>
+							
+							<span class="type">Deferred</span>
+							<span class="desc">this</span>
+							
+						</section>
+					
+				</header>
+
+				<section class="description">
+					Invokes self errorback chain. You can use this method for explicit errors (eg. HTTP request failed)
+				</section>
+				
+				
+				<pre class="code prettyprint lang-js">  function http (url) {
+    var d = new Deferred();
+    var x = new XMLHttpRequest();
+    x.onreadystatechange = function () {
+      if (x.readyState == 4) {
+        if (x.status == 200) d.call(x); else d.fail(x);
+      }
+    };
+    return d;
+  }</pre>
+				
+				
+
+				<footer>
+				
+				</footer>
+			</section>
+			
+			<section id="Deferred#next" class="method">
+				<h1>
+					<span class="attr">
+					
+					</span>
+				
+					<span class="memberOf">Deferred#</span
+					><span class="name">next</span
+					><span class="signature">(fun)</span>
+
+					<span class="type">//=> Deferred</span>
+				</h1>
+
+				<header>
+					
+						<section class="parameters">
+							<h1>Parameters</h1>
+							<dl>
+							
+								<dt>
+								<span class="name">fun</span>
+								<span class="type"> : function(this:Deferred|...[*]):*</span>
+								<span class="option">
+									
+								</span>
+								</dt>
+								<dd>Callback of continuation.</dd>
+							
+							</dl>
+						</section>
+					
+
+					
+					
+
+					
+
+					
+						<section class="return">
+							<h1>Returns</h1>
+							
+							<span class="type">Deferred</span>
+							<span class="desc">Next Deferred object</span>
+							
+						</section>
+					
+				</header>
+
+				<section class="description">
+					Create new Deferred and sets `fun` as its callback.
+				</section>
+				
+				
+				<pre class="code prettyprint lang-js">  var d = new Deferred();
+
+  d.
+  next(function () {
+    alert(1);
+  }).
+  next(function () {
+    alert(2);
+  });
+
+  d.call();</pre>
+				
+				
+
+				<footer>
+				
+				</footer>
+			</section>
+			
+		</section>
+		
+
+		
+		<section>
+			<h1>Value Properties</h1>
+
+			
+			<section id="Deferred.ok" class="value">
+				<h1>
+					<span class="attr">
+					
+					</span>
+				
+					<span class="memberOf">Deferred.</span
+					><span class="name">ok</span
+					>
+
+					
+				</h1>
+
+				<header>
+					
+						<section class="parameters">
+							<h1>Parameters</h1>
+							<dl>
+							
+								<dt>
+								<span class="name">x</span>
+								<span class="type"></span>
+								<span class="option">
+									
+								</span>
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						</section>
+					
+
+					
+					
+
+					
+
+					
+				</header>
+
+				<section class="description">
+					Default callback function
+				</section>
+				
+				
+				
+
+				<footer>
+				
+				</footer>
+			</section>
+			
+			<section id="Deferred.ng" class="value">
+				<h1>
+					<span class="attr">
+					
+					</span>
+				
+					<span class="memberOf">Deferred.</span
+					><span class="name">ng</span
+					>
+
+					
+				</h1>
+
+				<header>
+					
+						<section class="parameters">
+							<h1>Parameters</h1>
+							<dl>
+							
+								<dt>
+								<span class="name">x</span>
+								<span class="type"></span>
+								<span class="option">
+									
+								</span>
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						</section>
+					
+
+					
+					
+
+					
+
+					
+				</header>
+
+				<section class="description">
+					Default errorback function
+				</section>
+				
+				
+				
+
+				<footer>
+				
+				</footer>
+			</section>
+			
+			<section id="Deferred.methods" class="value">
+				<h1>
+					<span class="attr">
+					
+					</span>
+				
+					<span class="memberOf">Deferred.</span
+					><span class="name">methods</span
+					>
+
+					
+				</h1>
+
+				<header>
+					
+
+					
+					
+
+					
+
+					
+				</header>
+
+				<section class="description">
+					Default export methods
+				</section>
+				
+				
+				
+
+				<footer>
+				
+					<section class="see">
+						<h1>See</h1>
+						<ul>
+							
+							<li><a href="#Deferred.define">Deferred.define</a></li>
+							
+						</ul>
+					</section>
+				
+				</footer>
+			</section>
+			
+		</section>
+		
+
+		
+		<section>
+			<h1>Function Properties</h1>
+
+			
+			<section id="Deferred.call" class="method">
+				<h1>
+					<span class="attr">
+					
+					</span>
+				
+					<span class="memberOf">Deferred.</span
+					><span class="name">call</span
+					><span class="signature">(fun, args)</span>
+
+					<span class="type">//=> Deferred</span>
+				</h1>
+
+				<header>
+					
+						<section class="parameters">
+							<h1>Parameters</h1>
+							<dl>
+							
+								<dt>
+								<span class="name">fun</span>
+								<span class="type"> : function(...[*]):*</span>
+								<span class="option">
+									
+								</span>
+								</dt>
+								<dd>Function to call</dd>
+							
+								<dt>
+								<span class="name">args</span>
+								<span class="type"> : ...*</span>
+								<span class="option">
+									
+								</span>
+								</dt>
+								<dd>Arguments passed to `fun`</dd>
+							
+							</dl>
+						</section>
+					
+
+					
+					
+
+					
+
+					
+						<section class="return">
+							<h1>Returns</h1>
+							
+							<span class="type">Deferred</span>
+							<span class="desc"></span>
+							
+						</section>
+					
+				</header>
+
+				<section class="description">
+					`call` function is for calling function asynchronous.
+				</section>
+				
+				
+				<pre class="code prettyprint lang-js">  // like tail recursion
+  next(function () {
+      function pow (x, n) {
+          function _pow (n, r) {
+              print([n, r]);
+              if (n == 0) return r;
+              return call(_pow, n - 1, x * r);
+          }
+          return call(_pow, n, 1);
+      }
+      return call(pow, 2, 10);
+  }).
+  next(function (r) {
+      print([r, "end"]);
+  });</pre>
+				
+				
+
+				<footer>
+				
+				</footer>
+			</section>
+			
+			<section id="Deferred.chain" class="method">
+				<h1>
+					<span class="attr">
+					
+					</span>
+				
+					<span class="memberOf">Deferred.</span
+					><span class="name">chain</span
+					><span class="signature">(arguments)</span>
+
+					<span class="type">//=> Deferred</span>
+				</h1>
+
+				<header>
+					
+						<section class="parameters">
+							<h1>Parameters</h1>
+							<dl>
+							
+								<dt>
+								<span class="name">arguments</span>
+								<span class="type"> : ...[(Array.&lt;function(*):*&gt;|Object.&lt;string|function(*):*&gt;|function(*):*)]</span>
+								<span class="option">
+									
+								</span>
+								</dt>
+								<dd>Process chains</dd>
+							
+							</dl>
+						</section>
+					
+
+					
+					
+
+					
+
+					
+						<section class="return">
+							<h1>Returns</h1>
+							
+							<span class="type">Deferred</span>
+							<span class="desc"></span>
+							
+						</section>
+					
+				</header>
+
+				<section class="description">
+					Construct Deferred chain with array and return its Deferred.
+This is shorthand for construct Deferred chains.
+				</section>
+				
+				
+				<pre class="code prettyprint lang-js"> return chain(
+     function () {
+         return wait(0.5);
+     },
+     function (w) {
+         throw "foo";
+     },
+     function error (e) {
+         alert(e);
+     },
+     [
+         function () {
+             return wait(1);
+         },
+         function () {
+             return wait(2);
+         }
+     ],
+     function (result) {
+         alert([ result[0], result[1] ]);
+     },
+     {
+         foo: wait(1),
+         bar: wait(1)
+     },
+     function (result) {
+         alert([ result.foo, result.bar ]);
+     },
+     function error (e) {
+         alert(e);
+     }
+ );</pre>
+				
+				
+
+				<footer>
+				
+				</footer>
+			</section>
+			
+			<section id="Deferred.connect" class="method">
+				<h1>
+					<span class="attr">
+					
+					</span>
+				
+					<span class="memberOf">Deferred.</span
+					><span class="name">connect</span
+					><span class="signature">(funo, options)</span>
+
+					<span class="type">//=> function(...[*]):Deferred</span>
+				</h1>
+
+				<header>
+					
+						<section class="parameters">
+							<h1>Parameters</h1>
+							<dl>
+							
+								<dt>
+								<span class="name">funo</span>
+								<span class="type"> : (function(...[*]):*|*)</span>
+								<span class="option">
+									
+								</span>
+								</dt>
+								<dd>Target function or object</dd>
+							
+								<dt>
+								<span class="name">options</span>
+								<span class="type"> : ({ok:number|ng:number|target:*}|string)</span>
+								<span class="option">
+									
+								</span>
+								</dt>
+								<dd>Options or method name of object in arguments[0]</dd>
+							
+							</dl>
+						</section>
+					
+
+					
+					
+
+					
+
+					
+						<section class="return">
+							<h1>Returns</h1>
+							
+							<span class="type">function(...[*]):Deferred</span>
+							<span class="desc"></span>
+							
+						</section>
+					
+				</header>
+
+				<section class="description">
+					Connect a function with Deferred.  That is, transform a function
+that takes a callback into one that returns a Deferred object.
+				</section>
+				
+				
+				<pre class="code prettyprint lang-js">  var timeout = Deferred.connect(setTimeout, { target: window, ok: 0 });
+  timeout(1).next(function () {
+      alert('after 1 sec');
+  });
+
+  var timeout = Deferred.connect(window, "setTimeout");
+  timeout(1).next(function () {
+      alert('after 1 sec');
+  });</pre>
+				
+				
+
+				<footer>
+				
+				</footer>
+			</section>
+			
+			<section id="Deferred.define" class="method">
+				<h1>
+					<span class="attr">
+					
+					</span>
+				
+					<span class="memberOf">Deferred.</span
+					><span class="name">define</span
+					><span class="signature">(obj, list)</span>
+
+					<span class="type">//=> function():Deferred</span>
+				</h1>
+
+				<header>
+					
+						<section class="parameters">
+							<h1>Parameters</h1>
+							<dl>
+							
+								<dt>
+								<span class="name">obj</span>
+								<span class="type"> : Object</span>
+								<span class="option">
+									
+								</span>
+								</dt>
+								<dd>A object which this method should export to</dd>
+							
+								<dt>
+								<span class="name">list</span>
+								<span class="type"> : Array.&lt;string&gt;=</span>
+								<span class="option">
+									
+								</span>
+								</dt>
+								<dd>List of function names (default Deferred.methods)</dd>
+							
+							</dl>
+						</section>
+					
+
+					
+					
+
+					
+
+					
+						<section class="return">
+							<h1>Returns</h1>
+							
+							<span class="type">function():Deferred</span>
+							<span class="desc">The Deferred constructor function</span>
+							
+						</section>
+					
+				</header>
+
+				<section class="description">
+					Export functions to obj.
+				</section>
+				
+				
+				
+
+				<footer>
+				
+				</footer>
+			</section>
+			
+			<section id="Deferred.earlier" class="method">
+				<h1>
+					<span class="attr">
+					
+					</span>
+				
+					<span class="memberOf">Deferred.</span
+					><span class="name">earlier</span
+					><span class="signature">(dl)</span>
+
+					<span class="type">//=> Deferred</span>
+				</h1>
+
+				<header>
+					
+						<section class="parameters">
+							<h1>Parameters</h1>
+							<dl>
+							
+								<dt>
+								<span class="name">dl</span>
+								<span class="type"> : (Array.&lt;Deferred&gt;|Object.&lt;string|Deferred&gt;)</span>
+								<span class="option">
+									
+								</span>
+								</dt>
+								<dd>Deferred objects wanted to wait</dd>
+							
+							</dl>
+						</section>
+					
+
+					
+					
+
+					
+
+					
+						<section class="return">
+							<h1>Returns</h1>
+							
+							<span class="type">Deferred</span>
+							<span class="desc"></span>
+							
+						</section>
+					
+				</header>
+
+				<section class="description">
+					Continue process when one deferred in `deferredlist` has completed. Others will be canceled.
+parallel ('and' processing) <=> earlier ('or' processing)
+				</section>
+				
+				
+				
+
+				<footer>
+				
+					<section class="see">
+						<h1>See</h1>
+						<ul>
+							
+							<li><a href="#Deferred.parallel">Deferred.parallel</a></li>
+							
+						</ul>
+					</section>
+				
+				</footer>
+			</section>
+			
+			<section id="Deferred.isDeferred" class="method">
+				<h1>
+					<span class="attr">
+					
+					</span>
+				
+					<span class="memberOf">Deferred.</span
+					><span class="name">isDeferred</span
+					><span class="signature">(obj)</span>
+
+					<span class="type">//=> boolean</span>
+				</h1>
+
+				<header>
+					
+						<section class="parameters">
+							<h1>Parameters</h1>
+							<dl>
+							
+								<dt>
+								<span class="name">obj</span>
+								<span class="type"> : *</span>
+								<span class="option">
+									
+								</span>
+								</dt>
+								<dd>Object to determine</dd>
+							
+							</dl>
+						</section>
+					
+
+					
+					
+
+					
+
+					
+						<section class="return">
+							<h1>Returns</h1>
+							
+							<span class="type">boolean</span>
+							<span class="desc"></span>
+							
+						</section>
+					
+				</header>
+
+				<section class="description">
+					Returns true if an argument is Deferred.
+				</section>
+				
+				
+				
+
+				<footer>
+				
+				</footer>
+			</section>
+			
+			<section id="Deferred.loop" class="method">
+				<h1>
+					<span class="attr">
+					
+					</span>
+				
+					<span class="memberOf">Deferred.</span
+					><span class="name">loop</span
+					><span class="signature">(n, fun)</span>
+
+					<span class="type">//=> Deferred</span>
+				</h1>
+
+				<header>
+					
+						<section class="parameters">
+							<h1>Parameters</h1>
+							<dl>
+							
+								<dt>
+								<span class="name">n</span>
+								<span class="type"> : (number|{begin:number|end:number|step:number})</span>
+								<span class="option">
+									
+								</span>
+								</dt>
+								<dd>Loop count or definition object</dd>
+							
+								<dt>
+								<span class="name">fun</span>
+								<span class="type"> : function(number):*</span>
+								<span class="option">
+									
+								</span>
+								</dt>
+								<dd>Loop function</dd>
+							
+							</dl>
+						</section>
+					
+
+					
+					
+
+					
+
+					
+						<section class="return">
+							<h1>Returns</h1>
+							
+							<span class="type">Deferred</span>
+							<span class="desc">Called when all loop was completed</span>
+							
+						</section>
+					
+				</header>
+
+				<section class="description">
+					`loop` function provides browser-non-blocking loop.
+This loop is slow but not stop browser's appearance.
+This function waits a deferred returned by loop function.
+				</section>
+				
+				
+				<pre class="code prettyprint lang-js">  //=> loop 1 to 100
+  loop({begin:1, end:100, step:10}, function (n, o) {
+      for (var i = 0; i < o.step; i++) {
+          log(n+i);
+      }
+  });</pre>
+				
+				<pre class="code prettyprint lang-js">  //=> loop 10 times with sleeping 1 sec in each loop.
+  loop(10, function (n) {
+      log(n);
+      return wait(1);
+  });</pre>
+				
+				
+
+				<footer>
+				
+				</footer>
+			</section>
+			
+			<section id="Deferred.next" class="method">
+				<h1>
+					<span class="attr">
+					
+					</span>
+				
+					<span class="memberOf">Deferred.</span
+					><span class="name">next</span
+					><span class="signature">(fun)</span>
+
+					<span class="type">//=> Deferred</span>
+				</h1>
+
+				<header>
+					
+						<section class="parameters">
+							<h1>Parameters</h1>
+							<dl>
+							
+								<dt>
+								<span class="name">fun</span>
+								<span class="type"> : function():*</span>
+								<span class="option">
+									
+								</span>
+								</dt>
+								<dd>Callback function</dd>
+							
+							</dl>
+						</section>
+					
+
+					
+					
+
+					
+
+					
+						<section class="return">
+							<h1>Returns</h1>
+							
+							<span class="type">Deferred</span>
+							<span class="desc"></span>
+							
+						</section>
+					
+				</header>
+
+				<section class="description">
+					`next` is shorthand for creating new deferred which
+is called after current queue.
+				</section>
+				
+				
+				
+
+				<footer>
+				
+				</footer>
+			</section>
+			
+			<section id="Deferred.parallel" class="method">
+				<h1>
+					<span class="attr">
+					
+					</span>
+				
+					<span class="memberOf">Deferred.</span
+					><span class="name">parallel</span
+					><span class="signature">(dl)</span>
+
+					<span class="type">//=> Deferred</span>
+				</h1>
+
+				<header>
+					
+						<section class="parameters">
+							<h1>Parameters</h1>
+							<dl>
+							
+								<dt>
+								<span class="name">dl</span>
+								<span class="type"> : (Array.&lt;Deferred&gt;|Object.&lt;string|Deferred&gt;)</span>
+								<span class="option">
+									
+								</span>
+								</dt>
+								<dd>Deferred objects wanted to wait</dd>
+							
+							</dl>
+						</section>
+					
+
+					
+					
+
+					
+
+					
+						<section class="return">
+							<h1>Returns</h1>
+							
+							<span class="type">Deferred</span>
+							<span class="desc"></span>
+							
+						</section>
+					
+				</header>
+
+				<section class="description">
+					`parallel` wraps up `deferredlist` to one deferred.
+This is useful when some asynchronous resources are required.
+
+`deferredlist` can be Array or Object (Hash). If you specify
+multiple objects as arguments, then they are wrapped into
+an Array.
+				</section>
+				
+				
+				<pre class="code prettyprint lang-js">  parallel([
+      $.get("foo.html"),
+      $.get("bar.html")
+  ]).next(function (values) {
+      values[0] //=> foo.html data
+      values[1] //=> bar.html data
+  });
+
+  parallel({
+      foo: $.get("foo.html"),
+      bar: $.get("bar.html")
+  }).next(function (values) {
+      values.foo //=> foo.html data
+      values.bar //=> bar.html data
+  });</pre>
+				
+				
+
+				<footer>
+				
+					<section class="see">
+						<h1>See</h1>
+						<ul>
+							
+							<li><a href="#Deferred.earlier">Deferred.earlier</a></li>
+							
+						</ul>
+					</section>
+				
+				</footer>
+			</section>
+			
+			<section id="Deferred.register" class="method">
+				<h1>
+					<span class="attr">
+					
+					</span>
+				
+					<span class="memberOf">Deferred.</span
+					><span class="name">register</span
+					><span class="signature">(name, fun)</span>
+
+					
+				</h1>
+
+				<header>
+					
+						<section class="parameters">
+							<h1>Parameters</h1>
+							<dl>
+							
+								<dt>
+								<span class="name">name</span>
+								<span class="type"> : string</span>
+								<span class="option">
+									
+								</span>
+								</dt>
+								<dd>Name of method</dd>
+							
+								<dt>
+								<span class="name">fun</span>
+								<span class="type"> : function(*):Deferred</span>
+								<span class="option">
+									
+								</span>
+								</dt>
+								<dd>Actual function of method</dd>
+							
+							</dl>
+						</section>
+					
+
+					
+					
+
+					
+
+					
+				</header>
+
+				<section class="description">
+					Register `fun` to Deferred prototype for method chain.
+				</section>
+				
+				
+				<pre class="code prettyprint lang-js">  // Deferred.register("loop", loop);
+
+  // Global Deferred function
+  loop(10, function (n) {
+      print(n);
+  }).
+  // Registered Deferred.prototype.loop
+  loop(10, function (n) {
+      print(n);
+  });</pre>
+				
+				
+
+				<footer>
+				
+				</footer>
+			</section>
+			
+			<section id="Deferred.repeat" class="method">
+				<h1>
+					<span class="attr">
+					
+					</span>
+				
+					<span class="memberOf">Deferred.</span
+					><span class="name">repeat</span
+					><span class="signature">(n, fun)</span>
+
+					<span class="type">//=> Deferred</span>
+				</h1>
+
+				<header>
+					
+						<section class="parameters">
+							<h1>Parameters</h1>
+							<dl>
+							
+								<dt>
+								<span class="name">n</span>
+								<span class="type"> : number</span>
+								<span class="option">
+									
+								</span>
+								</dt>
+								<dd>Loop count</dd>
+							
+								<dt>
+								<span class="name">fun</span>
+								<span class="type"> : function(number)</span>
+								<span class="option">
+									
+								</span>
+								</dt>
+								<dd>Loop function</dd>
+							
+							</dl>
+						</section>
+					
+
+					
+					
+
+					
+
+					
+						<section class="return">
+							<h1>Returns</h1>
+							
+							<span class="type">Deferred</span>
+							<span class="desc">Called when all loop was completed</span>
+							
+						</section>
+					
+				</header>
+
+				<section class="description">
+					Loop `n` times with `fun`.
+This function automatically returns UI-control to browser, if the loop spends over 20msec.
+This is useful for huge loop not to block browser UI.
+This function can't wait a deferred returned by loop function, compared with Deferred.loop.
+				</section>
+				
+				
+				<pre class="code prettyprint lang-js">  repeat(10, function (i) {
+      i //=> 0,1,2,3,4,5,6,7,8,9
+  });</pre>
+				
+				
+
+				<footer>
+				
+				</footer>
+			</section>
+			
+			<section id="Deferred.retry" class="method">
+				<h1>
+					<span class="attr">
+					
+					</span>
+				
+					<span class="memberOf">Deferred.</span
+					><span class="name">retry</span
+					><span class="signature">(retryCount, funcDeferred, options)</span>
+
+					<span class="type">//=> Deferred</span>
+				</h1>
+
+				<header>
+					
+						<section class="parameters">
+							<h1>Parameters</h1>
+							<dl>
+							
+								<dt>
+								<span class="name">retryCount</span>
+								<span class="type"> : number</span>
+								<span class="option">
+									
+								</span>
+								</dt>
+								<dd>Count number to retry</dd>
+							
+								<dt>
+								<span class="name">funcDeferred</span>
+								<span class="type"> : function(number):Deferred</span>
+								<span class="option">
+									
+								</span>
+								</dt>
+								<dd>A function returns Deferred</dd>
+							
+								<dt>
+								<span class="name">options</span>
+								<span class="type"> : {wait:number}</span>
+								<span class="option">
+									
+								</span>
+								</dt>
+								<dd>Options</dd>
+							
+							</dl>
+						</section>
+					
+
+					
+					
+
+					
+
+					
+						<section class="return">
+							<h1>Returns</h1>
+							
+							<span class="type">Deferred</span>
+							<span class="desc"></span>
+							
+						</section>
+					
+				</header>
+
+				<section class="description">
+					Try func (returns Deferred) till it finish without exceptions.
+				</section>
+				
+				
+				<pre class="code prettyprint lang-js">  Deferred.retry(3, function () {
+      return http.get(...);
+  }).
+  next(function (res) {
+      res //=> response if succeeded
+  }).
+  error(function (e) {
+      e //=> error if all try failed
+  });</pre>
+				
+				
+
+				<footer>
+				
+				</footer>
+			</section>
+			
+			<section id="Deferred.wait" class="method">
+				<h1>
+					<span class="attr">
+					
+					</span>
+				
+					<span class="memberOf">Deferred.</span
+					><span class="name">wait</span
+					><span class="signature">(sec)</span>
+
+					<span class="type">//=> Deferred</span>
+				</h1>
+
+				<header>
+					
+						<section class="parameters">
+							<h1>Parameters</h1>
+							<dl>
+							
+								<dt>
+								<span class="name">sec</span>
+								<span class="type"> : number</span>
+								<span class="option">
+									
+								</span>
+								</dt>
+								<dd>Second to wait</dd>
+							
+							</dl>
+						</section>
+					
+
+					
+					
+
+					
+
+					
+						<section class="return">
+							<h1>Returns</h1>
+							
+							<span class="type">Deferred</span>
+							<span class="desc"></span>
+							
+						</section>
+					
+				</header>
+
+				<section class="description">
+					`wait` returns deferred that will be called after `sec` elapsed
+with real elapsed time (msec)
+				</section>
+				
+				
+				<pre class="code prettyprint lang-js">  wait(1).next(function (elapsed) {
+      log(elapsed); //=> may be 990-1100
+  });</pre>
+				
+				
+
+				<footer>
+				
+				</footer>
+			</section>
+			
+		</section>
+		
+		<script type="text/javascript">prettyPrint()</script>
+	</body>
+</html>
+

@@ -1,0 +1,70 @@
+2012-03-08  SATOH Hiroh <cho45@lowreal.net>
+
+	* Fix parallel function.
+
+2011-04-19  SATOH Hiroh <cho45@lowreal.net>
+
+	* Fix infinate build on Titanium 1.6.1 (by Seasons7)
+
+2011-03-01  SATOH Hiroh <cho45@lowreal.net>
+
+	* Use class id instead of instanceof.
+
+2011-01-20  SATOH Hiroh <cho45@lowreal.net>
+
+	* Support Opera11
+
+2010-11-14  SATOH Hiroh <cho45@lowreal.net>
+
+	* Support IE9
+
+2010-09-27  SATOH Hiroh <cho45@lowreal.net>
+
+	* Released 0.3.4
+	Fix bug in Deferred.connect (arguments are not applied at return from
+	deferred chains)
+
+2010-09-20  SATOH Hiroh <cho45@lowreal.net>
+
+	* Released 0.3.2
+	Fix behavior on Opera 10
+	Fix bug in Deferred.connect
+	Assign Deferred object to this.Deferred for supporting node.js
+	* Released 0.3.3
+	Syntax error on generated files
+
+2010-03-10  SATOH Hiroh <cho45@lowreal.net>
+
+	* Released 0.3.1
+
+2010-03-02  SATOH Hiroh <cho45@lowreal.net>
+
+	* Change Deferred.export to Deferred.methods for Safari
+	(failed parsing becaseof 'export' is reserved word in Safari)
+	(Thank Atsushi Takayama)
+
+2009-11-20  SATOH Hiroh <cho45@lowreal.net>
+
+	* Accept multiple deferred objects as argument in `parallel`
+	(Thank SHIMODA Hiroshi)
+
+2009-10-23  SATOH Hiroh <cho45@lowreal.net>
+
+	* Add Deferred#earlier, Deferred#repeat
+
+2009-10-22  SATOH Hiroh <cho45@lowreal.net>
+
+	* Released 0.3.0
+
+2009-10-21  SATOH Hiroh <cho45@lowreal.net>
+
+	* Added Deferred#retry
+	* Added Deferred.connect
+	* Added Deferred.onerror (for debug)
+	* Added jQuery.fn.deferred (jquery binding)
+
+2008-08-02  SATOH Hiroh <cho45@lowreal.net>
+
+	* Released 0.2.2
+	* [bug] Fixed: loop function didn't loop when it get 1 as argument.
+
