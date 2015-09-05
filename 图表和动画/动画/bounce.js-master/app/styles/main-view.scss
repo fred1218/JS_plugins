@@ -1,0 +1,112 @@
+.main-view {
+  width: 680px;
+  margin: 0 auto;
+  padding: 60px 0 40px 80px;
+
+  header {
+    h1 {
+      width: 185px;
+      font-size: 40px;
+      margin-top: 0;
+      margin-bottom: 15px;
+      font-family: "AvenirLTStd-Black", $body-font;
+      font-weight: normal;
+    }
+
+    h2 {
+      display: inline-block;
+      font-size: 16px;
+      font-weight: normal;
+      line-height: 1.8em;
+      width: 420px;
+      margin: 0;
+    }
+
+    .header-actions {
+      text-transform: uppercase;
+      display: inline-block;
+      width: 175px;
+      font-size: 11px;
+      font-weight: 500;
+      text-align: right;
+      line-height: 2.6em;
+    }
+  }
+}
+
+#result {
+  width: 600px;
+  height: 410px;
+  background: #25a4d9;
+  border-radius: 2px;
+  margin-top: 35px;
+  position: relative;
+  overflow: hidden;
+
+  .box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -30px;
+    margin-top: -30px;
+    width: 60px;
+    height: 60px;
+
+    background: white;
+    border-radius: 2px;
+
+    animation-timing-function: linear;
+    animation-fill-mode: both;
+
+    cursor: pointer;
+    cursor: inline-image("draggable_cursor.gif"), grab;
+
+    &.spin {
+      animation-name: bounce-spin;
+      animation-duration: 1s;
+    }
+
+    &.animate {
+      animation-name: animation;
+    }
+
+    &.spin, &.animate {
+      transform-origin: 50% 50% !important;
+    }
+  }
+}
+
+.actions {
+  width: 400px;
+  margin: -24px auto;
+  position: relative;
+  z-index: 10;
+  text-align: center;
+
+  .toggle {
+    position: relative;
+    top: 3px;
+    display: inline-block;
+    color: black;
+    text-align: center;
+    width: 48px;
+    height: 48px;
+    font-size: 18px;
+    line-height: 50px;
+    background: white;
+    border-radius: 2px;
+    opacity: 0.5;
+    cursor: pointer;
+    transition: opacity 0.05s;
+    user-select: none;
+
+    &.on {
+      opacity: 1;
+    }
+  }
+
+  .slow-input {
+    font-size: 20px;
+    top: 4px;
+  }
+}

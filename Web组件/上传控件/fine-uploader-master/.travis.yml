@@ -1,0 +1,42 @@
+---
+addons:
+  firefox: "38.0"
+
+sudo: false
+language: node_js
+
+node_js:
+- '0.10.33'
+
+env:
+  global:
+  - LOGS_DIR=/tmp/fineuploader-build/logs
+  - DISPLAY=:99.0
+  - secure: |-
+      AZ/GEWzykeSzxh+4r14eKq2dMQnZyEvx99zFnTSp30Ke9QqJP3UQvMdwHzuV
+      7jqjzHQUYMFl8o7VATMm7WeXiSURmzRP2F51W/v0rfhUyTo9BMiCxHmcI3up
+      wRMBtB4rJxzk3q5sUR32ucVs/fNlOCMC9M02fnSEijGw4Y+WOhc=
+  - secure: |-
+      sEQ0OSwK/9SUqLXB+w8n9oEdFEdLxZTBdMhC5fUrsCjgstfUSSgzYOT9cTFp
+      awR42/q/Akos2eA8NWx5yU+hRC5rr+oQG5Eio0tzi9+y3a6VXDvgS1h2SaQz
+      TR/MjA/29gFvV7bnp1LSs2TdZx+NGhLd4zHv01XZ+pQk/nQiW9w=
+
+before_install:
+- npm install -g grunt-cli
+- git submodule update --init --recursive
+
+before_script:
+- "sh -e /etc/init.d/xvfb start"
+
+script:
+- grunt travis
+
+branches:
+    only:
+        - master
+        - develop
+        - /^feature.*$/
+        - /^.*fix.*$/
+notifications:
+    slack:
+        secure: qb1LdOGlBVKCLxNi86tWrabIKs9TFa3ttpLIwu1vtEeh+R9XDeG32X89sM3a5CHRwLqkHwrs6JNcIC4qhTAKiUOiaPYPbv7PkZXX1GIuOPMBp20ghpnWA7QHv6SpmW4qDCTixZSzf0B0m97muzWm1VnotgRELbfKr9Cf/7h3jS0=

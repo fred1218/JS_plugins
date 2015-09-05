@@ -1,0 +1,257 @@
+$width: 300px;
+.preferences-container {
+  position: absolute;
+  height: 100%;
+  width: $width;
+}
+
+.preference-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 50px 55px 0 55px;
+  width: $width;
+
+
+  #add {
+    width: 190px;
+    padding-left: 30px;
+    padding-right: 9px;
+    i {
+      margin-left: 26px;
+      font-size: 12px;
+    }
+  }
+
+  input[type="text"], input[type="number"], .type-input, .easing-input {
+    width: 186px;
+  }
+
+  label {
+    display: block;
+    font-weight: 400;
+    font-size: 10px;
+    text-transform: uppercase;
+    color: $text-dark;
+    margin: 20px 0 9px 0;
+  }
+
+  .inputs {
+    color: $text-dark;
+
+    input[type="text"], input[type="number"] {
+      width: 55px;
+      margin: 0 5px;
+      text-align: center;
+      padding: 10px 5px;
+    }
+
+    label {
+      margin-bottom: 12px;
+    }
+  }
+
+  .or {
+    position: relative;
+    width: 100%;
+    color: $text-dark;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 9px 0 8px 0;
+    font-size: 11px;
+
+    span {
+      position: relative;
+      z-index: 10;
+      width: 40px;
+      height: 100%;
+      display: inline-block;
+      background: $main-color;
+      color: darken($border-color, 20%);
+    }
+
+    &:before {
+      position: absolute;
+      content: "";
+      display: block;
+      background-color: $border-color;
+      width: 100%;
+      height: 2px;
+      top: 50%;
+      margin-top: -1px;
+    }
+  }
+
+  .presets {
+    .preset-input {
+      display: block;
+      width: 191px;
+    }
+
+    .chosen-container-single .chosen-single {
+      padding: 10px 16px;
+      text-transform: uppercase;
+      font-size: 10px;
+      text-align: center;
+    }
+
+    padding-bottom: 40px;
+  }
+
+  .components {
+    overflow-y: auto;
+    width: 270px;
+    padding-left: 30px;
+    margin-left: -30px;
+    padding-right: 40px;
+  }
+
+  .component {
+    width: 220px;
+    overflow: hidden;
+    padding-bottom: 20px;
+    max-height: 45px;
+    padding-left: 30px;
+    margin-left: -30px;
+
+    transition: max-height 0.25s cubic-bezier(.3,1.05,.48,1.03);
+
+    .header {
+      position: relative;
+      padding: 17px 0 15px 0;
+      font-weight: 500;
+      color: $text-dark;
+      cursor: pointer;
+      transition: color 0.1s;
+      padding-left: 30px;
+      margin-left: -30px;
+
+      user-select: none;
+
+      & + label {
+        margin-top: 7px;
+      }
+
+      .num {
+        opacity: 0.5;
+        display: inline-block;
+        margin-left: 3px;
+      }
+
+      .arrow {
+        position: absolute;
+        right: 0;
+        top: 17px;
+        display: inline-block;
+        width: 12px;
+        height: 10px;
+        background-size: 144px 10px;
+        background-image: inline-image("arrow_sprite_sheet.png");
+        background-repeat: no-repeat;
+        background-position: -72px;
+      }
+
+      .remove {
+        position: absolute;
+        left: 0;
+        top: 13px;
+        top: 8px;
+        margin-left: -12px;
+        padding: 10px;
+        padding-left: 20px;
+        opacity: 0;
+      }
+
+      .separator {
+        position: absolute;
+        width: 190px;
+        right: 0;
+        top: 0;
+        border-top: 2px solid $border-color;
+      }
+
+      &:hover .remove {
+        opacity: 0.5;
+        animation: component-remove-in 0.75s linear both;
+      }
+    }
+
+    .stiffness-input {
+      display: inline-block;
+      width: 135px;
+    }
+
+    .stiffness-value {
+      width: 38px;
+      margin-left: 8px;
+      text-align: center;
+    }
+
+    &.open {
+      transition: max-height 0.25s;
+      max-height: 800px;
+
+      .header {
+        color: white;
+        .arrow {
+          animation: arrow-up 0.15s steps(5) both;
+        }
+      }
+    }
+
+    &.closed {
+      .header {
+        .arrow {
+          animation: arrow-down 0.15s steps(5) both;
+        }
+      }
+    }
+  }
+}
+
+.empty-message {
+  display: none;
+  opacity: 0.8;
+  margin-top: -15px;
+  animation: point-up-down 1s linear infinite alternate;
+  line-height: 1.2em;
+
+  i {
+    display: inline-block;
+    font-size: 18px;
+    vertical-align: middle;
+    margin: -2px 5px 0 21px;
+  }
+
+  p {
+    display: inline-block;
+    width: 140px;
+    vertical-align: middle;
+    margin: 0;
+  }
+
+}
+
+body.play-empty .preference-bar {
+  animation: scale-shake 1s linear;
+}
+
+body.components-empty .empty-message {
+  display: block;
+}
+
+.preference-bar-separator {
+  display: block;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: $width;
+  height: 100%;
+  border-right: 2px solid $border-color;
+  transition: opacity 0.25s;
+}
+
+body.preferences-overflown .preference-bar-separator {
+  opacity: 1;
+}

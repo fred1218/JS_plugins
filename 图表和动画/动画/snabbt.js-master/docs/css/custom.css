@@ -1,0 +1,213 @@
+.block {
+  width: 50px;
+  height: 50px;
+  background: red;
+}
+
+.hero {
+  position: relative;
+  margin: auto;
+  text-align: center;
+  -webkit-transform: translateZ(1000px);
+}
+.hero h1 {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  font-size: 6rem;
+  margin-bottom: 0px;
+}
+.hero h1 span {
+  display: inline-block;
+}
+
+.hero p {
+  text-align: center;
+  font-style: italic;
+}
+.hero h3 i {
+  margin-right: 20px;
+}
+
+.warning {
+  text-align: center;
+  color: red;
+}
+
+.nav.docked {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  background: white;
+  padding: 0;
+  margin: 0;
+  /* Safari z-index issues */
+  -webkit-transform: translateZ(2000px);
+}
+
+.nav.docked ul {
+  margin-left: 14px;
+  margin-bottom: 10px;
+}
+
+.nav {
+  overflow: auto;
+  border-top: 1px solid #aaa;
+  border-bottom: 1px solid #aaa;
+  padding-top: 1rem;
+  padding-left: 10px;
+  margin-top: 5%;
+}
+.nav ul {
+  list-style: none;
+}
+.nav ul li {
+  float: left;
+  margin-right: 20px;
+}
+.nav ul li a {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: black;
+    font-weight: bold;
+}
+.hidden {
+  display: none;
+}
+
+pre {
+  margin: 0;
+}
+
+section {
+  padding-top: 45px;
+}
+
+table {
+  width: 100%;
+}
+table thead td {
+  font-weight: bold;
+}
+
+footer {
+  background: rgb(0, 43, 54);
+  color: white;
+  padding-top: 10px;
+}
+
+.easing-demo {
+  position: relative;
+  height: 20px;
+  border: 1px solid grey;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+.easing-demo div {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  background: rgb(30, 174, 219);
+}
+
+.flip-container {
+  margin-bottom: 20px;
+  width: 200px;
+  height: 50px;
+  position: relative;
+  -webkit-perspective-origin: 50% 50%;
+  -webkit-perspective: 800px;
+  perspective-origin: 50% 50%;
+  perspective: 800px;
+  cursor: ew-resize;
+
+  /* No text selection */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.flip-container > div {
+  position: absolute;
+}
+
+.flipper-background {
+  line-height: 50px;
+  text-align: center;
+  width: 100px;
+  height: 50px;
+  background: gainsboro;
+}
+
+.flipper {
+  position: relative;
+  perspective: 1000px;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  width: 100px;
+  height: 50px;
+}
+
+.flipper > div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  background: rgb(51, 195, 240);
+  color: white;
+  line-height: 50px;
+  text-align: center;
+
+}
+.flipper .flipper-front {
+  z-index: 2;
+  -webkit-transform: rotateY(0deg);
+  transform: rotateY(0deg);
+}
+.flipper .flipper-back {
+  z-index: 1;
+  -webkit-transform: rotateY(-180deg);
+  transform: rotateY(-180deg);
+}
+
+
+.multi-container {
+  position: relative;
+  height: 50px;
+}
+.multi-example {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  background: brown;
+}
+
+#multi-example span {
+  display: inline-block;
+}
+
+/* Some utiliy classes */
+@media screen and (max-width:600px) {
+  .hide-mobile {
+    display: none;
+  }
+}
+
+@media screen and (min-width:600px) {
+  .hide-desktop {
+    display: none;
+  }
+}
+
+.extra-top-margin {
+  margin-top: 20px;
+}

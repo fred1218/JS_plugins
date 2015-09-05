@@ -1,0 +1,47 @@
+{
+  "name": "packery",
+  "version": "1.4.3",
+  "description": "bin-packing layout library",
+  "main": "js/packery.js",
+  "dependencies": {
+    "desandro-classie": "1.x",
+    "desandro-get-style-property": "1.x",
+    "get-size": "1.2.x",
+    "outlayer": "~1.4.1"
+  },
+  "devDependencies": {
+    "draggabilly": "1.x",
+    "grunt": "~0.4.0",
+    "grunt-contrib-jshint": "~0.4.1",
+    "grunt-contrib-uglify": "^0.9.1",
+    "grunt-requirejs": "~0.4.0",
+    "jquery": "~1",
+    "jquery-bridget": "1.1.x",
+    "qunitjs": "^1.15"
+  },
+  "directories": {
+    "example": "examples",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/metafizzy/packery.git"
+  },
+  "keywords": [
+    "DOM",
+    "browser",
+    "layout",
+    "bin",
+    "binpacking",
+    "packing",
+    "masonry"
+  ],
+  "author": "Metafizzy",
+  "bugs": {
+    "url": "https://github.com/metafizzy/packery/issues"
+  },
+  "homepage": "http://packery.metafizzy.co"
+}

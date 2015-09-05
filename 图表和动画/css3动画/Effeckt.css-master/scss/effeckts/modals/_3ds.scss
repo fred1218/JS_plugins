@@ -1,0 +1,180 @@
+// Effect: 3D flip horizontal
+.flip-horizontal-3D {
+  perspective: $effeckt-perspective;
+}
+.flip-horizontal-3D .effeckt-content {
+  transform: rotateY(-70deg);
+  transform-style: preserve-3d;
+  opacity: 0;
+}
+.effeckt-show.flip-horizontal-3D .effeckt-content {
+  transform: rotateY(0deg);
+  opacity: 1;
+}
+
+
+// Effect: 3D flip vertical
+.flip-vertical-3D {
+  perspective: $effeckt-perspective;
+}
+.flip-vertical-3D .effeckt-content {
+  transform: rotateX(-70deg);
+  transform-style: preserve-3d;
+  opacity: 0;
+}
+.effeckt-show.flip-vertical-3D .effeckt-content {
+  transform: rotateX(0deg);
+  opacity: 1;
+}
+
+
+// Effect: 3D sign
+.sign-3D {
+  perspective: $effeckt-perspective;
+}
+.sign-3D .effeckt-content {
+  transform: rotateX(-60deg);
+  transform-origin: 50% 0;
+  transform-style: preserve-3d;
+  opacity: 0;
+}
+.effeckt-show.sign-3D .effeckt-content {
+  transform: rotateX(0deg);
+  opacity: 1;
+}
+
+
+// Effect: 3D Slit
+.slit-3D {
+  perspective: $effeckt-perspective;
+}
+.slit-3D .effeckt-content {
+  transform: translateZ(-3000px) rotateY(90deg);
+  transform-style: preserve-3d;
+  opacity: 0;
+}
+.effeckt-show.slit-3D .effeckt-content {
+  animation: modalSlit 0.7s forwards ease-out;
+}
+
+@keyframes modalSlit {
+  50% {
+    transform: translateZ(-250px) rotateY(89deg);
+    opacity: 0.75;
+    animation-timing-function: ease-in;
+  }
+  100% {
+    transform: translateZ(0) rotateY(0deg);
+    opacity: 1;
+  }
+}
+
+
+// Effect:  3D Rotate from bottom
+.rotate-from-bottom-3D {
+  perspective: $effeckt-perspective;
+}
+.rotate-from-bottom-3D .effeckt-content {
+  transform: translateY(100%) rotateX(90deg);
+  transform-style: preserve-3d;
+  transform-origin: 0 100%;
+  opacity: 0;
+}
+.effeckt-show.rotate-from-bottom-3D .effeckt-content {
+  transform: translateY(0%) rotateX(0deg);
+  opacity: 1;
+}
+
+
+// Effect:  3D Rotate in from left
+.rotate-from-left-3D {
+  perspective: $effeckt-perspective;
+}
+.rotate-from-left-3D .effeckt-content {
+  transform: translateZ(100px) translateX(-30%) rotateY(90deg);
+  transform-style: preserve-3d;
+  transform-origin: 0 100%;
+  opacity: 0;
+}
+.effeckt-show.rotate-from-left-3D .effeckt-content {
+  transform: translateZ(0px) translateX(0%) rotateY(0deg);
+  opacity: 1;
+}
+
+
+// Let me in
+.let-me-in ~ [data-effeckt-page].effeckt-page-active {
+  transition: $effeckt-modal-transition-duration;
+  transform: translate3d(0, 0, 0);
+  transform-origin: 50% 0%;
+  transform-style: preserve-3d;
+}
+.let-me-in .effeckt-content {
+  opacity: 0;
+  transform: translate3d(0, 200%, 0);
+}
+.effeckt-show.let-me-in ~ [data-effeckt-page].effeckt-page-active {
+  transform: rotateX(-7deg);
+  opacity: 1;
+
+  &:after {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+.effeckt-show.let-me-in .effeckt-content {
+  transform: translate3d(0, -50%, 0);
+  opacity: 1;
+}
+
+
+// Effect: Make way
+.make-way {
+  perspective: $effeckt-perspective;
+}
+.make-way ~ [data-effeckt-page].effeckt-page-active {
+  transform-style: preserve-3d;
+  transform-origin: 0% 50%;
+}
+.make-way .effeckt-content {
+  transform: translate3d(200%, 0, 0);
+  opacity: 0;
+}
+.effeckt-show.make-way ~ [data-effeckt-page].effeckt-page-active {
+  animation: makeWay $effeckt-modal-transition-duration forwards ease-in;
+}
+.effeckt-show.make-way .effeckt-content {
+  transform: translate3d(0, 0, 0);
+  opacity: 1;
+}
+
+@keyframes makeWay {
+  50% {
+    transform: translate3d(0, 0, -50px) rotateY(5deg);
+  }
+  100% {
+    transform: translate3d(0, 0, -200px);
+  }
+}
+
+
+// Effect: Deep Content
+.deep-content .effeckt-content {
+  transform: scale(0.8);
+  opacity: 0;
+}
+
+.effeckt-show.deep-content .effeckt-content {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+.deep-content ~ [data-effeckt-page].effeckt-page-active {
+  transform: translate3d(0, 0, 0);
+  transition: $effeckt-modal-transition-duration;
+}
+
+.effeckt-show.deep-content ~ [data-effeckt-page].effeckt-page-active {
+  transform: translate3d(0, 0, -85px);
+  filter: blur(3px);
+}

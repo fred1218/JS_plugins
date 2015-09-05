@@ -1,0 +1,10 @@
+bower_components
+node_modules
+
+other/divider.psd
+
+other/htaccess.txt
+
+.DS_Store
+
+bare.html

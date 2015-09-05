@@ -1,0 +1,18 @@
+{
+  "name": "fort.js",
+  "version": "2.2.0",
+  "main": "./fort.js",
+  "homepage": "https://github.com/idriskhenchil/Fort.js",
+  "authors": [
+    "Idris Khenchil"
+  ],
+  "description": "Modern progress bar for form completion.",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
