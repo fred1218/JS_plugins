@@ -1,0 +1,70 @@
+#!/usr/bin/env node
+
+var Program = require('commander');
+var colors = require('colors');
+var pack = require('reapp-pack');
+var makeLayout = require('reapp-pack/lib/makeLayout');
+var webpack = require('reapp-pack/webpack');
+var webpackCallback = require('reapp-pack/lib/callback');
+var recreateDir = require('../lib/recreateDir');
+var findConfig = require('../lib/findConfig');
+var copyAssets = require('../lib/copyAssets');
+
+var dir = process.cwd();
+
+Program
+  .option('-w, --watch', 'watch for changes')
+  .option('-d, --debug', 'output extra information for debugging')
+  .option('--no-assets', 'only build the js')
+  .option('--no-js', 'only build the assets')
+  .parse(process.argv);
+
+require('../lib/checkIsReapp')(dir);
+
+var args = Program.args;
+var platform = args.length && args[0] || 'web';
+
+var config = findConfig({
+  name: 'build',
+  platform: platform,
+  dir: dir,
+  debug: Program.debug
+});
+
+var layout = makeLayout({
+  template: dir + '/assets/' + platform + '/index.html',
+  scripts: Object.keys(config.entry),
+  styles: ['main.css'],
+  debug: Program.debug
+});
+
+// build dir
+recreateDir(config, platform, run);
+
+function run() {
+  console.log('Building...'.yellow, "\n");
+
+  if (Program.js && Program.assets)
+    compileJS(compileAssets);
+  else if (Program.assets)
+    compileAssets();
+  else if (Program.js)
+    compileJS();
+}
+
+function compileJS(cb) {
+  console.log('Building with webpack...');
+
+  var webpackCallbackHandler = webpackCallback({
+    debug: Program.debug
+  });
+
+  webpack(config, function(err, stats) {
+    webpackCallbackHandler(err, stats);
+    cb();
+  });
+}
+
+function compileAssets(cb) {
+  copyAssets(platform, dir, config.output.path, layout, cb);
+}
