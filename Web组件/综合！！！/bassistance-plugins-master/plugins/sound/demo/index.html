@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>jQuery sound plugin</title>
+
+<link rel="stylesheet" type="text/css" media="screen" href="css/screen.css" />
+<script src="../lib/jquery.js" type="text/javascript"></script>
+<script src="../jquery.sound.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+$().ready(function() {
+	$("a[href$=.wav]").click(function() {
+		$.sound.play(this.href);
+		return false;
+	});
+	$("#all-at-once").click(function() {
+		$("a[href$=.wav]").each(function() {
+			$.sound.play(this.href);
+		});
+	});
+	$("#all-at-once-track").click(function() {
+		$("a[href$=.wav]").each(function() {
+			$.sound.play(this.href, {
+				track: "at-once" + this.href
+			});
+		});
+	});
+	$("#toggle").click(function() {
+		$.sound.enabled = !$.sound.enabled;
+		$(this).text( $.sound.enabled ? "Disable Sounds" : "Enable Sounds" );
+	})
+});
+</script>
+
+<style type="text/css">
+#commentForm { width: 500px; }
+#commentForm label { width: 250px; }
+#commentForm label.error, #commentForm input.submit { margin-left: 253px; }
+	
+#signupForm { width: 670px; }
+#signupForm label.error {
+	margin-left: 10px;
+	width: auto;
+	display: inline;
+}
+#newsletter_topics label.error {
+	display: none;
+	margin-left: 103px;
+}
+</style>
+
+</head>
+<body>
+<ul>
+	<li><a href="glass.wav">glass.wav</a></li>
+	<li><a href="07_end 47.wav">07_end 47.wav</a></li>
+	<li><a href="camera.wav">camera.wav</a></li>
+	<li><a href="morse_1.wav">morse_1.wav</a></li>
+</ul>
+
+<button id="all-at-once">All at once, parallel</button>
+<button id="all-at-once-track">All at once, same track</button>
+<br/><br/>
+<button id="toggle">Disable Sounds</button>
+
+<p>
+	Sound samples are from <a href="http://www.webveteran.com/portfolio/demos/javascript-audio-engine/">WebVeteran.com</a>
+</p>
+
+</body>
+</html>

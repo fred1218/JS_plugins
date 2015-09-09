@@ -1,0 +1,57 @@
+<project name="jQuery API Browser" default="build" basedir=".">
+
+
+    <!-- SETUP -->
+
+    <property description="Source Folder" name="SRC_DIR" value="lib" />
+    <property description="Files for parsing etc." name="BUILD_DIR" value="build" />
+    <property description="Rhino JS Engine" name="JAR" value="${BUILD_DIR}/js.jar" />
+
+    <!-- Files names for distribution -->
+    <property name="BROWSER" value="${SRC_DIR}/browser.lib.js" />
+	<property name="BROWSER_MIN" value="${SRC_DIR}/browser.lib.min.js" />
+
+    <!-- MAIN -->
+	
+	<target name="build" depends="min,transform,zip" description="Main build">
+		<echo message="API browser built." />
+	</target>
+	
+	<target name="zip">
+		<echo message="Packaging into zip file" />
+        <zip destfile="jquery-api-browser.zip">
+            <zipfileset dir="." excludes="*.zip,.project" />
+        </zip>
+        <echo message="Packaging done." />
+	</target>
+
+    <target name="compile" description="Concatenate js dependencies">
+        <echo message="Building ${BROWSER}" />
+        <concat destfile="${BROWSER}">
+            <fileset dir="${SRC_DIR}" includes="jquery.js" />
+            <fileset dir="${SRC_DIR}" includes="jquery.highlight.js" />
+            <fileset dir="${SRC_DIR}" includes="jquery.tooltip.js" />
+            <fileset dir="${SRC_DIR}" includes="jquery.treeview.js" />
+        	<fileset dir="${SRC_DIR}" includes="jquery.quicksearch.js" />
+        	<fileset dir="${SRC_DIR}" includes="jquery.tabs.js" />
+        	<fileset dir="${SRC_DIR}" includes="jquery.chili.js" />
+        </concat>
+        <echo message="${BROWSER} built." />
+    </target>
+
+	<target name="transform" description="Transform XML via XSL to HTML">
+		<delete file="*.html" />
+		<xslt includes="*.xml" excludes="build.xml" destdir="." style="style.xsl" />
+	</target>
+	
+	<target name="min" depends="compile" description="Remove all comments and whitespace, no compression">
+        <echo message="Building ${BROWSER_MIN}" />
+        <java jar="${JAR}" fork="true">
+            <arg value="${BUILD_DIR}/min.js" />
+            <arg value="${BROWSER}" />
+            <arg value="${BROWSER_MIN}" />
+        </java>
+        <echo message="${BROWSER_MIN} built." />
+    </target>
+
+</project>

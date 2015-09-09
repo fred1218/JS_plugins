@@ -1,0 +1,9 @@
+- Added Rik's files to SVN
+- renamed quicksearch.js to jquery.quicksearch.js
+- Stuffed list and table demos into one quicksearchDemo.html
+- added testsuite header to demo
+- Added GPL/MIT dual license header to source
+- Added custom alias scope
+- Changed default delay to 250
+- Moved public helper functions to private scopes
+- Fixed missing semicolons to compress source

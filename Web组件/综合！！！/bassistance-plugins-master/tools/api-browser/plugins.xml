@@ -1,0 +1,933 @@
+<?xml version="1.0" ?>
+<docs startdoc="Plugins_API" timestamp="2007-12-17T05:09:21Z"><cat value="Plugins/Validation"><subcat value="Plugin methods"><function cat="Plugins/Validation" name="validate" return="[[Plugins/Validation#Validator|Validator]]" timestamp="2007-10-14T19:10:25Z"><desc>Validates the selected form.</desc><longdesc>This method adds, by default, a submit-event-handler to the form and keyup and blur handlers to each element within the form.
+
+Validation rules can be specified via the rules-option or via metadata (requires metadata plugin). Messages can be left out (there is a default message for each method), specified via the messages-option or via the title-attribute on each element.
+</longdesc><params name="options" optional="true" type="Options"><desc>A set of key/value pairs that configure the validate. All options are optional.</desc></params><option default="&quot;error&quot;" name="errorClass" type="String"><desc>Use this class to create error labels, to look for existing error labels and to add it to invalid elements.</desc></option><option name="wrapper" type="String"><desc>Wrap error labels with the specified element.</desc></option><option default="false" name="debug" type="Boolean"><desc>If true, the form is not submitted and certain errors are display on the console (requires [http://getfirebug.com Firebug or Firebug lite]).</desc></option><option default="normal form submit" name="submitHandler" type="Callback"><desc>Callback for handling the actual submit when the form is valid. Gets the form as the only argmument. Replaces the default submit.</desc></option><option default="rules are read from metadata via metadata plugin" name="rules" type="Options"><desc>Key/value pairs defining custom rules. Key is the ID or name (for radio/checkbox inputs) of an element, value is an object consisting of rule/parameter pairs, eg. {required: true, min: 3}. Once specified, metadata rules are completely ignored.</desc></option><option default="the default message for the method is used" name="messages" type="Options"><desc>Key/value pairs defining custom messages. Key is the name of an element, value the message to display for that element. Instead of a plain message	another map with specific messages for each rule can be used. Can be specified for one or more elements. Overrides the title attribute of an element. Each message can be a String or a Function. The Function is called with the element as the first and the validator as the second argument and must return a String to display as the message for that element.</desc></option><option default="true" name="onsubmit" type="Boolean"><desc>Validate the form on submit. Set to false to use only other events for validation (option event).</desc></option><option default="true" name="onblur" type="Boolean"><desc>Validate elements (except checkboxes/radio buttons) on blur. If nothing is entered, all rules are skipped, except when the field was already marked as invalid.</desc></option><option default="true" name="onkeyup" type="Boolean"><desc>Validate elements on keyup. As long as the field is not marked as invalid, nothing happens. Otherwise, all rules are checked on each key up event.</desc></option><option default="true" name="onclick" type="Boolean"><desc>Validate checkboxes and radio buttons on click.</desc></option><option name="meta" type="String"><desc>In case you use metadata for other plugins, too, you want to wrap your validation rules into their own object that can be specified via this option.</desc></option><option name="errorContainer" type="Selector"><desc>Hide and show this container when validating.</desc></option><option name="errorContainer" type="Selector"><desc>Hide and show this container when validating.</desc></option><option default="None, uses built-in message disply." name="showErrors" type="Callback"><desc>A custom message display handler. Gets the map of errors as the first argument and and array of errors as the second, called in the context of the validator object. The arguments contain only those elements currently validated, which can be a single element when doing validation onblur/keyup. You can trigger (in addition to your own messages) the default behaviour by calling this.defaultShowErrors().</desc></option><option default="Places the error label [[Manipulation/insertAfter|after]] the invalid element" name="errorPlacement" type="Callback"><desc>Used to customize placement of created error labels. First argument: The created error label as a jQuery object. Second argument: The invalid element as a jQuery object.</desc></option><option name="success" type="String, Callback"><desc>If specified, the error label is displayed to show a valid element. If a String is given, its added as a class to the label. If a Function is given, its called with the label (as a jQuery object) as its only argument. That can be used to add a text like &quot;ok!&quot;.</desc></option><option default="true" name="focusInvalid" type="Boolean"><desc>Focus the last active or first invalid element on submit via validator.focusInvalid().</desc></option><option default="false" name="focusCleanup" type="Boolean"><desc>If enabled, removes the errorClass from the invalid elements and hides all errors messages whenever the element is focused. Avoid combination with focusInvalid.</desc></option><option name="ignore" type="Selector"><desc>Elements to ignore when validating, simply filtering them out. jQuery's not-method is used, therefore everything that is accepted by not() can be passed as this option. Inputs of type submit and reset are always ignored, so are disabled elements.</desc></option><option name="subformRequired" type="Callback"><desc>Called to determine if a subform is required. An input is passed as the argument, and a boolean is expected to return: If it returns false, the input is part of an optional subform, therefore not required.</desc></option></function><function cat="Plugins/Validation" name="valid" return="Boolean" timestamp="2007-12-14T02:03:28Z"><desc>Validates the selected form or elements.</desc><longdesc><![CDATA[<a href='Plugins/Validation/validate'>validate()</a>]]> needs to be called on the form before checking it using this method. Shortcut for the validator API.</longdesc><example><desc>Sets up validation for a form, then checks if the form is valid.</desc><code>$(&quot;#myform&quot;).validate();
+ // this could be called after some user interaction
+ $(&quot;#myform&quot;).valid()</code></example></function></subcat><subcat value="Custom selectors"><selector cat="Plugins/Validation" name="blank" return="Array&lt;Element&gt;" timestamp="2007-12-14T05:06:06Z"><sample>:blank</sample><desc>Matches elements with a blank value</desc><longdesc>Blank means either no value at all or only whitespace.
+
+The implementation does a check like this: jQuery.trim(value).length == 0</longdesc><example><desc>Finds input elements with no value or just whitespace.</desc><inhead>&lt;script type=&quot;text/javascript&quot; src=&quot;http://dev.jquery.com/view/trunk/plugins/validate/jquery.validate.js&quot;&gt;&lt;/script&gt;</inhead><code>$(&quot;input:blank&quot;).css(&quot;background-color&quot;, &quot;#bbbbff&quot;);</code><html>&lt;input value=&quot;&quot;/&gt;&lt;input value=&quot;   &quot;/&gt;&lt;input value=&quot;abc&quot;/&gt;</html></example></selector><selector cat="Plugins/Validation" name="filled" return="Array&lt;Element&gt;" timestamp="2007-12-14T05:07:24Z"><sample>:filled</sample><desc>Matches elements with a value.</desc><longdesc>filled means any value, but not only whitespace.
+
+The implementation does a check like this: jQuery.trim(value).length &gt; 0</longdesc><example><desc>Finds input elements with no value or just whitespace.</desc><inhead>&lt;script type=&quot;text/javascript&quot; src=&quot;http://dev.jquery.com/view/trunk/plugins/validate/jquery.validate.js&quot;&gt;&lt;/script&gt;</inhead><code>$(&quot;input:filled&quot;).css(&quot;background-color&quot;, &quot;#bbbbff&quot;);</code><html>&lt;input value=&quot;&quot;/&gt;&lt;input value=&quot;   &quot;/&gt;&lt;input value=&quot;abc&quot;/&gt;</html></example></selector><selector cat="Plugins/Validation" name="unchecked" return="Array&lt;Element&gt;" timestamp="2007-12-14T05:12:26Z"><sample>:unchecked</sample><added>1.0</added><desc>Matches all elements that are unchecked.</desc><longdesc>Inversion of <![CDATA[<a href='Selectors/checked'>:checked</a>]]>.</longdesc><example><desc>Finds all input elements that are unchecked.</desc><inhead>&lt;script type=&quot;text/javascript&quot; src=&quot;http://dev.jquery.com/view/trunk/plugins/validate/jquery.validate.js&quot;&gt;&lt;/script&gt;</inhead><code>
+
+    function countUnchecked() {
+      var n = $(&quot;input:unchecked&quot;).length;
+      $(&quot;div&quot;).text(n + (n == 1 ? &quot; is&quot; : &quot; are&quot;) + &quot; unchecked!&quot;);
+    }
+    countUnchecked();
+    $(&quot;:checkbox&quot;).click(countUnchecked);
+
+</code><css>
+  div { color:red; }
+  </css><html>&lt;form&gt;
+    &lt;input type=&quot;checkbox&quot; name=&quot;newsletter&quot; checked=&quot;checked&quot; value=&quot;Hourly&quot; /&gt;
+
+    &lt;input type=&quot;checkbox&quot; name=&quot;newsletter&quot; value=&quot;Daily&quot; /&gt;
+    &lt;input type=&quot;checkbox&quot; name=&quot;newsletter&quot; value=&quot;Weekly&quot; /&gt;
+
+    &lt;input type=&quot;checkbox&quot; name=&quot;newsletter&quot; checked=&quot;checked&quot; value=&quot;Monthly&quot; /&gt;
+    &lt;input type=&quot;checkbox&quot; name=&quot;newsletter&quot; value=&quot;Yearly&quot; /&gt;
+
+  &lt;/form&gt;
+  &lt;div&gt;&lt;/div&gt;</html><results>[ &lt;input type=&quot;checkbox&quot; name=&quot;newsletter&quot; checked=&quot;checked&quot; value=&quot;Daily&quot; /&gt;,
+  &lt;input type=&quot;checkbox&quot; name=&quot;newsletter&quot; checked=&quot;checked&quot; value=&quot;Monthly&quot; /&gt; ]</results></example></selector></subcat><subcat value="Validator methods"><function cat="Plugins/Validation/Validator" name="form" return="Boolean" timestamp="2007-10-14T18:53:38Z"><desc>Validates the form, returns true if it is valid, false otherwise.</desc><longdesc>This behaves as a normal submit event, but returns the result.</longdesc><example><desc>Triggers form validation programmatically.</desc><code>$(&quot;#myform&quot;).validate().form()</code></example></function><function cat="Plugins/Validation/Validator" name="element" return="Boolean" timestamp="2007-10-14T18:56:00Z"><desc>Validates a single element, returns true if it is valid, false otherwise.</desc><longdesc>This behaves as validation on blur or keyup, but returns the result.</longdesc><params name="element" type="Selector"><desc>An element to validate, must be inside the validated form.</desc></params><example><desc>Triggers element validation programmatically.</desc><code>$(&quot;#myform&quot;).validate().element( &quot;#myselect&quot; );</code></example></function><function cat="Plugins/Validation/Validator" name="refresh" return="undefined" timestamp="2007-10-14T19:06:33Z"><desc>Call to refresh a form after new elements have been added or rules changed.</desc><longdesc>Accepts an optional argument to refresh only a part of the form, eg. only the newly added element.</longdesc><params name="selection" optional="true" type="Selector"><desc>Refresh only the given elements, instead of the entire form</desc></params><example><desc>Refrehes the validator after the form has changed.</desc><code>var validator = $(&quot;#myform&quot;).validate();
+validator.refresh();</code></example><example><desc>Refreshes the validator after a new element has been added.</desc><code>var validator = $(&quot;#myform&quot;).validate();
+validator.refresh( &quot;#newElement&quot; );</code></example></function><function cat="Plugins/Validation/Validator" name="resetForm" return="undefined" timestamp="2007-10-14T19:06:41Z"><desc>Resets the controlled form.</desc><longdesc>Resets input fields to their original value (requires form plugin), removes classes indicating invalid elements and hides error messages.</longdesc><example><desc>Reset the form controlled by this validator.</desc><code>var validator = $(&quot;#myform&quot;).validate();
+validator.resetForm();</code></example></function><function cat="Plugins/Validation/Validator" name="showErrors" return="undefined" timestamp="2007-10-14T19:05:53Z"><desc>Show the specified messages.</desc><longdesc>Keys have to refer to the names of elements, values are displayed for those elements, using the configured error placement.</longdesc><params name="errors" type="Object&lt;String, String&gt;"><desc>One or more key/value pairs of input names and messages.</desc></params><example><desc>Adds and shows error message programmatically.</desc><code>var validator = $(&quot;#myform&quot;).validate();
+validator.showErrors({&quot;firstname&quot;: &quot;I know that your firstname is Pete, Pete!&quot;});</code></example></function></subcat><subcat value="Validator functions"><function cat="Plugins/Validation/Validator" name="setDefaults" return="undefined" timestamp="2007-10-14T19:28:35Z"><desc>Modify default settings for validation.</desc><longdesc>Accepts everything that <![CDATA[<a href='Plugins/Validation/validate'>Plugins/Validation/validate</a>]]> accepts.</longdesc><params name="defaults" type="Options"><desc>Options to set as default.</desc></params><example><desc>Sets the debug setting for all validation calls.</desc><code>jQuery.validator.setDefaults({ 
+    debug: true 
+);</code></example></function><function cat="Plugins/Validation/Validator" name="addMethod" return="undefined" timestamp="2007-11-29T02:34:26Z"><desc>Add a new validation method. It must consist of a name (must be a legal javascript identifier), a function and a default message.</desc><longdesc>Please note: While the temptation is great to add a regex method that checks it's paramter against the value, it is much cleaner to encapsulate those regular expressions inside their own method. If you need lots of slightly different expressions, try to extract a common parameter.
+
+A library of regular expressions: http://regexlib.com/DisplayPatterns.aspx</longdesc><params name="name" type="String"><desc>The name of the method, used to identify and referencing it, must be a valid javascript identifier</desc></params><params name="method" type="Callback"><desc>The actual method implementation, returning true if an element is valid</desc></params><params name="message" type="String, Function"><desc>The default message to display for this method. Can be a function created by String.format(value).</desc></params><example><desc>Add a validation method that checks if a value starts with a certain domain.</desc><code>jQuery.validator.addMethod(&quot;domain&quot;, function(value) { 
+  return this.optional(element) || /^http://mycorporatedomain.com/.test(value); 
+}, &quot;Please specify the correct domain for your documents&quot;);</code></example><example><desc>Adds a validation method that checks if a given value equals the addition of the two parameters.</desc><code>jQuery.validator.addMethod(&quot;math&quot;, function(value, element, params) { 
+ return this.optional(element) || value == params[0] + params[1]; 
+}, String.format(&quot;Please enter the correct value for {0} + {1}&quot;));</code></example></function></subcat><subcat value="Methods"><function cat="Plugins/Validation/Methods" name="required" return="Boolean" timestamp="2007-12-14T19:43:43Z"><desc>Makes the element always required.</desc><longdesc>Return false if the element is empty (text input) or unchecked (radio/checkbxo) or nothing selected (select).
+
+Works with text inputs, selects, checkboxes and radio buttons.
+
+To force a user to select an option from a select box, provide an empty options like &lt;option value=&quot;&quot;&gt;Choose...&lt;/option&gt;</longdesc><example><height>70</height><css>#field { margin-left: .5em; float: left; }
+  	#field, label { float: left; font-family: Arial, Helvetica, sans-serif; font-size: small; }
+	br { clear: both; }
+	input { border: 1px solid black; margin-bottom: .5em;  }
+	input.error { border: 1px solid red; }
+	label.error {
+		background: url('http://dev.jquery.com/view/trunk/plugins/validate/demo/images/unchecked.gif') no-repeat;
+		padding-left: 16px;
+		margin-left: .3em;
+	}
+	label.valid {
+		background: url('http://dev.jquery.com/view/trunk/plugins/validate/demo/images/checked.gif') no-repeat;
+		display: block;
+		width: 16px;
+		height: 16px;
+	}
+
+</css><inhead>&lt;script type=&quot;text/javascript&quot; src=&quot;http://dev.jquery.com/view/trunk/plugins/validate/jquery.validate.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+jQuery.validator.setDefaults({
+	debug: true,
+	success: &quot;valid&quot;
+});;
+&lt;/script&gt;
+</inhead><html>
+
+&lt;form id=&quot;myform&quot;&gt;
+  &lt;label for=&quot;field&quot;&gt;Required: &lt;/label&gt;
+  &lt;input class=&quot;left&quot; id=&quot;field&quot; name=&quot;field&quot; /&gt;
+
+  &lt;br/&gt;
+  &lt;input type=&quot;submit&quot; value=&quot;Validate!&quot; /&gt;
+&lt;/form&gt;
+</html><desc>Makes &quot;field&quot; always required. Nothing and blanks are invalid.</desc><code>$(&quot;#myform&quot;).validate({
+  rules: {
+    field: &quot;required&quot;
+
+  }
+});</code></example><example><height>70</height><css>#fruit { margin-left: .5em; float: left; }
+  	#fruit, label { float: left; font-family: Arial, Helvetica, sans-serif; font-size: small; }
+	br { clear: both; }
+	input, select { border: 1px solid black; margin-bottom: .5em;  }
+	select.error { border: 1px solid red; }
+	label.error {
+		background: url('http://dev.jquery.com/view/trunk/plugins/validate/demo/images/unchecked.gif') no-repeat;
+		padding-left: 16px;
+		margin-left: .3em;
+	}
+	label.valid {
+		background: url('http://dev.jquery.com/view/trunk/plugins/validate/demo/images/checked.gif') no-repeat;
+		display: block;
+		width: 16px;
+		height: 16px;
+	}
+</css><inhead>&lt;script type=&quot;text/javascript&quot; src=&quot;http://dev.jquery.com/view/trunk/plugins/validate/jquery.validate.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+jQuery.validator.setDefaults({
+	debug: true,
+	success: &quot;valid&quot;
+
+});;
+&lt;/script&gt;
+</inhead><html>
+&lt;form id=&quot;myform&quot;&gt;
+  &lt;label for=&quot;fruit&quot;&gt;Please select a fruit&lt;/label&gt;
+  &lt;select id=&quot;fruit&quot; name=&quot;fruit&quot; title=&quot;Please select something!&quot;
+
+    &lt;option value=&quot;&quot;&gt;&lt;/option&gt;
+    &lt;option value=&quot;1&quot;&gt;Banana&lt;/option&gt;
+    &lt;option value=&quot;2&quot;&gt;Apple&lt;/option&gt;
+    &lt;option value=&quot;3&quot;&gt;Peach&lt;/option&gt;
+
+  &lt;/select&gt;
+  &lt;br/&gt;
+  &lt;input type=&quot;submit&quot; value=&quot;Validate!&quot; /&gt;
+&lt;/form&gt;
+
+</html><desc>Makes the fruit select required.</desc><code>$(&quot;#myform&quot;).validate({
+  rules: {
+    fruit: &quot;required&quot;
+  }
+});</code></example><example><height>70</height><css>label { float: left; font-family: Arial, Helvetica, sans-serif; font-size: small; }
+	br { clear: both; }
+	input { border: 1px solid black; margin-bottom: .5em;  }
+	label.error {
+		display:none;
+		background: url('http://dev.jquery.com/view/trunk/plugins/validate/demo/images/unchecked.gif') no-repeat;
+		padding-left: 16px;
+		margin-left: .3em;
+	}
+	label.valid {
+		background: url('http://dev.jquery.com/view/trunk/plugins/validate/demo/images/checked.gif') no-repeat;
+		display: block;
+		width: 16px;
+		height: 16px;
+	}
+</css><inhead>&lt;script type=&quot;text/javascript&quot; src=&quot;http://dev.jquery.com/view/trunk/plugins/validate/jquery.validate.js&quot;&gt;&lt;/script&gt;
+
+&lt;script type=&quot;text/javascript&quot;&gt;
+jQuery.validator.setDefaults({
+	debug: true,
+	success: &quot;valid&quot;
+});;
+&lt;/script&gt;
+</inhead><html>
+&lt;form id=&quot;myform&quot;&gt;
+    &lt;label for=&quot;gender_male&quot;&gt;
+
+      &lt;input  type=&quot;radio&quot; id=&quot;gender_male&quot; value=&quot;m&quot; name=&quot;gender&quot; /&gt;
+      Male
+    &lt;/label&gt;
+
+    &lt;label for=&quot;gender_female&quot;&gt;
+      &lt;input  type=&quot;radio&quot; id=&quot;gender_female&quot; value=&quot;f&quot; name=&quot;gender&quot;/&gt;
+
+      Female
+    &lt;/label&gt;
+    &lt;label for=&quot;gender&quot; class=&quot;error&quot;&gt;Please select your gender&lt;/label&gt;
+  &lt;br/&gt;
+  &lt;input type=&quot;submit&quot; value=&quot;Validate!&quot; /&gt;
+
+&lt;/form&gt;
+</html><desc>Makes the gender radio buttons required.</desc><code>$(&quot;#myform&quot;).validate({
+  rules: {
+    gender: &quot;required&quot;
+  }
+});</code></example><example><height>70</height><css>#agree { margin-left: .5em; float: left; }
+  	#agree, label { float: left; font-family: Arial, Helvetica, sans-serif; font-size: small; }
+	br { clear: both; }
+	input { border: 1px solid black; margin-bottom: .5em;  }
+	input.error { border: 1px solid red; }
+	label.error {
+		background: url('http://dev.jquery.com/view/trunk/plugins/validate/demo/images/unchecked.gif') no-repeat;
+		padding-left: 16px;
+		margin-left: .3em;
+	}
+	label.valid {
+		background: url('http://dev.jquery.com/view/trunk/plugins/validate/demo/images/checked.gif') no-repeat;
+		display: block;
+		width: 16px;
+		height: 16px;
+	}
+</css><inhead>&lt;script type=&quot;text/javascript&quot; src=&quot;http://dev.jquery.com/view/trunk/plugins/validate/jquery.validate.js&quot;&gt;&lt;/script&gt;
+
+&lt;script type=&quot;text/javascript&quot;&gt;
+jQuery.validator.setDefaults({
+	debug: true,
+	success: &quot;valid&quot;
+});;
+&lt;/script&gt;
+</inhead><html>
+&lt;form id=&quot;myform&quot;&gt;
+  &lt;label for=&quot;agree&quot;&gt;Please agree to our policy&lt;/label&gt;
+
+  &lt;input type=&quot;checkbox&quot; id=&quot;agree&quot; title=&quot;Please agree to our policy!&quot; name=&quot;agree&quot; /&gt;
+  &lt;br/&gt;
+
+  &lt;input type=&quot;submit&quot; value=&quot;Validate!&quot; /&gt;
+&lt;/form&gt;
+</html><desc>Makes the agree checkbox required.</desc><code>$(&quot;#myform&quot;).validate({
+  rules: {
+    agree: &quot;required&quot;
+
+  }
+});</code></example></function><function cat="Plugins/Validation/Methods" name="required" return="Boolean" timestamp="2007-12-14T19:43:43Z"><desc>Makes the element required, depending on the result of the given expression.</desc><longdesc>Return false if the element is empty (text input) or unchecked (radio/checkbxo) or nothing selected (select).
+
+Works with all kind of text inputs, selects, checkboxes and radio buttons.
+
+To force a user to select an option from a select box, provide an empty options like &lt;option value=&quot;&quot;&gt;Choose...&lt;/option&gt;</longdesc><params name="dependency-expression" type="String"><desc>An expression (String) is evaluated in the context of the element's form, making the field required only if the expression returns more then one element.</desc></params><example><desc>Makes &quot;newsletter-type&quot; required only if &quot;newsletter&quot; is checked.</desc><code>$(&quot;#myform&quot;).validate({
+  rules: {
+    &quot;newsletter-type&quot;: {
+      required: &quot;#newletter:checked&quot;
+
+    }
+  }
+});</code></example></function><function cat="Plugins/Validation/Methods" name="required" return="Boolean" timestamp="2007-12-14T19:43:43Z"><desc>Makes the element required, depending on the result of the given callback.</desc><longdesc>Return false if the element is empty (text input) or unchecked (radio/checkbxo) or nothing selected (select).
+
+Works with all kind of text inputs, selects, checkboxes and radio buttons.
+
+To force a user to select an option from a select box, provide an empty options like &lt;option value=&quot;&quot;&gt;Choose...&lt;/option&gt;</longdesc><params name="dependency-callback" type="Callback"><desc>The function is executed with the element as it's only argument: If it returns true, the element is required.</desc></params><example><desc>Makes &quot;parent&quot; required only if age is below 13.</desc><code>$(&quot;#myform&quot;).validate({
+  rules: {
+    parent: {
+      required: function(element) {
+        return $(&quot;#age&quot;).val() &lt; 13;
+      }
+    }
+  }
+});</code></example></function><function cat="Plugins/Validation/Methods" name="minLength" return="Boolean" timestamp="2007-12-14T01:37:18Z"><desc>Makes the element require a given minimum length.</desc><longdesc>Return false, if the element is
+* some kind of text input and its value is too short
+* a set of checkboxes has not enough boxes checked
+* a select and has not enough options selected
+
+Works with text inputs, selects and checkboxes.</longdesc><params name="length" type="Integer"><desc>Minimum number of characters required</desc></params><example><height>70</height><css>#field { margin-left: .5em; float: left; }
+  	#field, label { float: left; font-family: Arial, Helvetica, sans-serif; font-size: small; }
+	br { clear: both; }
+	input { border: 1px solid black; margin-bottom: .5em;  }
+	input.error { border: 1px solid red; }
+	label.error {
+		background: url('http://dev.jquery.com/view/trunk/plugins/validate/demo/images/unchecked.gif') no-repeat;
+		padding-left: 16px;
+		margin-left: .3em;
+	}
+	label.valid {
+		background: url('http://dev.jquery.com/view/trunk/plugins/validate/demo/images/checked.gif') no-repeat;
+		display: block;
+		width: 16px;
+		height: 16px;
+	}
+
+</css><inhead>&lt;script type=&quot;text/javascript&quot; src=&quot;http://dev.jquery.com/view/trunk/plugins/validate/jquery.validate.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+jQuery.validator.setDefaults({
+	debug: true,
+	success: &quot;valid&quot;
+});;
+&lt;/script&gt;
+</inhead><html>
+
+&lt;form id=&quot;myform&quot;&gt;
+  &lt;label for=&quot;field&quot;&gt;Required, Minimum length 3: &lt;/label&gt;
+  &lt;input class=&quot;left&quot; id=&quot;field&quot; name=&quot;field&quot; /&gt;
+
+  &lt;br/&gt;
+  &lt;input type=&quot;submit&quot; value=&quot;Validate!&quot; /&gt;
+&lt;/form&gt;
+</html><desc>Makes &quot;field&quot; required having at least 3 characters.</desc><code>$(&quot;#myform&quot;).validate({
+  rules: {
+    field: {
+      required: true,
+      minLength: 3
+    }
+  }
+});</code></example></function><function cat="Plugins/Validation/Methods" name="maxLength" return="Boolean" timestamp="2007-12-14T01:37:37Z"><desc>Makes the element require a given maxmimum length.</desc><longdesc>Return false, if the element is
+* some kind of text input and its value is too long
+* a set of checkboxes has too many boxes checked
+* a select and has too many options selected
+
+Works with text inputs, selects and checkboxes.</longdesc><params name="length" type="Integer"><desc>Maximum number of characters required </desc></params><example><height>70</height><css>#field { margin-left: .5em; float: left; }
+  	#field, label { float: left; font-family: Arial, Helvetica, sans-serif; font-size: small; }
+	br { clear: both; }
+	input { border: 1px solid black; margin-bottom: .5em;  }
+	input.error { border: 1px solid red; }
+	label.error {
+		background: url('http://dev.jquery.com/view/trunk/plugins/validate/demo/images/unchecked.gif') no-repeat;
+		padding-left: 16px;
+		margin-left: .3em;
+	}
+	label.valid {
+		background: url('http://dev.jquery.com/view/trunk/plugins/validate/demo/images/checked.gif') no-repeat;
+		display: block;
+		width: 16px;
+		height: 16px;
+	}
+
+</css><inhead>&lt;script type=&quot;text/javascript&quot; src=&quot;http://dev.jquery.com/view/trunk/plugins/validate/jquery.validate.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+jQuery.validator.setDefaults({
+	debug: true,
+	success: &quot;valid&quot;
+});;
+&lt;/script&gt;
+</inhead><html>
+
+&lt;form id=&quot;myform&quot;&gt;
+  &lt;label for=&quot;field&quot;&gt;Required, maximum length 4: &lt;/label&gt;
+  &lt;input class=&quot;left&quot; id=&quot;field&quot; name=&quot;field&quot; /&gt;
+
+  &lt;br/&gt;
+  &lt;input type=&quot;submit&quot; value=&quot;Validate!&quot; /&gt;
+&lt;/form&gt;
+</html><desc>Makes &quot;field&quot; required having at most 4 characters.</desc><code>$(&quot;#myform&quot;).validate({
+  rules: {
+    field: {
+      required: true,
+      maxLength: 4
+    }
+  }
+});</code></example></function><function cat="Plugins/Validation/Methods" name="rangeLength" return="Boolean" timestamp="2007-12-14T01:47:27Z"><desc>Makes the element require a given value range.</desc><longdesc></longdesc><longdesc>Return false, if the element is
+* some kind of text input and its length is too short or too long
+* a set of checkboxes has not enough or too many boxes checked
+* a select and has not enough or too many options selected
+
+Works with text inputs.</longdesc><params name="range" type="Array&lt;Integer&gt;"><desc>Value range required</desc></params><example><height>70</height><css>#field { margin-left: .5em; float: left; }
+  	#field, label { float: left; font-family: Arial, Helvetica, sans-serif; font-size: small; }
+	br { clear: both; }
+	input { border: 1px solid black; margin-bottom: .5em;  }
+	input.error { border: 1px solid red; }
+	label.error {
+		background: url('http://dev.jquery.com/view/trunk/plugins/validate/demo/images/unchecked.gif') no-repeat;
+		padding-left: 16px;
+		margin-left: .3em;
+	}
+	label.valid {
+		background: url('http://dev.jquery.com/view/trunk/plugins/validate/demo/images/checked.gif') no-repeat;
+		display: block;
+		width: 16px;
+		height: 16px;
+	}
+
+</css><inhead>&lt;script type=&quot;text/javascript&quot; src=&quot;http://dev.jquery.com/view/trunk/plugins/validate/jquery.validate.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+jQuery.validator.setDefaults({
+	debug: true,
+	success: &quot;valid&quot;
+});;
+&lt;/script&gt;
+</inhead><html>
+
+&lt;form id=&quot;myform&quot;&gt;
+  &lt;label for=&quot;field&quot;&gt;Required, minium length 2, maximum length 6: &lt;/label&gt;
+  &lt;input class=&quot;left&quot; id=&quot;field&quot; name=&quot;field&quot; /&gt;
+
+  &lt;br/&gt;
+  &lt;input type=&quot;submit&quot; value=&quot;Validate!&quot; /&gt;
+&lt;/form&gt;
+</html><desc>Makes &quot;field&quot; required and between 2 and 6 characters long.</desc><code>$(&quot;#myform&quot;).validate({
+  rules: {
+    field: {
+      required: true,
+      rangeLength: [2, 6]
+    }
+  }
+});</code></example></function><function cat="Plugins/Validation/Methods" name="minValue" return="Boolean" timestamp="2007-12-14T01:40:47Z"><desc>Makes the element require a given minimum value.</desc><longdesc>Works with text inputs.</longdesc><params name="value" type="Integer"><desc>Minimum value required</desc></params><example><height>70</height><css>#field { margin-left: .5em; float: left; }
+  	#field, label { float: left; font-family: Arial, Helvetica, sans-serif; font-size: small; }
+	br { clear: both; }
+	input { border: 1px solid black; margin-bottom: .5em;  }
+	input.error { border: 1px solid red; }
+	label.error {
+		background: url('http://dev.jquery.com/view/trunk/plugins/validate/demo/images/unchecked.gif') no-repeat;
+		padding-left: 16px;
+		margin-left: .3em;
+	}
+	label.valid {
+		background: url('http://dev.jquery.com/view/trunk/plugins/validate/demo/images/checked.gif') no-repeat;
+		display: block;
+		width: 16px;
+		height: 16px;
+	}
+
+</css><inhead>&lt;script type=&quot;text/javascript&quot; src=&quot;http://dev.jquery.com/view/trunk/plugins/validate/jquery.validate.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+jQuery.validator.setDefaults({
+	debug: true,
+	success: &quot;valid&quot;
+});;
+&lt;/script&gt;
+</inhead><html>
+
+&lt;form id=&quot;myform&quot;&gt;
+  &lt;label for=&quot;field&quot;&gt;Required, minimum value 13: &lt;/label&gt;
+  &lt;input class=&quot;left&quot; id=&quot;field&quot; name=&quot;field&quot; /&gt;
+
+  &lt;br/&gt;
+  &lt;input type=&quot;submit&quot; value=&quot;Validate!&quot; /&gt;
+&lt;/form&gt;
+</html><desc>Makes &quot;field&quot; required and 13 or larger.</desc><code>$(&quot;#myform&quot;).validate({
+  rules: {
+    field: {
+      required: true,
+      minValue: 13
+    }
+  }
+});</code></example></function><function cat="Plugins/Validation/Methods" name="maxValue" return="Boolean" timestamp="2007-12-14T01:41:55Z"><desc>Makes the element require a given maximum value.</desc><longdesc>Works with text inputs.</longdesc><params name="value" type="Integer"><desc>Maximum value required</desc></params><example><height>70</height><css>#field { margin-left: .5em; float: left; }
+  	#field, label { float: left; font-family: Arial, Helvetica, sans-serif; font-size: small; }
+	br { clear: both; }
+	input { border: 1px solid black; margin-bottom: .5em;  }
+	input.error { border: 1px solid red; }
+	label.error {
+		background: url('http://dev.jquery.com/view/trunk/plugins/validate/demo/images/unchecked.gif') no-repeat;
+		padding-left: 16px;
+		margin-left: .3em;
+	}
+	label.valid {
+		background: url('http://dev.jquery.com/view/trunk/plugins/validate/demo/images/checked.gif') no-repeat;
+		display: block;
+		width: 16px;
+		height: 16px;
+	}
+
+</css><inhead>&lt;script type=&quot;text/javascript&quot; src=&quot;http://dev.jquery.com/view/trunk/plugins/validate/jquery.validate.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+jQuery.validator.setDefaults({
+	debug: true,
+	success: &quot;valid&quot;
+});;
+&lt;/script&gt;
+</inhead><html>
+
+&lt;form id=&quot;myform&quot;&gt;
+  &lt;label for=&quot;field&quot;&gt;Required, maximum value 23: &lt;/label&gt;
+  &lt;input class=&quot;left&quot; id=&quot;field&quot; name=&quot;field&quot; /&gt;
+
+  &lt;br/&gt;
+  &lt;input type=&quot;submit&quot; value=&quot;Validate!&quot; /&gt;
+&lt;/form&gt;
+</html><desc>Makes &quot;field&quot; required and 23 or smaller.</desc><code>$(&quot;#myform&quot;).validate({
+  rules: {
+    field: {
+      required: true,
+      maxValue: 23
+    }
+  }
+});</code></example></function><function cat="Plugins/Validation/Methods" name="rangeValue" return="Boolean" timestamp="2007-12-14T01:44:50Z"><desc>Makes the element require a given value range.</desc><longdesc>Works with text inputs.</longdesc><params name="range" type="Array&lt;Integer&gt;"><desc>Value range required</desc></params><example><height>70</height><css>#field { margin-left: .5em; float: left; }
+  	#field, label { float: left; font-family: Arial, Helvetica, sans-serif; font-size: small; }
+	br { clear: both; }
+	input { border: 1px solid black; margin-bottom: .5em;  }
+	input.error { border: 1px solid red; }
+	label.error {
+		background: url('http://dev.jquery.com/view/trunk/plugins/validate/demo/images/unchecked.gif') no-repeat;
+		padding-left: 16px;
+		margin-left: .3em;
+	}
+	label.valid {
+		background: url('http://dev.jquery.com/view/trunk/plugins/validate/demo/images/checked.gif') no-repeat;
+		display: block;
+		width: 16px;
+		height: 16px;
+	}
+
+</css><inhead>&lt;script type=&quot;text/javascript&quot; src=&quot;http://dev.jquery.com/view/trunk/plugins/validate/jquery.validate.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+jQuery.validator.setDefaults({
+	debug: true,
+	success: &quot;valid&quot;
+});;
+&lt;/script&gt;
+</inhead><html>
+
+&lt;form id=&quot;myform&quot;&gt;
+  &lt;label for=&quot;field&quot;&gt;Required, minium 13, maximum 23: &lt;/label&gt;
+  &lt;input class=&quot;left&quot; id=&quot;field&quot; name=&quot;field&quot; /&gt;
+
+  &lt;br/&gt;
+  &lt;input type=&quot;submit&quot; value=&quot;Validate!&quot; /&gt;
+&lt;/form&gt;
+</html><desc>Makes &quot;field&quot; required and between 13 and 23.</desc><code>$(&quot;#myform&quot;).validate({
+  rules: {
+    field: {
+      required: true,
+      rangeValue: [13, 23]
+    }
+  }
+});</code></example></function><function cat="Plugins/Validation/Methods" name="email" return="Boolean" timestamp="2007-12-14T04:27:11Z"><desc>Makes the element require a valid email</desc><longdesc>Return true, if the value is a valid email address.
+
+Works with text inputs.</longdesc><example><height>70</height><css>#field { margin-left: .5em; float: left; }
+  	#field, label { float: left; font-family: Arial, Helvetica, sans-serif; font-size: small; }
+	br { clear: both; }
+	input { border: 1px solid black; margin-bottom: .5em;  }
+	input.error { border: 1px solid red; }
+	label.error {
+		background: url('http://dev.jquery.com/view/trunk/plugins/validate/demo/images/unchecked.gif') no-repeat;
+		padding-left: 16px;
+		margin-left: .3em;
+	}
+	label.valid {
+		background: url('http://dev.jquery.com/view/trunk/plugins/validate/demo/images/checked.gif') no-repeat;
+		display: block;
+		width: 16px;
+		height: 16px;
+	}
+
+</css><inhead>&lt;script type=&quot;text/javascript&quot; src=&quot;http://dev.jquery.com/view/trunk/plugins/validate/jquery.validate.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+jQuery.validator.setDefaults({
+	debug: true,
+	success: &quot;valid&quot;
+});;
+&lt;/script&gt;
+</inhead><html>
+
+&lt;form id=&quot;myform&quot;&gt;
+  &lt;label for=&quot;field&quot;&gt;Required, email: &lt;/label&gt;
+  &lt;input class=&quot;left&quot; id=&quot;field&quot; name=&quot;field&quot; /&gt;
+
+  &lt;br/&gt;
+  &lt;input type=&quot;submit&quot; value=&quot;Validate!&quot; /&gt;
+&lt;/form&gt;
+</html><desc>Makes &quot;field&quot; required and an email address.</desc><code>$(&quot;#myform&quot;).validate({
+  rules: {
+    field: {
+      required: true,
+      email: true
+    }
+  }
+});</code></example></function><function cat="Plugins/Validation/Methods" name="url" return="Boolean" timestamp="2007-12-14T04:26:05Z"><desc>Makes the element require a valid url</desc><longdesc>Return true, if the value is a valid url.
+
+Works with text inputs.</longdesc><example><height>70</height><css>#field { margin-left: .5em; float: left; }
+  	#field, label { float: left; font-family: Arial, Helvetica, sans-serif; font-size: small; }
+	br { clear: both; }
+	input { border: 1px solid black; margin-bottom: .5em;  }
+	input.error { border: 1px solid red; }
+	label.error {
+		background: url('http://dev.jquery.com/view/trunk/plugins/validate/demo/images/unchecked.gif') no-repeat;
+		padding-left: 16px;
+		margin-left: .3em;
+	}
+	label.valid {
+		background: url('http://dev.jquery.com/view/trunk/plugins/validate/demo/images/checked.gif') no-repeat;
+		display: block;
+		width: 16px;
+		height: 16px;
+	}
+
+</css><inhead>&lt;script type=&quot;text/javascript&quot; src=&quot;http://dev.jquery.com/view/trunk/plugins/validate/jquery.validate.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+jQuery.validator.setDefaults({
+	debug: true,
+	success: &quot;valid&quot;
+});;
+&lt;/script&gt;
+</inhead><html>
+
+&lt;form id=&quot;myform&quot;&gt;
+  &lt;label for=&quot;field&quot;&gt;Required, URL: &lt;/label&gt;
+  &lt;input class=&quot;left&quot; id=&quot;field&quot; name=&quot;field&quot; /&gt;
+
+  &lt;br/&gt;
+  &lt;input type=&quot;submit&quot; value=&quot;Validate!&quot; /&gt;
+&lt;/form&gt;
+</html><desc>Makes &quot;field&quot; required and a url.</desc><code>$(&quot;#myform&quot;).validate({
+  rules: {
+    field: {
+      required: true,
+      url: true
+    }
+  }
+});</code></example></function><function cat="Plugins/Validation/Methods" name="date" return="Boolean" timestamp="2007-12-14T18:54:41Z"><desc>Makes the element require a date. </desc><longdesc>Return true, if the value is a valid date. Uses JavaScripts built-in Date to test if the date is valid, and is therefore very limited.
+
+Works with text inputs.</longdesc><example><height>70</height><css>#field { margin-left: .5em; float: left; }
+  	#field, label { float: left; font-family: Arial, Helvetica, sans-serif; font-size: small; }
+	br { clear: both; }
+	input { border: 1px solid black; margin-bottom: .5em;  }
+	input.error { border: 1px solid red; }
+	label.error {
+		background: url('http://dev.jquery.com/view/trunk/plugins/validate/demo/images/unchecked.gif') no-repeat;
+		padding-left: 16px;
+		margin-left: .3em;
+	}
+	label.valid {
+		background: url('http://dev.jquery.com/view/trunk/plugins/validate/demo/images/checked.gif') no-repeat;
+		display: block;
+		width: 16px;
+		height: 16px;
+	}
+
+</css><inhead>&lt;script type=&quot;text/javascript&quot; src=&quot;http://dev.jquery.com/view/trunk/plugins/validate/jquery.validate.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+jQuery.validator.setDefaults({
+	debug: true,
+	success: &quot;valid&quot;
+});;
+&lt;/script&gt;
+</inhead><html>
+
+&lt;form id=&quot;myform&quot;&gt;
+  &lt;label for=&quot;field&quot;&gt;Required, date: &lt;/label&gt;
+  &lt;input class=&quot;left&quot; id=&quot;field&quot; name=&quot;field&quot; /&gt;
+
+  &lt;br/&gt;
+  &lt;input type=&quot;submit&quot; value=&quot;Validate!&quot; /&gt;
+&lt;/form&gt;
+</html><desc>Makes &quot;field&quot; required and a date.</desc><code>$(&quot;#myform&quot;).validate({
+  rules: {
+    field: {
+      required: true,
+      date: true
+    }
+  }
+});</code></example></function><function cat="Plugins/Validation/Methods" name="dateISO" return="Boolean" timestamp="2007-12-14T18:58:49Z"><desc>Makes the element require a ISO date. </desc><longdesc>Return true, if the value is a valid date, according to ISO date standard.
+
+Works with text inputs.</longdesc><example><height>70</height><css>#field { margin-left: .5em; float: left; }
+  	#field, label { float: left; font-family: Arial, Helvetica, sans-serif; font-size: small; }
+	br { clear: both; }
+	input { border: 1px solid black; margin-bottom: .5em;  }
+	input.error { border: 1px solid red; }
+	label.error {
+		background: url('http://dev.jquery.com/view/trunk/plugins/validate/demo/images/unchecked.gif') no-repeat;
+		padding-left: 16px;
+		margin-left: .3em;
+	}
+	label.valid {
+		background: url('http://dev.jquery.com/view/trunk/plugins/validate/demo/images/checked.gif') no-repeat;
+		display: block;
+		width: 16px;
+		height: 16px;
+	}
+
+</css><inhead>&lt;script type=&quot;text/javascript&quot; src=&quot;http://dev.jquery.com/view/trunk/plugins/validate/jquery.validate.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+jQuery.validator.setDefaults({
+	debug: true,
+	success: &quot;valid&quot;
+});;
+&lt;/script&gt;
+</inhead><html>
+
+&lt;form id=&quot;myform&quot;&gt;
+  &lt;label for=&quot;field&quot;&gt;Required, dateISO: &lt;/label&gt;
+  &lt;input class=&quot;left&quot; id=&quot;field&quot; name=&quot;field&quot; /&gt;
+
+  &lt;br/&gt;
+  &lt;input type=&quot;submit&quot; value=&quot;Validate!&quot; /&gt;
+&lt;/form&gt;
+</html><desc>Makes &quot;field&quot; required and a ISO date.</desc><code>$(&quot;#myform&quot;).validate({
+  rules: {
+    field: {
+      required: true,
+      dateISO: true
+    }
+  }
+});</code></example></function><function cat="Plugins/Validation/Methods" name="dateDE" return="Boolean" timestamp="2007-12-14T18:57:06Z"><desc>Makes the element require a german date. </desc><longdesc>Return true, if the value is a valid date. Supports german dates (29.04.1994 or 1.1.2006). Doesn't make any sanity checks.
+
+Works with text inputs.</longdesc><example><height>70</height><css>#field { margin-left: .5em; float: left; }
+  	#field, label { float: left; font-family: Arial, Helvetica, sans-serif; font-size: small; }
+	br { clear: both; }
+	input { border: 1px solid black; margin-bottom: .5em;  }
+	input.error { border: 1px solid red; }
+	label.error {
+		background: url('http://dev.jquery.com/view/trunk/plugins/validate/demo/images/unchecked.gif') no-repeat;
+		padding-left: 16px;
+		margin-left: .3em;
+	}
+	label.valid {
+		background: url('http://dev.jquery.com/view/trunk/plugins/validate/demo/images/checked.gif') no-repeat;
+		display: block;
+		width: 16px;
+		height: 16px;
+	}
+
+</css><inhead>&lt;script type=&quot;text/javascript&quot; src=&quot;http://dev.jquery.com/view/trunk/plugins/validate/jquery.validate.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+jQuery.validator.setDefaults({
+	debug: true,
+	success: &quot;valid&quot;
+});;
+&lt;/script&gt;
+</inhead><html>
+
+&lt;form id=&quot;myform&quot;&gt;
+  &lt;label for=&quot;field&quot;&gt;Required, date: &lt;/label&gt;
+  &lt;input class=&quot;left&quot; id=&quot;field&quot; name=&quot;field&quot; /&gt;
+
+  &lt;br/&gt;
+  &lt;input type=&quot;submit&quot; value=&quot;Validate!&quot; /&gt;
+&lt;/form&gt;
+</html><desc>Makes &quot;field&quot; required and a german date.</desc><code>$(&quot;#myform&quot;).validate({
+  rules: {
+    field: {
+      required: true,
+      dateDE: true
+    }
+  }
+});</code></example></function><function cat="Plugins/Validation/Methods" name="digits" return="Boolean" timestamp="2007-12-14T18:52:29Z"><desc>Makes the element require digits only. </desc><longdesc>Returns true if the value contains only digits.
+
+Works with text inputs.</longdesc><example><height>70</height><css>#field { margin-left: .5em; float: left; }
+  	#field, label { float: left; font-family: Arial, Helvetica, sans-serif; font-size: small; }
+	br { clear: both; }
+	input { border: 1px solid black; margin-bottom: .5em;  }
+	input.error { border: 1px solid red; }
+	label.error {
+		background: url('http://dev.jquery.com/view/trunk/plugins/validate/demo/images/unchecked.gif') no-repeat;
+		padding-left: 16px;
+		margin-left: .3em;
+	}
+	label.valid {
+		background: url('http://dev.jquery.com/view/trunk/plugins/validate/demo/images/checked.gif') no-repeat;
+		display: block;
+		width: 16px;
+		height: 16px;
+	}
+
+</css><inhead>&lt;script type=&quot;text/javascript&quot; src=&quot;http://dev.jquery.com/view/trunk/plugins/validate/jquery.validate.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+jQuery.validator.setDefaults({
+	debug: true,
+	success: &quot;valid&quot;
+});;
+&lt;/script&gt;
+</inhead><html>
+
+&lt;form id=&quot;myform&quot;&gt;
+  &lt;label for=&quot;field&quot;&gt;Required, digits: &lt;/label&gt;
+  &lt;input class=&quot;left&quot; id=&quot;field&quot; name=&quot;field&quot; /&gt;
+
+  &lt;br/&gt;
+  &lt;input type=&quot;submit&quot; value=&quot;Validate!&quot; /&gt;
+&lt;/form&gt;
+</html><desc>Makes &quot;field&quot; required and digits only.</desc><code>$(&quot;#myform&quot;).validate({
+  rules: {
+    field: {
+      required: true,
+      digits: true
+    }
+  }
+});</code></example></function><function cat="Plugins/Validation/Methods" name="creditcard" return="Boolean" timestamp="2007-12-14T19:02:24Z"><desc>Makes the element require a creditcard number. </desc><longdesc>Return true, if the value is a valid creditcard number.
+
+Works with text inputs.</longdesc><example><height>70</height><css>#field { margin-left: .5em; float: left; }
+  	#field, label { float: left; font-family: Arial, Helvetica, sans-serif; font-size: small; }
+	br { clear: both; }
+	input { border: 1px solid black; margin-bottom: .5em;  }
+	input.error { border: 1px solid red; }
+	label.error {
+		background: url('http://dev.jquery.com/view/trunk/plugins/validate/demo/images/unchecked.gif') no-repeat;
+		padding-left: 16px;
+		margin-left: .3em;
+	}
+	label.valid {
+		background: url('http://dev.jquery.com/view/trunk/plugins/validate/demo/images/checked.gif') no-repeat;
+		display: block;
+		width: 16px;
+		height: 16px;
+	}
+
+</css><inhead>&lt;script type=&quot;text/javascript&quot; src=&quot;http://dev.jquery.com/view/trunk/plugins/validate/jquery.validate.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+jQuery.validator.setDefaults({
+	debug: true,
+	success: &quot;valid&quot;
+});;
+&lt;/script&gt;
+</inhead><html>
+
+&lt;form id=&quot;myform&quot;&gt;
+  &lt;label for=&quot;field&quot;&gt;Required, creditcard: &lt;/label&gt;
+  &lt;input class=&quot;left&quot; id=&quot;field&quot; name=&quot;field&quot; /&gt;
+
+  &lt;br/&gt;
+  &lt;input type=&quot;submit&quot; value=&quot;Validate!&quot; /&gt;
+&lt;/form&gt;
+</html><desc>Makes &quot;field&quot; required and a creditcard number.</desc><code>$(&quot;#myform&quot;).validate({
+  rules: {
+    field: {
+      required: true,
+      creditcard: true
+    }
+  }
+});</code></example></function><function cat="Plugins/Validation/Methods" name="accept" return="Boolean" timestamp="2007-12-14T01:59:13Z"><desc>Makes the element require a certain file extension.</desc><longdesc></longdesc><longdesc>Returns true if the value ends with one of the specified file extensions.
+If nothing is specified, only images are allowed (png, jpeg, gif).
+
+Works with text inputs.</longdesc><params name="extension" optional="true" type="String"><desc>The allowed file extensions, seperated via &quot;|&quot;, defaults to &quot;png|jpe?g|gif&quot;</desc></params><example><height>70</height><css>#field { margin-left: .5em; float: left; }
+  	#field, label { float: left; font-family: Arial, Helvetica, sans-serif; font-size: small; }
+	br { clear: both; }
+	input { border: 1px solid black; margin-bottom: .5em;  }
+	input.error { border: 1px solid red; }
+	label.error {
+		background: url('http://dev.jquery.com/view/trunk/plugins/validate/demo/images/unchecked.gif') no-repeat;
+		padding-left: 16px;
+		margin-left: .3em;
+	}
+	label.valid {
+		background: url('http://dev.jquery.com/view/trunk/plugins/validate/demo/images/checked.gif') no-repeat;
+		display: block;
+		width: 16px;
+		height: 16px;
+	}
+
+</css><inhead>&lt;script type=&quot;text/javascript&quot; src=&quot;http://dev.jquery.com/view/trunk/plugins/validate/jquery.validate.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+jQuery.validator.setDefaults({
+	debug: true,
+	success: &quot;valid&quot;
+});;
+&lt;/script&gt;
+</inhead><html>
+
+&lt;form id=&quot;myform&quot;&gt;
+  &lt;label for=&quot;field&quot;&gt;Required, only .xls and .csv files allowed&lt;/label&gt;
+  &lt;input class=&quot;left&quot; id=&quot;field&quot; name=&quot;field&quot; /&gt;
+
+  &lt;br/&gt;
+  &lt;input type=&quot;submit&quot; value=&quot;Validate!&quot; /&gt;
+&lt;/form&gt;
+</html><desc>Makes &quot;field&quot; required and ending with &quot;.xls&quot; or &quot;.csv&quot;.</desc><code>$(&quot;#myform&quot;).validate({
+  rules: {
+    field: {
+      required: true,
+      accept: &quot;xls|csv&quot;
+
+    }
+  }
+});</code></example></function><function cat="Plugins/Validation/Methods" name="equalTo" return="Boolean" timestamp="2007-12-14T04:17:16Z"><desc>Requires the element to be the same as another one</desc><longdesc>Returns true if the value has the same value as the element specified by the first parameter.
+
+Works with text inputs.</longdesc><params name="other" type="Selector"><desc>The selector for the element to compare the current values</desc></params><example><height>130</height><css>
+  	#field, label { float: left; font-family: Arial, Helvetica, sans-serif; font-size: small; }
+  	label {  width: 10em; }
+	br { clear: both; }
+	input { margin-left: .5em; float: left; border: 1px solid black; margin-bottom: .5em;  }
+	input.submit { float: none; }
+	input.error { border: 1px solid red; width: auto; }
+	label.error {
+		background: url('http://dev.jquery.com/view/trunk/plugins/validate/demo/images/unchecked.gif') no-repeat;
+		padding-left: 16px;
+		margin-left: .3em;
+	}
+	label.valid {
+		background: url('http://dev.jquery.com/view/trunk/plugins/validate/demo/images/checked.gif') no-repeat;
+		display: block;
+		width: 16px;
+		height: 16px;
+	}
+</css><inhead>&lt;script type=&quot;text/javascript&quot; src=&quot;http://dev.jquery.com/view/trunk/plugins/validate/jquery.validate.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+
+jQuery.validator.setDefaults({
+	debug: true,
+	success: &quot;valid&quot;
+});;
+&lt;/script&gt;
+</inhead><html>
+&lt;form id=&quot;myform&quot;&gt;
+  &lt;label for=&quot;password&quot;&gt;Password&lt;/label&gt;
+  &lt;input id=&quot;password&quot; name=&quot;password&quot; /&gt;
+
+  &lt;br/&gt;
+  &lt;label for=&quot;password_again&quot;&gt;Again&lt;/label&gt;
+  &lt;input class=&quot;left&quot; id=&quot;password_again&quot; name=&quot;password_again&quot; /&gt;
+
+  &lt;br/&gt;
+  &lt;input class=&quot;submit&quot; type=&quot;submit&quot; value=&quot;Validate!&quot; /&gt;
+&lt;/form&gt;
+
+</html><desc>Makes &quot;field&quot; required to be the same as #other</desc><code>$(&quot;#myform&quot;).validate({
+  rules: {
+    password: &quot;required&quot;,
+    &quot;password_again&quot;: {
+      equalTo: &quot;#password&quot;
+    }
+  }
+});</code></example></function></subcat></cat><cat value="Plugins/Treeview"><function cat="Plugins/Treeview" name="treeview" return="jQuery" timestamp="2007-12-17T05:09:21Z"><desc>Takes an unordered list and makes all branches collapsable.</desc><longdesc>The &quot;treeview&quot; class is added if not already present.
+
+To hide branches on first display, mark their li elements with
+the class &quot;closed&quot;. If the &quot;collapsed&quot; option is used, mark initially open
+branches with class &quot;open&quot;.
+
+</longdesc><params name="options" optional="true" type="Options"><desc>A set of key/value pairs that configure the treeview. All options are optional.</desc></params><option name="animated" type="String, Number"><desc>Speed of animation, see <![CDATA[<a href='Effects/animate'>animate()</a>]]> for details, or no animation if not specified.</desc></option><option default="false, all expanded" name="collapsed" type="Boolean"><desc>Start with all branches collapsed.</desc></option><option name="control" type="Selector"><desc>Container for a treecontrol, allowing the user to expand, collapse and toggle all branches with one click.</desc></option><option default="false" name="unique" type="Boolean"><desc>Set to allow only one branch on one level to be open (closing siblings which opening).</desc></option><option name="toggle" type="Callback"><desc>Callback when toggling a branch. Arguments: &quot;this&quot; refers to the UL that was shown or hidden. Works only with speed option set (set speed: 1 to enable callback without animations).</desc></option><option name="persist" type="String"><desc>Persist the tree state in cookies or the page location. If set to &quot;location&quot;, looks for the anchor that matches location.href and activates that part of the treeview it. Great for href-based state-saving. If set to &quot;cookie&quot;, saves the state of the tree on each click to a cookie and restores that state on page load.</desc></option><option name="add" type="Selector"><desc>Populate the tree with more nodes using this option and calling the plugin again. The selector must match elements that were added somewhere to the existing tree. Classes and event handlers are applied to match the behaviour of the existing tree.</desc></option><example><height>300</height><desc>Creates a treeview and adds a button to add more branches to it.</desc><inhead>&lt;link rel=&quot;stylesheet&quot; href=&quot;http://dev.jquery.com/view/trunk/plugins/treeview/jquery.treeview.css&quot; type=&quot;text/css&quot; media=&quot;screen&quot; /&gt;
+
+  &lt;script type=&quot;text/javascript&quot; src=&quot;http://dev.jquery.com/view/trunk/plugins/treeview/jquery.treeview.js&quot;&gt;&lt;/script&gt;
+  &lt;style type=&quot;text/css&quot;&gt;
+  #browser {
+    font-family: Verdana, helvetica, arial, sans-serif;
+    font-size: 68.75%;
+  }
+  &lt;/style&gt;</inhead><code>$(&quot;#browser&quot;).treeview();
+ $(&quot;#add&quot;).click(function() {
+ 	var branches = $(&quot;&lt;li&gt;&lt;span class='folder'&gt;New Sublist&lt;/span&gt;&lt;ul&gt;&quot; + 
+ 		&quot;&lt;li&gt;&lt;span class='file'&gt;Item1&lt;/span&gt;&lt;/li&gt;&quot; + 
+ 		&quot;&lt;li&gt;&lt;span class='file'&gt;Item2&lt;/span&gt;&lt;/li&gt;&quot; +
+ 		&quot;&lt;/ul&gt;&lt;/li&gt;&quot;).appendTo(&quot;#browser&quot;);
+ 	$(&quot;#browser&quot;).treeview({
+ 		add: branches
+ 	});
+ });</code><html>
+
+  &lt;ul id=&quot;browser&quot; class=&quot;filetree&quot;&gt;
+ 	&lt;li&gt;&lt;span class=&quot;folder&quot;&gt;Folder 1&lt;/span&gt;
+ 		&lt;ul&gt;
+
+ 			&lt;li&gt;&lt;span class=&quot;file&quot;&gt;Item 1.1&lt;/span&gt;&lt;/li&gt;
+ 		&lt;/ul&gt;
+ 	&lt;/li&gt;
+ 	&lt;li&gt;&lt;span class=&quot;folder&quot;&gt;Folder 2&lt;/span&gt;
+
+ 		&lt;ul&gt;
+ 			&lt;li&gt;&lt;span class=&quot;folder&quot;&gt;Subfolder 2.1&lt;/span&gt;
+ 				&lt;ul id=&quot;folder21&quot;&gt;
+ 					&lt;li&gt;&lt;span class=&quot;file&quot;&gt;File 2.1.1&lt;/span&gt;&lt;/li&gt;
+
+ 					&lt;li&gt;&lt;span class=&quot;file&quot;&gt;File 2.1.2&lt;/span&gt;&lt;/li&gt;
+ 				&lt;/ul&gt;
+ 			&lt;/li&gt;
+ 			&lt;li&gt;&lt;span class=&quot;file&quot;&gt;File 2.2&lt;/span&gt;&lt;/li&gt;
+
+ 		&lt;/ul&gt;
+ 	&lt;/li&gt;
+ 	&lt;li class=&quot;closed&quot;&gt;&lt;span class=&quot;folder&quot;&gt;Folder 3 (closed at start)&lt;/span&gt;
+ 		&lt;ul&gt;
+
+ 			&lt;li&gt;&lt;span class=&quot;file&quot;&gt;File 3.1&lt;/span&gt;&lt;/li&gt;
+ 		&lt;/ul&gt;
+ 	&lt;/li&gt;
+ 	&lt;li&gt;&lt;span class=&quot;file&quot;&gt;File 4&lt;/span&gt;&lt;/li&gt;
+
+   &lt;/ul&gt;
+
+   &lt;button id=&quot;add&quot;&gt;Add!&lt;/button&gt;</html></example></function></cat></docs>

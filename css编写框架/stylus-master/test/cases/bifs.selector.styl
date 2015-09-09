@@ -1,0 +1,81 @@
+.foo
+  .bar
+    &:hover
+      bar: selector()
+    foo: selector()
+  qux: selector()
+
+bar()
+  .bar
+    baz: selector()
+
+.foo
+  bar()
+
+.foo,
+.bar
+  baz: selector()
+
+{selector()}
+  content: "this won't render"
+
+.foo{selector()}
+  baz: selector()
+
+bar()
+
+broken()
+  x = selector
+  {x}
+    foo: selector()
+
+broken
+  broken()
+
+foo() {
+  {selector()} {
+    .bar {
+        baz: selector()
+        &:hover {
+          foo: selector()
+        }
+    }
+  }
+}
+
+.foo {
+  foo()
+}
+
+.foo {
+  baz: selector('&:hover')
+  baz: selector('li a')
+  baz: selector('&:hover, &:active')
+}
+
+qux() {
+  {selector()} {
+    baz: selector('&__qux')
+  }
+}
+
+.qux {
+  qux()
+}
+
+.foo
+.bar
+  baz: selector('&:hover')
+  bar = ''
+  &:hover
+    bar[0] = selector()
+  baz: bar
+
+.test
+  color: red
+  /{selector()}__foo
+    border: 1px solid
+    @extend .test
+  /{selector()}__bar
+    border-radius: 4px
+    @extend .test

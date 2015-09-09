@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+	<title>jQuery ajaxQueue Test Suite</title>
+	
+	<link rel="Stylesheet" media="screen" href="../../../qunit/testsuite.css" />
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript" src="../jquery.ajaxQueue.js"></script>
+	<script type="text/javascript" src="../../../qunit/testrunner.js"></script>
+	<script type="text/javascript" src="test.js"></script>
+	<style type="text/css">
+		.xerror, .error { display: none }
+	</style>
+
+</head>
+<body>
+	<h1>jQuery ajaxQueue Test Suite</h1>
+	<h2 id="banner"></h2>
+	<h2 id="userAgent"></h2>
+
+	<ol id="tests"></ol>
+
+	<div id="main" style="display:none;">
+		<form id="form" action="formaction">
+			<input type="text" name="action" value="Test" id="text1"/>
+			<input type="text" name="text2" value="Test" id="text2" disabled="disabled"/>
+			<input type="radio" name="radio1" id="radio1" value="on"/>
+
+			<input type="radio" name="radio2" id="radio2" checked="checked"/>
+			<input type="checkbox" name="check" id="check1" checked="checked"/>
+			<input type="checkbox" id="check2" value="on"/>
+
+			<input type="hidden" name="hidden" id="hidden1"/>
+			<input type="text" style="display:none;" name="foo[bar]" id="hidden2"/>
+			
+			<input type="text" id="name" name="name" value="name" />
+			
+			<button id="button" name="button">Button</button>
+			
+			<textarea id="area1">foobar</textarea>
+			
+			<select name="select1" id="select1">
+				<option id="option1a" value="">Nothing</option>
+				<option id="option1b" value="1">1</option>
+				<option id="option1c" value="2">2</option>
+				<option id="option1d" value="3">3</option>
+			</select>
+			<select name="select2" id="select2">
+				<option id="option2a" value="">Nothing</option>
+				<option id="option2b" value="1">1</option>
+				<option id="option2c" value="2">2</option>
+				<option id="option2d" selected="selected" value="3">3</option>
+			</select>
+			<select name="select3" id="select3" multiple="multiple">
+				<option id="option3a" value="">Nothing</option>
+				<option id="option3b" selected="selected" value="1">1</option>
+				<option id="option3c" selected="selected" value="2">2</option>
+				<option id="option3d" value="3">3</option>
+			</select>
+			
+			<object id="object1" codebase="stupid">
+				<param name="p1" value="x1" />
+				<param name="p2" value="x2" />
+			</object>
+			
+			<span id="台北Táiběi"></span>
+			<span id="台北" lang="中文"></span>
+			<span id="utf8class1" class="台北Táiběi 台北"></span>
+			<span id="utf8class2" class="台北"></span>
+			<span id="foo:bar" class="foo:bar"></span>
+			<span id="test.foo[5]bar" class="test.foo[5]bar"></span>
+			
+			<foo_bar id="foobar">test element</foo_bar>
+		</form>
+		<form id="testForm" action="#" method="get">
+			<textarea name="T3" rows="2" cols="15">?
+Z</textarea>
+			<input type="hidden" name="H1" value="x" />
+			<input type="hidden" name="H2" />
+			<input name="PWD" type="password" value="" />
+			<input name="T1" type="text" />
+			<input name="T2" type="text" value="YES" readonly="readonly" />
+			<input type="checkbox" name="C1" value="1" />
+			<input type="checkbox" name="C2" />
+			<input type="radio" name="R1" value="1" />
+			<input type="radio" name="R1" value="2" />
+			<input type="text" name="My Name" value="me" />
+			<input type="reset" name="reset" value="NO" />
+			<select name="S1">
+				<option value="abc">ABC</option>
+				<option value="abc">ABC</option>
+				<option value="abc">ABC</option>
+			</select>
+			<select name="S2" multiple="multiple" size="3">
+				<option value="abc">ABC</option>
+
+				<option value="abc">ABC</option>
+				<option value="abc">ABC</option>
+			</select>
+			<select name="S3">
+				<option selected="selected">YES</option>
+			</select>
+			<select name="S4">
+				<option value="" selected="selected">NO</option>
+			</select>
+			<input type="submit"  name="sub1" value="NO" />
+			<input type="submit"  name="sub2" value="NO" />
+			<input type="image" name="sub3" value="NO" src="submit.gif" />
+			<button name="sub4" type="submit" value="NO">NO</button>
+			<input name="D1" type="text" value="NO" disabled="disabled" />
+			<input type="checkbox" checked="checked" disabled="disabled" name="D2" value="NO" />
+			<input type="radio" name="D3" value="NO" checked="checked" disabled="disabled" />
+			<select name="D4" disabled="disabled">
+				<option selected="selected" value="NO">NO</option>
+			</select>
+		</form>
+		<ul></ul>
+		
+		<div id="ap"></div>
+		<div id="foo"></div>
+	</div>
+	
+</body>
+</html>

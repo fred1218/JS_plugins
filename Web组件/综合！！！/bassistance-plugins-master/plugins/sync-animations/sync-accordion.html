@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>jQuery test case, synced animations</title>
+	<script type="text/javascript" src="jquery-1.3.1.js"></script>
+	<script type="text/javascript" src="jquery.syncAnimate.js"></script>
+	<script type="text/javascript">
+	$(function() {
+		$(".container").each(function() {
+			var content = $("> div", this);
+			content.not(":first").hide();
+			$("h3", this).click(function() {
+				
+				
+				var toShow = $(this).next(),
+					toHide = content.not(toShow);
+					
+				if (toShow.is(":visible"))
+					return false;
+				
+				toShow.syncAnimate(toHide, {height:"show"}, {duration:2000, queue: false});
+				
+				return false;
+			})
+		});
+	});
+	</script>
+	<style>
+		body {
+			margin: 0; padding: 0; border: 0; outline: 0; line-height: 1.3; text-decoration: none; font-size: 100%; list-style: none;
+		}
+		.container {
+			border: 1px solid gray;
+		}
+		.content {
+			padding: 0.5em;
+			border: 0;
+		}
+		h3 {
+			background-color: #ddd;
+			zoom: 1;
+			margin: 0;
+		}
+		p {
+			margin: 1em 0;
+		}
+	</style>
+</head>
+<body>
+
+<div class="container" style="width:300px">
+	<h3><a href="#">Fixed Height - Section 1</a></h3>
+	<div class="content" style="height:100px">
+		<p>
+			Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+		</p>
+	</div>
+	<h3><a href="#">Variable Height - Section 2</a></h3>
+	<div class="content" style="height:100px">
+		<p>
+			Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+		</p>
+	</div>
+</div>
+
+<p>This text must not move during the above animation</p>
+
+<div class="container" style="width:300px">
+	<h3><a href="#">Variable Height - Section 1</a></h3>
+	<div class="content">
+		<p>
+		Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+		ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+		amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+		odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+		</p>
+		<p>
+		Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+		ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+		amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+		odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+		</p>
+	</div>
+	<h3><a href="#">Variable Height - Section 2</a></h3>
+	<div class="content">
+		<p>
+		Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet
+		purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor
+		velit, faucibus interdum tellus libero ac justo. Vivamus non quam. In
+		suscipit faucibus urna.
+		</p>
+	</div>
+</div>
+
+<p>This text must move during the above animation, but not flicker wildly.</p>
+
+</body>
+</html>

@@ -1,0 +1,93 @@
+#formtooltip {
+	display: none;
+	position: absolute;
+	width: 15em;
+}
+
+#formtooltip .formtooltip-arrow {
+	width: 14px;
+	height: 29px;
+	position: absolute;
+	left: -13px;
+	background: url(formtooltip.png) 0 0 no-repeat;
+}
+
+
+#formtooltip .formtooltip-box-content {
+	background-color: #eee;
+	padding: 5px 10px 10px;
+	border-left: 1px solid #a6a6a6;
+	border-right: 1px solid #a6a6a6;
+}
+
+#formtooltip .border-center {
+	background-color: #eee;
+	height: 5px;
+	margin: 0 6px 0 6px;
+	font-size: 1%;
+}
+
+#formtooltip .corner-left {
+	float: left;
+	clear: left;
+	font-size: 1%;
+}
+
+#formtooltip .corner-right {
+	float: right;
+	clear: right;
+	font-size: 1%;
+}
+
+#formtooltip .formtooltip-box-top {
+	background: none;
+	position: relative;
+}
+
+#formtooltip .formtooltip-box-bottom {
+	background: none;
+}
+
+#formtooltip .formtooltip-box-top .border-center {
+	border-top: 1px solid #A3A3A3;
+}
+
+#formtooltip .formtooltip-box-top .corner-left {
+	height: 6px;
+	width: 6px;
+	position: absolute;
+	background: url(formtooltip.png) -14px 0px no-repeat;
+}
+* html #formtooltip .formtooltip-box-top .corner-left {
+	left: -6px;
+}
+
+#formtooltip .formtooltip-box-top .corner-right {
+	height: 6px;
+	width: 6px;
+	position: absolute;
+	right: 0;
+	background: url(formtooltip.png) -14px -6px no-repeat;
+}
+
+#formtooltip .formtooltip-box-bottom .border-center{
+	display: block;
+	border-bottom: 1px solid #A3A3A3;
+}
+
+#formtooltip .formtooltip-box-bottom .corner-left{
+	height: 6px;
+	width: 6px;
+	position: absolute;
+	left: 0;
+	background: url(formtooltip.png) -14px -12px no-repeat;
+}
+
+#formtooltip .formtooltip-box-bottom .corner-right {
+	height: 6px;
+	width: 6px;
+	position: absolute;
+	right: 0;
+	background: url(formtooltip.png) -14px -18px no-repeat;
+}
+/* boxen end */

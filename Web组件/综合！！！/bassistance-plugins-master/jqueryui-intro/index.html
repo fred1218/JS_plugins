@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Systems Ltd. Webshop r1</title>
+		<link rel="stylesheet" href="screen.css" />
+		<link rel="stylesheet" href="smoothness/jquery-ui-1.8.2.custom.css" />
+		<script src="jquery-1.4.2.min.js"></script>
+		<script src="jquery-ui-1.8.2.custom.min.js"></script>
+		<script src="application.js"></script>
+    </head>
+    <body>
+    	<div id="header">
+	        <h1><a href=".">Systems Ltd. Webshop</a></h1>
+			<div id="searchbox">
+				<label for="search">Search</label>
+				<input id="search" />
+			</div>
+    	</div>
+		<div id="content">
+			<ul>
+				<li><a href="#products">Products</a></li>
+				<li><a href="#contact">Contact</a></li>
+				<li><a href="#about">About</a></li>
+			</ul>
+			<div id="products">
+				<div class="context">
+					<form id="filtering">
+						<div class="field">
+							<label for="maxprice">Max. Price</label>
+							<input id="maxprice" value="250" />
+						</div>
+					</form>
+				</div>
+				<div class="content">
+					<ul id="productlist">
+						<li>
+							<a href="#">Product 1</a>
+							<span class="price">€ 150,-</span>
+						</li>
+						<li>
+							<a href="#">Product 2</a>
+							<span class="price">€ 220,-</span>
+						</li>
+						<li>
+							<a href="#">Product 3</a>
+							<span class="price">€ 79,-</span>
+						</li>
+					</ul>
+					<div id="cart">
+						<a href="#"><img src="imgs/shopping_cart.png" /></a>
+						<ul>
+							<li class="placeholder">Nothing here, yet</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div id="contact">
+				<div class="context">
+					Systems Ltd.<br/>
+					Chatham St. 501<br/>
+					123 London<br/>
+					UK
+				</div>
+				<div class="content">
+					<img src="imgs/contact-map.png" />
+				</div>
+			</div>
+			<div id="about">
+				<div class="context">
+					Who we are
+				</div>
+				<div class="content">
+					More text
+				</div>
+			</div>
+		</div>
+		<div id="footer">
+			Copyright 2009 Systems Ltd. 
+		</div>
+    </body>
+</html>

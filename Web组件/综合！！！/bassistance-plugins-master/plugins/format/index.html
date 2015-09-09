@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html>
+<head>
+	<title>jQuery Format plugin</title>
+	
+	<script type="text/javascript" src="../../jquery/dist/jquery.js"></script>
+	<script type="text/javascript" src="jquery.format.js"></script>
+
+	<script type="text/javascript">
+	$(function(){
+		$("form button").click(function(e) {
+			e.preventDefault();
+			var source = $("#source").val(),
+				name = $("#name").val(),
+				time = $("#time").val(),
+				progress = $("#progress").val();
+			if ( $(this).is(":contains(HTML)") ) {
+				$("#target").html( source, name, time, progress );
+			} else {
+				$("#target").text( source, name, time, progress );
+			}
+			
+		});
+	});
+	</script>
+	
+</head>
+<body>
+	
+	<form>
+		Source: <textarea rows="3" cols="35" id="source">Hi <strong>%</strong>, how are you? It's <i>% o'clock</i>, and % %% done.</textarea><br/>
+		Name: <input id="name" value="your name" /><br/>
+		Time: <input id="time" value="10:35" /><br/>
+		Progess: <input id="progress" value="55" /><br/>
+		<button>Start transformation as HTML!</button>
+		<button>Start transformation as TEXT!</button>
+	</form>
+	
+	<p>Result: <span id="target">Nothing yet.</span></p>
+
+</body>
+</html>

@@ -1,0 +1,412 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<link rel="Stylesheet" media="screen" href="../../../qunit/testsuite.css" />
+<script type="text/javascript" src="../../jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="../../../qunit/testrunner.js"></script>
+<script type="text/javascript" src="string.js"></script>
+<script type="text/javascript" src="array.js"></script>
+<script type="text/javascript" src="date.js"></script>
+<script type="text/javascript">
+test("String.trim()", function() {
+	ok( "" == "".trim(), "Expected no modification" );
+	ok( "" == " ".trim(), "Expected removal of single whitespace" );
+	ok( "" == "   ".trim(), "Expected removal of multiple whitespace" );
+	ok( "peter" == "peter".trim(), "Expected no modification" );
+	ok( "peter" == " peter".trim(), "Expected trim at start" );
+	ok( "peter" == "peter ".trim(), "Expected trim at end" );
+	ok( "peter" == " peter ".trim(), "Expected trim at start and end" );
+	ok( "peter" == "      peter           ".trim(), "Expected lots of trim at start and end" );
+	ok( "pet er" == "pet er".trim(), "Expected no modification" );
+	ok( "pet er" == " pet er".trim(), "Expected trim at start" );
+	ok( "pet er" == "pet er ".trim(), "Expected trim at end" );
+	ok( "pet er" == " pet er ".trim(), "Expected trim at start and end" );
+	ok( "pet er" == "      pet er           ".trim(), "Expected lots of trim at start and end" );
+	ok( "p  et er" == "p  et er".trim(), "Expected no modification" );
+	ok( "p  et er" == " p  et er".trim(), "Expected trim at start" );
+	ok( "p  et er" == "p  et er ".trim(), "Expected trim at end" );
+	ok( "p  et er" == " p  et er ".trim(), "Expected trim at start and end" );
+	ok( "p  et er" == "      p  et er           ".trim(), "Expected lots of trim at start and end" );
+	ok( "Hello Boys and Girls!" == " Hello Boys and Girls!   ".trim(), "Check example" );
+} );
+
+test("String.startsWith(prefix)", function() {
+	ok( "peter".startsWith("p") );
+	ok( "peter".startsWith("pet") );
+	ok( "peter".startsWith("pete") );
+	ok( "peter".startsWith("peter") );
+	ok( !"peter".startsWith("xst") );
+	ok( !"peter".startsWith("petr") );
+	ok( "/%$/".startsWith("/") );
+	ok( "/%$/".startsWith("/%") );
+	ok( !"/%$/".startsWith("/$") );
+	ok( "/%$/".startsWith("") );
+	ok( "".startsWith("") );
+});
+
+test("String.startsWith(prefix, offset)", function() {
+	ok( "peter".startsWith("e", 1) );
+	ok( "peter".startsWith("et", 1) );
+	ok( "peter".startsWith("ete", 1) );
+	ok( "peter".startsWith("eter", 1) );
+	ok( "peter".startsWith("t", 2) );
+	ok( "peter".startsWith("te", 2) );
+	ok( "peter".startsWith("ter", 2) );
+	ok( !"peter".startsWith("p", 1) );
+	ok( !"peter".startsWith("pe", 1) );
+	ok( !"peter".startsWith("e", 2) );
+	ok( !"peter".startsWith("et", 2) );
+	ok( !"peter".startsWith("pe", -1) );
+	ok( "peter".startsWith("r", 4) );
+	ok( !"peter".startsWith("r", 5) );
+	ok( "/%$/".startsWith("%", 1) );
+	ok( "/%$/".startsWith("%$", 1) );
+	ok( "/%$/".startsWith("$/", 2) );
+	ok( !"/%$/".startsWith("%$\"", 1) );
+	ok( "/%$/".startsWith("", 0) );
+	ok( "".startsWith("", 0) );
+});
+
+test("String.endsWith(suffix)", function() {
+	ok( "peter".endsWith("r") );
+	ok( "peter".endsWith("er") );
+	ok( "peter".endsWith("ter") );
+	ok( "peter".endsWith("eter") );
+	ok( "peter".endsWith("peter") );
+	ok( !"peter".endsWith("x") );
+	ok( !"peter".endsWith("xer") );
+	ok( !"peter".endsWith("pter") );
+	ok( "/%$/".endsWith("/") );
+	ok( "/%$/".endsWith("$/") );
+	ok( !"/%$/".endsWith("%/") );
+	ok( "/%$/".endsWith("") );
+	ok( "".endsWith("") );
+});
+
+test("String.truncate()", function() {
+	ok( "thisistenc thisistenc thisistenc ".truncate() == "thisistenc thisistenc thisi..." );
+	ok( "thisistenc thisistenc ".truncate() == "thisistenc thisistenc " );
+});
+
+test("String.truncate(length)", function() {
+	ok( "thisistenc ".truncate(5) == "th..." );
+	ok( "thisi".truncate() == "thisi" );
+});
+
+test("String.truncate(length, truncation)", function() {
+	ok( "thisistenc thisistenc thisistenc ".truncate(30, "x") == "thisistenc thisistenc thisistx" );
+	ok( "thisistenc thisistenc ".truncate(30, "x") == "thisistenc thisistenc " );
+	ok( "thisistenc ".truncate(5, "x") == "thisx" );
+	ok( "thisi".truncate(5, "x") == "thisi" );
+});
+
+test("String.stripTags()", function() {
+	ok( "<div id='hi'>Bla</div>".stripTags() == "Bla" );
+	var testString = [
+		'<html>',
+		'<head>',
+		'<link rel="stylesheet" href="../../jquery/build/test/data/testsuite.css" />',
+		'<script type="text/javascript" src="../../jquery/dist/jquery.js"><\/script>',
+		'<script type="text/javascript" src="../../jquery/build/test/data/testrunner.js"><\/script>',
+		'<script type="text/javascript" src="jquery.string.js"><\/script>',
+		'<script type="text/javascript" src="jquery.array.js"><\/script>',
+		'<script type="text/javascript">'
+	].join('');
+	ok( !testString.stripTags() );
+});
+
+test("Array.forEach()", function() {
+	var stuff = "";
+	["foo", "bar"].forEach(function(element, index, array) {
+		stuff += element;
+	});
+	ok( stuff == "foobar" );
+});
+
+test("Array.every()", function() {
+	 ok( [12, 54, 18, 130, 44].every(function(element, index, array) {
+	 	return element >= 10;
+	 }) === true );
+	 ok( [12, 5, 8, 130, 44].every(function(element, index, array) {
+	 	return element >= 10;
+	 }) === false );
+});
+
+test("Array.some()", function() {
+	ok( [12, 5, 8, 1, 44].some(function(element, index, array) {
+		return element >= 10;
+	}) === true );
+	ok( [2, 5, 8, 1, 4].some(function(element, index, array) {
+		return element >= 10;
+	}) === false );
+});
+
+test("Array.map()", function() {
+	var s = ["hello", "Array", "WORLD"];
+	var r = s.map(function(element, index, array) {
+		return element.toUpperCase();
+	});
+	isSet( s, ["hello", "Array", "WORLD"] );
+	isSet( r, ["HELLO", "ARRAY", "WORLD"] );
+
+	s = [1, 4, 9];
+	r = s.map(Math.sqrt);
+	isSet( s, [1, 4, 9] );
+	isSet( r, [1, 2, 3] );
+});
+
+test("Array.filter()", function() {
+	var s = [12, 5, 8, 1, 44];
+	var r = s.filter(function(element, index, array) {
+		return element >= 10;
+	});
+	isSet( s, [12, 5, 8, 1, 44] );
+	isSet( r, [12, 44] );
+});
+
+test("Array.indexOf()", function() {
+	ok( [12, 5, 8, 5, 44].indexOf(5) == 1 );
+	ok( [12, 5, 8, 5, 44].indexOf(5, 2) == 3 );
+	ok( [12, 5, 8, 5, 44].indexOf(5, 4) == -1 );
+});
+
+test("Array.unique()", function() {
+	var s = [1, 2, 1, 4, 5, 4];
+	var r = s.unique();
+	isSet( s, [1, 2, 1, 4, 5, 4] );
+	isSet( r, [1, 2, 4, 5] );
+});
+
+test("Date.isLeapYear()", function() {
+	var dtm = new Date('01/01/2008');
+	ok( dtm.isLeapYear() == true, 'is a leap year' );
+	dtm = new Date('01/01/2007');
+	ok( dtm.isLeapYear() == false, 'is not a lear' );
+});
+
+test("Date.isWeekend()", function() {
+	var dtm = new Date('01/07/2007');
+	ok( dtm.isWeekend() == true, 'on a Sunday' );
+	dtm = new Date('01/08/2007');
+	ok( dtm.isWeekend() == false, 'on a Monday' );
+	dtm = new Date('01/09/2007');
+	ok( dtm.isWeekend() == false, 'on a Tuesday' );
+	dtm = new Date('01/10/2007');
+	ok( dtm.isWeekend() == false, 'on a Wednesday' );
+	dtm = new Date('01/11/2007');
+	ok( dtm.isWeekend() == false, 'on a Thursday' );
+	dtm = new Date('01/12/2007');
+	ok( dtm.isWeekend() == false, 'on a Friday' );
+	dtm = new Date('01/06/2007');
+	ok( dtm.isWeekend() == true, 'on a Saturday' );
+});
+
+test("Date.isWeekDay()", function() {
+	var dtm = new Date('01/07/2007');
+	ok( dtm.isWeekDay() == false, 'on a Sunday' );
+	dtm = new Date('01/08/2007');
+	ok( dtm.isWeekDay() == true, 'on a Monday' );
+	dtm = new Date('01/09/2007');
+	ok( dtm.isWeekDay() == true, 'on a Tuesday' );
+	dtm = new Date('01/10/2007');
+	ok( dtm.isWeekDay() == true, 'on a Wednesday' );
+	dtm = new Date('01/11/2007');
+	ok( dtm.isWeekDay() == true, 'on a Thursday' );
+	dtm = new Date('01/12/2007');
+	ok( dtm.isWeekDay() == true, 'on a Friday' );
+	dtm = new Date('01/06/2007');
+	ok( dtm.isWeekDay() == false, 'on a Saturday' );
+});
+
+test("Date.getDaysInMonth()", function() {
+	var dtm = new Date('01/01/2007');
+	ok( dtm.getDaysInMonth() == 31, 'in January');
+	dtm = new Date('02/01/2007');
+	ok( dtm.getDaysInMonth() == 28, 'in February');
+	dtm = new Date('02/01/2008');
+	ok( dtm.getDaysInMonth() == 29, 'in February on a leap year');
+	dtm = new Date('03/01/2007');
+	ok( dtm.getDaysInMonth() == 31, 'in March');
+	dtm = new Date('04/01/2007');
+	ok( dtm.getDaysInMonth() == 30, 'in April');
+	dtm = new Date('05/01/2007');
+	ok( dtm.getDaysInMonth() == 31, 'in May');
+	dtm = new Date('06/01/2007');
+	ok( dtm.getDaysInMonth() == 30, 'in June');
+	dtm = new Date('07/01/2007');
+	ok( dtm.getDaysInMonth() == 31, 'in July');
+	dtm = new Date('08/01/2007');
+	ok( dtm.getDaysInMonth() == 31, 'in August');
+	dtm = new Date('09/01/2007');
+	ok( dtm.getDaysInMonth() == 30, 'in September');
+	dtm = new Date('10/01/2007');
+	ok( dtm.getDaysInMonth() == 31, 'in October');
+	dtm = new Date('11/01/2007');
+	ok( dtm.getDaysInMonth() == 30, 'in November');
+	dtm = new Date('12/01/2007');
+	ok( dtm.getDaysInMonth() == 31, 'in December');
+});
+
+test("Date.getDayName()", function() {
+	var dtm = new Date('01/07/2007');
+	ok( dtm.getDayName() == 'Sunday', 'on a Sunday' );
+	dtm = new Date('01/08/2007');
+	ok( dtm.getDayName() == 'Monday', 'on a Monday' );
+	dtm = new Date('01/09/2007');
+	ok( dtm.getDayName() == 'Tuesday', 'on a Tuesday' );
+	dtm = new Date('01/10/2007');
+	ok( dtm.getDayName() == 'Wednesday', 'on a Wednesday' );
+	dtm = new Date('01/11/2007');
+	ok( dtm.getDayName() == 'Thursday', 'on a Thursday' );
+	dtm = new Date('01/12/2007');
+	ok( dtm.getDayName() == 'Friday', 'on a Friday' );
+	dtm = new Date('01/06/2007');
+	ok( dtm.getDayName() == 'Saturday', 'on a Saturday' );
+	
+	dtm = new Date('01/07/2007');
+	ok( dtm.getDayName(true) == 'Sun', 'on a Sunday abbreviated' );
+	dtm = new Date('01/08/2007');
+	ok( dtm.getDayName(true) == 'Mon', 'on a Monday abbreviated' );
+	dtm = new Date('01/09/2007');
+	ok( dtm.getDayName(true) == 'Tue', 'on a Tuesday abbreviated' );
+	dtm = new Date('01/10/2007');
+	ok( dtm.getDayName(true) == 'Wed', 'on a Wednesday abbreviated' );
+	dtm = new Date('01/11/2007');
+	ok( dtm.getDayName(true) == 'Thu', 'on a Thursday abbreviated' );
+	dtm = new Date('01/12/2007');
+	ok( dtm.getDayName(true) == 'Fri', 'on a Friday abbreviated' );
+	dtm = new Date('01/06/2007');
+	ok( dtm.getDayName(true) == 'Sat', 'on a Saturday abbreviated' );
+});
+
+test("Date.getMonthName()", function() {
+	var dtm = new Date('01/01/2007');
+	ok( dtm.getMonthName() == 'January', 'in January');
+	dtm = new Date('02/01/2007');
+	ok( dtm.getMonthName() == 'February', 'in February');
+	dtm = new Date('03/01/2007');
+	ok( dtm.getMonthName() == 'March', 'in March');
+	dtm = new Date('04/01/2007');
+	ok( dtm.getMonthName() == 'April', 'in April');
+	dtm = new Date('05/01/2007');
+	ok( dtm.getMonthName() == 'May', 'in May');
+	dtm = new Date('06/01/2007');
+	ok( dtm.getMonthName() == 'June', 'in June');
+	dtm = new Date('07/01/2007');
+	ok( dtm.getMonthName() == 'July', 'in July');
+	dtm = new Date('08/01/2007');
+	ok( dtm.getMonthName() == 'August', 'in August');
+	dtm = new Date('09/01/2007');
+	ok( dtm.getMonthName() == 'September', 'in September');
+	dtm = new Date('10/01/2007');
+	ok( dtm.getMonthName() == 'October', 'in October');
+	dtm = new Date('11/01/2007');
+	ok( dtm.getMonthName() == 'November', 'in November');
+	dtm = new Date('12/01/2007');
+	ok( dtm.getMonthName() == 'December', 'in December');
+	
+	dtm = new Date('01/01/2007');
+	ok( dtm.getMonthName(true) == 'Jan', 'in January');
+	dtm = new Date('02/01/2007');
+	ok( dtm.getMonthName(true) == 'Feb', 'in February');
+	dtm = new Date('03/01/2007');
+	ok( dtm.getMonthName(true) == 'Mar', 'in March');
+	dtm = new Date('04/01/2007');
+	ok( dtm.getMonthName(true) == 'Apr', 'in April');
+	dtm = new Date('05/01/2007');
+	ok( dtm.getMonthName(true) == 'May', 'in May');
+	dtm = new Date('06/01/2007');
+	ok( dtm.getMonthName(true) == 'Jun', 'in June');
+	dtm = new Date('07/01/2007');
+	ok( dtm.getMonthName(true) == 'Jul', 'in July');
+	dtm = new Date('08/01/2007');
+	ok( dtm.getMonthName(true) == 'Aug', 'in August');
+	dtm = new Date('09/01/2007');
+	ok( dtm.getMonthName(true) == 'Sep', 'in September');
+	dtm = new Date('10/01/2007');
+	ok( dtm.getMonthName(true) == 'Oct', 'in October');
+	dtm = new Date('11/01/2007');
+	ok( dtm.getMonthName(true) == 'Nov', 'in November');
+	dtm = new Date('12/01/2007');
+	ok( dtm.getMonthName(true) == 'Dec', 'in December');
+});
+
+test("Date.getDayOfYear()", function() {
+	var dtm = new Date('01/01/2007');
+	ok( dtm.getDayOfYear() == 0, 'First day of the year' );
+	dtm = new Date('12/31/2007');
+	ok( dtm.getDayOfYear() == 364, 'Last day of the year' );
+});
+
+test("Date.getWeekOfYear()", function() {
+	var dtm = new Date('01/01/2007');
+	ok( dtm.getWeekOfYear() == 0, 'First week of the year' );
+	dtm = new Date('12/31/2007');
+	ok( dtm.getWeekOfYear() == 52, 'Last week of the year' );
+});
+
+test("Date.setDayOfYear()", function() {
+	var dtm = new Date('01/01/2007');
+	ok( dtm.setDayOfYear(365).getDayOfYear() == 364, 'Last day of the year' );
+	dtm = new Date('12/31/2007');
+	ok( dtm.setDayOfYear(1).getDayOfYear() == 0, 'First day of the year' );
+});
+
+test("Date.addYears()", function() {
+	var dtm = new Date('01/01/2007');
+	dtm.addYears(1);
+	ok( dtm.getFullYear() == 2008, 'Add one year' );
+	dtm.addYears(-1);
+	ok( dtm.getFullYear() == 2007, 'Subtract one year' );
+});
+
+test("Date.addMonths()", function() {
+	var dtm = new Date('01/01/2007');
+	dtm.addMonths(1);
+	ok( dtm.getMonthName() == 'February', 'Add one month' );
+	dtm.addMonths(-1);
+	ok( dtm.getMonthName() == 'January', 'Subtract one month' );
+});
+
+test("Date.addDays()", function() {
+	var dtm = new Date('01/01/2007');
+	dtm.addDays(1);
+	ok( dtm.getDayName() == 'Tuesday', 'Add one day' );
+	dtm.addDays(-1);
+	ok( dtm.getDayName() == 'Monday', 'Subtract one day' );
+});
+
+test("Date.addHours()", function() {
+	var dtm = new Date('01/01/2007');
+	dtm.addHours(24);
+	ok( dtm.getDayName() == 'Tuesday', 'Add 24 hours' );
+	dtm.addHours(-24);
+	ok( dtm.getDayName() == 'Monday', 'Subtract 24 hours' );
+});
+
+test("Date.addMinutes()", function() {
+	var dtm = new Date('01/01/2007');
+	dtm.addMinutes(1440);
+	ok( dtm.getDayName() == 'Tuesday', 'Add 1440 minutes' );
+	dtm.addMinutes(-1440);
+	ok( dtm.getDayName() == 'Monday', 'Subtract 1440 minutes' );
+});
+
+test("Date.addSeconds()", function() {
+	var dtm = new Date('01/01/2007');
+	dtm.addSeconds(86400);
+	ok( dtm.getDayName() == 'Tuesday', 'Add 86400 seconds' );
+	dtm.addSeconds(-86400);
+	ok( dtm.getDayName() == 'Monday', 'Subtract 86400 seconds' );
+});
+
+</script>
+</head>
+
+<body>
+<h1>jQuery - Methods Test Suite</h1>
+<div id="main"></div>
+<ol id="tests"></ol>
+</body>
+
+</html>
