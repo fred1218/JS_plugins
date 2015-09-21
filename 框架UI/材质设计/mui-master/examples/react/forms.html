@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+  <head>
+    <!-- for example only -->   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.2/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.2/JSXTransformer.js"></script>
+    <!-- end -->
+
+    <link rel="stylesheet" type="text/css" href="../assets/mui/css/mui.css"/>
+    <script src="../assets/mui/react/mui-react.js"></script>
+  </head>
+  <body>
+    <div class="mui-container">
+      <h2>Forms</h2>
+      <div class="mui-panel">
+        <h3>MUIFormControl</h3>
+        <div id="form-control-example"></div>
+
+        <h3>MUIFormGroup</h3>
+        <div id="form-group-example"></div>
+      </div>
+    </div>
+    <script type="text/jsx">
+       React.render(
+         <MUIFormControl type="password" autofocus={true}/>,
+         document.getElementById('form-control-example')
+       );
+
+       React.render(
+         <MUIFormGroup 
+           type="text"
+           label="Email address"
+           isLabelFloating={true}
+         />,
+         document.getElementById('form-group-example')
+       );
+    </script>
+  </body>
+</html>

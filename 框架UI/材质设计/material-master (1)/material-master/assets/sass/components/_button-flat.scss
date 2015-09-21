@@ -1,0 +1,31 @@
+.btn-flat {
+	background-color: transparent;
+	box-shadow: none;
+	&:active,
+	&:focus,
+	&:hover {
+		background-color: $btn-bg-color;
+		box-shadow: none;
+	}
+	&:active {
+		background-color: $btn-bg-color-hover;
+	}
+	&.disabled,
+	&[disabled],
+	fieldset[disabled] & {
+		background-color: transparent !important;
+	}
+}
+
+// colour
+	@each $color in $palette-list-class {
+		$i: index($palette-list-class, $color);
+
+		.btn-flat.btn-#{$color} {
+			color: nth($palette-list-color, $i);
+			&[disabled],
+			fieldset[disabled] & {
+				color: nth($palette-list-light, $i);
+			}
+		}
+	}
