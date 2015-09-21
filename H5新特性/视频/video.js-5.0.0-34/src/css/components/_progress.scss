@@ -1,0 +1,74 @@
+/**
+ * Let's talk pixel math!
+ * Start with a base font size of 10px (assuming that hasn't changed)
+ * No Hover:
+ * - Progress holder is 3px
+ * - Progress handle is 9px
+ * - Progress handle is pulled up 3px to center it.
+ *
+ * Hover:
+ * - Progress holder becomes 5px
+ * - Progress handle becomes 15px
+ * - Progress handle is pulled up 5px to center it
+ */
+
+.video-js .vjs-progress-control {
+  @include flex(auto);
+  @include display-flex(center);
+}
+
+/* Box containing play and load progresses. Also acts as seek scrubber. */
+.video-js .vjs-progress-holder {
+  @include flex(auto);
+  @include transition(all 0.2s);
+  height: 0.3em;
+}
+
+/* We need an increased hit area on hover */
+.video-js .vjs-progress-control:hover .vjs-progress-holder { font-size: 1.666666666666666666em }
+
+/* Progress Bars */
+.video-js .vjs-progress-holder .vjs-play-progress,
+.video-js .vjs-progress-holder .vjs-load-progress,
+.video-js .vjs-progress-holder .vjs-load-progress div {
+  position: absolute;
+  display: block;
+  height: 0.3em;
+  margin: 0;
+  padding: 0;
+  /* updated by javascript during playback */
+  width: 0;
+  /* Needed for IE6 *///
+  left: 0;
+  top: 0;
+}
+
+.video-js .vjs-play-progress {
+  background-color: $primary-text;
+  @extend .vjs-icon-circle;
+
+  // Progress handle
+  &:before {
+    position: absolute;
+    top: -0.333333333333333em;
+    right: -0.5em;
+    font-size: 0.9em;
+    height: 1em;
+    line-height: 1em;
+  }
+}
+
+.video-js .vjs-load-progress {
+  background: rgb(100, 100, 100) /* IE8- Fallback */;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* there are child elements of the load progress bar that represent the
+specific time ranges that have been buffered */
+.video-js .vjs-load-progress div {
+  background: rgba($secondary-bg, 0.1);
+}
+
+.video-js.vjs-no-flex .vjs-progress-control {
+  width: auto;
+}
