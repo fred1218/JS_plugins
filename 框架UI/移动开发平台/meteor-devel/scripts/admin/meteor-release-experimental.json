@@ -1,0 +1,7 @@
+{
+ "track": "PLUGINS-PREVIEW",
+ "version": "2",
+ "recommended": false,
+ "official": false,
+ "description": "Preview release for new plugin APIs"
+}
