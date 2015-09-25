@@ -1,0 +1,27 @@
+gulp-webserver
+gulp-babel
+var concat = require('gulp-concat');                            //- 多个文件合并为一个；
+var minifyCss = require('gulp-minify-css');                     //- 压缩CSS为一行；
+var rev = require('gulp-rev');                                  //- 对文件名加MD5后缀
+var revCollector = require('gulp-rev-collector');               //- 路径替换
+
+更改reversion后的文件的引用和更名
+gulp-rev-all
+	Static asset revisioning by appending content hash to filenames: unicorn.css => unicorn.098f6bcd.css, also re-writes references in each file to new reved name.
+	
+gulp-rev
+	Static asset revisioning by appending content hash to filenames: unicorn.css => unicorn-d41d8cd98f.css
+	
+	gulp-rev-replace - Rewrite occurences of filenames which have been renamed
+	gulp-rev-css-url - Override URLs in CSS files with the revved ones
+	gulp-rev-outdated - Old static asset revision files filter
+	gulp-rev-collector - Static asset revision data collector
+	rev-del - Delete old unused assets
+
+gulp-useref
+
+
+css压缩
+
+	var minifyCss = require('gulp-minify-css');//- 压缩CSS为一行；
+	gulp-csso
