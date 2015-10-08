@@ -1,5 +1,78 @@
 # Change Log
 
+##[v1.1.4](https://github.com/Polymer/polymer/tree/v1.1.4) (2015-09-25)
+- :memo: Update description ([commit](https://github.com/Polymer/polymer/commit/6afb8be))
+
+- :art: Use npm command bin lookup ([commit](https://github.com/Polymer/polymer/commit/84258d4))
+
+- :grapes: Add missing test dependency ([commit](https://github.com/Polymer/polymer/commit/5726b8e))
+
+- Reset handlers queue after finished replaying events ([commit](https://github.com/Polymer/polymer/commit/76a5f17))
+
+- Update the README.md to Polymer 1.1 ([commit](https://github.com/Polymer/polymer/commit/40c455a))
+
+- Add note on arrayDelete with array vs. path ([commit](https://github.com/Polymer/polymer/commit/d2b71a5))
+
+- Add unlinkPath tests. ([commit](https://github.com/Polymer/polymer/commit/bee110b))
+
+- Update changelog ([commit](https://github.com/Polymer/polymer/commit/573ca29))
+
+- Remove dead code; add tests. ([commit](https://github.com/Polymer/polymer/commit/ab85884))
+
+- Allow multiple paths to be linked using linkPath. Fixes #2048 ([commit](https://github.com/Polymer/polymer/commit/b221dbe))
+
+- Fix docs for stamp method ([commit](https://github.com/Polymer/polymer/commit/8adbe60))
+
+- http to https for jsbin ([commit](https://github.com/Polymer/polymer/commit/d842435))
+
+- Typo ([commit](https://github.com/Polymer/polymer/commit/d558c0d))
+
+- Fix typos in PRIMER.md ([commit](https://github.com/Polymer/polymer/commit/cf793f4))
+
+##[v1.1.3](https://github.com/Polymer/polymer/tree/v1.1.3) (2015-09-04)
+- Fixes #2403 ([commit](https://github.com/Polymer/polymer/commit/a6694b7))
+
+- Only try to decrement gesture dependency counter if dependency exists ([commit](https://github.com/Polymer/polymer/commit/8886e8c))
+
+- update changelog with v1.1.2 ([commit](https://github.com/Polymer/polymer/commit/d3a7c93))
+
+- prepare v1.1.2 ([commit](https://github.com/Polymer/polymer/commit/e78be4f))
+
+##[v1.1.2](https://github.com/Polymer/polymer/tree/v1.1.2) (2015-08-28)
+- Improve composed parent tracking. ([commit](https://github.com/Polymer/polymer/commit/4d15789))
+
+- move the mixing-in of behaviors so that it happens before `register` behaviors are invoked ([commit](https://github.com/Polymer/polymer/commit/637367c))
+
+- Fixes #2378 ([commit](https://github.com/Polymer/polymer/commit/a9f081b))
+
+- Fixes #2356: issue a warning and don't throw an exception when a style include cannot be found. Fixes #2357: include data now comes before any textContent in a style element. ([commit](https://github.com/Polymer/polymer/commit/a16ada1))
+
+- remove unneeded protection code for extends. ([commit](https://github.com/Polymer/polymer/commit/8eada87))
+
+- Add test ([commit](https://github.com/Polymer/polymer/commit/47ff0e8))
+
+- add test for `registered` behavior affecting a value then used by features ([commit](https://github.com/Polymer/polymer/commit/230528c))
+
+- add tests for new Polymer() argument support (and make Base tests aware of new abstract method `_desugarBehaviors`) ([commit](https://github.com/Polymer/polymer/commit/9734a3a))
+
+- invoke `registration` behavior before registering features, so behaviors can alter features, this requires calling behavior flattening as part of prototype desugaring instead of as part of behavior prep, so the flattened list is available early ([commit](https://github.com/Polymer/polymer/commit/6224dc3))
+
+- do `registered` behaviors before invoking `registerFeatures` so `registered` can affect properties used by features (ref #2329) ([commit](https://github.com/Polymer/polymer/commit/61d611c))
+
+- specifically create `Polymer` object on `window` to satisfy strict mode (fixes #2363) ([commit](https://github.com/Polymer/polymer/commit/a75133d))
+
+- Remove forceUpgraded check in dom-module.import ([commit](https://github.com/Polymer/polymer/commit/b85b641))
+
+- Fixes #2341: branch Polymer.dom to use native dom methods under Shadow DOM for: appendChild, insertBefore, removeChild, replaceChild, cloneNode. ([commit](https://github.com/Polymer/polymer/commit/9b1f706))
+
+- Fixes #2334: when composing nodes in shady dom, check if a node is where we expect it to be before removing it from its distributed position. We do this because the node may have been moved by Polymer.dom in a way that triggered distribution of its previous location. The node is already where it needs to be so removing it from its parent when it's no longer distributed is destructive. ([commit](https://github.com/Polymer/polymer/commit/4ea69c2))
+
+- use cached template annotations when possible ([commit](https://github.com/Polymer/polymer/commit/b0733d3))
+
+- fix comment typos ([commit](https://github.com/Polymer/polymer/commit/a0a3e0c))
+
+- Update changelog with v1.1.1 release ([commit](https://github.com/Polymer/polymer/commit/12fa867))
+
 ##[v1.1.1](https://github.com/Polymer/polymer/tree/v1.1.1) (2015-08-20)
 - Fixes #2263: ensure custom-style can parse variable definitions in supported selectors (e.g. /deep/) without exception due to unknown css. ([commit](https://github.com/Polymer/polymer/commit/894492b))
 
